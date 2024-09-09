@@ -1,0 +1,196 @@
+Afghanistan.#4f98f2
+Albania.#d12e3b
+Algeria.#f4e61d
+Andorra.#6548d6
+Angola.#bc52f9
+Antigua & Deps.#3f87c1
+Argentina.#1064ea
+Armenia.#6ffcca
+Australia.#cd60e0
+Austria.#52e5d9
+Azerbaijan.#18bc5c
+Bahamas.#2924af
+Bahrain.#8049ed
+Bangladesh.#dff94a
+Barbados.#61bedd
+Belarus.#c6134c
+Belgium.#52a01e
+Belize.#56d3a7
+Benin.#02cc4c
+Bhutan.#c4130d
+Bolivia.#1f18f2
+Bosnia Herzegovina.#a2ff70
+Botswana.#1900bf
+Brazil.#5ed602
+Brunei.#fcd64e
+Bulgaria.#4ad3e0
+Burkina Faso.#76ff32
+Burundi.#3893e2
+Cambodia.#ba0d40
+Cameroon.#32c934
+Canada.#231699
+Cape Verde.#932714
+Central African Republic.#4940aa
+Chad.#3bafcc
+Chile.#e87604
+China.#db1ec8
+Colombia.#d6d339
+Comoros.#e23695
+Republic Of The Congo.#e853c0
+Democratic Republic Of The Congo.#99f25e
+Costa Rica.#7dce27
+Croatia.#91f940
+Cuba.#4bd1d1
+Cyprus.#35a011
+Czech Republic.#e8f74a
+Denmark.#4818ba
+Djibouti.#ad133c
+Dominica.#f9843b
+Dominican Republic.#62f45d
+East Timor.#ce6140
+Ecuador.#14ffb0
+Egypt.#c4b401
+El Salvador.#2fce81
+Equatorial Guinea.#d4f41d
+Eritrea.#598709
+Estonia.#d1ab42
+Ethiopia.#e222c6
+Fiji.#f7685b
+Finland.#4423bc
+France.#3759a8
+Gabon.#d8e804
+Gambia.#d6a019
+Georgia.#c638d8
+Germany.#9747e8
+Ghana.#ef7d67
+Greece.#00870d
+Grenada.#13ad98
+Guatemala.#5850c4
+Guinea.#c4178d
+Guinea-Bissau.#3ed62a
+Guyana.#0711c1
+Haiti.#9832d3
+Honduras.#f77b07
+Hungary.#52a4f2
+Iceland.#3e6ba5
+India.#2ac9b9
+Indonesia.#5279dd
+Iran.#f26c43
+Iraq.#4eaa11
+Ireland.#e27609
+Israel.#83ef2f
+Italy.#00969e
+Ivory Coast.#5fefc2
+Jamaica.#4ce856
+Japan.#c40928
+Jordan.#011589
+Kazakhstan.#0ddda2
+Kenya.#e045b4
+Kiribati.#87e24a
+North Korea.#399ba0
+South Korea.#cc4d73
+Kosovo.#2484d8
+Kuwait.#8a42c9
+Kyrgyzstan.#017c5e
+Laos.#d1a945
+Latvia.#43d3a1
+Lebanon.#02f46f
+Lesotho.#2911fc
+Liberia.#dddd00
+Libya.#ce9e2d
+Liechtenstein.#3d4c9e
+Lithuania.#e524a5
+Luxembourg.#3f7ea8
+North Macedonia.#d6d317
+Madagascar.#320672
+Malawi.#dbf435
+Malaysia.#61d854
+Maldives.#d8a758
+Mali.#6e8e02
+Malta.#d30c73
+Marshall Islands.#1e4a9e
+Mauritania.#ed4e9b
+Mauritius.#0cccb2
+Mexico.#7550ed
+Micronesia.#f4f429
+Moldova.#9b300c
+Monaco.#f7099c
+Mongolia.#e209ac
+Montenegro.#008406
+Morocco.#17a546
+Mozambique.#d7ef1c
+Myanmar.#8ace4e
+Namibia.#fff656
+Nauru.#dbb920
+Nepal.#fc44f6
+Netherlands.#1591c6
+New Zealand.#d16e55
+Nicaragua.#5138a5
+Niger.#d64a70
+Nigeria.#12918b
+Norway.#b83bdd
+Oman.#ae22d8
+Pakistan.#29db91
+Palau.#1a38e0
+Panama.#ed760e
+Papua New Guinea.#48cec7
+Paraguay.#14aaa8
+Peru.#c31de0
+Philippines.#ff7402
+Poland.#772e9b
+Portugal.#2bb592
+Qatar.#1845db
+Romania.#a0c940
+Russia.#5ee5de
+Rwanda.#6cd800
+St Kitts & Nevis.#62f940
+St Lucia.#54cea7
+Saint Vincent & the Grenadines.#21a8a1
+Samoa.#7a2fa3
+San Marino.#e03e67
+Sao Tome & Principe.#e20dbf
+Saudi Arabia.#2ee028
+Senegal.#b1d149
+Serbia.#ad1a13
+Seychelles.#167584
+Sierra Leone.#3f63af
+Singapore.#db5af4
+Slovakia.#702ca0
+Slovenia.#ff3f05
+Solomon Islands.#5ef74a
+Somalia.#f435ce
+South Africa.#7df433
+South Sudan.#6cbc10
+Spain.#ea8841
+Sri Lanka.#4f04ef
+Sudan.#2cba31
+Suriname.#2aea2d
+Eswatini.#bf0d66
+Sweden.#0cb1ce
+Switzerland.#dd1850
+Syria.#44e835
+Taiwan.#f9ed02
+Tajikistan.#364ba5
+Tanzania.#0bb778
+Thailand.#dbba60
+Togo.#402eaa
+Tonga.#2759aa
+Trinidad & Tobago.#695bd8
+Tunisia.#9612ce
+Turkiye.#51dbc6
+Turkmenistan.#15d88d
+Tuvalu.#c438d1
+Uganda.#4ac132
+Ukraine.#d261d8
+United Arab Emirates.#b4bc12
+United Kingdom.#e4ef64
+United States.#53ad00
+Uruguay.#ce3025
+Uzbekistan.#4beacd
+Vanuatu.#960c45
+Vatican City.#c45003
+Venezuela.#2ef4c3
+Vietnam.#bc400b
+Yemen.#e08443
+Zambia.#2d3da8
+Zimbabwe.#4dd6bd
