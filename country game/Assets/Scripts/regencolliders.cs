@@ -7,12 +7,15 @@ public class regencolliders : MonoBehaviour
 {
     public void Regenerate()
     {
+#if UNITY_EDITOR
+        
         List<PixelCollider2D> collider2D = FindObjectsOfType<PixelCollider2D>().ToList();
 
         foreach (var col in collider2D)
         {
             col.Regenerate();
         }
+#endif
     }
 }
 

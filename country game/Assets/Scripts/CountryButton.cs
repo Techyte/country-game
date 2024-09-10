@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
@@ -12,22 +13,35 @@ public class CountryButton : MonoBehaviour
     private void Awake()
     {
         _renderer = GetComponent<SpriteRenderer>();
+    }
+
+    private void Start()
+    {
         _renderer.color = baseColour;
     }
 
     private void Update()
     {
-        _renderer.color = Color.Lerp(_renderer.color, baseColour * _currentAlphaMultiplier, 0.01f);
+        Color targetColor = baseColour * _currentAlphaMultiplier;
+        targetColor.a = 1;
+        
+        _renderer.color = Color.Lerp(_renderer.color, targetColor, 0.05f);
     }
 
     private void OnMouseEnter()
     {
-        _currentAlphaMultiplier = 0.9f;
+        _currentAlphaMultiplier = 0.65f;
     }
 
     private void OnMouseExit()
     {
         _currentAlphaMultiplier = 1f;
+    }
+
+    public void ChangeColor(Color color)
+    {
+        baseColour = color;
+        _renderer.color = color;
     }
 
     private void OnMouseDown()
@@ -37,9 +51,9 @@ public class CountryButton : MonoBehaviour
             return;
         }
         
-        CountrySelector.Instance.Clicked(gameObject.name);
+        CountrySelector.Instance.Clicked(GetComponent<Country>().GetNation().Name);
         
-        _currentAlphaMultiplier = 0.5f;
+        _currentAlphaMultiplier = 0.4f;
     }
 
     private void OnMouseUp()

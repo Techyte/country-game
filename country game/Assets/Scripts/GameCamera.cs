@@ -40,7 +40,7 @@ public class GameCamera : MonoBehaviour
         
         targetFov = Mathf.Clamp(targetFov, minFov, maxFov);
         
-        currentFov = Mathf.Lerp(currentFov, targetFov, scrollIntensity);
+        currentFov = Mathf.Lerp(currentFov, targetFov, scrollIntensity * Time.deltaTime);
 
         currentFov = Mathf.Clamp(currentFov, minFov, maxFov);
         
@@ -95,7 +95,7 @@ public class GameCamera : MonoBehaviour
                 Vector3 oldPos = transform.position;
 
                 transform.position =
-                    Vector3.Lerp(transform.position, transform.position - (Vector3)distance, panIntensity);
+                    Vector3.Lerp(transform.position, transform.position - (Vector3)distance, panIntensity * Time.deltaTime);
 
                 bool outOfBounds = false;
 

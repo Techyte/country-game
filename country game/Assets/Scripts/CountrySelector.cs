@@ -32,11 +32,11 @@ public class CountrySelector : MonoBehaviour
         
         if (_countrySelected)
         {
-            titleCard.position = Vector3.Lerp(titleCard.position, titleEndPos.position, titleSpeed);
+            titleCard.position = Vector3.Lerp(titleCard.position, titleEndPos.position, titleSpeed * Time.deltaTime);
         }
         else
         {
-            titleCard.position = Vector3.Lerp(titleCard.position, titleStartPos.position, titleSpeed);
+            titleCard.position = Vector3.Lerp(titleCard.position, titleStartPos.position, titleSpeed * Time.deltaTime);
         }
     }
 
