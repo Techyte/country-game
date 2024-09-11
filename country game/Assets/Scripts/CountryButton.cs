@@ -51,7 +51,7 @@ public class CountryButton : MonoBehaviour
             return;
         }
         
-        CountrySelector.Instance.Clicked(GetComponent<Country>().GetNation().Name);
+        CountrySelector.Instance.Clicked(GetComponent<Country>());
         
         _currentAlphaMultiplier = 0.4f;
     }

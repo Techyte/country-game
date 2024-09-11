@@ -1,3 +1,4 @@
+using System;
 using System.Globalization;
 using TMPro;
 using UnityEngine;
@@ -10,6 +11,7 @@ public class CountrySelector : MonoBehaviour
     [SerializeField] private Transform titleCard;
     [SerializeField] private float titleSpeed;
     [SerializeField] private TextMeshProUGUI titleText;
+    [SerializeField] private TextMeshProUGUI factionText;
     [SerializeField] private Image flagImage;
     [SerializeField] private Transform titleStartPos, titleEndPos;
 
@@ -40,16 +42,25 @@ public class CountrySelector : MonoBehaviour
         }
     }
 
-    public void Clicked(string name)
+    public void Clicked(Country countrySelected)
     {
-        name = CultureInfo.CurrentUICulture.TextInfo.ToTitleCase(name.ToLower()).Replace('_', ' ');
-        
-        _currentCountry = name;
+        _currentCountry = countrySelected.countryName;
         _countrySelected = true;
         titleCard.position = titleStartPos.position;
-        titleText.text = name;
+        titleText.text = countrySelected.countryName;
 
-        Sprite flag = Resources.Load<Sprite>("Flags/" + name.ToLower().Replace(' ', '_') + "_32");
+        if (!countrySelected.GetNation().faction.privateFaction)
+        {
+            factionText.text = countrySelected.GetNation().faction.Name;
+            factionText.color = countrySelected.GetNation().faction.color;
+        }
+        else
+        {
+            factionText.text = "Non-Aligned";
+            factionText.color = Color.black;
+        }
+
+        Sprite flag = Resources.Load<Sprite>("Flags/" + countrySelected.countryName.ToLower().Replace(' ', '_') + "_32");
         flagImage.sprite = flag;
     }
 

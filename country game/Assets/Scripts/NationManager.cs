@@ -6,7 +6,10 @@ public class NationManager : MonoBehaviour
 {
     public static NationManager Instance;
     
-    public List<Nation> nations;
+    public List<Nation> nations = new List<Nation>();
+    public List<Faction> factions = new List<Faction>();
+
+    public bool useFactionColour;
 
     private void Awake()
     {
@@ -16,6 +19,11 @@ public class NationManager : MonoBehaviour
     public void NewNation(Nation nationToAdd)
     {
         nations.Add(nationToAdd);
+    }
+
+    public void NewFaction(Faction factionToAdd)
+    {
+        factions.Add(factionToAdd);
     }
 
     public Nation GetNationByName(string nationName)
@@ -30,13 +38,99 @@ public class NationManager : MonoBehaviour
 
         return null;
     }
+
+    public Faction GetFactionByName(string factionName)
+    {
+        foreach (var faction in factions)
+        {
+            if (factionName == faction.Name)
+            {
+                return faction;
+            }
+        }
+
+        return null;
+    }
+
+    public void SwapCountriesNation(Country countryToSwap, Nation nationToSwapTo)
+    {
+        if (countryToSwap.GetNation() != nationToSwapTo)
+        {
+            Nation oldNation = countryToSwap.GetNation();
+            if (oldNation != null)
+            {
+                oldNation.CountryLeft(countryToSwap);
+                if (oldNation.CountryCount == 0)
+                {
+                    nations.Remove(oldNation);
+                }
+            }
+            
+            countryToSwap.ChangeNation(nationToSwapTo);
+            nationToSwapTo.CountryJointed(countryToSwap);
+        }
+    }
+
+    public void SwapNationsFaction(Nation nationToSwap, Faction factionToSwap)
+    {
+        if (nationToSwap.faction != factionToSwap)
+        {
+            if (nationToSwap.faction != null)
+            {
+                nationToSwap.faction.NationLeft(nationToSwap);
+            }
+            
+            nationToSwap.ChangeFaction(factionToSwap);
+            factionToSwap.CountryJointed(nationToSwap);
+        }
+    }
 }
 
-[Serializable]
 public class Nation
 {
     public string Name;
     public List<Country> Countries = new List<Country>();
+    public Faction faction;
     public int CountryCount => Countries.Count;
     public Color Color;
+
+    public void CountryJointed(Country countryThatJoined)
+    {
+        Countries.Add(countryThatJoined);
+    }
+
+    public void CountryLeft(Country countryThatLeft)
+    {
+        if (Countries.Contains(countryThatLeft))
+        {
+            Countries.Remove(countryThatLeft);
+        }
+    }
+
+    public void ChangeFaction(Faction factionToJoin)
+    {
+        faction = factionToJoin;
+    }
+}
+
+public class Faction
+{
+    public string Name;
+    public List<Nation> Nations = new List<Nation>();
+    public int NationCount => Nations.Count;
+    public Color color;
+    public bool privateFaction;
+
+    public void CountryJointed(Nation nationThatJoined)
+    {
+        Nations.Add(nationThatJoined);
+    }
+
+    public void NationLeft(Nation nationThatLeft)
+    {
+        if (Nations.Contains(nationThatLeft))
+        {
+            Nations.Remove(nationThatLeft);
+        }
+    }
 }

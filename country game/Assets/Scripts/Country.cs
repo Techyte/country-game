@@ -1,9 +1,5 @@
-using System;
-using System.Collections;
 using System.Globalization;
-using System.Net;
 using UnityEngine;
-using UnityEngine.Networking;
 
 public class Country : MonoBehaviour
 {
@@ -11,6 +7,8 @@ public class Country : MonoBehaviour
     [SerializeField] private Nation nation;
 
     private CountryButton button;
+
+    public string presetFactionName;
 
     private void Awake()
     {
@@ -25,7 +23,14 @@ public class Country : MonoBehaviour
     {
         if (nation != null)
         {
-            button.ChangeColor(nation.Color);
+            if (NationManager.Instance.useFactionColour)
+            {
+                button.ChangeColor(nation.faction.color);
+            }
+            else
+            {
+                button.ChangeColor(nation.Color);
+            }
         }
     }
 
@@ -41,7 +46,14 @@ public class Country : MonoBehaviour
 
     public void ChangeNation(Nation nation)
     {
-        ChangeColour(nation.Color);
+        if (NationManager.Instance.useFactionColour)
+        {
+            ChangeColour(nation.faction.color);
+        }
+        else
+        {
+            ChangeColour(nation.Color);
+        }
         this.nation = nation;
     }
 }

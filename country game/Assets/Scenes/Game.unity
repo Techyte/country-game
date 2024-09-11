@@ -331,10 +331,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   countryName: Guyana
-  nation:
-    Name: 
-    Countries: []
-    Color: {r: 0, g: 0, b: 0, a: 0}
+  presetFactionName: 
 --- !u!1 &16436013
 GameObject:
   m_ObjectHideFlags: 0
@@ -591,10 +588,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   countryName: Somalia
-  nation:
-    Name: 
-    Countries: []
-    Color: {r: 0, g: 0, b: 0, a: 0}
+  presetFactionName: 
 --- !u!1 &17738161
 GameObject:
   m_ObjectHideFlags: 0
@@ -851,10 +845,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   countryName: Turkmenistan
-  nation:
-    Name: 
-    Countries: []
-    Color: {r: 0, g: 0, b: 0, a: 0}
+  presetFactionName: 
 --- !u!1 &18810516
 GameObject:
   m_ObjectHideFlags: 0
@@ -1078,10 +1069,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   countryName: Burundi
-  nation:
-    Name: 
-    Countries: []
-    Color: {r: 0, g: 0, b: 0, a: 0}
+  presetFactionName: 
 --- !u!1 &42686745
 GameObject:
   m_ObjectHideFlags: 0
@@ -1274,10 +1262,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   countryName: Senegal
-  nation:
-    Name: 
-    Countries: []
-    Color: {r: 0, g: 0, b: 0, a: 0}
+  presetFactionName: 
 --- !u!1 &51006754
 GameObject:
   m_ObjectHideFlags: 0
@@ -1460,10 +1445,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   countryName: Lesotho
-  nation:
-    Name: 
-    Countries: []
-    Color: {r: 0, g: 0, b: 0, a: 0}
+  presetFactionName: 
 --- !u!1 &62626125
 GameObject:
   m_ObjectHideFlags: 0
@@ -1668,10 +1650,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   countryName: Cuba
-  nation:
-    Name: 
-    Countries: []
-    Color: {r: 0, g: 0, b: 0, a: 0}
+  presetFactionName: 
 --- !u!1 &69944463
 GameObject:
   m_ObjectHideFlags: 0
@@ -1914,10 +1893,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   countryName: Bolivia
-  nation:
-    Name: 
-    Countries: []
-    Color: {r: 0, g: 0, b: 0, a: 0}
+  presetFactionName: 
 --- !u!1 &77698331
 GameObject:
   m_ObjectHideFlags: 0
@@ -2182,10 +2158,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   countryName: Norway
-  nation:
-    Name: 
-    Countries: []
-    Color: {r: 0, g: 0, b: 0, a: 0}
+  presetFactionName: NATO
 --- !u!1 &78255413
 GameObject:
   m_ObjectHideFlags: 0
@@ -2425,10 +2398,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   countryName: Malaysia
-  nation:
-    Name: 
-    Countries: []
-    Color: {r: 0, g: 0, b: 0, a: 0}
+  presetFactionName: 
 --- !u!1 &99321237
 GameObject:
   m_ObjectHideFlags: 0
@@ -2675,10 +2645,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   countryName: Dominican Republic
-  nation:
-    Name: 
-    Countries: []
-    Color: {r: 0, g: 0, b: 0, a: 0}
+  presetFactionName: 
 --- !u!1 &101550892
 GameObject:
   m_ObjectHideFlags: 0
@@ -2869,10 +2836,142 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   countryName: United Arab Emirates
-  nation:
-    Name: 
-    Countries: []
-    Color: {r: 0, g: 0, b: 0, a: 0}
+  presetFactionName: 
+--- !u!1 &106972102
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 106972103}
+  - component: {fileID: 106972105}
+  - component: {fileID: 106972104}
+  m_Layer: 5
+  m_Name: Faction
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &106972103
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 106972102}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 0.64645, y: 0.64645, z: 0.64645}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 1831714802}
+  m_Father: {fileID: 1176434832}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: -76.9, y: -189.9}
+  m_SizeDelta: {x: 200, y: 50}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &106972104
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 106972102}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_text: Faction
+  m_isRightToLeft: 0
+  m_fontAsset: {fileID: 11400000, guid: 957dbaf1fa9ef834db97955b0d878f96, type: 2}
+  m_sharedMaterial: {fileID: 8370735618977982747, guid: 957dbaf1fa9ef834db97955b0d878f96, type: 2}
+  m_fontSharedMaterials: []
+  m_fontMaterial: {fileID: 0}
+  m_fontMaterials: []
+  m_fontColor32:
+    serializedVersion: 2
+    rgba: 4278190080
+  m_fontColor: {r: 0, g: 0, b: 0, a: 1}
+  m_enableVertexGradient: 0
+  m_colorMode: 3
+  m_fontColorGradient:
+    topLeft: {r: 1, g: 1, b: 1, a: 1}
+    topRight: {r: 1, g: 1, b: 1, a: 1}
+    bottomLeft: {r: 1, g: 1, b: 1, a: 1}
+    bottomRight: {r: 1, g: 1, b: 1, a: 1}
+  m_fontColorGradientPreset: {fileID: 0}
+  m_spriteAsset: {fileID: 0}
+  m_tintAllSprites: 0
+  m_StyleSheet: {fileID: 0}
+  m_TextStyleHashCode: -1183493901
+  m_overrideHtmlColors: 0
+  m_faceColor:
+    serializedVersion: 2
+    rgba: 4294967295
+  m_fontSize: 36
+  m_fontSizeBase: 36
+  m_fontWeight: 400
+  m_enableAutoSizing: 0
+  m_fontSizeMin: 18
+  m_fontSizeMax: 72
+  m_fontStyle: 0
+  m_HorizontalAlignment: 1
+  m_VerticalAlignment: 256
+  m_textAlignment: 65535
+  m_characterSpacing: 0
+  m_wordSpacing: 0
+  m_lineSpacing: 0
+  m_lineSpacingMax: 0
+  m_paragraphSpacing: 0
+  m_charWidthMaxAdj: 0
+  m_enableWordWrapping: 1
+  m_wordWrappingRatios: 0.4
+  m_overflowMode: 0
+  m_linkedTextComponent: {fileID: 0}
+  parentLinkedComponent: {fileID: 0}
+  m_enableKerning: 1
+  m_enableExtraPadding: 0
+  checkPaddingRequired: 0
+  m_isRichText: 1
+  m_parseCtrlCharacters: 1
+  m_isOrthographic: 1
+  m_isCullingEnabled: 0
+  m_horizontalMapping: 0
+  m_verticalMapping: 0
+  m_uvLineOffset: 0
+  m_geometrySortingOrder: 0
+  m_IsTextObjectScaleStatic: 0
+  m_VertexBufferAutoSizeReduction: 0
+  m_useMaxVisibleDescender: 1
+  m_pageToDisplay: 1
+  m_margin: {x: 0, y: 0, z: 0, w: 0}
+  m_isUsingLegacyAnimationComponent: 0
+  m_isVolumetricText: 0
+  m_hasFontAssetChanged: 0
+  m_baseMaterial: {fileID: 0}
+  m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!222 &106972105
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 106972102}
+  m_CullTransparentMesh: 1
 --- !u!1 &113641474
 GameObject:
   m_ObjectHideFlags: 0
@@ -3073,10 +3172,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   countryName: Syria
-  nation:
-    Name: 
-    Countries: []
-    Color: {r: 0, g: 0, b: 0, a: 0}
+  presetFactionName: 
 --- !u!1 &113770177
 GameObject:
   m_ObjectHideFlags: 0
@@ -3263,10 +3359,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   countryName: Taiwan
-  nation:
-    Name: 
-    Countries: []
-    Color: {r: 0, g: 0, b: 0, a: 0}
+  presetFactionName: 
 --- !u!1 &126201032
 GameObject:
   m_ObjectHideFlags: 0
@@ -3543,10 +3636,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   countryName: Democratic Republic Of The Congo
-  nation:
-    Name: 
-    Countries: []
-    Color: {r: 0, g: 0, b: 0, a: 0}
+  presetFactionName: 
 --- !u!1 &158068877
 GameObject:
   m_ObjectHideFlags: 0
@@ -3745,10 +3835,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   countryName: Honduras
-  nation:
-    Name: 
-    Countries: []
-    Color: {r: 0, g: 0, b: 0, a: 0}
+  presetFactionName: 
 --- !u!1 &177636283
 GameObject:
   m_ObjectHideFlags: 0
@@ -3937,10 +4024,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   countryName: Benin
-  nation:
-    Name: 
-    Countries: []
-    Color: {r: 0, g: 0, b: 0, a: 0}
+  presetFactionName: 
 --- !u!1 &210825791
 GameObject:
   m_ObjectHideFlags: 0
@@ -4151,10 +4235,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   countryName: Germany
-  nation:
-    Name: 
-    Countries: []
-    Color: {r: 0, g: 0, b: 0, a: 0}
+  presetFactionName: NATO
 --- !u!1 &222596605
 GameObject:
   m_ObjectHideFlags: 0
@@ -4375,10 +4456,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   countryName: Angola
-  nation:
-    Name: 
-    Countries: []
-    Color: {r: 0, g: 0, b: 0, a: 0}
+  presetFactionName: 
 --- !u!1 &230117939
 GameObject:
   m_ObjectHideFlags: 0
@@ -4575,10 +4653,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   countryName: Croatia
-  nation:
-    Name: 
-    Countries: []
-    Color: {r: 0, g: 0, b: 0, a: 0}
+  presetFactionName: NATO
 --- !u!1 &239023170
 GameObject:
   m_ObjectHideFlags: 0
@@ -4807,10 +4882,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   countryName: Afghanistan
-  nation:
-    Name: 
-    Countries: []
-    Color: {r: 0, g: 0, b: 0, a: 0}
+  presetFactionName: 
 --- !u!1 &244075090
 GameObject:
   m_ObjectHideFlags: 0
@@ -5039,10 +5111,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   countryName: Tanzania
-  nation:
-    Name: 
-    Countries: []
-    Color: {r: 0, g: 0, b: 0, a: 0}
+  presetFactionName: 
 --- !u!1 &255860911
 GameObject:
   m_ObjectHideFlags: 0
@@ -5249,10 +5318,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   countryName: Belarus
-  nation:
-    Name: 
-    Countries: []
-    Color: {r: 0, g: 0, b: 0, a: 0}
+  presetFactionName: 
 --- !u!1 &261466522
 GameObject:
   m_ObjectHideFlags: 0
@@ -5437,10 +5503,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   countryName: Portugal
-  nation:
-    Name: 
-    Countries: []
-    Color: {r: 0, g: 0, b: 0, a: 0}
+  presetFactionName: NATO
 --- !u!1 &314071029
 GameObject:
   m_ObjectHideFlags: 0
@@ -5691,10 +5754,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   countryName: Ethiopia
-  nation:
-    Name: 
-    Countries: []
-    Color: {r: 0, g: 0, b: 0, a: 0}
+  presetFactionName: 
 --- !u!1 &323788414
 GameObject:
   m_ObjectHideFlags: 0
@@ -5919,10 +5979,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   countryName: Zambia
-  nation:
-    Name: 
-    Countries: []
-    Color: {r: 0, g: 0, b: 0, a: 0}
+  presetFactionName: 
 --- !u!1 &343468317
 GameObject:
   m_ObjectHideFlags: 0
@@ -6229,10 +6286,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   countryName: Greenland
-  nation:
-    Name: 
-    Countries: []
-    Color: {r: 0, g: 0, b: 0, a: 0}
+  presetFactionName: 
 --- !u!1 &348830703
 GameObject:
   m_ObjectHideFlags: 0
@@ -6440,10 +6494,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   countryName: Greece
-  nation:
-    Name: 
-    Countries: []
-    Color: {r: 0, g: 0, b: 0, a: 0}
+  presetFactionName: NATO
 --- !u!1 &376447757
 GameObject:
   m_ObjectHideFlags: 0
@@ -6658,10 +6709,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   countryName: Mauritania
-  nation:
-    Name: 
-    Countries: []
-    Color: {r: 0, g: 0, b: 0, a: 0}
+  presetFactionName: 
 --- !u!1 &381275942
 GameObject:
   m_ObjectHideFlags: 0
@@ -6842,10 +6890,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   countryName: Qatar
-  nation:
-    Name: 
-    Countries: []
-    Color: {r: 0, g: 0, b: 0, a: 0}
+  presetFactionName: 
 --- !u!1 &384687387
 GameObject:
   m_ObjectHideFlags: 0
@@ -7060,10 +7105,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   countryName: Namibia
-  nation:
-    Name: 
-    Countries: []
-    Color: {r: 0, g: 0, b: 0, a: 0}
+  presetFactionName: 
 --- !u!1 &407776977
 GameObject:
   m_ObjectHideFlags: 0
@@ -7306,10 +7348,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   countryName: Thailand
-  nation:
-    Name: 
-    Countries: []
-    Color: {r: 0, g: 0, b: 0, a: 0}
+  presetFactionName: 
 --- !u!1 &419533098
 GameObject:
   m_ObjectHideFlags: 0
@@ -7610,10 +7649,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   countryName: Saudi Arabia
-  nation:
-    Name: 
-    Countries: []
-    Color: {r: 0, g: 0, b: 0, a: 0}
+  presetFactionName: 
 --- !u!1 &437912945
 GameObject:
   m_ObjectHideFlags: 0
@@ -7646,7 +7682,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: -297.85986, y: -141}
+  m_AnchoredPosition: {x: -317.30005, y: -141}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &443157235
@@ -7871,10 +7907,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   countryName: Laos
-  nation:
-    Name: 
-    Countries: []
-    Color: {r: 0, g: 0, b: 0, a: 0}
+  presetFactionName: 
 --- !u!1 &444836558
 GameObject:
   m_ObjectHideFlags: 0
@@ -8101,10 +8134,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   countryName: Cameroon
-  nation:
-    Name: 
-    Countries: []
-    Color: {r: 0, g: 0, b: 0, a: 0}
+  presetFactionName: 
 --- !u!1 &462972620
 GameObject:
   m_ObjectHideFlags: 0
@@ -8303,10 +8333,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   countryName: Georgia
-  nation:
-    Name: 
-    Countries: []
-    Color: {r: 0, g: 0, b: 0, a: 0}
+  presetFactionName: 
 --- !u!1 &466007962
 GameObject:
   m_ObjectHideFlags: 0
@@ -8536,10 +8563,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   countryName: United Kingdom
-  nation:
-    Name: 
-    Countries: []
-    Color: {r: 0, g: 0, b: 0, a: 0}
+  presetFactionName: NATO
 --- !u!1 &473134842
 GameObject:
   m_ObjectHideFlags: 0
@@ -8756,10 +8780,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   countryName: Yemen
-  nation:
-    Name: 
-    Countries: []
-    Color: {r: 0, g: 0, b: 0, a: 0}
+  presetFactionName: 
 --- !u!1 &502249931
 GameObject:
   m_ObjectHideFlags: 0
@@ -9016,10 +9037,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   countryName: Myanmar
-  nation:
-    Name: 
-    Countries: []
-    Color: {r: 0, g: 0, b: 0, a: 0}
+  presetFactionName: 
 --- !u!1 &506704654
 GameObject:
   m_ObjectHideFlags: 0
@@ -9208,10 +9226,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   countryName: Costa Rica
-  nation:
-    Name: 
-    Countries: []
-    Color: {r: 0, g: 0, b: 0, a: 0}
+  presetFactionName: 
 --- !u!1 &510976899
 GameObject:
   m_ObjectHideFlags: 0
@@ -9404,10 +9419,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   countryName: Armenia
-  nation:
-    Name: 
-    Countries: []
-    Color: {r: 0, g: 0, b: 0, a: 0}
+  presetFactionName: 
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0
@@ -9775,10 +9787,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   countryName: Kyrgyzstan
-  nation:
-    Name: 
-    Countries: []
-    Color: {r: 0, g: 0, b: 0, a: 0}
+  presetFactionName: 
 --- !u!1 &526328819
 GameObject:
   m_ObjectHideFlags: 0
@@ -9975,10 +9984,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   countryName: Azerbaijan
-  nation:
-    Name: 
-    Countries: []
-    Color: {r: 0, g: 0, b: 0, a: 0}
+  presetFactionName: 
 --- !u!1 &537478461
 GameObject:
   m_ObjectHideFlags: 0
@@ -10790,10 +10796,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   countryName: Russia
-  nation:
-    Name: 
-    Countries: []
-    Color: {r: 0, g: 0, b: 0, a: 0}
+  presetFactionName: 
 --- !u!1 &549232534
 GameObject:
   m_ObjectHideFlags: 0
@@ -10828,8 +10831,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -0.00000071525574, y: 0.0000009536743}
-  m_SizeDelta: {x: 220.5129, y: 50}
+  m_AnchoredPosition: {x: 4.8, y: 0.000014663}
+  m_SizeDelta: {x: 256.3522, y: 48.9582}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &549232536
 MonoBehaviour:
@@ -10851,10 +10854,10 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Australia
+  m_text: Diplomacy
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: a690b10d96255034699c15f4b72f98af, type: 2}
-  m_sharedMaterial: {fileID: -74506514988894340, guid: a690b10d96255034699c15f4b72f98af, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 957dbaf1fa9ef834db97955b0d878f96, type: 2}
+  m_sharedMaterial: {fileID: 8370735618977982747, guid: 957dbaf1fa9ef834db97955b0d878f96, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -10878,10 +10881,10 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 38.5
-  m_fontSizeBase: 36
+  m_fontSize: 32.03
+  m_fontSizeBase: 32.03
   m_fontWeight: 400
-  m_enableAutoSizing: 1
+  m_enableAutoSizing: 0
   m_fontSizeMin: 6.25
   m_fontSizeMax: 72
   m_fontStyle: 0
@@ -10896,7 +10899,7 @@ MonoBehaviour:
   m_charWidthMaxAdj: 0
   m_enableWordWrapping: 1
   m_wordWrappingRatios: 0.4
-  m_overflowMode: 3
+  m_overflowMode: 0
   m_linkedTextComponent: {fileID: 0}
   parentLinkedComponent: {fileID: 0}
   m_enableKerning: 1
@@ -10914,7 +10917,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 0, y: 0, z: 0, w: -1.3392334}
+  m_margin: {x: 4.258606, y: 0, z: 0, w: -1.3392334}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
@@ -11176,10 +11179,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   countryName: France
-  nation:
-    Name: 
-    Countries: []
-    Color: {r: 0, g: 0, b: 0, a: 0}
+  presetFactionName: NATO
 --- !u!1 &554184879
 GameObject:
   m_ObjectHideFlags: 0
@@ -11382,10 +11382,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   countryName: Uruguay
-  nation:
-    Name: 
-    Countries: []
-    Color: {r: 0, g: 0, b: 0, a: 0}
+  presetFactionName: 
 --- !u!1 &572177884
 GameObject:
   m_ObjectHideFlags: 0
@@ -11572,10 +11569,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   countryName: Lithuania
-  nation:
-    Name: 
-    Countries: []
-    Color: {r: 0, g: 0, b: 0, a: 0}
+  presetFactionName: NATO
 --- !u!1 &574624684
 GameObject:
   m_ObjectHideFlags: 0
@@ -11607,6 +11601,140 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &599349667
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 599349668}
+  - component: {fileID: 599349670}
+  - component: {fileID: 599349669}
+  m_Layer: 5
+  m_Name: CountryName
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &599349668
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 599349667}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 627009421}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 49.800797, y: -107.30006}
+  m_SizeDelta: {x: 154.2016, y: 72.562}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &599349669
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 599349667}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_text: Australia
+  m_isRightToLeft: 0
+  m_fontAsset: {fileID: 11400000, guid: 957dbaf1fa9ef834db97955b0d878f96, type: 2}
+  m_sharedMaterial: {fileID: 8370735618977982747, guid: 957dbaf1fa9ef834db97955b0d878f96, type: 2}
+  m_fontSharedMaterials: []
+  m_fontMaterial: {fileID: 0}
+  m_fontMaterials: []
+  m_fontColor32:
+    serializedVersion: 2
+    rgba: 4278190080
+  m_fontColor: {r: 0, g: 0, b: 0, a: 1}
+  m_enableVertexGradient: 0
+  m_colorMode: 3
+  m_fontColorGradient:
+    topLeft: {r: 1, g: 1, b: 1, a: 1}
+    topRight: {r: 1, g: 1, b: 1, a: 1}
+    bottomLeft: {r: 1, g: 1, b: 1, a: 1}
+    bottomRight: {r: 1, g: 1, b: 1, a: 1}
+  m_fontColorGradientPreset: {fileID: 0}
+  m_spriteAsset: {fileID: 0}
+  m_tintAllSprites: 0
+  m_StyleSheet: {fileID: 0}
+  m_TextStyleHashCode: -1183493901
+  m_overrideHtmlColors: 0
+  m_faceColor:
+    serializedVersion: 2
+    rgba: 4294967295
+  m_fontSize: 22.8
+  m_fontSizeBase: 22.3
+  m_fontWeight: 400
+  m_enableAutoSizing: 1
+  m_fontSizeMin: 0
+  m_fontSizeMax: 72
+  m_fontStyle: 0
+  m_HorizontalAlignment: 1
+  m_VerticalAlignment: 256
+  m_textAlignment: 65535
+  m_characterSpacing: 0
+  m_wordSpacing: 0
+  m_lineSpacing: 0
+  m_lineSpacingMax: 0
+  m_paragraphSpacing: 0
+  m_charWidthMaxAdj: 0
+  m_enableWordWrapping: 1
+  m_wordWrappingRatios: 0.4
+  m_overflowMode: 3
+  m_linkedTextComponent: {fileID: 0}
+  parentLinkedComponent: {fileID: 0}
+  m_enableKerning: 1
+  m_enableExtraPadding: 0
+  checkPaddingRequired: 0
+  m_isRichText: 1
+  m_parseCtrlCharacters: 1
+  m_isOrthographic: 1
+  m_isCullingEnabled: 0
+  m_horizontalMapping: 0
+  m_verticalMapping: 0
+  m_uvLineOffset: 0
+  m_geometrySortingOrder: 0
+  m_IsTextObjectScaleStatic: 0
+  m_VertexBufferAutoSizeReduction: 0
+  m_useMaxVisibleDescender: 1
+  m_pageToDisplay: 1
+  m_margin: {x: 0, y: 0, z: 0, w: 0}
+  m_isUsingLegacyAnimationComponent: 0
+  m_isVolumetricText: 0
+  m_hasFontAssetChanged: 0
+  m_baseMaterial: {fileID: 0}
+  m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!222 &599349670
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 599349667}
+  m_CullTransparentMesh: 1
 --- !u!1 &607857443
 GameObject:
   m_ObjectHideFlags: 0
@@ -11795,10 +11923,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   countryName: Austria
-  nation:
-    Name: 
-    Countries: []
-    Color: {r: 0, g: 0, b: 0, a: 0}
+  presetFactionName: 
 --- !u!1 &610440494
 GameObject:
   m_ObjectHideFlags: 0
@@ -11991,10 +12116,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   countryName: Sierra Leone
-  nation:
-    Name: 
-    Countries: []
-    Color: {r: 0, g: 0, b: 0, a: 0}
+  presetFactionName: 
 --- !u!1 &619394800
 GameObject:
   m_ObjectHideFlags: 0
@@ -12271,10 +12393,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   countryName: Jordan
-  nation:
-    Name: 
-    Countries: []
-    Color: {r: 0, g: 0, b: 0, a: 0}
+  presetFactionName: 
 --- !u!1 &627009420
 GameObject:
   m_ObjectHideFlags: 0
@@ -12306,11 +12425,13 @@ RectTransform:
   - {fileID: 1624111094}
   - {fileID: 549232535}
   - {fileID: 1102641571}
+  - {fileID: 599349668}
+  - {fileID: 1176434832}
   m_Father: {fileID: 1909173906}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: -297.85986, y: -141}
+  m_AnchoredPosition: {x: 315, y: -141}
   m_SizeDelta: {x: 310.1249, y: 118.904}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &629930293
@@ -12521,10 +12642,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   countryName: Ecuador
-  nation:
-    Name: 
-    Countries: []
-    Color: {r: 0, g: 0, b: 0, a: 0}
+  presetFactionName: 
 --- !u!1 &637643326
 GameObject:
   m_ObjectHideFlags: 0
@@ -12713,10 +12831,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   countryName: Bulgaria
-  nation:
-    Name: 
-    Countries: []
-    Color: {r: 0, g: 0, b: 0, a: 0}
+  presetFactionName: NATO
 --- !u!1 &647566400
 GameObject:
   m_ObjectHideFlags: 0
@@ -12779,10 +12894,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   countryName: Brunei
-  nation:
-    Name: 
-    Countries: []
-    Color: {r: 0, g: 0, b: 0, a: 0}
+  presetFactionName: 
 --- !u!212 &647566404
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -13151,10 +13263,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   countryName: Bhutan
-  nation:
-    Name: 
-    Countries: []
-    Color: {r: 0, g: 0, b: 0, a: 0}
+  presetFactionName: 
 --- !u!1 &687354582
 GameObject:
   m_ObjectHideFlags: 0
@@ -13339,10 +13448,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   countryName: Rwanda
-  nation:
-    Name: 
-    Countries: []
-    Color: {r: 0, g: 0, b: 0, a: 0}
+  presetFactionName: 
 --- !u!1 &693042503
 GameObject:
   m_ObjectHideFlags: 0
@@ -13578,10 +13684,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   countryName: Latvia
-  nation:
-    Name: 
-    Countries: []
-    Color: {r: 0, g: 0, b: 0, a: 0}
+  presetFactionName: NATO
 --- !u!1 &697406722
 GameObject:
   m_ObjectHideFlags: 0
@@ -13814,10 +13917,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   countryName: Venezuela
-  nation:
-    Name: 
-    Countries: []
-    Color: {r: 0, g: 0, b: 0, a: 0}
+  presetFactionName: 
 --- !u!1 &730539424
 GameObject:
   m_ObjectHideFlags: 0
@@ -14087,10 +14187,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   countryName: Italy
-  nation:
-    Name: 
-    Countries: []
-    Color: {r: 0, g: 0, b: 0, a: 0}
+  presetFactionName: NATO
 --- !u!1 &778435058
 GameObject:
   m_ObjectHideFlags: 0
@@ -14297,10 +14394,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   countryName: Cambodia
-  nation:
-    Name: 
-    Countries: []
-    Color: {r: 0, g: 0, b: 0, a: 0}
+  presetFactionName: 
 --- !u!1 &797481668
 GameObject:
   m_ObjectHideFlags: 0
@@ -14650,10 +14744,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   countryName: Peru
-  nation:
-    Name: 
-    Countries: []
-    Color: {r: 0, g: 0, b: 0, a: 0}
+  presetFactionName: 
 --- !u!1 &810197987
 GameObject:
   m_ObjectHideFlags: 0
@@ -14890,10 +14981,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   countryName: Central African Republic
-  nation:
-    Name: 
-    Countries: []
-    Color: {r: 0, g: 0, b: 0, a: 0}
+  presetFactionName: 
 --- !u!1 &812579838
 GameObject:
   m_ObjectHideFlags: 0
@@ -15096,10 +15184,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   countryName: Eritrea
-  nation:
-    Name: 
-    Countries: []
-    Color: {r: 0, g: 0, b: 0, a: 0}
+  presetFactionName: 
 --- !u!1 &838002620
 GameObject:
   m_ObjectHideFlags: 0
@@ -15328,10 +15413,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   countryName: South Sudan
-  nation:
-    Name: 
-    Countries: []
-    Color: {r: 0, g: 0, b: 0, a: 0}
+  presetFactionName: 
 --- !u!1 &842527323
 GameObject:
   m_ObjectHideFlags: 0
@@ -15574,10 +15656,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   countryName: Ukraine
-  nation:
-    Name: 
-    Countries: []
-    Color: {r: 0, g: 0, b: 0, a: 0}
+  presetFactionName: 
 --- !u!1 &869675800
 GameObject:
   m_ObjectHideFlags: 0
@@ -15764,10 +15843,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   countryName: Albania
-  nation:
-    Name: 
-    Countries: []
-    Color: {r: 0, g: 0, b: 0, a: 0}
+  presetFactionName: NATO
 --- !u!1 &870246170
 GameObject:
   m_ObjectHideFlags: 0
@@ -16083,10 +16159,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   countryName: Papua New Guinea
-  nation:
-    Name: 
-    Countries: []
-    Color: {r: 0, g: 0, b: 0, a: 0}
+  presetFactionName: 
 --- !u!1 &888886622
 GameObject:
   m_ObjectHideFlags: 0
@@ -16293,10 +16366,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   countryName: Panama
-  nation:
-    Name: 
-    Countries: []
-    Color: {r: 0, g: 0, b: 0, a: 0}
+  presetFactionName: 
 --- !u!1 &917457958
 GameObject:
   m_ObjectHideFlags: 0
@@ -16531,10 +16601,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   countryName: Finland
-  nation:
-    Name: 
-    Countries: []
-    Color: {r: 0, g: 0, b: 0, a: 0}
+  presetFactionName: NATO
 --- !u!1 &948924144
 GameObject:
   m_ObjectHideFlags: 0
@@ -17138,10 +17205,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   countryName: United States
-  nation:
-    Name: 
-    Countries: []
-    Color: {r: 0, g: 0, b: 0, a: 0}
+  presetFactionName: NATO
 --- !u!1 &953277260
 GameObject:
   m_ObjectHideFlags: 0
@@ -17328,10 +17392,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   countryName: Belgium
-  nation:
-    Name: 
-    Countries: []
-    Color: {r: 0, g: 0, b: 0, a: 0}
+  presetFactionName: NATO
 --- !u!1 &955576629
 GameObject:
   m_ObjectHideFlags: 0
@@ -17524,10 +17585,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   countryName: Switzerland
-  nation:
-    Name: 
-    Countries: []
-    Color: {r: 0, g: 0, b: 0, a: 0}
+  presetFactionName: 
 --- !u!1 &973960341
 GameObject:
   m_ObjectHideFlags: 0
@@ -17780,10 +17838,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   countryName: Oman
-  nation:
-    Name: 
-    Countries: []
-    Color: {r: 0, g: 0, b: 0, a: 0}
+  presetFactionName: 
 --- !u!1 &1005213975
 GameObject:
   m_ObjectHideFlags: 0
@@ -18068,10 +18123,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   countryName: Iran
-  nation:
-    Name: 
-    Countries: []
-    Color: {r: 0, g: 0, b: 0, a: 0}
+  presetFactionName: 
 --- !u!1 &1032003471
 GameObject:
   m_ObjectHideFlags: 0
@@ -18292,10 +18344,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   countryName: Egypt
-  nation:
-    Name: 
-    Countries: []
-    Color: {r: 0, g: 0, b: 0, a: 0}
+  presetFactionName: 
 --- !u!1 &1046231870
 GameObject:
   m_ObjectHideFlags: 0
@@ -18504,10 +18553,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   countryName: Guinea
-  nation:
-    Name: 
-    Countries: []
-    Color: {r: 0, g: 0, b: 0, a: 0}
+  presetFactionName: 
 --- !u!1 &1062818711
 GameObject:
   m_ObjectHideFlags: 0
@@ -18766,10 +18812,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   countryName: Vietnam
-  nation:
-    Name: 
-    Countries: []
-    Color: {r: 0, g: 0, b: 0, a: 0}
+  presetFactionName: 
 --- !u!1 &1081286195
 GameObject:
   m_ObjectHideFlags: 0
@@ -18950,10 +18993,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   countryName: Djibouti
-  nation:
-    Name: 
-    Countries: []
-    Color: {r: 0, g: 0, b: 0, a: 0}
+  presetFactionName: 
 --- !u!1 &1087732013
 GameObject:
   m_ObjectHideFlags: 0
@@ -19156,10 +19196,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   countryName: Malawi
-  nation:
-    Name: 
-    Countries: []
-    Color: {r: 0, g: 0, b: 0, a: 0}
+  presetFactionName: 
 --- !u!1 &1094051919
 GameObject:
   m_ObjectHideFlags: 0
@@ -19361,10 +19398,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   countryName: Czech Republic
-  nation:
-    Name: 
-    Countries: []
-    Color: {r: 0, g: 0, b: 0, a: 0}
+  presetFactionName: NATO
 --- !u!1 &1100210167
 GameObject:
   m_ObjectHideFlags: 0
@@ -19543,10 +19577,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   countryName: Slovenia
-  nation:
-    Name: 
-    Countries: []
-    Color: {r: 0, g: 0, b: 0, a: 0}
+  presetFactionName: NATO
 --- !u!1 &1102641570
 GameObject:
   m_ObjectHideFlags: 0
@@ -19582,7 +19613,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -63.288, y: -93.2888}
+  m_AnchoredPosition: {x: -86.9, y: -107.3}
   m_SizeDelta: {x: 107.7752, y: 72.5622}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1102641572
@@ -19807,10 +19838,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   countryName: El Salvador
-  nation:
-    Name: 
-    Countries: []
-    Color: {r: 0, g: 0, b: 0, a: 0}
+  presetFactionName: 
 --- !u!1 &1120025909
 GameObject:
   m_ObjectHideFlags: 0
@@ -20101,10 +20129,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   countryName: Algeria
-  nation:
-    Name: 
-    Countries: []
-    Color: {r: 0, g: 0, b: 0, a: 0}
+  presetFactionName: 
 --- !u!1 &1125515351
 GameObject:
   m_ObjectHideFlags: 0
@@ -20150,7 +20175,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3ac8b567fec37df4596d5b6c0c21b2bc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  nations: []
+  useFactionColour: 0
 --- !u!114 &1125515354
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -20385,10 +20410,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   countryName: Paraguay
-  nation:
-    Name: 
-    Countries: []
-    Color: {r: 0, g: 0, b: 0, a: 0}
+  presetFactionName: 
 --- !u!1 &1138296734
 GameObject:
   m_ObjectHideFlags: 0
@@ -20573,10 +20595,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   countryName: Montenegro
-  nation:
-    Name: 
-    Countries: []
-    Color: {r: 0, g: 0, b: 0, a: 0}
+  presetFactionName: NATO
 --- !u!1 &1139255213
 GameObject:
   m_ObjectHideFlags: 0
@@ -20807,10 +20826,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   countryName: Iraq
-  nation:
-    Name: 
-    Countries: []
-    Color: {r: 0, g: 0, b: 0, a: 0}
+  presetFactionName: 
 --- !u!1 &1142144974
 GameObject:
   m_ObjectHideFlags: 0
@@ -21107,10 +21123,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   countryName: Chile
-  nation:
-    Name: 
-    Countries: []
-    Color: {r: 0, g: 0, b: 0, a: 0}
+  presetFactionName: 
 --- !u!1 &1162103078
 GameObject:
   m_ObjectHideFlags: 0
@@ -21397,10 +21410,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   countryName: Philippines
-  nation:
-    Name: 
-    Countries: []
-    Color: {r: 0, g: 0, b: 0, a: 0}
+  presetFactionName: 
 --- !u!1 &1172711523
 GameObject:
   m_ObjectHideFlags: 0
@@ -21655,10 +21665,43 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   countryName: Colombia
-  nation:
-    Name: 
-    Countries: []
-    Color: {r: 0, g: 0, b: 0, a: 0}
+  presetFactionName: 
+--- !u!1 &1176434831
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1176434832}
+  m_Layer: 5
+  m_Name: Stats
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &1176434832
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1176434831}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 106972103}
+  m_Father: {fileID: 627009421}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 100, y: 100}
+  m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &1187222022
 GameObject:
   m_ObjectHideFlags: 0
@@ -21849,10 +21892,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   countryName: Serbia
-  nation:
-    Name: 
-    Countries: []
-    Color: {r: 0, g: 0, b: 0, a: 0}
+  presetFactionName: 
 --- !u!1 &1246818265
 GameObject:
   m_ObjectHideFlags: 0
@@ -22183,10 +22223,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   countryName: Mexico
-  nation:
-    Name: 
-    Countries: []
-    Color: {r: 0, g: 0, b: 0, a: 0}
+  presetFactionName: 
 --- !u!1 &1257289913
 GameObject:
   m_ObjectHideFlags: 0
@@ -22415,10 +22452,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   countryName: Kenya
-  nation:
-    Name: 
-    Countries: []
-    Color: {r: 0, g: 0, b: 0, a: 0}
+  presetFactionName: 
 --- !u!1 &1266627081
 GameObject:
   m_ObjectHideFlags: 0
@@ -22599,10 +22633,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   countryName: Kuwait
-  nation:
-    Name: 
-    Countries: []
-    Color: {r: 0, g: 0, b: 0, a: 0}
+  presetFactionName: 
 --- !u!1 &1277117211
 GameObject:
   m_ObjectHideFlags: 0
@@ -22785,10 +22816,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   countryName: Kosovo
-  nation:
-    Name: 
-    Countries: []
-    Color: {r: 0, g: 0, b: 0, a: 0}
+  presetFactionName: 
 --- !u!1 &1283381516
 GameObject:
   m_ObjectHideFlags: 0
@@ -22975,10 +23003,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   countryName: Israel
-  nation:
-    Name: 
-    Countries: []
-    Color: {r: 0, g: 0, b: 0, a: 0}
+  presetFactionName: 
 --- !u!1 &1287342353
 GameObject:
   m_ObjectHideFlags: 0
@@ -23193,10 +23218,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   countryName: Spain
-  nation:
-    Name: 
-    Countries: []
-    Color: {r: 0, g: 0, b: 0, a: 0}
+  presetFactionName: NATO
 --- !u!1 &1298268332
 GameObject:
   m_ObjectHideFlags: 0
@@ -23403,10 +23425,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   countryName: Gabon
-  nation:
-    Name: 
-    Countries: []
-    Color: {r: 0, g: 0, b: 0, a: 0}
+  presetFactionName: 
 --- !u!1 &1302200214
 GameObject:
   m_ObjectHideFlags: 0
@@ -23850,10 +23869,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   countryName: Australia
-  nation:
-    Name: 
-    Countries: []
-    Color: {r: 0, g: 0, b: 0, a: 0}
+  presetFactionName: 
 --- !u!1 &1305127685
 GameObject:
   m_ObjectHideFlags: 0
@@ -24066,10 +24082,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   countryName: Congo
-  nation:
-    Name: 
-    Countries: []
-    Color: {r: 0, g: 0, b: 0, a: 0}
+  presetFactionName: 
 --- !u!1 &1324750413
 GameObject:
   m_ObjectHideFlags: 0
@@ -24316,10 +24329,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   countryName: Niger
-  nation:
-    Name: 
-    Countries: []
-    Color: {r: 0, g: 0, b: 0, a: 0}
+  presetFactionName: 
 --- !u!1 &1343595287
 GameObject:
   m_ObjectHideFlags: 0
@@ -24506,10 +24516,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   countryName: Eswatini
-  nation:
-    Name: 
-    Countries: []
-    Color: {r: 0, g: 0, b: 0, a: 0}
+  presetFactionName: 
 --- !u!1 &1344714766
 GameObject:
   m_ObjectHideFlags: 0
@@ -24708,10 +24715,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   countryName: Romania
-  nation:
-    Name: 
-    Countries: []
-    Color: {r: 0, g: 0, b: 0, a: 0}
+  presetFactionName: NATO
 --- !u!1 &1347801312
 GameObject:
   m_ObjectHideFlags: 0
@@ -24974,10 +24978,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   countryName: Pakistan
-  nation:
-    Name: 
-    Countries: []
-    Color: {r: 0, g: 0, b: 0, a: 0}
+  presetFactionName: 
 --- !u!1 &1347991590
 GameObject:
   m_ObjectHideFlags: 0
@@ -25876,10 +25877,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   countryName: Canada
-  nation:
-    Name: 
-    Countries: []
-    Color: {r: 0, g: 0, b: 0, a: 0}
+  presetFactionName: NATO
 --- !u!1 &1353687596
 GameObject:
   m_ObjectHideFlags: 0
@@ -26074,10 +26072,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   countryName: Iceland
-  nation:
-    Name: 
-    Countries: []
-    Color: {r: 0, g: 0, b: 0, a: 0}
+  presetFactionName: NATO
 --- !u!1 &1389779362
 GameObject:
   m_ObjectHideFlags: 0
@@ -26258,10 +26253,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   countryName: Gambia
-  nation:
-    Name: 
-    Countries: []
-    Color: {r: 0, g: 0, b: 0, a: 0}
+  presetFactionName: 
 --- !u!1 &1418234760
 GameObject:
   m_ObjectHideFlags: 0
@@ -26488,10 +26480,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   countryName: Zimbabwe
-  nation:
-    Name: 
-    Countries: []
-    Color: {r: 0, g: 0, b: 0, a: 0}
+  presetFactionName: 
 --- !u!1 &1447573082
 GameObject:
   m_ObjectHideFlags: 0
@@ -26678,10 +26667,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   countryName: Bosnia Herzegovina
-  nation:
-    Name: 
-    Countries: []
-    Color: {r: 0, g: 0, b: 0, a: 0}
+  presetFactionName: 
 --- !u!1 &1452682420
 GameObject:
   m_ObjectHideFlags: 0
@@ -26866,10 +26852,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   countryName: North Macedonia
-  nation:
-    Name: 
-    Countries: []
-    Color: {r: 0, g: 0, b: 0, a: 0}
+  presetFactionName: NATO
 --- !u!1 &1474350778
 GameObject:
   m_ObjectHideFlags: 0
@@ -27091,10 +27074,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   countryName: Suriname
-  nation:
-    Name: 
-    Countries: []
-    Color: {r: 0, g: 0, b: 0, a: 0}
+  presetFactionName: 
 --- !u!1 &1496252670
 GameObject:
   m_ObjectHideFlags: 0
@@ -27314,10 +27294,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   countryName: Guatemala
-  nation:
-    Name: 
-    Countries: []
-    Color: {r: 0, g: 0, b: 0, a: 0}
+  presetFactionName: 
 --- !u!1 &1517003641
 GameObject:
   m_ObjectHideFlags: 0
@@ -27528,10 +27505,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   countryName: Burkina Faso
-  nation:
-    Name: 
-    Countries: []
-    Color: {r: 0, g: 0, b: 0, a: 0}
+  presetFactionName: 
 --- !u!1 &1536149527
 GameObject:
   m_ObjectHideFlags: 0
@@ -27848,10 +27822,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   countryName: Sudan
-  nation:
-    Name: 
-    Countries: []
-    Color: {r: 0, g: 0, b: 0, a: 0}
+  presetFactionName: 
 --- !u!1 &1549835229
 GameObject:
   m_ObjectHideFlags: 0
@@ -28158,10 +28129,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   countryName: New Zealand
-  nation:
-    Name: 
-    Countries: []
-    Color: {r: 0, g: 0, b: 0, a: 0}
+  presetFactionName: 
 --- !u!1 &1552456016
 GameObject:
   m_ObjectHideFlags: 0
@@ -28358,10 +28326,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   countryName: Ireland
-  nation:
-    Name: 
-    Countries: []
-    Color: {r: 0, g: 0, b: 0, a: 0}
+  presetFactionName: 
 --- !u!1 &1569393035
 GameObject:
   m_ObjectHideFlags: 0
@@ -28628,10 +28593,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   countryName: Mongolia
-  nation:
-    Name: 
-    Countries: []
-    Color: {r: 0, g: 0, b: 0, a: 0}
+  presetFactionName: 
 --- !u!1 &1579712378
 GameObject:
   m_ObjectHideFlags: 0
@@ -28830,10 +28792,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   countryName: Poland
-  nation:
-    Name: 
-    Countries: []
-    Color: {r: 0, g: 0, b: 0, a: 0}
+  presetFactionName: NATO
 --- !u!1 &1580309998
 GameObject:
   m_ObjectHideFlags: 0
@@ -29018,10 +28977,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   countryName: Belize
-  nation:
-    Name: 
-    Countries: []
-    Color: {r: 0, g: 0, b: 0, a: 0}
+  presetFactionName: 
 --- !u!1 &1586983728
 GameObject:
   m_ObjectHideFlags: 0
@@ -29212,10 +29168,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   countryName: Moldova
-  nation:
-    Name: 
-    Countries: []
-    Color: {r: 0, g: 0, b: 0, a: 0}
+  presetFactionName: 
 --- !u!1 &1592914857
 GameObject:
   m_ObjectHideFlags: 0
@@ -29404,10 +29357,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   countryName: Slovakia
-  nation:
-    Name: 
-    Countries: []
-    Color: {r: 0, g: 0, b: 0, a: 0}
+  presetFactionName: NATO
 --- !u!1 &1605397338
 GameObject:
   m_ObjectHideFlags: 0
@@ -29943,10 +29893,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   countryName: Indonesia
-  nation:
-    Name: 
-    Countries: []
-    Color: {r: 0, g: 0, b: 0, a: 0}
+  presetFactionName: 
 --- !u!1 &1624111093
 GameObject:
   m_ObjectHideFlags: 0
@@ -29974,15 +29921,15 @@ RectTransform:
   m_GameObject: {fileID: 1624111093}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 3, y: 3, z: 3}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 627009421}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: -95.7}
-  m_SizeDelta: {x: 100, y: 100}
+  m_AnchoredPosition: {x: -0.00021505, y: -183.822}
+  m_SizeDelta: {x: 310.13, y: 486.546}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1624111095
 MonoBehaviour:
@@ -30006,7 +29953,7 @@ MonoBehaviour:
       m_Calls: []
   m_Sprite: {fileID: 21300000, guid: ec53f7b9b794fb242a4b9eb907c18247, type: 3}
   m_Type: 0
-  m_PreserveAspect: 0
+  m_PreserveAspect: 1
   m_FillCenter: 1
   m_FillMethod: 4
   m_FillAmount: 1
@@ -30212,10 +30159,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   countryName: Netherlands
-  nation:
-    Name: 
-    Countries: []
-    Color: {r: 0, g: 0, b: 0, a: 0}
+  presetFactionName: NATO
 --- !u!1 &1644658672
 GameObject:
   m_ObjectHideFlags: 0
@@ -30420,10 +30364,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   countryName: North Korea
-  nation:
-    Name: 
-    Countries: []
-    Color: {r: 0, g: 0, b: 0, a: 0}
+  presetFactionName: 
 --- !u!1 &1659848881
 GameObject:
   m_ObjectHideFlags: 0
@@ -30662,10 +30603,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   countryName: Sweden
-  nation:
-    Name: 
-    Countries: []
-    Color: {r: 0, g: 0, b: 0, a: 0}
+  presetFactionName: NATO
 --- !u!1 &1673770883
 GameObject:
   m_ObjectHideFlags: 0
@@ -30870,10 +30808,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   countryName: Nepal
-  nation:
-    Name: 
-    Countries: []
-    Color: {r: 0, g: 0, b: 0, a: 0}
+  presetFactionName: 
 --- !u!1 &1706852121
 GameObject:
   m_ObjectHideFlags: 0
@@ -31244,10 +31179,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   countryName: India
-  nation:
-    Name: 
-    Countries: []
-    Color: {r: 0, g: 0, b: 0, a: 0}
+  presetFactionName: 
 --- !u!1 &1721644217
 GameObject:
   m_ObjectHideFlags: 0
@@ -31438,10 +31370,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   countryName: Hungary
-  nation:
-    Name: 
-    Countries: []
-    Color: {r: 0, g: 0, b: 0, a: 0}
+  presetFactionName: NATO
 --- !u!1 &1730082212
 GameObject:
   m_ObjectHideFlags: 0
@@ -31661,10 +31590,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   countryName: Haiti
-  nation:
-    Name: 
-    Countries: []
-    Color: {r: 0, g: 0, b: 0, a: 0}
+  presetFactionName: 
 --- !u!1 &1745926740
 GameObject:
   m_ObjectHideFlags: 0
@@ -31909,10 +31835,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   countryName: Chad
-  nation:
-    Name: 
-    Countries: []
-    Color: {r: 0, g: 0, b: 0, a: 0}
+  presetFactionName: 
 --- !u!1 &1749685303
 GameObject:
   m_ObjectHideFlags: 0
@@ -32165,10 +32088,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   countryName: Morocco
-  nation:
-    Name: 
-    Countries: []
-    Color: {r: 0, g: 0, b: 0, a: 0}
+  presetFactionName: 
 --- !u!1 &1761430785
 GameObject:
   m_ObjectHideFlags: 0
@@ -32369,10 +32289,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   countryName: Liberia
-  nation:
-    Name: 
-    Countries: []
-    Color: {r: 0, g: 0, b: 0, a: 0}
+  presetFactionName: 
 --- !u!1 &1761653649
 GameObject:
   m_ObjectHideFlags: 0
@@ -32627,10 +32544,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   countryName: Uzbekistan
-  nation:
-    Name: 
-    Countries: []
-    Color: {r: 0, g: 0, b: 0, a: 0}
+  presetFactionName: 
 --- !u!1 &1770030617
 GameObject:
   m_ObjectHideFlags: 0
@@ -32837,10 +32751,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   countryName: Tunisia
-  nation:
-    Name: 
-    Countries: []
-    Color: {r: 0, g: 0, b: 0, a: 0}
+  presetFactionName: 
 --- !u!1 &1804613715
 GameObject:
   m_ObjectHideFlags: 0
@@ -32873,7 +32784,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 307, y: -141}
+  m_AnchoredPosition: {x: 315, y: -141}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &1816711724
@@ -33149,10 +33060,141 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   countryName: South Africa
-  nation:
-    Name: 
-    Countries: []
-    Color: {r: 0, g: 0, b: 0, a: 0}
+  presetFactionName: 
+--- !u!1 &1831714801
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1831714802}
+  - component: {fileID: 1831714804}
+  - component: {fileID: 1831714803}
+  m_Layer: 5
+  m_Name: FactionText
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &1831714802
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1831714801}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 1
+  m_Children: []
+  m_Father: {fileID: 106972103}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 106.697495, y: -55.8}
+  m_SizeDelta: {x: 413.3911, y: 59.3784}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1831714803
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1831714801}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_text: US Aligned
+  m_isRightToLeft: 0
+  m_fontAsset: {fileID: 11400000, guid: 957dbaf1fa9ef834db97955b0d878f96, type: 2}
+  m_sharedMaterial: {fileID: 8370735618977982747, guid: 957dbaf1fa9ef834db97955b0d878f96, type: 2}
+  m_fontSharedMaterials: []
+  m_fontMaterial: {fileID: 0}
+  m_fontMaterials: []
+  m_fontColor32:
+    serializedVersion: 2
+    rgba: 4293844480
+  m_fontColor: {r: 0, g: 0.87132096, b: 0.9339623, a: 1}
+  m_enableVertexGradient: 0
+  m_colorMode: 0
+  m_fontColorGradient:
+    topLeft: {r: 0, g: 0.7202115, b: 1, a: 1}
+    topRight: {r: 0, g: 0.7202115, b: 1, a: 1}
+    bottomLeft: {r: 0, g: 0.7202115, b: 1, a: 1}
+    bottomRight: {r: 0, g: 0.7202115, b: 1, a: 1}
+  m_fontColorGradientPreset: {fileID: 0}
+  m_spriteAsset: {fileID: 0}
+  m_tintAllSprites: 0
+  m_StyleSheet: {fileID: 0}
+  m_TextStyleHashCode: -1183493901
+  m_overrideHtmlColors: 0
+  m_faceColor:
+    serializedVersion: 2
+    rgba: 4294967295
+  m_fontSize: 36.9
+  m_fontSizeBase: 25
+  m_fontWeight: 400
+  m_enableAutoSizing: 1
+  m_fontSizeMin: 0
+  m_fontSizeMax: 36.9
+  m_fontStyle: 0
+  m_HorizontalAlignment: 1
+  m_VerticalAlignment: 256
+  m_textAlignment: 65535
+  m_characterSpacing: 0
+  m_wordSpacing: 0
+  m_lineSpacing: 0
+  m_lineSpacingMax: 0
+  m_paragraphSpacing: 0
+  m_charWidthMaxAdj: 0
+  m_enableWordWrapping: 1
+  m_wordWrappingRatios: 0.4
+  m_overflowMode: 3
+  m_linkedTextComponent: {fileID: 0}
+  parentLinkedComponent: {fileID: 0}
+  m_enableKerning: 1
+  m_enableExtraPadding: 0
+  checkPaddingRequired: 0
+  m_isRichText: 1
+  m_parseCtrlCharacters: 1
+  m_isOrthographic: 1
+  m_isCullingEnabled: 0
+  m_horizontalMapping: 0
+  m_verticalMapping: 0
+  m_uvLineOffset: 0
+  m_geometrySortingOrder: 0
+  m_IsTextObjectScaleStatic: 0
+  m_VertexBufferAutoSizeReduction: 0
+  m_useMaxVisibleDescender: 1
+  m_pageToDisplay: 1
+  m_margin: {x: 0, y: 0, z: 0, w: 0}
+  m_isUsingLegacyAnimationComponent: 0
+  m_isVolumetricText: 0
+  m_hasFontAssetChanged: 0
+  m_baseMaterial: {fileID: 0}
+  m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!222 &1831714804
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1831714801}
+  m_CullTransparentMesh: 1
 --- !u!1 &1842674239
 GameObject:
   m_ObjectHideFlags: 0
@@ -33329,10 +33371,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   countryName: Equatorial Guinea
-  nation:
-    Name: 
-    Countries: []
-    Color: {r: 0, g: 0, b: 0, a: 0}
+  presetFactionName: 
 --- !u!1 &1845085511
 GameObject:
   m_ObjectHideFlags: 0
@@ -33539,10 +33578,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   countryName: Ivory Coast
-  nation:
-    Name: 
-    Countries: []
-    Color: {r: 0, g: 0, b: 0, a: 0}
+  presetFactionName: 
 --- !u!1 &1852445538
 GameObject:
   m_ObjectHideFlags: 0
@@ -33737,10 +33773,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   countryName: Nicaragua
-  nation:
-    Name: 
-    Countries: []
-    Color: {r: 0, g: 0, b: 0, a: 0}
+  presetFactionName: 
 --- !u!1 &1854743005
 GameObject:
   m_ObjectHideFlags: 0
@@ -33993,10 +34026,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   countryName: Mali
-  nation:
-    Name: 
-    Countries: []
-    Color: {r: 0, g: 0, b: 0, a: 0}
+  presetFactionName: 
 --- !u!1 &1861718229
 GameObject:
   m_ObjectHideFlags: 0
@@ -34195,10 +34225,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   countryName: Uganda
-  nation:
-    Name: 
-    Countries: []
-    Color: {r: 0, g: 0, b: 0, a: 0}
+  presetFactionName: 
 --- !u!1 &1863816877
 GameObject:
   m_ObjectHideFlags: 0
@@ -34391,10 +34418,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   countryName: South Korea
-  nation:
-    Name: 
-    Countries: []
-    Color: {r: 0, g: 0, b: 0, a: 0}
+  presetFactionName: 
 --- !u!1 &1873174551
 GameObject:
   m_ObjectHideFlags: 0
@@ -34615,10 +34639,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   countryName: Botswana
-  nation:
-    Name: 
-    Countries: []
-    Color: {r: 0, g: 0, b: 0, a: 0}
+  presetFactionName: 
 --- !u!1 &1876695375
 GameObject:
   m_ObjectHideFlags: 0
@@ -34949,10 +34970,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   countryName: Kazakhstan
-  nation:
-    Name: 
-    Countries: []
-    Color: {r: 0, g: 0, b: 0, a: 0}
+  presetFactionName: 
 --- !u!1 &1877870780
 GameObject:
   m_ObjectHideFlags: 0
@@ -35137,10 +35155,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   countryName: Guinea-Bissau
-  nation:
-    Name: 
-    Countries: []
-    Color: {r: 0, g: 0, b: 0, a: 0}
+  presetFactionName: 
 --- !u!1 &1878596330
 GameObject:
   m_ObjectHideFlags: 0
@@ -35387,10 +35402,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   countryName: Libya
-  nation:
-    Name: 
-    Countries: []
-    Color: {r: 0, g: 0, b: 0, a: 0}
+  presetFactionName: 
 --- !u!1 &1884402254
 GameObject:
   m_ObjectHideFlags: 0
@@ -35595,10 +35607,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   countryName: Bangladesh
-  nation:
-    Name: 
-    Countries: []
-    Color: {r: 0, g: 0, b: 0, a: 0}
+  presetFactionName: 
 --- !u!1 &1895481689
 GameObject:
   m_ObjectHideFlags: 0
@@ -35919,10 +35928,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   countryName: Argentina
-  nation:
-    Name: 
-    Countries: []
-    Color: {r: 0, g: 0, b: 0, a: 0}
+  presetFactionName: 
 --- !u!1 &1898342716
 GameObject:
   m_ObjectHideFlags: 0
@@ -36117,10 +36123,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   countryName: Ghana
-  nation:
-    Name: 
-    Countries: []
-    Color: {r: 0, g: 0, b: 0, a: 0}
+  presetFactionName: 
 --- !u!1 &1909173902
 GameObject:
   m_ObjectHideFlags: 0
@@ -36421,10 +36424,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   countryName: Tajikistan
-  nation:
-    Name: 
-    Countries: []
-    Color: {r: 0, g: 0, b: 0, a: 0}
+  presetFactionName: 
 --- !u!1 &1926477385
 GameObject:
   m_ObjectHideFlags: 0
@@ -36918,10 +36918,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   countryName: China
-  nation:
-    Name: 
-    Countries: []
-    Color: {r: 0, g: 0, b: 0, a: 0}
+  presetFactionName: 
 --- !u!1 &1938001409
 GameObject:
   m_ObjectHideFlags: 0
@@ -36953,7 +36950,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   titleCard: {fileID: 627009421}
   titleSpeed: 5.625
-  titleText: {fileID: 549232536}
+  titleText: {fileID: 599349669}
+  factionText: {fileID: 1831714803}
   flagImage: {fileID: 797481670}
   titleStartPos: {fileID: 437912946}
   titleEndPos: {fileID: 1804613716}
@@ -37206,10 +37204,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   countryName: Turkiye
-  nation:
-    Name: 
-    Countries: []
-    Color: {r: 0, g: 0, b: 0, a: 0}
+  presetFactionName: NATO
 --- !u!1 &1989968833
 GameObject:
   m_ObjectHideFlags: 0
@@ -37442,10 +37437,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   countryName: Estonia
-  nation:
-    Name: 
-    Countries: []
-    Color: {r: 0, g: 0, b: 0, a: 0}
+  presetFactionName: NATO
 --- !u!1 &2013673132
 GameObject:
   m_ObjectHideFlags: 0
@@ -37674,10 +37666,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   countryName: Madagascar
-  nation:
-    Name: 
-    Countries: []
-    Color: {r: 0, g: 0, b: 0, a: 0}
+  presetFactionName: 
 --- !u!1 &2024014144
 GameObject:
   m_ObjectHideFlags: 0
@@ -37950,10 +37939,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   countryName: Togo
-  nation:
-    Name: 
-    Countries: []
-    Color: {r: 0, g: 0, b: 0, a: 0}
+  presetFactionName: 
 --- !u!1 &2058077580
 GameObject:
   m_ObjectHideFlags: 0
@@ -38138,10 +38124,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   countryName: Lebanon
-  nation:
-    Name: 
-    Countries: []
-    Color: {r: 0, g: 0, b: 0, a: 0}
+  presetFactionName: 
 --- !u!1 &2087815429
 GameObject:
   m_ObjectHideFlags: 0
@@ -38324,10 +38307,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   countryName: Denmark
-  nation:
-    Name: 
-    Countries: []
-    Color: {r: 0, g: 0, b: 0, a: 0}
+  presetFactionName: NATO
 --- !u!1 &2114791239
 GameObject:
   m_ObjectHideFlags: 0
@@ -38560,10 +38540,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   countryName: Nigeria
-  nation:
-    Name: 
-    Countries: []
-    Color: {r: 0, g: 0, b: 0, a: 0}
+  presetFactionName: 
 --- !u!1 &2116244411
 GameObject:
   m_ObjectHideFlags: 0
@@ -38819,10 +38796,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   countryName: Japan
-  nation:
-    Name: 
-    Countries: []
-    Color: {r: 0, g: 0, b: 0, a: 0}
+  presetFactionName: 
 --- !u!1 &2123585593
 GameObject:
   m_ObjectHideFlags: 0
@@ -39233,10 +39207,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   countryName: Brazil
-  nation:
-    Name: 
-    Countries: []
-    Color: {r: 0, g: 0, b: 0, a: 0}
+  presetFactionName: 
 --- !u!1 &2138081266
 GameObject:
   m_ObjectHideFlags: 0
@@ -39579,10 +39550,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   countryName: Mozambique
-  nation:
-    Name: 
-    Countries: []
-    Color: {r: 0, g: 0, b: 0, a: 0}
+  presetFactionName: 
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
