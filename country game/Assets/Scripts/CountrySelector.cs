@@ -106,7 +106,6 @@ public class CountrySelector : MonoBehaviour
 
     public void ResetSelected()
     {
-        Debug.Log("Resetting selected");
         _currentNation = null;
         _countrySelected = false;
         _factionScreen = false;

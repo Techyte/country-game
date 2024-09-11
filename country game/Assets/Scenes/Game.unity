@@ -332,6 +332,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   countryName: Guyana
   presetFactionName: 
+  presetFactionLeader: 0
 --- !u!1 &16436013
 GameObject:
   m_ObjectHideFlags: 0
@@ -589,6 +590,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   countryName: Somalia
   presetFactionName: 
+  presetFactionLeader: 0
 --- !u!1 &17738161
 GameObject:
   m_ObjectHideFlags: 0
@@ -846,6 +848,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   countryName: Turkmenistan
   presetFactionName: 
+  presetFactionLeader: 0
 --- !u!1 &18810516
 GameObject:
   m_ObjectHideFlags: 0
@@ -1070,6 +1073,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   countryName: Burundi
   presetFactionName: 
+  presetFactionLeader: 0
 --- !u!1 &42686745
 GameObject:
   m_ObjectHideFlags: 0
@@ -1263,6 +1267,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   countryName: Senegal
   presetFactionName: 
+  presetFactionLeader: 0
 --- !u!1 &51006754
 GameObject:
   m_ObjectHideFlags: 0
@@ -1446,6 +1451,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   countryName: Lesotho
   presetFactionName: 
+  presetFactionLeader: 0
 --- !u!1 &62626125
 GameObject:
   m_ObjectHideFlags: 0
@@ -1651,6 +1657,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   countryName: Cuba
   presetFactionName: 
+  presetFactionLeader: 0
 --- !u!1 &69944463
 GameObject:
   m_ObjectHideFlags: 0
@@ -1894,6 +1901,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   countryName: Bolivia
   presetFactionName: 
+  presetFactionLeader: 0
 --- !u!1 &77698331
 GameObject:
   m_ObjectHideFlags: 0
@@ -2159,6 +2167,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   countryName: Norway
   presetFactionName: NATO
+  presetFactionLeader: 0
 --- !u!1 &78255413
 GameObject:
   m_ObjectHideFlags: 0
@@ -2399,6 +2408,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   countryName: Malaysia
   presetFactionName: 
+  presetFactionLeader: 0
 --- !u!1 &99321237
 GameObject:
   m_ObjectHideFlags: 0
@@ -2646,6 +2656,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   countryName: Dominican Republic
   presetFactionName: 
+  presetFactionLeader: 0
 --- !u!1 &101550892
 GameObject:
   m_ObjectHideFlags: 0
@@ -2837,6 +2848,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   countryName: United Arab Emirates
   presetFactionName: 
+  presetFactionLeader: 0
 --- !u!1 &106972102
 GameObject:
   m_ObjectHideFlags: 0
@@ -3173,6 +3185,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   countryName: Syria
   presetFactionName: 
+  presetFactionLeader: 0
 --- !u!1 &113770177
 GameObject:
   m_ObjectHideFlags: 0
@@ -3360,6 +3373,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   countryName: Taiwan
   presetFactionName: 
+  presetFactionLeader: 0
 --- !u!1 &126201032
 GameObject:
   m_ObjectHideFlags: 0
@@ -3637,6 +3651,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   countryName: Democratic Republic Of The Congo
   presetFactionName: 
+  presetFactionLeader: 0
 --- !u!1 &158068877
 GameObject:
   m_ObjectHideFlags: 0
@@ -3836,6 +3851,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   countryName: Honduras
   presetFactionName: 
+  presetFactionLeader: 0
 --- !u!1 &177636283
 GameObject:
   m_ObjectHideFlags: 0
@@ -4025,6 +4041,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   countryName: Benin
   presetFactionName: 
+  presetFactionLeader: 0
 --- !u!1 &210825791
 GameObject:
   m_ObjectHideFlags: 0
@@ -4236,6 +4253,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   countryName: Germany
   presetFactionName: NATO
+  presetFactionLeader: 0
 --- !u!1 &222596605
 GameObject:
   m_ObjectHideFlags: 0
@@ -4457,6 +4475,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   countryName: Angola
   presetFactionName: 
+  presetFactionLeader: 0
 --- !u!1 &230117939
 GameObject:
   m_ObjectHideFlags: 0
@@ -4654,6 +4673,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   countryName: Croatia
   presetFactionName: NATO
+  presetFactionLeader: 0
 --- !u!1 &239023170
 GameObject:
   m_ObjectHideFlags: 0
@@ -4883,6 +4903,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   countryName: Afghanistan
   presetFactionName: 
+  presetFactionLeader: 0
 --- !u!1 &244075090
 GameObject:
   m_ObjectHideFlags: 0
@@ -5112,6 +5133,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   countryName: Tanzania
   presetFactionName: 
+  presetFactionLeader: 0
 --- !u!1 &255860911
 GameObject:
   m_ObjectHideFlags: 0
@@ -5319,6 +5341,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   countryName: Belarus
   presetFactionName: CSTO
+  presetFactionLeader: 0
 --- !u!1 &261466522
 GameObject:
   m_ObjectHideFlags: 0
@@ -5504,6 +5527,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   countryName: Portugal
   presetFactionName: NATO
+  presetFactionLeader: 0
 --- !u!1 &314071029
 GameObject:
   m_ObjectHideFlags: 0
@@ -5755,6 +5779,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   countryName: Ethiopia
   presetFactionName: 
+  presetFactionLeader: 0
 --- !u!1 &318682504
 GameObject:
   m_ObjectHideFlags: 0
@@ -6114,6 +6139,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   countryName: Zambia
   presetFactionName: 
+  presetFactionLeader: 0
 --- !u!1 &343468317
 GameObject:
   m_ObjectHideFlags: 0
@@ -6421,6 +6447,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   countryName: Greenland
   presetFactionName: 
+  presetFactionLeader: 0
 --- !u!1 &348830703
 GameObject:
   m_ObjectHideFlags: 0
@@ -6629,6 +6656,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   countryName: Greece
   presetFactionName: NATO
+  presetFactionLeader: 0
 --- !u!1 &376447757
 GameObject:
   m_ObjectHideFlags: 0
@@ -6844,6 +6872,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   countryName: Mauritania
   presetFactionName: 
+  presetFactionLeader: 0
 --- !u!1 &381275942
 GameObject:
   m_ObjectHideFlags: 0
@@ -7025,6 +7054,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   countryName: Qatar
   presetFactionName: 
+  presetFactionLeader: 0
 --- !u!1 &384687387
 GameObject:
   m_ObjectHideFlags: 0
@@ -7240,6 +7270,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   countryName: Namibia
   presetFactionName: 
+  presetFactionLeader: 0
 --- !u!1 &407776977
 GameObject:
   m_ObjectHideFlags: 0
@@ -7483,6 +7514,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   countryName: Thailand
   presetFactionName: 
+  presetFactionLeader: 0
 --- !u!1 &419533098
 GameObject:
   m_ObjectHideFlags: 0
@@ -7784,6 +7816,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   countryName: Saudi Arabia
   presetFactionName: 
+  presetFactionLeader: 0
 --- !u!1 &437912945
 GameObject:
   m_ObjectHideFlags: 0
@@ -8042,6 +8075,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   countryName: Laos
   presetFactionName: 
+  presetFactionLeader: 0
 --- !u!1 &444836558
 GameObject:
   m_ObjectHideFlags: 0
@@ -8269,6 +8303,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   countryName: Cameroon
   presetFactionName: 
+  presetFactionLeader: 0
 --- !u!1 &462972620
 GameObject:
   m_ObjectHideFlags: 0
@@ -8468,6 +8503,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   countryName: Georgia
   presetFactionName: 
+  presetFactionLeader: 0
 --- !u!1 &466007962
 GameObject:
   m_ObjectHideFlags: 0
@@ -8698,6 +8734,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   countryName: United Kingdom
   presetFactionName: NATO
+  presetFactionLeader: 0
 --- !u!1 &473134842
 GameObject:
   m_ObjectHideFlags: 0
@@ -8915,6 +8952,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   countryName: Yemen
   presetFactionName: 
+  presetFactionLeader: 0
 --- !u!1 &502249931
 GameObject:
   m_ObjectHideFlags: 0
@@ -9172,6 +9210,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   countryName: Myanmar
   presetFactionName: 
+  presetFactionLeader: 0
 --- !u!1 &506704654
 GameObject:
   m_ObjectHideFlags: 0
@@ -9361,6 +9400,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   countryName: Costa Rica
   presetFactionName: 
+  presetFactionLeader: 0
 --- !u!1 &510976899
 GameObject:
   m_ObjectHideFlags: 0
@@ -9554,6 +9594,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   countryName: Armenia
   presetFactionName: CSTO
+  presetFactionLeader: 0
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0
@@ -9922,6 +9963,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   countryName: Kyrgyzstan
   presetFactionName: CSTO
+  presetFactionLeader: 0
 --- !u!1 &526328819
 GameObject:
   m_ObjectHideFlags: 0
@@ -10119,6 +10161,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   countryName: Azerbaijan
   presetFactionName: 
+  presetFactionLeader: 0
 --- !u!1 &537478461
 GameObject:
   m_ObjectHideFlags: 0
@@ -10931,6 +10974,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   countryName: Russia
   presetFactionName: CSTO
+  presetFactionLeader: 1
 --- !u!1 &549232534
 GameObject:
   m_ObjectHideFlags: 0
@@ -11314,6 +11358,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   countryName: France
   presetFactionName: NATO
+  presetFactionLeader: 0
 --- !u!1 &554184879
 GameObject:
   m_ObjectHideFlags: 0
@@ -11517,6 +11562,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   countryName: Uruguay
   presetFactionName: 
+  presetFactionLeader: 0
 --- !u!1 &572177884
 GameObject:
   m_ObjectHideFlags: 0
@@ -11704,6 +11750,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   countryName: Lithuania
   presetFactionName: NATO
+  presetFactionLeader: 0
 --- !u!1 &574624684
 GameObject:
   m_ObjectHideFlags: 0
@@ -12058,6 +12105,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   countryName: Austria
   presetFactionName: 
+  presetFactionLeader: 0
 --- !u!1 &610440494
 GameObject:
   m_ObjectHideFlags: 0
@@ -12251,6 +12299,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   countryName: Sierra Leone
   presetFactionName: 
+  presetFactionLeader: 0
 --- !u!1 &619394800
 GameObject:
   m_ObjectHideFlags: 0
@@ -12528,6 +12577,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   countryName: Jordan
   presetFactionName: 
+  presetFactionLeader: 0
 --- !u!1 &627009420
 GameObject:
   m_ObjectHideFlags: 0
@@ -12777,6 +12827,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   countryName: Ecuador
   presetFactionName: 
+  presetFactionLeader: 0
 --- !u!1 &631294880
 GameObject:
   m_ObjectHideFlags: 0
@@ -13001,6 +13052,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   countryName: Bulgaria
   presetFactionName: NATO
+  presetFactionLeader: 0
 --- !u!1 &647566400
 GameObject:
   m_ObjectHideFlags: 0
@@ -13064,6 +13116,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   countryName: Brunei
   presetFactionName: 
+  presetFactionLeader: 0
 --- !u!212 &647566404
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -13433,6 +13486,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   countryName: Bhutan
   presetFactionName: 
+  presetFactionLeader: 0
 --- !u!1 &687354582
 GameObject:
   m_ObjectHideFlags: 0
@@ -13618,6 +13672,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   countryName: Rwanda
   presetFactionName: 
+  presetFactionLeader: 0
 --- !u!1 &693042503
 GameObject:
   m_ObjectHideFlags: 0
@@ -13854,6 +13909,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   countryName: Latvia
   presetFactionName: NATO
+  presetFactionLeader: 0
 --- !u!1 &697406722
 GameObject:
   m_ObjectHideFlags: 0
@@ -14087,6 +14143,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   countryName: Venezuela
   presetFactionName: 
+  presetFactionLeader: 0
 --- !u!1 &730539424
 GameObject:
   m_ObjectHideFlags: 0
@@ -14357,6 +14414,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   countryName: Italy
   presetFactionName: NATO
+  presetFactionLeader: 0
 --- !u!1 &765164631
 GameObject:
   m_ObjectHideFlags: 0
@@ -14639,6 +14697,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   countryName: Cambodia
   presetFactionName: 
+  presetFactionLeader: 0
 --- !u!1 &790958192
 GameObject:
   m_ObjectHideFlags: 0
@@ -15079,6 +15138,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   countryName: Peru
   presetFactionName: 
+  presetFactionLeader: 0
 --- !u!1 &810197987
 GameObject:
   m_ObjectHideFlags: 0
@@ -15316,6 +15376,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   countryName: Central African Republic
   presetFactionName: 
+  presetFactionLeader: 0
 --- !u!1 &812579838
 GameObject:
   m_ObjectHideFlags: 0
@@ -15519,6 +15580,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   countryName: Eritrea
   presetFactionName: 
+  presetFactionLeader: 0
 --- !u!1 &822973915
 GameObject:
   m_ObjectHideFlags: 0
@@ -15824,6 +15886,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   countryName: South Sudan
   presetFactionName: 
+  presetFactionLeader: 0
 --- !u!1 &842527323
 GameObject:
   m_ObjectHideFlags: 0
@@ -16067,6 +16130,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   countryName: Ukraine
   presetFactionName: 
+  presetFactionLeader: 0
 --- !u!1 &844028644
 GameObject:
   m_ObjectHideFlags: 0
@@ -16329,6 +16393,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   countryName: Albania
   presetFactionName: NATO
+  presetFactionLeader: 0
 --- !u!1 &870246170
 GameObject:
   m_ObjectHideFlags: 0
@@ -16645,6 +16710,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   countryName: Papua New Guinea
   presetFactionName: 
+  presetFactionLeader: 0
 --- !u!1 &888886622
 GameObject:
   m_ObjectHideFlags: 0
@@ -16852,6 +16918,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   countryName: Panama
   presetFactionName: 
+  presetFactionLeader: 0
 --- !u!1 &917457958
 GameObject:
   m_ObjectHideFlags: 0
@@ -17087,6 +17154,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   countryName: Finland
   presetFactionName: NATO
+  presetFactionLeader: 0
 --- !u!1 &948924144
 GameObject:
   m_ObjectHideFlags: 0
@@ -17691,6 +17759,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   countryName: United States
   presetFactionName: NATO
+  presetFactionLeader: 1
 --- !u!1 &953277260
 GameObject:
   m_ObjectHideFlags: 0
@@ -17878,6 +17947,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   countryName: Belgium
   presetFactionName: NATO
+  presetFactionLeader: 0
 --- !u!1 &955576629
 GameObject:
   m_ObjectHideFlags: 0
@@ -18071,6 +18141,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   countryName: Switzerland
   presetFactionName: 
+  presetFactionLeader: 0
 --- !u!1 &973960341
 GameObject:
   m_ObjectHideFlags: 0
@@ -18324,6 +18395,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   countryName: Oman
   presetFactionName: 
+  presetFactionLeader: 0
 --- !u!1 &1005213975
 GameObject:
   m_ObjectHideFlags: 0
@@ -18609,6 +18681,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   countryName: Iran
   presetFactionName: 
+  presetFactionLeader: 0
 --- !u!1 &1032003471
 GameObject:
   m_ObjectHideFlags: 0
@@ -18830,6 +18903,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   countryName: Egypt
   presetFactionName: 
+  presetFactionLeader: 0
 --- !u!1 &1046231870
 GameObject:
   m_ObjectHideFlags: 0
@@ -19039,6 +19113,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   countryName: Guinea
   presetFactionName: 
+  presetFactionLeader: 0
 --- !u!1 &1062818711
 GameObject:
   m_ObjectHideFlags: 0
@@ -19298,6 +19373,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   countryName: Vietnam
   presetFactionName: 
+  presetFactionLeader: 0
 --- !u!1 &1081286195
 GameObject:
   m_ObjectHideFlags: 0
@@ -19479,6 +19555,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   countryName: Djibouti
   presetFactionName: 
+  presetFactionLeader: 0
 --- !u!1 &1087732013
 GameObject:
   m_ObjectHideFlags: 0
@@ -19682,6 +19759,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   countryName: Malawi
   presetFactionName: 
+  presetFactionLeader: 0
 --- !u!1 &1094051919
 GameObject:
   m_ObjectHideFlags: 0
@@ -19697,7 +19775,7 @@ GameObject:
   - component: {fileID: 1094051924}
   - component: {fileID: 1094051925}
   m_Layer: 0
-  m_Name: czechia
+  m_Name: czech_republic
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -19884,6 +19962,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   countryName: Czech Republic
   presetFactionName: NATO
+  presetFactionLeader: 0
 --- !u!1 &1100210167
 GameObject:
   m_ObjectHideFlags: 0
@@ -20063,6 +20142,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   countryName: Slovenia
   presetFactionName: NATO
+  presetFactionLeader: 0
 --- !u!1 &1102641570
 GameObject:
   m_ObjectHideFlags: 0
@@ -20324,6 +20404,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   countryName: El Salvador
   presetFactionName: 
+  presetFactionLeader: 0
 --- !u!1 &1112274047
 GameObject:
   m_ObjectHideFlags: 0
@@ -20421,7 +20502,7 @@ MonoBehaviour:
   m_Elasticity: 0.1
   m_Inertia: 1
   m_DecelerationRate: 0.135
-  m_ScrollSensitivity: 1
+  m_ScrollSensitivity: 13
   m_Viewport: {fileID: 790958193}
   m_HorizontalScrollbar: {fileID: 0}
   m_VerticalScrollbar: {fileID: 1323172743}
@@ -20723,6 +20804,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   countryName: Algeria
   presetFactionName: 
+  presetFactionLeader: 0
 --- !u!1 &1125515351
 GameObject:
   m_ObjectHideFlags: 0
@@ -21004,6 +21086,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   countryName: Paraguay
   presetFactionName: 
+  presetFactionLeader: 0
 --- !u!1 &1138296734
 GameObject:
   m_ObjectHideFlags: 0
@@ -21189,6 +21272,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   countryName: Montenegro
   presetFactionName: NATO
+  presetFactionLeader: 0
 --- !u!1 &1139255213
 GameObject:
   m_ObjectHideFlags: 0
@@ -21420,6 +21504,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   countryName: Iraq
   presetFactionName: 
+  presetFactionLeader: 0
 --- !u!1 &1142144974
 GameObject:
   m_ObjectHideFlags: 0
@@ -21717,6 +21802,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   countryName: Chile
   presetFactionName: 
+  presetFactionLeader: 0
 --- !u!1 &1162103078
 GameObject:
   m_ObjectHideFlags: 0
@@ -22004,6 +22090,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   countryName: Philippines
   presetFactionName: 
+  presetFactionLeader: 0
 --- !u!1 &1172711523
 GameObject:
   m_ObjectHideFlags: 0
@@ -22259,6 +22346,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   countryName: Colombia
   presetFactionName: 
+  presetFactionLeader: 0
 --- !u!1 &1176434831
 GameObject:
   m_ObjectHideFlags: 0
@@ -22486,6 +22574,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   countryName: Serbia
   presetFactionName: 
+  presetFactionLeader: 0
 --- !u!1 &1218265958
 GameObject:
   m_ObjectHideFlags: 0
@@ -22929,6 +23018,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   countryName: Mexico
   presetFactionName: 
+  presetFactionLeader: 0
 --- !u!1 &1257289913
 GameObject:
   m_ObjectHideFlags: 0
@@ -23158,6 +23248,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   countryName: Kenya
   presetFactionName: 
+  presetFactionLeader: 0
 --- !u!1 &1266627081
 GameObject:
   m_ObjectHideFlags: 0
@@ -23339,6 +23430,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   countryName: Kuwait
   presetFactionName: 
+  presetFactionLeader: 0
 --- !u!1 &1277117211
 GameObject:
   m_ObjectHideFlags: 0
@@ -23522,6 +23614,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   countryName: Kosovo
   presetFactionName: 
+  presetFactionLeader: 0
 --- !u!1 &1283381516
 GameObject:
   m_ObjectHideFlags: 0
@@ -23709,6 +23802,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   countryName: Israel
   presetFactionName: 
+  presetFactionLeader: 0
 --- !u!1 &1287342353
 GameObject:
   m_ObjectHideFlags: 0
@@ -23924,6 +24018,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   countryName: Spain
   presetFactionName: NATO
+  presetFactionLeader: 0
 --- !u!1 &1298268332
 GameObject:
   m_ObjectHideFlags: 0
@@ -24131,6 +24226,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   countryName: Gabon
   presetFactionName: 
+  presetFactionLeader: 0
 --- !u!1 &1302200214
 GameObject:
   m_ObjectHideFlags: 0
@@ -24575,6 +24671,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   countryName: Australia
   presetFactionName: 
+  presetFactionLeader: 0
 --- !u!1 &1305127685
 GameObject:
   m_ObjectHideFlags: 0
@@ -24788,6 +24885,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   countryName: Congo
   presetFactionName: 
+  presetFactionLeader: 0
 --- !u!1 &1323172741
 GameObject:
   m_ObjectHideFlags: 0
@@ -25161,6 +25259,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   countryName: Niger
   presetFactionName: 
+  presetFactionLeader: 0
 --- !u!1 &1343595287
 GameObject:
   m_ObjectHideFlags: 0
@@ -25348,6 +25447,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   countryName: Eswatini
   presetFactionName: 
+  presetFactionLeader: 0
 --- !u!1 &1344714766
 GameObject:
   m_ObjectHideFlags: 0
@@ -25547,6 +25647,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   countryName: Romania
   presetFactionName: NATO
+  presetFactionLeader: 0
 --- !u!1 &1347801312
 GameObject:
   m_ObjectHideFlags: 0
@@ -25810,6 +25911,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   countryName: Pakistan
   presetFactionName: 
+  presetFactionLeader: 0
 --- !u!1 &1347991590
 GameObject:
   m_ObjectHideFlags: 0
@@ -26709,6 +26811,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   countryName: Canada
   presetFactionName: NATO
+  presetFactionLeader: 0
 --- !u!1 &1353687596
 GameObject:
   m_ObjectHideFlags: 0
@@ -26904,6 +27007,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   countryName: Iceland
   presetFactionName: NATO
+  presetFactionLeader: 0
 --- !u!1 &1389779362
 GameObject:
   m_ObjectHideFlags: 0
@@ -27085,6 +27189,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   countryName: Gambia
   presetFactionName: 
+  presetFactionLeader: 0
 --- !u!1 &1418234760
 GameObject:
   m_ObjectHideFlags: 0
@@ -27312,6 +27417,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   countryName: Zimbabwe
   presetFactionName: 
+  presetFactionLeader: 0
 --- !u!1 &1434154806
 GameObject:
   m_ObjectHideFlags: 0
@@ -27633,6 +27739,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   countryName: Bosnia Herzegovina
   presetFactionName: 
+  presetFactionLeader: 0
 --- !u!1 &1452682420
 GameObject:
   m_ObjectHideFlags: 0
@@ -27818,6 +27925,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   countryName: North Macedonia
   presetFactionName: NATO
+  presetFactionLeader: 0
 --- !u!1 &1474350778
 GameObject:
   m_ObjectHideFlags: 0
@@ -28040,6 +28148,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   countryName: Suriname
   presetFactionName: 
+  presetFactionLeader: 0
 --- !u!1 &1496252670
 GameObject:
   m_ObjectHideFlags: 0
@@ -28260,6 +28369,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   countryName: Guatemala
   presetFactionName: 
+  presetFactionLeader: 0
 --- !u!1 &1517003641
 GameObject:
   m_ObjectHideFlags: 0
@@ -28471,6 +28581,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   countryName: Burkina Faso
   presetFactionName: 
+  presetFactionLeader: 0
 --- !u!1 &1518284486
 GameObject:
   m_ObjectHideFlags: 0
@@ -28824,6 +28935,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   countryName: Sudan
   presetFactionName: 
+  presetFactionLeader: 0
 --- !u!1 &1549835229
 GameObject:
   m_ObjectHideFlags: 0
@@ -29131,6 +29243,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   countryName: New Zealand
   presetFactionName: 
+  presetFactionLeader: 0
 --- !u!1 &1552456016
 GameObject:
   m_ObjectHideFlags: 0
@@ -29328,6 +29441,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   countryName: Ireland
   presetFactionName: 
+  presetFactionLeader: 0
 --- !u!1 &1569393035
 GameObject:
   m_ObjectHideFlags: 0
@@ -29595,6 +29709,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   countryName: Mongolia
   presetFactionName: 
+  presetFactionLeader: 0
 --- !u!1 &1579712378
 GameObject:
   m_ObjectHideFlags: 0
@@ -29794,6 +29909,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   countryName: Poland
   presetFactionName: NATO
+  presetFactionLeader: 0
 --- !u!1 &1580309998
 GameObject:
   m_ObjectHideFlags: 0
@@ -29979,6 +30095,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   countryName: Belize
   presetFactionName: 
+  presetFactionLeader: 0
 --- !u!1 &1586983728
 GameObject:
   m_ObjectHideFlags: 0
@@ -30170,6 +30287,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   countryName: Moldova
   presetFactionName: 
+  presetFactionLeader: 0
 --- !u!1 &1592914857
 GameObject:
   m_ObjectHideFlags: 0
@@ -30359,6 +30477,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   countryName: Slovakia
   presetFactionName: NATO
+  presetFactionLeader: 0
 --- !u!1 &1605397338
 GameObject:
   m_ObjectHideFlags: 0
@@ -30895,6 +31014,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   countryName: Indonesia
   presetFactionName: 
+  presetFactionLeader: 0
 --- !u!1 &1624111093
 GameObject:
   m_ObjectHideFlags: 0
@@ -31161,6 +31281,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   countryName: Netherlands
   presetFactionName: NATO
+  presetFactionLeader: 0
 --- !u!1 &1644658672
 GameObject:
   m_ObjectHideFlags: 0
@@ -31366,6 +31487,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   countryName: North Korea
   presetFactionName: 
+  presetFactionLeader: 0
 --- !u!1 &1659848881
 GameObject:
   m_ObjectHideFlags: 0
@@ -31605,6 +31727,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   countryName: Sweden
   presetFactionName: NATO
+  presetFactionLeader: 0
 --- !u!1 &1673770883
 GameObject:
   m_ObjectHideFlags: 0
@@ -31810,6 +31933,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   countryName: Nepal
   presetFactionName: 
+  presetFactionLeader: 0
 --- !u!1 &1706852121
 GameObject:
   m_ObjectHideFlags: 0
@@ -32181,6 +32305,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   countryName: India
   presetFactionName: 
+  presetFactionLeader: 0
 --- !u!1 &1721644217
 GameObject:
   m_ObjectHideFlags: 0
@@ -32372,6 +32497,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   countryName: Hungary
   presetFactionName: NATO
+  presetFactionLeader: 0
 --- !u!1 &1730082212
 GameObject:
   m_ObjectHideFlags: 0
@@ -32592,6 +32718,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   countryName: Haiti
   presetFactionName: 
+  presetFactionLeader: 0
 --- !u!1 &1745926740
 GameObject:
   m_ObjectHideFlags: 0
@@ -32837,6 +32964,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   countryName: Chad
   presetFactionName: 
+  presetFactionLeader: 0
 --- !u!1 &1749685303
 GameObject:
   m_ObjectHideFlags: 0
@@ -33090,6 +33218,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   countryName: Morocco
   presetFactionName: 
+  presetFactionLeader: 0
 --- !u!1 &1761430785
 GameObject:
   m_ObjectHideFlags: 0
@@ -33291,6 +33420,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   countryName: Liberia
   presetFactionName: 
+  presetFactionLeader: 0
 --- !u!1 &1761653649
 GameObject:
   m_ObjectHideFlags: 0
@@ -33546,6 +33676,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   countryName: Uzbekistan
   presetFactionName: 
+  presetFactionLeader: 0
 --- !u!1 &1770030617
 GameObject:
   m_ObjectHideFlags: 0
@@ -33753,6 +33884,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   countryName: Tunisia
   presetFactionName: 
+  presetFactionLeader: 0
 --- !u!1 &1804613715
 GameObject:
   m_ObjectHideFlags: 0
@@ -34062,6 +34194,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   countryName: South Africa
   presetFactionName: 
+  presetFactionLeader: 0
 --- !u!1 &1831714801
 GameObject:
   m_ObjectHideFlags: 0
@@ -34430,6 +34563,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   countryName: Equatorial Guinea
   presetFactionName: 
+  presetFactionLeader: 0
 --- !u!1 &1845085511
 GameObject:
   m_ObjectHideFlags: 0
@@ -34637,6 +34771,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   countryName: Ivory Coast
   presetFactionName: 
+  presetFactionLeader: 0
 --- !u!1 &1852445538
 GameObject:
   m_ObjectHideFlags: 0
@@ -34832,6 +34967,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   countryName: Nicaragua
   presetFactionName: 
+  presetFactionLeader: 0
 --- !u!1 &1854743005
 GameObject:
   m_ObjectHideFlags: 0
@@ -35085,6 +35221,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   countryName: Mali
   presetFactionName: 
+  presetFactionLeader: 0
 --- !u!1 &1861718229
 GameObject:
   m_ObjectHideFlags: 0
@@ -35284,6 +35421,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   countryName: Uganda
   presetFactionName: 
+  presetFactionLeader: 0
 --- !u!1 &1863816877
 GameObject:
   m_ObjectHideFlags: 0
@@ -35477,6 +35615,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   countryName: South Korea
   presetFactionName: 
+  presetFactionLeader: 0
 --- !u!1 &1873174551
 GameObject:
   m_ObjectHideFlags: 0
@@ -35698,6 +35837,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   countryName: Botswana
   presetFactionName: 
+  presetFactionLeader: 0
 --- !u!1 &1876695375
 GameObject:
   m_ObjectHideFlags: 0
@@ -36029,6 +36169,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   countryName: Kazakhstan
   presetFactionName: CSTO
+  presetFactionLeader: 0
 --- !u!1 &1877870780
 GameObject:
   m_ObjectHideFlags: 0
@@ -36214,6 +36355,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   countryName: Guinea-Bissau
   presetFactionName: 
+  presetFactionLeader: 0
 --- !u!1 &1878596330
 GameObject:
   m_ObjectHideFlags: 0
@@ -36461,6 +36603,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   countryName: Libya
   presetFactionName: 
+  presetFactionLeader: 0
 --- !u!1 &1884402254
 GameObject:
   m_ObjectHideFlags: 0
@@ -36666,6 +36809,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   countryName: Bangladesh
   presetFactionName: 
+  presetFactionLeader: 0
 --- !u!1 &1895481689
 GameObject:
   m_ObjectHideFlags: 0
@@ -36987,6 +37131,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   countryName: Argentina
   presetFactionName: 
+  presetFactionLeader: 0
 --- !u!1 &1898342716
 GameObject:
   m_ObjectHideFlags: 0
@@ -37182,6 +37327,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   countryName: Ghana
   presetFactionName: 
+  presetFactionLeader: 0
 --- !u!1 &1909173902
 GameObject:
   m_ObjectHideFlags: 0
@@ -37482,6 +37628,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   countryName: Tajikistan
   presetFactionName: CSTO
+  presetFactionLeader: 0
 --- !u!1 &1926477385
 GameObject:
   m_ObjectHideFlags: 0
@@ -37976,6 +38123,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   countryName: China
   presetFactionName: 
+  presetFactionLeader: 0
 --- !u!1 &1938001409
 GameObject:
   m_ObjectHideFlags: 0
@@ -38266,6 +38414,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   countryName: Turkiye
   presetFactionName: NATO
+  presetFactionLeader: 0
 --- !u!1 &1965767009
 GameObject:
   m_ObjectHideFlags: 0
@@ -38538,6 +38687,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   countryName: Estonia
   presetFactionName: NATO
+  presetFactionLeader: 0
 --- !u!1 &2013673132
 GameObject:
   m_ObjectHideFlags: 0
@@ -38767,6 +38917,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   countryName: Madagascar
   presetFactionName: 
+  presetFactionLeader: 0
 --- !u!1 &2024014144
 GameObject:
   m_ObjectHideFlags: 0
@@ -39040,6 +39191,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   countryName: Togo
   presetFactionName: 
+  presetFactionLeader: 0
 --- !u!1 &2058077580
 GameObject:
   m_ObjectHideFlags: 0
@@ -39225,6 +39377,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   countryName: Lebanon
   presetFactionName: 
+  presetFactionLeader: 0
 --- !u!1 &2087815429
 GameObject:
   m_ObjectHideFlags: 0
@@ -39408,6 +39561,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   countryName: Denmark
   presetFactionName: NATO
+  presetFactionLeader: 0
 --- !u!1 &2114791239
 GameObject:
   m_ObjectHideFlags: 0
@@ -39641,6 +39795,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   countryName: Nigeria
   presetFactionName: 
+  presetFactionLeader: 0
 --- !u!1 &2116244411
 GameObject:
   m_ObjectHideFlags: 0
@@ -39897,6 +40052,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   countryName: Japan
   presetFactionName: 
+  presetFactionLeader: 0
 --- !u!1 &2123585593
 GameObject:
   m_ObjectHideFlags: 0
@@ -40308,6 +40464,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   countryName: Brazil
   presetFactionName: 
+  presetFactionLeader: 0
 --- !u!1 &2138081266
 GameObject:
   m_ObjectHideFlags: 0
@@ -40651,6 +40808,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   countryName: Mozambique
   presetFactionName: 
+  presetFactionLeader: 0
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0

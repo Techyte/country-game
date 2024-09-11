@@ -31,6 +31,10 @@ public class NationSetup : MonoBehaviour
             else
             {
                 faction = NationManager.Instance.GetFactionByName(country.presetFactionName);
+                if (country.presetFactionLeader)
+                {
+                    faction.SetFactionLeader(nation);
+                }
             }
 
             NationManager.Instance.NewNation(nation);

@@ -116,6 +116,7 @@ public class Nation
 public class Faction
 {
     public string Name;
+    public Nation FactionLeader;
     public List<Nation> Nations = new List<Nation>();
     public int NationCount => Nations.Count;
     public Color color;
@@ -131,6 +132,21 @@ public class Faction
         if (Nations.Contains(nationThatLeft))
         {
             Nations.Remove(nationThatLeft);
+        }
+    }
+
+    public void SetFactionLeader(Nation newFactionLeader)
+    {
+        FactionLeader = newFactionLeader;
+
+        if (Nations.Contains(newFactionLeader))
+        {
+            Nations.Remove(newFactionLeader);
+            Nations.Insert(0, newFactionLeader);
+        }
+        else
+        {
+            Nations.Insert(0, newFactionLeader);
         }
     }
 }

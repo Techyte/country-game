@@ -22,6 +22,11 @@ public class CountryButton : MonoBehaviour
 
     private void Update()
     {
+        if (EventSystem.current.IsPointerOverGameObject())
+        {
+            _currentAlphaMultiplier = 1;
+        }
+        
         Color targetColor = baseColour * _currentAlphaMultiplier;
         targetColor.a = 1;
         

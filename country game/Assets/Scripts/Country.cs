@@ -9,6 +9,7 @@ public class Country : MonoBehaviour
     private CountryButton button;
 
     public string presetFactionName;
+    public bool presetFactionLeader;
 
     private void Awake()
     {
