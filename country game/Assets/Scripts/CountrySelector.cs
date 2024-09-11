@@ -1,5 +1,4 @@
-using System;
-using System.Globalization;
+using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -14,15 +13,21 @@ public class CountrySelector : MonoBehaviour
     [SerializeField] private TextMeshProUGUI factionText;
     [SerializeField] private Image flagImage;
     [SerializeField] private Transform titleStartPos, titleEndPos;
+    [SerializeField] private Transform factionMembersParent;
+    [SerializeField] private GameObject factionMemberPrefab;
+    [SerializeField] private TextMeshProUGUI factionName;
+    [SerializeField] private Transform factionScreen;
 
     private bool _countrySelected;
+    private bool _factionScreen;
 
-    private string _currentCountry;
+    private Nation _currentNation;
 
     private void Awake()
     {
         Instance = this;
         titleCard.position = titleStartPos.position;
+        factionScreen.position = titleStartPos.position;
     }
 
     private void Update()
@@ -40,19 +45,29 @@ public class CountrySelector : MonoBehaviour
         {
             titleCard.position = Vector3.Lerp(titleCard.position, titleStartPos.position, titleSpeed * Time.deltaTime);
         }
+        
+        if (_factionScreen)
+        {
+            factionScreen.position = Vector3.Lerp(factionScreen.position, titleEndPos.position, titleSpeed * Time.deltaTime);
+        }
+        else
+        {
+            factionScreen.position = Vector3.Lerp(factionScreen.position, titleStartPos.position, titleSpeed * Time.deltaTime);
+        }
     }
 
-    public void Clicked(Country countrySelected)
+    public void Clicked(Nation nationSelected)
     {
-        _currentCountry = countrySelected.countryName;
+        _factionScreen = false;
+        _currentNation = nationSelected;
         _countrySelected = true;
         titleCard.position = titleStartPos.position;
-        titleText.text = countrySelected.countryName;
+        titleText.text = nationSelected.Name;
 
-        if (!countrySelected.GetNation().faction.privateFaction)
+        if (!nationSelected.faction.privateFaction)
         {
-            factionText.text = countrySelected.GetNation().faction.Name;
-            factionText.color = countrySelected.GetNation().faction.color;
+            factionText.text = nationSelected.faction.Name;
+            factionText.color = nationSelected.faction.color;
         }
         else
         {
@@ -60,13 +75,53 @@ public class CountrySelector : MonoBehaviour
             factionText.color = Color.black;
         }
 
-        Sprite flag = Resources.Load<Sprite>("Flags/" + countrySelected.countryName.ToLower().Replace(' ', '_') + "_32");
+        Sprite flag = Resources.Load<Sprite>("Flags/" + nationSelected.Name.ToLower().Replace(' ', '_') + "_32");
         flagImage.sprite = flag;
+    }
+
+    private List<GameObject> currentFactionMembers = new List<GameObject>();
+
+    private void DisplayFactionMembers(Faction faction)
+    {
+        foreach (var oldMember in currentFactionMembers)
+        {
+            Destroy(oldMember);
+        }
+        
+        foreach (var nation in faction.Nations)
+        {
+            GameObject obj = Instantiate(factionMemberPrefab, factionMembersParent);
+
+            obj.GetComponentInChildren<TextMeshProUGUI>().text = nation.Name;
+            obj.GetComponentsInChildren<Image>()[1].sprite = Resources.Load<Sprite>("Flags/" + nation.Name.ToLower().Replace(' ', '_') + "_32");
+            
+            obj.GetComponent<Button>().onClick.AddListener(() =>
+            {
+                Clicked(nation);
+            });
+            
+            currentFactionMembers.Add(obj);
+        }
     }
 
     public void ResetSelected()
     {
-        _currentCountry = "";
+        Debug.Log("Resetting selected");
+        _currentNation = null;
         _countrySelected = false;
+        _factionScreen = false;
+    }
+
+    public void OpenFactionScreen()
+    {
+        Faction faction = _currentNation.faction;
+
+        if (!faction.privateFaction)
+        {
+            DisplayFactionMembers(faction);
+            _factionScreen = true;
+            _countrySelected = false;
+            factionName.text = faction.Name;
+        }
     }
 }

@@ -1,4 +1,6 @@
+using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
 
 public class GameCamera : MonoBehaviour
 {
@@ -22,8 +24,12 @@ public class GameCamera : MonoBehaviour
         targetFov = currentFov;
     }
 
+    private bool hoveringThisFrame = false;
+
     private void Update()
     {
+        hoveringThisFrame = IsPointerOverUIObject();
+        
         Vector3 oldPos = transform.position;
 
         float oldTarget = targetFov;
@@ -78,12 +84,14 @@ public class GameCamera : MonoBehaviour
 
     private void Zoom()
     {
-        float scroll = -Input.GetAxisRaw("Mouse ScrollWheel");
+        if (!hoveringThisFrame)
+        {
+            float scroll = -Input.GetAxisRaw("Mouse ScrollWheel");
 
-        targetFov += scroll * scrollSpeed;
+            targetFov += scroll * scrollSpeed;
         
-        targetFov = Mathf.Clamp(targetFov, minFov, maxFov);
-        
+            targetFov = Mathf.Clamp(targetFov, minFov, maxFov);
+        }
         currentFov = Mathf.Lerp(currentFov, targetFov, scrollIntensity * Time.deltaTime);
 
         currentFov = Mathf.Clamp(currentFov, minFov, maxFov);
@@ -103,11 +111,15 @@ public class GameCamera : MonoBehaviour
         
         if (Input.GetMouseButton(0) || Input.GetMouseButton(2))
         {
-            Vector3 mousePos = Input.mousePosition;
-            mousePos.z = cam.nearClipPlane * panSpeed;
-            mousePos = cam.ScreenToWorldPoint(mousePos);
+            Vector2 distance = Vector2.zero;
+            if (!hoveringThisFrame)
+            {
+                Vector3 mousePos = Input.mousePosition;
+                mousePos.z = cam.nearClipPlane * panSpeed;
+                mousePos = cam.ScreenToWorldPoint(mousePos);
             
-            Vector2 distance = mousePos - prevMousePos;
+                distance = mousePos - prevMousePos;
+            }
             
             if (distance.magnitude > 0)
             {
@@ -115,5 +127,14 @@ public class GameCamera : MonoBehaviour
                     Vector3.Lerp(transform.position, transform.position - (Vector3)distance, panIntensity * Time.deltaTime);
             }
         }
+    }
+    
+    public static bool IsPointerOverUIObject()
+    {
+        PointerEventData eventDataCurrentPosition = new PointerEventData(EventSystem.current);
+        eventDataCurrentPosition.position = new Vector2(Input.mousePosition.x, Input.mousePosition.y);
+        List<RaycastResult> results = new List<RaycastResult>();
+        EventSystem.current.RaycastAll(eventDataCurrentPosition, results);
+        return results.Count > 0;
     }
 }

@@ -46,12 +46,12 @@ public class CountryButton : MonoBehaviour
 
     private void OnMouseDown()
     {
-        if (Input.GetMouseButton(2) || Input.GetMouseButton(1))
+        if (Input.GetMouseButton(2) || Input.GetMouseButton(1) || EventSystem.current.IsPointerOverGameObject())
         {
             return;
         }
         
-        CountrySelector.Instance.Clicked(GetComponent<Country>());
+        CountrySelector.Instance.Clicked(GetComponent<Country>().GetNation());
         
         _currentAlphaMultiplier = 0.4f;
     }

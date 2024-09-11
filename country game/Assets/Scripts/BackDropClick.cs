@@ -1,9 +1,13 @@
 using UnityEngine;
+using UnityEngine.EventSystems;
 
 public class BackDropClick : MonoBehaviour
 {
     private void OnMouseDown()
     {
-        CountrySelector.Instance.ResetSelected();
+        if (!EventSystem.current.IsPointerOverGameObject())
+        {
+            CountrySelector.Instance.ResetSelected();
+        }
     }
 }

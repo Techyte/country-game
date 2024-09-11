@@ -55,5 +55,12 @@ public class NationSetup : MonoBehaviour
         nato.privateFaction = false;
         
         NationManager.Instance.NewFaction(nato);
+        
+        Faction csto = new Faction();
+        csto.color = Color.green;
+        csto.Name = "CSTO";
+        csto.privateFaction = false;
+        
+        NationManager.Instance.NewFaction(csto);
     }
 }
