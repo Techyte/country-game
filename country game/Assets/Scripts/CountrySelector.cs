@@ -27,7 +27,7 @@ public class CountrySelector : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Escape))
         {
-            _countrySelected = false;
+            ResetSelected();
         }
         
         if (_countrySelected)
@@ -51,5 +51,11 @@ public class CountrySelector : MonoBehaviour
 
         Sprite flag = Resources.Load<Sprite>("Flags/" + name.ToLower().Replace(' ', '_') + "_32");
         flagImage.sprite = flag;
+    }
+
+    public void ResetSelected()
+    {
+        _currentCountry = "";
+        _countrySelected = false;
     }
 }

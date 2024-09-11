@@ -24,8 +24,56 @@ public class GameCamera : MonoBehaviour
 
     private void Update()
     {
+        Vector3 oldPos = transform.position;
+
+        float oldTarget = targetFov;
+        float oldFOV = currentFov;
+        
         Zoom();
+
+        bool outOfBounds = false;
+        
+        if (cam.WorldToScreenPoint(leftViewPoint.position).x >= 0)
+        {
+            outOfBounds = true;
+        }
+        else if (cam.WorldToScreenPoint(rightViewPoint.position).x <= Screen.width)
+        {
+            outOfBounds = true;
+        }
+        else if (cam.WorldToScreenPoint(topViewPoint.position).y <= Screen.height)
+        {
+            outOfBounds = true;
+        }
+        else if (cam.WorldToScreenPoint(bottomViewPoint.position).y >= 0)
+        {
+            outOfBounds = true;
+        }
+
+        if (outOfBounds)
+        {
+            targetFov = oldTarget;
+            currentFov = oldFOV;
+        }
+        
         Pan();
+        
+        if (cam.WorldToScreenPoint(leftViewPoint.position).x >= 0)
+        {
+            transform.position = new Vector3(oldPos.x, transform.position.y, transform.position.z);
+        }
+        if (cam.WorldToScreenPoint(rightViewPoint.position).x <= Screen.width)
+        {
+            transform.position = new Vector3(oldPos.x, transform.position.y, transform.position.z);
+        }
+        if (cam.WorldToScreenPoint(topViewPoint.position).y <= Screen.height)
+        {
+            transform.position = new Vector3(transform.position.x, oldPos.y, transform.position.z);
+        }
+        if (cam.WorldToScreenPoint(bottomViewPoint.position).y >= 0)
+        {
+            transform.position = new Vector3(transform.position.x, oldPos.y, transform.position.z);
+        }
     }
 
     private void Zoom()
@@ -33,40 +81,12 @@ public class GameCamera : MonoBehaviour
         float scroll = -Input.GetAxisRaw("Mouse ScrollWheel");
 
         targetFov += scroll * scrollSpeed;
-
-        float oldTarget = targetFov;
-        float oldCurrent = currentFov;
         
         targetFov = Mathf.Clamp(targetFov, minFov, maxFov);
         
         currentFov = Mathf.Lerp(currentFov, targetFov, scrollIntensity * Time.deltaTime);
 
         currentFov = Mathf.Clamp(currentFov, minFov, maxFov);
-        
-        bool outOfBounds = false;
-
-        if (cam.WorldToScreenPoint(leftViewPoint.position).x >= 0)
-        {
-            outOfBounds = true;
-        }
-        if (cam.WorldToScreenPoint(rightViewPoint.position).x <= Screen.width)
-        {
-            outOfBounds = true;
-        }
-        if (cam.WorldToScreenPoint(topViewPoint.position).y <= Screen.height)
-        {
-            outOfBounds = true;
-        }
-        if (cam.WorldToScreenPoint(bottomViewPoint.position).y >= 0)
-        {
-            outOfBounds = true;
-        }
-                
-        if (outOfBounds)
-        {
-            currentFov = oldCurrent;
-            targetFov = oldTarget;
-        }
 
         cam.fieldOfView = currentFov;
     }
@@ -91,35 +111,8 @@ public class GameCamera : MonoBehaviour
             
             if (distance.magnitude > 0)
             {
-                Vector3 oldPos = transform.position;
-
                 transform.position =
                     Vector3.Lerp(transform.position, transform.position - (Vector3)distance, panIntensity * Time.deltaTime);
-
-                bool outOfBounds = false;
-
-                if (cam.WorldToScreenPoint(leftViewPoint.position).x >= 0)
-                {
-                    outOfBounds = true;
-                }
-                if (cam.WorldToScreenPoint(rightViewPoint.position).x <= Screen.width)
-                {
-                    outOfBounds = true;
-                }
-                if (cam.WorldToScreenPoint(topViewPoint.position).y <= Screen.height)
-                {
-                    outOfBounds = true;
-                }
-                if (cam.WorldToScreenPoint(bottomViewPoint.position).y >= 0)
-                {
-                    outOfBounds = true;
-                }
-                
-                if (outOfBounds)
-                {
-                    prevMousePos = mousePos;
-                    transform.position = oldPos;
-                }
             }
         }
     }
