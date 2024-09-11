@@ -20,7 +20,6 @@ public class GameCamera : MonoBehaviour
         cam = GetComponent<Camera>();
         currentFov = cam.fieldOfView;
         targetFov = currentFov;
-        maxFov = currentFov;
     }
 
     private void Update()
