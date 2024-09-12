@@ -10,7 +10,8 @@ public class CountrySelector : MonoBehaviour
     [SerializeField] private Transform titleCard;
     [SerializeField] private float titleSpeed;
     [SerializeField] private TextMeshProUGUI titleText;
-    [SerializeField] private TextMeshProUGUI factionText;
+    [SerializeField] private Transform factionTextParent;
+    [SerializeField] private GameObject factionText;
     [SerializeField] private Image flagImage;
     [SerializeField] private Transform titleStartPos, titleEndPos;
     [SerializeField] private Transform factionMembersParent;
@@ -56,6 +57,7 @@ public class CountrySelector : MonoBehaviour
         }
     }
 
+    private List<GameObject> currentFactionDisplays = new List<GameObject>();
     public void Clicked(Nation nationSelected)
     {
         _factionScreen = false;
@@ -64,15 +66,43 @@ public class CountrySelector : MonoBehaviour
         titleCard.position = titleStartPos.position;
         titleText.text = nationSelected.Name;
 
-        if (!nationSelected.faction.privateFaction)
+        foreach (var factionDisplay in currentFactionDisplays)
         {
-            factionText.text = nationSelected.faction.Name;
-            factionText.color = nationSelected.faction.color;
+            Destroy(factionDisplay);
         }
-        else
+
+        for (int i = 0; i < nationSelected.factions.Count; i++)
         {
-            factionText.text = "Non-Aligned";
-            factionText.color = Color.black;
+            int index = i;
+            Faction faction = nationSelected.factions[i];
+            
+            if (!faction.privateFaction)
+            {
+                if (nationSelected.factions.Count == 1)
+                {
+                    TextMeshProUGUI factionNameText = Instantiate(factionText, factionTextParent).GetComponent<TextMeshProUGUI>();
+                    factionNameText.text = faction.Name;
+                    factionNameText.color = faction.color;
+                    
+                    factionNameText.gameObject.GetComponent<Button>().onClick.AddListener(() =>
+                    {
+                        OpenFactionScreen(index);
+                    });
+                    
+                    currentFactionDisplays.Add(factionNameText.gameObject);
+                }
+            }
+            else
+            {
+                if (nationSelected.factions.Count == 1)
+                {
+                    TextMeshProUGUI nonAlignedText = Instantiate(factionText, factionTextParent).GetComponent<TextMeshProUGUI>();
+                    nonAlignedText.text = "Non-Aligned";
+                    nonAlignedText.color = Color.black;
+                    
+                    currentFactionDisplays.Add(nonAlignedText.gameObject);
+                }
+            }
         }
 
         Sprite flag = Resources.Load<Sprite>("Flags/" + nationSelected.Name.ToLower().Replace(' ', '_') + "_32");
@@ -111,10 +141,11 @@ public class CountrySelector : MonoBehaviour
         _factionScreen = false;
     }
 
-    public void OpenFactionScreen()
+    public void OpenFactionScreen(int factionIndex)
     {
-        Faction faction = _currentNation.faction;
+        Faction faction = _currentNation.factions[factionIndex];
 
+        Debug.Log(faction.privateFaction);
         if (!faction.privateFaction)
         {
             DisplayFactionMembers(faction);

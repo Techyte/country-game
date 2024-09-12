@@ -38,7 +38,7 @@ public class NationSetup : MonoBehaviour
             }
 
             NationManager.Instance.NewNation(nation);
-            NationManager.Instance.SwapNationsFaction(nation, faction);
+            NationManager.Instance.NationJoinFaction(nation, faction);
             NationManager.Instance.SwapCountriesNation(country, nation);
         }
 

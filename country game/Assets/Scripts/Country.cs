@@ -26,7 +26,7 @@ public class Country : MonoBehaviour
         {
             if (NationManager.Instance.useFactionColour)
             {
-                button.ChangeColor(nation.faction.color);
+                button.ChangeColor(nation.factions[0].color);
             }
             else
             {
@@ -49,7 +49,7 @@ public class Country : MonoBehaviour
     {
         if (NationManager.Instance.useFactionColour)
         {
-            ChangeColour(nation.faction.color);
+            ChangeColour(nation.factions[0].color);
         }
         else
         {

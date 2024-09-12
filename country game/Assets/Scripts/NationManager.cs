@@ -71,16 +71,11 @@ public class NationManager : MonoBehaviour
         }
     }
 
-    public void SwapNationsFaction(Nation nationToSwap, Faction factionToSwap)
+    public void NationJoinFaction(Nation nationToSwap, Faction factionToSwap)
     {
-        if (nationToSwap.faction != factionToSwap)
+        if (!nationToSwap.factions.Contains(factionToSwap))
         {
-            if (nationToSwap.faction != null)
-            {
-                nationToSwap.faction.NationLeft(nationToSwap);
-            }
-            
-            nationToSwap.ChangeFaction(factionToSwap);
+            nationToSwap.JoinFaction(factionToSwap);
             factionToSwap.CountryJointed(nationToSwap);
         }
     }
@@ -90,7 +85,7 @@ public class Nation
 {
     public string Name;
     public List<Country> Countries = new List<Country>();
-    public Faction faction;
+    public List<Faction> factions = new List<Faction>();
     public int CountryCount => Countries.Count;
     public Color Color;
 
@@ -107,9 +102,9 @@ public class Nation
         }
     }
 
-    public void ChangeFaction(Faction factionToJoin)
+    public void JoinFaction(Faction factionToJoin)
     {
-        faction = factionToJoin;
+        factions.Add(factionToJoin);
     }
 }
 
