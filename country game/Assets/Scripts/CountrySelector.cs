@@ -71,38 +71,35 @@ public class CountrySelector : MonoBehaviour
             Destroy(factionDisplay);
         }
 
+        Debug.Log(nationSelected.factions.Count);
         for (int i = 0; i < nationSelected.factions.Count; i++)
         {
+            Debug.Log(i);
             int index = i;
             Faction faction = nationSelected.factions[i];
             
             if (!faction.privateFaction)
             {
-                if (nationSelected.factions.Count == 1)
+                TextMeshProUGUI factionNameText = Instantiate(factionText, factionTextParent).GetComponent<TextMeshProUGUI>();
+                factionNameText.text = faction.Name;
+                factionNameText.color = faction.color;
+                
+                factionNameText.gameObject.GetComponent<Button>().onClick.AddListener(() =>
                 {
-                    TextMeshProUGUI factionNameText = Instantiate(factionText, factionTextParent).GetComponent<TextMeshProUGUI>();
-                    factionNameText.text = faction.Name;
-                    factionNameText.color = faction.color;
-                    
-                    factionNameText.gameObject.GetComponent<Button>().onClick.AddListener(() =>
-                    {
-                        OpenFactionScreen(index);
-                    });
-                    
-                    currentFactionDisplays.Add(factionNameText.gameObject);
-                }
+                    OpenFactionScreen(index);
+                });
+                
+                currentFactionDisplays.Add(factionNameText.gameObject);
             }
-            else
-            {
-                if (nationSelected.factions.Count == 1)
-                {
-                    TextMeshProUGUI nonAlignedText = Instantiate(factionText, factionTextParent).GetComponent<TextMeshProUGUI>();
-                    nonAlignedText.text = "Non-Aligned";
-                    nonAlignedText.color = Color.black;
-                    
-                    currentFactionDisplays.Add(nonAlignedText.gameObject);
-                }
-            }
+        }
+        
+        if (nationSelected.factions.Count == 1)
+        {
+            TextMeshProUGUI nonAlignedText = Instantiate(factionText, factionTextParent).GetComponent<TextMeshProUGUI>();
+            nonAlignedText.text = "Non-Aligned";
+            nonAlignedText.color = Color.black;
+            
+            currentFactionDisplays.Add(nonAlignedText.gameObject);
         }
 
         Sprite flag = Resources.Load<Sprite>("Flags/" + nationSelected.Name.ToLower().Replace(' ', '_') + "_32");

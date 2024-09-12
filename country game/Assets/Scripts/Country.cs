@@ -1,3 +1,5 @@
+using System;
+using System.Collections.Generic;
 using System.Globalization;
 using UnityEngine;
 
@@ -8,8 +10,7 @@ public class Country : MonoBehaviour
 
     private CountryButton button;
 
-    public string presetFactionName;
-    public bool presetFactionLeader;
+    public List<PresetFaction> FactionPresets;
 
     private void Awake()
     {
@@ -57,4 +58,11 @@ public class Country : MonoBehaviour
         }
         this.nation = nation;
     }
+}
+
+[Serializable]
+public class PresetFaction
+{
+    public string FactionName;
+    public bool FactionLeader;
 }

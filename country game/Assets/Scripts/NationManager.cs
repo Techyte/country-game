@@ -76,7 +76,7 @@ public class NationManager : MonoBehaviour
         if (!nationToSwap.factions.Contains(factionToSwap))
         {
             nationToSwap.JoinFaction(factionToSwap);
-            factionToSwap.CountryJointed(nationToSwap);
+            factionToSwap.CountryJointed(nationToSwap); 
         }
     }
 }
