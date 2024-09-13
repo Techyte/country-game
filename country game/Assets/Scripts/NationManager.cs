@@ -1,10 +1,11 @@
-using System;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class NationManager : MonoBehaviour
 {
     public static NationManager Instance;
+
+    public Nation PlayerNation;
     
     public List<Nation> nations = new List<Nation>();
     public List<Faction> factions = new List<Faction>();

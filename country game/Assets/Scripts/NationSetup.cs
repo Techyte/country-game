@@ -35,6 +35,18 @@ public class NationSetup : MonoBehaviour
             {
                 NationManager.Instance.SwapCountriesNation(country, NationManager.Instance.GetNationByName("Denmark"));
             }
+            else if (country.countryName == "Alaska")
+            {
+                NationManager.Instance.SwapCountriesNation(country, NationManager.Instance.GetNationByName("United States"));
+            }
+            else if (country.countryName == "Kaliningrad")
+            {
+                NationManager.Instance.SwapCountriesNation(country, NationManager.Instance.GetNationByName("Russia"));
+            }
+            else if (country.countryName == "French Guiana")
+            {
+                NationManager.Instance.SwapCountriesNation(country, NationManager.Instance.GetNationByName("France"));
+            }
         }
     }
 }
