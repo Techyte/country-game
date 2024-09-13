@@ -47,6 +47,10 @@ public class NationSetup : MonoBehaviour
             {
                 NationManager.Instance.SwapCountriesNation(country, NationManager.Instance.GetNationByName("France"));
             }
+            else if (country.countryName == "Northern Ireland")
+            {
+                NationManager.Instance.SwapCountriesNation(country, NationManager.Instance.GetNationByName("United Kingdom"));
+            }
         }
     }
 }
