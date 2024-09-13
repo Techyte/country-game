@@ -71,7 +71,6 @@ public class CountrySelector : MonoBehaviour
             Destroy(factionDisplay);
         }
 
-        Debug.Log(nationSelected.factions.Count);
         for (int i = 0; i < nationSelected.factions.Count; i++)
         {
             Debug.Log(i);
@@ -93,7 +92,7 @@ public class CountrySelector : MonoBehaviour
             }
         }
         
-        if (nationSelected.factions.Count == 1)
+        if (nationSelected.factions.Count == 0)
         {
             TextMeshProUGUI nonAlignedText = Instantiate(factionText, factionTextParent).GetComponent<TextMeshProUGUI>();
             nonAlignedText.text = "Non-Aligned";

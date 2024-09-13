@@ -10,8 +10,6 @@ public class Country : MonoBehaviour
 
     private CountryButton button;
 
-    public List<PresetFaction> FactionPresets;
-
     private void Awake()
     {
         button = GetComponent<CountryButton>();
@@ -58,11 +56,4 @@ public class Country : MonoBehaviour
         }
         this.nation = nation;
     }
-}
-
-[Serializable]
-public class PresetFaction
-{
-    public string FactionName;
-    public bool FactionLeader;
 }

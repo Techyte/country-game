@@ -73,7 +73,7 @@ public class NationManager : MonoBehaviour
 
     public void NationJoinFaction(Nation nationToSwap, Faction factionToSwap)
     {
-        if (!nationToSwap.factions.Contains(factionToSwap))
+        if (!nationToSwap.factions.Contains(factionToSwap) && !factionToSwap.Nations.Contains(nationToSwap))
         {
             nationToSwap.JoinFaction(factionToSwap);
             factionToSwap.CountryJointed(nationToSwap); 

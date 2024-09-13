@@ -18,8 +18,7 @@ public class TextAutoScalerTool : MonoBehaviour
         if (text.enableAutoSizing)
         {
             int linesAdded = Mathf.FloorToInt(text.rectTransform.rect.height / intialSize) - 1;
-                
-            Debug.Log(linesAdded);
+            
             if (text.fontSize < text.fontSizeMax)
             {
                 float change = text.fontSize / text.fontSizeMax;
@@ -28,7 +27,6 @@ public class TextAutoScalerTool : MonoBehaviour
 
                 if (linesToAdd > 1)
                 {
-                    Debug.Log(intialSize + intialSize * Mathf.FloorToInt(linesToAdd));
                     text.rectTransform.sizeDelta = new Vector2(text.rectTransform.rect.width,
                         intialSize + intialSize * (Mathf.FloorToInt(linesToAdd) + linesAdded));
                 }
