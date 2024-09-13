@@ -22,7 +22,7 @@ public class CountryButton : MonoBehaviour
 
     private void Update()
     {
-        if (EventSystem.current.IsPointerOverGameObject())
+        if (GameCamera.Instance.IsPointerOverUIObject())
         {
             _currentAlphaMultiplier = 1;
         }
@@ -35,6 +35,11 @@ public class CountryButton : MonoBehaviour
 
     private void OnMouseEnter()
     {
+        if (GameCamera.Instance.IsPointerOverUIObject())
+        {
+            return;
+        }
+        
         _currentAlphaMultiplier = 0.65f;
     }
 
@@ -51,7 +56,7 @@ public class CountryButton : MonoBehaviour
 
     private void OnMouseDown()
     {
-        if (Input.GetMouseButton(2) || Input.GetMouseButton(1) || EventSystem.current.IsPointerOverGameObject())
+        if (Input.GetMouseButton(2) || Input.GetMouseButton(1) || GameCamera.Instance.IsPointerOverUIObject())
         {
             return;
         }

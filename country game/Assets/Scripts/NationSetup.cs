@@ -27,6 +27,11 @@ public class NationSetup : MonoBehaviour
             NationManager.Instance.NewFaction(nationFaction);
             
             NationManager.Instance.NationJoinFaction(nation, nationFaction);
+
+            if (nation.Name == "Australia")
+            {
+                PlayerNationManager.Instance.SetPlayerNation(nation);
+            }
         }
 
         foreach (var country in countries)

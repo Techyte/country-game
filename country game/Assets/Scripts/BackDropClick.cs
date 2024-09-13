@@ -5,7 +5,7 @@ public class BackDropClick : MonoBehaviour
 {
     private void OnMouseDown()
     {
-        if (!EventSystem.current.IsPointerOverGameObject())
+        if (!GameCamera.Instance.IsPointerOverUIObject())
         {
             CountrySelector.Instance.ResetSelected();
         }

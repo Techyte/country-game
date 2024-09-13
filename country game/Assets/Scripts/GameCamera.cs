@@ -1,9 +1,12 @@
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
 public class GameCamera : MonoBehaviour
 {
+    public static GameCamera Instance;
+    
     [SerializeField] private Camera cam;
     [SerializeField] private float scrollSpeed;
     [SerializeField] private float scrollIntensity;
@@ -17,11 +20,17 @@ public class GameCamera : MonoBehaviour
     private float targetFov = 0;
     private float currentFov = 0;
 
+    private List<UILimitMovementObject> movementLimitObjects = new List<UILimitMovementObject>();
+
     private void Awake()
     {
+        Instance = this;
+        
         cam = GetComponent<Camera>();
         currentFov = cam.fieldOfView;
         targetFov = currentFov;
+
+        movementLimitObjects = FindObjectsOfType<UILimitMovementObject>().ToList();
     }
 
     private bool hoveringThisFrame = false;
@@ -129,12 +138,18 @@ public class GameCamera : MonoBehaviour
         }
     }
     
-    public static bool IsPointerOverUIObject()
+    public bool IsPointerOverUIObject()
     {
-        PointerEventData eventDataCurrentPosition = new PointerEventData(EventSystem.current);
-        eventDataCurrentPosition.position = new Vector2(Input.mousePosition.x, Input.mousePosition.y);
-        List<RaycastResult> results = new List<RaycastResult>();
-        EventSystem.current.RaycastAll(eventDataCurrentPosition, results);
-        return results.Count > 0;
+        float mouseOver = 0;
+
+        foreach (var mlo in movementLimitObjects)
+        {
+            if (mlo.mouseOver)
+            {
+                mouseOver++;
+            }
+        }
+        
+        return mouseOver > 0;
     }
 }
