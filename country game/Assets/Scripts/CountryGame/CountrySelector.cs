@@ -12,17 +12,17 @@ namespace CountryGame
         [SerializeField] private Transform titleCard;
         [SerializeField] private float titleSpeed;
         [SerializeField] private TextMeshProUGUI titleText;
-        [SerializeField] private Transform factionTextParent;
-        [SerializeField] private GameObject factionText;
+        [SerializeField] private Transform agreementTextParent;
+        [SerializeField] private GameObject agreementText;
         [SerializeField] private Image flagImage;
         [SerializeField] private Transform titleStartPos, titleEndPos;
-        [SerializeField] private Transform factionMembersParent;
-        [SerializeField] private GameObject factionMemberPrefab;
-        [SerializeField] private TextMeshProUGUI factionName;
-        [SerializeField] private Transform factionScreen;
+        [SerializeField] private Transform agreementMembersParent;
+        [SerializeField] private GameObject agreementMemberPrefab;
+        [SerializeField] private TextMeshProUGUI agreementName;
+        [SerializeField] private Transform agreementScreen;
 
         private bool _countrySelected;
-        private bool _factionScreen;
+        private bool _agreementScreen;
 
         private Nation _currentNation;
 
@@ -30,7 +30,7 @@ namespace CountryGame
         {
             Instance = this;
             titleCard.position = titleStartPos.position;
-            factionScreen.position = titleStartPos.position;
+            agreementScreen.position = titleStartPos.position;
         }
 
         private void Update()
@@ -49,13 +49,13 @@ namespace CountryGame
                 titleCard.position = Vector3.Lerp(titleCard.position, titleStartPos.position, titleSpeed * Time.deltaTime);
             }
             
-            if (_factionScreen)
+            if (_agreementScreen)
             {
-                factionScreen.position = Vector3.Lerp(factionScreen.position, titleEndPos.position, titleSpeed * Time.deltaTime);
+                agreementScreen.position = Vector3.Lerp(agreementScreen.position, titleEndPos.position, titleSpeed * Time.deltaTime);
             }
             else
             {
-                factionScreen.position = Vector3.Lerp(factionScreen.position, titleStartPos.position, titleSpeed * Time.deltaTime);
+                agreementScreen.position = Vector3.Lerp(agreementScreen.position, titleStartPos.position, titleSpeed * Time.deltaTime);
             }
         }
 
@@ -70,7 +70,7 @@ namespace CountryGame
             }
             PlayerNationManager.Instance.ResetSelected();
             
-            _factionScreen = false;
+            _agreementScreen = false;
             _countrySelected = true;
             titleCard.position = titleStartPos.position;
             titleText.text = nationSelected.Name;
@@ -80,30 +80,27 @@ namespace CountryGame
                 Destroy(factionDisplay);
             }
 
-            for (int i = 0; i < nationSelected.factions.Count; i++)
+            for (int i = 0; i < nationSelected.agreements.Count; i++)
             {
                 int index = i;
-                Faction faction = nationSelected.factions[i];
+                Agreement faction = nationSelected.agreements[i];
                 
-                if (!faction.privateFaction)
+                TextMeshProUGUI factionNameText = Instantiate(agreementText, agreementTextParent).GetComponent<TextMeshProUGUI>();
+                factionNameText.text = faction.Name;
+                factionNameText.color = Color.black;
+                    
+                factionNameText.gameObject.GetComponent<Button>().onClick.AddListener(() =>
                 {
-                    TextMeshProUGUI factionNameText = Instantiate(factionText, factionTextParent).GetComponent<TextMeshProUGUI>();
-                    factionNameText.text = faction.Name;
-                    factionNameText.color = faction.color;
+                    OpenFactionScreen(index);
+                });
                     
-                    factionNameText.gameObject.GetComponent<Button>().onClick.AddListener(() =>
-                    {
-                        OpenFactionScreen(index);
-                    });
-                    
-                    currentFactionDisplays.Add(factionNameText.gameObject);
-                }
+                currentFactionDisplays.Add(factionNameText.gameObject);
             }
             
-            if (nationSelected.factions.Count == 0)
+            if (nationSelected.agreements.Count == 0)
             {
-                TextMeshProUGUI nonAlignedText = Instantiate(factionText, factionTextParent).GetComponent<TextMeshProUGUI>();
-                nonAlignedText.text = "Non-Aligned";
+                TextMeshProUGUI nonAlignedText = Instantiate(agreementText, agreementTextParent).GetComponent<TextMeshProUGUI>();
+                nonAlignedText.text = "None";
                 nonAlignedText.color = Color.black;
                 
                 currentFactionDisplays.Add(nonAlignedText.gameObject);
@@ -112,18 +109,18 @@ namespace CountryGame
             flagImage.sprite = nationSelected.flag;
         }
 
-        private List<GameObject> currentFactionMembers = new List<GameObject>();
+        private List<GameObject> currentAgreementMembers = new List<GameObject>();
 
-        private void DisplayFactionMembers(Faction faction)
+        private void DisplayAgreementMembers(Agreement agreement)
         {
-            foreach (var oldMember in currentFactionMembers)
+            foreach (var oldMember in currentAgreementMembers)
             {
                 Destroy(oldMember);
             }
             
-            foreach (var nation in faction.Nations)
+            foreach (var nation in agreement.Nations)
             {
-                GameObject obj = Instantiate(factionMemberPrefab, factionMembersParent);
+                GameObject obj = Instantiate(agreementMemberPrefab, agreementMembersParent);
 
                 obj.GetComponentInChildren<TextMeshProUGUI>().text = nation.Name;
                 obj.GetComponentsInChildren<Image>()[1].sprite = Resources.Load<Sprite>("Flags/" + nation.Name.ToLower().Replace(' ', '_') + "_32");
@@ -133,7 +130,7 @@ namespace CountryGame
                     Clicked(nation);
                 });
                 
-                currentFactionMembers.Add(obj);
+                currentAgreementMembers.Add(obj);
             }
         }
 
@@ -141,21 +138,17 @@ namespace CountryGame
         {
             _currentNation = null;
             _countrySelected = false;
-            _factionScreen = false;
+            _agreementScreen = false;
         }
 
         public void OpenFactionScreen(int factionIndex)
         {
-            Faction faction = _currentNation.factions[factionIndex];
+            Agreement agreement = _currentNation.agreements[factionIndex];
 
-            Debug.Log(faction.privateFaction);
-            if (!faction.privateFaction)
-            {
-                DisplayFactionMembers(faction);
-                _factionScreen = true;
-                _countrySelected = false;
-                factionName.text = faction.Name;
-            }
+            DisplayAgreementMembers(agreement);
+            _agreementScreen = true;
+            _countrySelected = false;
+            agreementName.text = agreement.Name;
         }
     }
 }

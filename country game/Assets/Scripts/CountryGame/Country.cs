@@ -25,14 +25,7 @@ namespace CountryGame
         {
             if (nation != null)
             {
-                if (NationManager.Instance.useFactionColour)
-                {
-                    button.ChangeColor(nation.factions[0].color);
-                }
-                else
-                {
-                    button.ChangeColor(nation.Color);
-                }
+                button.ChangeColor(nation.Color);
             }
         }
 
@@ -72,14 +65,7 @@ namespace CountryGame
 
         public void ChangeNation(Nation nation)
         {
-            if (NationManager.Instance.useFactionColour)
-            {
-                ChangeColour(nation.factions[0].color);
-            }
-            else
-            {
-                ChangeColour(nation.Color);
-            }
+            button.ChangeColor(nation.Color);
             this.nation = nation;
         }
     }

@@ -8,7 +8,7 @@ namespace CountryGame
         public static NationManager Instance;
         
         public List<Nation> nations = new List<Nation>();
-        public List<Faction> factions = new List<Faction>();
+        public List<Agreement> agreements = new List<Agreement>();
 
         public bool useFactionColour;
 
@@ -22,9 +22,9 @@ namespace CountryGame
             nations.Add(nationToAdd);
         }
 
-        public void NewFaction(Faction factionToAdd)
+        public void NewAgreement(Agreement agreementToAdd)
         {
-            factions.Add(factionToAdd);
+            agreements.Add(agreementToAdd);
         }
 
         public Nation GetNationByName(string nationName)
@@ -40,13 +40,13 @@ namespace CountryGame
             return null;
         }
 
-        public Faction GetFactionByName(string factionName)
+        public Agreement GetAgreementByName(string agreementName)
         {
-            foreach (var faction in factions)
+            foreach (var agreement in agreements)
             {
-                if (factionName == faction.Name)
+                if (agreementName == agreement.Name)
                 {
-                    return faction;
+                    return agreement;
                 }
             }
 
@@ -72,12 +72,12 @@ namespace CountryGame
             }
         }
 
-        public void NationJoinFaction(Nation nationToSwap, Faction factionToSwap)
+        public void NationJoinAgreement(Nation nationToSwap, Agreement agreementToJoin)
         {
-            if (!nationToSwap.factions.Contains(factionToSwap) && !factionToSwap.Nations.Contains(nationToSwap))
+            if (!nationToSwap.agreements.Contains(agreementToJoin) && !agreementToJoin.Nations.Contains(nationToSwap))
             {
-                nationToSwap.JoinFaction(factionToSwap);
-                factionToSwap.CountryJointed(nationToSwap); 
+                nationToSwap.JoinAgreement(agreementToJoin);
+                agreementToJoin.CountryJointed(nationToSwap); 
             }
         }
     }
@@ -86,7 +86,7 @@ namespace CountryGame
     {
         public string Name;
         public List<Country> Countries = new List<Country>();
-        public List<Faction> factions = new List<Faction>();
+        public List<Agreement> agreements = new List<Agreement>();
         public int CountryCount => Countries.Count;
         public Color Color;
         public Sprite flag;
@@ -104,47 +104,9 @@ namespace CountryGame
             }
         }
 
-        public void JoinFaction(Faction factionToJoin)
+        public void JoinAgreement(Agreement agreementToJoin)
         {
-            factions.Add(factionToJoin);
-        }
-    }
-
-    public class Faction
-    {
-        public string Name;
-        public Nation FactionLeader;
-        public List<Nation> Nations = new List<Nation>();
-        public int NationCount => Nations.Count;
-        public Color color;
-        public bool privateFaction;
-
-        public void CountryJointed(Nation nationThatJoined)
-        {
-            Nations.Add(nationThatJoined);
-        }
-
-        public void NationLeft(Nation nationThatLeft)
-        {
-            if (Nations.Contains(nationThatLeft))
-            {
-                Nations.Remove(nationThatLeft);
-            }
-        }
-
-        public void SetFactionLeader(Nation newFactionLeader)
-        {
-            FactionLeader = newFactionLeader;
-
-            if (Nations.Contains(newFactionLeader))
-            {
-                Nations.Remove(newFactionLeader);
-                Nations.Insert(0, newFactionLeader);
-            }
-            else
-            {
-                Nations.Insert(0, newFactionLeader);
-            }
+            agreements.Add(agreementToJoin);
         }
     }
 }

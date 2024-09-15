@@ -8,10 +8,6 @@ namespace CountryGame
     {
         private void Start()
         {
-            Faction un = new Faction();
-            un.Name = "United Nations";
-            un.color = Color.cyan;
-            
             List<Country> countries = FindObjectsOfType<Country>().ToList();
 
             foreach (var country in countries)
@@ -26,17 +22,7 @@ namespace CountryGame
                 
                 NationManager.Instance.SwapCountriesNation(country, nation);
 
-                Faction nationFaction = new Faction();
-                nationFaction.color = nation.Color;
-                nationFaction.Name = country.countryName;
-                nationFaction.privateFaction = true;
-                nationFaction.CountryJointed(nation);
-                NationManager.Instance.NewFaction(nationFaction);
-                
-                NationManager.Instance.NationJoinFaction(nation, nationFaction);
-                NationManager.Instance.NationJoinFaction(nation, un);
-
-                if (nation.Name == "Democratic Republic Of The Congo")
+                if (nation.Name == "Australia")
                 {
                     PlayerNationManager.Instance.SetPlayerNation(nation);
                 }
