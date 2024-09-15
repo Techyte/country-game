@@ -150,5 +150,10 @@ namespace CountryGame
             _countrySelected = false;
             agreementName.text = agreement.Name;
         }
+
+        public void BeginCreatingAgreement()
+        {
+            AgreementCreator.Instance.OpenAgreementScreen(_currentNation);
+        }
     }
 }

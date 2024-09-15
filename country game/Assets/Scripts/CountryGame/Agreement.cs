@@ -11,7 +11,12 @@ namespace CountryGame
         public List<Nation> Nations = new List<Nation>();
         public int NationCount => Nations.Count;
 
-        public void CountryJointed(Nation nationThatJoined)
+        public bool nonAgression;
+        public bool militaryAccess;
+        public bool autoJoinWar;
+        public int influence;
+
+        public void NationJointed(Nation nationThatJoined)
         {
             Nations.Add(nationThatJoined);
         }

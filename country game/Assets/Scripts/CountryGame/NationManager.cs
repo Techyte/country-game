@@ -77,7 +77,7 @@ namespace CountryGame
             if (!nationToSwap.agreements.Contains(agreementToJoin) && !agreementToJoin.Nations.Contains(nationToSwap))
             {
                 nationToSwap.JoinAgreement(agreementToJoin);
-                agreementToJoin.CountryJointed(nationToSwap); 
+                agreementToJoin.NationJointed(nationToSwap); 
             }
         }
     }
