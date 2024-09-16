@@ -69,6 +69,7 @@ namespace CountryGame
                 return;
             }
             PlayerNationManager.Instance.ResetSelected();
+            AgreementCreator.Instance.CloseAgreementScreen();
             
             _agreementScreen = false;
             _countrySelected = true;
@@ -83,11 +84,11 @@ namespace CountryGame
             for (int i = 0; i < nationSelected.agreements.Count; i++)
             {
                 int index = i;
-                Agreement faction = nationSelected.agreements[i];
+                Agreement agreement = nationSelected.agreements[i];
                 
                 TextMeshProUGUI factionNameText = Instantiate(agreementText, agreementTextParent).GetComponent<TextMeshProUGUI>();
-                factionNameText.text = faction.Name;
-                factionNameText.color = Color.black;
+                factionNameText.text = agreement.Name;
+                factionNameText.color = agreement.Color;
                     
                 factionNameText.gameObject.GetComponent<Button>().onClick.AddListener(() =>
                 {
@@ -148,12 +149,14 @@ namespace CountryGame
             DisplayAgreementMembers(agreement);
             _agreementScreen = true;
             _countrySelected = false;
+            AgreementCreator.Instance.CloseAgreementScreen();
             agreementName.text = agreement.Name;
         }
 
         public void BeginCreatingAgreement()
         {
             AgreementCreator.Instance.OpenAgreementScreen(_currentNation);
+            ResetSelected();
         }
     }
 }

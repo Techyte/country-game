@@ -1,3 +1,5 @@
+using UnityEngine.EventSystems;
+
 namespace CountryGame
 {
     using System.Collections.Generic;
@@ -21,8 +23,6 @@ namespace CountryGame
         private float targetFov = 0;
         private float currentFov = 0;
 
-        private List<UILimitMovementObject> movementLimitObjects = new List<UILimitMovementObject>();
-
         private void Awake()
         {
             Instance = this;
@@ -30,15 +30,13 @@ namespace CountryGame
             cam = GetComponent<Camera>();
             currentFov = cam.fieldOfView;
             targetFov = currentFov;
-
-            movementLimitObjects = FindObjectsOfType<UILimitMovementObject>().ToList();
         }
 
         private bool hoveringThisFrame = false;
 
         private void Update()
         {
-            hoveringThisFrame = IsPointerOverUIObject();
+            hoveringThisFrame = PointerOverUIObject();
             
             Vector3 oldPos = transform.position;
 
@@ -139,19 +137,18 @@ namespace CountryGame
             }
         }
         
+        private bool PointerOverUIObject()
+        {
+            PointerEventData eventDataCurrentPosition = new PointerEventData(EventSystem.current);
+            eventDataCurrentPosition.position = Input.mousePosition;
+            List<RaycastResult> results = new List<RaycastResult>();
+            EventSystem.current.RaycastAll(eventDataCurrentPosition, results);
+            return results.Count > 0;
+        }
+
         public bool IsPointerOverUIObject()
         {
-            float mouseOver = 0;
-
-            foreach (var mlo in movementLimitObjects)
-            {
-                if (mlo.mouseOver)
-                {
-                    mouseOver++;
-                }
-            }
-            
-            return mouseOver > 0;
+            return hoveringThisFrame;
         }
     }
 }

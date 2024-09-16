@@ -10,6 +10,7 @@ namespace CountryGame
         public Nation AgreementLeader;
         public List<Nation> Nations = new List<Nation>();
         public int NationCount => Nations.Count;
+        public Color Color;
 
         public bool nonAgression;
         public bool militaryAccess;
