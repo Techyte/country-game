@@ -1,10 +1,10 @@
-using System;
-
 namespace CountryGame
 {
     using UnityEngine;
     using UnityEngine.UI;
     using TMPro;
+    using System.Collections.Generic;
+    using System.Linq;
 
     public class AgreementCreator : MonoBehaviour
     {
@@ -23,11 +23,24 @@ namespace CountryGame
         [SerializeField] private Toggle autoJoinWar;
         [SerializeField] private Slider influence;
         [SerializeField] private Image flag1, flag2;
+        
+        private List<UILimitMovementObject> limiters = new List<UILimitMovementObject>();
 
         private void Awake()
         {
             Instance = this;
+            limiters = GetComponentsInChildren<UILimitMovementObject>().ToList();
             agreementCreatorScreen.SetActive(false);
+            Debug.Log(limiters.Count);
+        }
+
+        private void ResetLimiters()
+        {
+            foreach (var limiter in limiters)
+            {
+                Debug.Log(limiter.name);
+                limiter.mouseOver = false;
+            }
         }
 
         private void Update()
@@ -87,6 +100,7 @@ namespace CountryGame
 
         public void SendAgreementRequest()
         {
+            ResetLimiters();
             agreementCreatorScreen.SetActive(false);
 
             Agreement agreement = new Agreement();

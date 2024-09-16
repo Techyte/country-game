@@ -6,7 +6,7 @@ namespace CountryGame
 
     public class UILimitMovementObject : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
     {
-        [HideInInspector] public bool mouseOver;
+        public bool mouseOver;
 
         private void Awake()
         {
