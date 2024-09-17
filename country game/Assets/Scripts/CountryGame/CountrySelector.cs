@@ -92,7 +92,7 @@ namespace CountryGame
                     
                 factionNameText.gameObject.GetComponent<Button>().onClick.AddListener(() =>
                 {
-                    OpenFactionScreen(index);
+                    OpenAgreementScreen(index);
                 });
                     
                 currentFactionDisplays.Add(factionNameText.gameObject);
@@ -142,7 +142,7 @@ namespace CountryGame
             _agreementScreen = false;
         }
 
-        public void OpenFactionScreen(int factionIndex)
+        public void OpenAgreementScreen(int factionIndex)
         {
             Agreement agreement = _currentNation.agreements[factionIndex];
 
