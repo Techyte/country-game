@@ -25,6 +25,12 @@ namespace CountryGame
                 if (nation.Name == "Australia")
                 {
                     PlayerNationManager.Instance.SetPlayerNation(nation);
+                    nation.TotalTroopCount = 10;
+                    PlayerNationManager.Instance.diplomaticPower = 50;
+                }
+                else
+                {
+                    nation.TotalTroopCount = 5;
                 }
             }
 

@@ -56,6 +56,7 @@ namespace CountryGame
 
         private void ResetUI()
         {
+            agreementNameInput.text = "New Agreement";
             nonAggression.isOn = false;
             militaryAccess.isOn = false;
             autoJoinWar.isOn = false;
@@ -64,17 +65,17 @@ namespace CountryGame
             nation1Head.isOn = true;
             preexistingAgreementSelected = -1;
             colourPicker.gameObject.SetActive(false);
-            influenceLevelDisplay.text = $"{PlayerNationManager.Instance.PlayerNation.Name} does not influence {secondaryNation.Name}";
-            flag1.sprite = PlayerNationManager.Instance.PlayerNation.flag;
+            influenceLevelDisplay.text = $"{PlayerNationManager.PlayerNation.Name} does not influence {secondaryNation.Name}";
+            flag1.sprite = PlayerNationManager.PlayerNation.flag;
             flag2.sprite = secondaryNation.flag;
         }
 
         private void UpdateUI()
         {
             string influencedNation =
-                nation1Head.isOn ? secondaryNation.Name : PlayerNationManager.Instance.PlayerNation.Name;
+                nation1Head.isOn ? secondaryNation.Name : PlayerNationManager.PlayerNation.Name;
             string influencerNation =
-                nation1Head.isOn ? PlayerNationManager.Instance.PlayerNation.Name : secondaryNation.Name;
+                nation1Head.isOn ? PlayerNationManager.PlayerNation.Name : secondaryNation.Name;
             
             switch (influenceLevelSlider.value)
             {
@@ -105,10 +106,10 @@ namespace CountryGame
                 Destroy(factionDisplay);
             }
             
-            for (int i = 0; i < PlayerNationManager.Instance.PlayerNation.agreements.Count; i++)
+            for (int i = 0; i < PlayerNationManager.PlayerNation.agreements.Count; i++)
             {
                 int index = i;
-                Agreement agreement = PlayerNationManager.Instance.PlayerNation.agreements[i];
+                Agreement agreement = PlayerNationManager.PlayerNation.agreements[i];
                 
                 TextMeshProUGUI factionNameText = Instantiate(agreementText, agreementTextParent).GetComponent<TextMeshProUGUI>();
                 factionNameText.text = agreement.Name;
@@ -148,6 +149,11 @@ namespace CountryGame
 
         public void SendAgreementRequest()
         {
+            if (agreementNameInput.text == "New Agreement")
+            {
+                return;
+            }
+            
             CloseAgreementScreen();
 
             Agreement agreement = new Agreement();
@@ -157,17 +163,22 @@ namespace CountryGame
             agreement.autoJoinWar = autoJoinWar.isOn;
             agreement.nonAgression = nonAggression.isOn;
             agreement.Color = colourPicker.color;
+            agreement.AgreementLeader = nation1Head ? PlayerNationManager.PlayerNation : secondaryNation;
             
-            NationManager.Instance.NewAgreement(agreement);
-            
-            NationManager.Instance.NationJoinAgreement(PlayerNationManager.Instance.PlayerNation, agreement);
-            NationManager.Instance.NationJoinAgreement(secondaryNation, agreement);
+            ComputerAgreementCreator.Instance.PlayerAskedToJoinAgreement(secondaryNation, agreement, false);
         }
 
         public void SendExistingAgreementRequest()
         {
+            if (secondaryNation.agreements.Contains(PlayerNationManager.PlayerNation.agreements[preexistingAgreementSelected]))
+            {
+                return;
+            }
+            
             CloseAgreementScreen();
-            NationManager.Instance.NationJoinAgreement(secondaryNation, PlayerNationManager.Instance.PlayerNation.agreements[preexistingAgreementSelected]);
+            
+            ComputerAgreementCreator.Instance.PlayerAskedToJoinAgreement(secondaryNation, PlayerNationManager.PlayerNation.agreements[preexistingAgreementSelected], true);
+            ResetUI();
         }
 
         public void ToggleColourSelection()

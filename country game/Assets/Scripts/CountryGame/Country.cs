@@ -10,7 +10,7 @@ namespace CountryGame
         public string countryName;
         [SerializeField] private Nation nation;
 
-        private CountryButton button;
+        [HideInInspector] public CountryButton button;
 
         private void Awake()
         {
@@ -39,7 +39,7 @@ namespace CountryGame
             return nation;
         }
 
-        public void GetBorders()
+        public List<Nation> GetBorders()
         {
             PolygonCollider2D thisCollider = GetComponent<PolygonCollider2D>();
             
@@ -49,6 +49,8 @@ namespace CountryGame
             
             Physics2D.OverlapCollider(thisCollider, filter, overlappingColliders);
 
+            List<Nation> borderNations = new List<Nation>();
+
             foreach (var colider in overlappingColliders)
             {
                 if (colider.Distance(thisCollider).distance < -0.02f)
@@ -57,30 +59,21 @@ namespace CountryGame
                 
                     if (country != null)
                     {
-                        Debug.Log(country.countryName);
+                        if (!borderNations.Contains(country.nation))
+                        {
+                            borderNations.Add(country.nation);
+                        }
                     }
                 }
             }
+
+            return borderNations;
         }
 
         public void ChangeNation(Nation nation)
         {
             button.ChangeColor(nation.Color);
             this.nation = nation;
-        }
-    }
-
-    [CustomEditor(typeof(Country))]
-    public class countryEditor : Editor
-    {
-        // Rendering code for the PixelCollider2D custom inspector
-        public override void OnInspectorGUI()
-        {
-            Country country = (Country)target;
-            if (GUILayout.Button("Check Borders"))
-            {
-                country.GetBorders();
-            }
         }
     }
 }

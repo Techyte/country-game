@@ -8,12 +8,16 @@ namespace CountryGame
     {
         public static PlayerNationManager Instance;
 
-        public Nation PlayerNation { get; private set; }
+        public static Nation PlayerNation { get; private set; }
         [SerializeField] private Image flagImage;
         [SerializeField] private TextMeshProUGUI countryName;
         [SerializeField] private Transform playerNationDisplay;
         [SerializeField] private Transform displayStart, displayEnd;
+        [SerializeField] private TextMeshProUGUI diplomaticPowerDisplay;
+        [SerializeField] private TextMeshProUGUI troopNumDisplay;
         [SerializeField] private float displaySpeed;
+
+        public int diplomaticPower;
 
         private bool playerNationSelected;
 
@@ -38,6 +42,8 @@ namespace CountryGame
             {
                 playerNationDisplay.position = Vector3.Lerp(playerNationDisplay.position, displayStart.position, displaySpeed * Time.deltaTime);
             }
+            
+            UpdateUI();
         }
 
         public void ResetSelected()
@@ -49,6 +55,12 @@ namespace CountryGame
         {
             flagImage.sprite = PlayerNation.flag;
             countryName.text = PlayerNation.Name;
+        }
+
+        private void UpdateUI()
+        {
+            diplomaticPowerDisplay.text = $"Diplomatic Power: {diplomaticPower}";
+            troopNumDisplay.text = $"Troops: {PlayerNation.TotalTroopCount}";
         }
 
         public void SetPlayerNation(Nation playerNarion)

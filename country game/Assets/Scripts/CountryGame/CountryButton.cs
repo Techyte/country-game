@@ -10,9 +10,13 @@ namespace CountryGame
 
         private SpriteRenderer _renderer;
 
+        private Color targetColour;
+        private float targetColourInfluence = 0;
+
         private void Awake()
         {
             _renderer = GetComponent<SpriteRenderer>();
+            targetColour = baseColour;
         }
 
         private void Start()
@@ -27,7 +31,7 @@ namespace CountryGame
                 _currentAlphaMultiplier = 1;
             }
             
-            Color targetColor = baseColour * _currentAlphaMultiplier;
+            Color targetColor = Color.Lerp(baseColour, targetColour, targetColourInfluence) * _currentAlphaMultiplier;
             targetColor.a = 1;
             
             _renderer.color = Color.Lerp(_renderer.color, targetColor, 0.05f);
@@ -69,6 +73,12 @@ namespace CountryGame
         private void OnMouseUp()
         {
             _currentAlphaMultiplier = 0.9f;
+        }
+
+        public void SetInfluenceColour(Color color, float influence)
+        {
+            targetColour = color;
+            targetColourInfluence = influence;
         }
     }
 }

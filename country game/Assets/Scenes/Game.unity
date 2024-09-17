@@ -331,6 +331,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   countryName: Guyana
+  button: {fileID: 0}
 --- !u!1 &8093089
 GameObject:
   m_ObjectHideFlags: 0
@@ -677,6 +678,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   countryName: Somalia
+  button: {fileID: 0}
 --- !u!1 &17738161
 GameObject:
   m_ObjectHideFlags: 0
@@ -933,6 +935,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   countryName: Turkmenistan
+  button: {fileID: 0}
 --- !u!1 &18810516
 GameObject:
   m_ObjectHideFlags: 0
@@ -1157,6 +1160,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   countryName: Burundi
+  button: {fileID: 0}
 --- !u!1 &42686745
 GameObject:
   m_ObjectHideFlags: 0
@@ -1349,6 +1353,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   countryName: Senegal
+  button: {fileID: 0}
 --- !u!1 &51006754
 GameObject:
   m_ObjectHideFlags: 0
@@ -1531,6 +1536,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   countryName: Lesotho
+  button: {fileID: 0}
 --- !u!1 &62626125
 GameObject:
   m_ObjectHideFlags: 0
@@ -1735,6 +1741,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   countryName: Cuba
+  button: {fileID: 0}
 --- !u!1 &69944463
 GameObject:
   m_ObjectHideFlags: 0
@@ -1977,6 +1984,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   countryName: Bolivia
+  button: {fileID: 0}
 --- !u!1 &77698331
 GameObject:
   m_ObjectHideFlags: 0
@@ -2241,6 +2249,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   countryName: Norway
+  button: {fileID: 0}
 --- !u!1 &78255413
 GameObject:
   m_ObjectHideFlags: 0
@@ -2480,6 +2489,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   countryName: Malaysia
+  button: {fileID: 0}
 --- !u!1 &97056198
 GameObject:
   m_ObjectHideFlags: 0
@@ -2515,7 +2525,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0.000045776367}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &97056200
@@ -2806,6 +2816,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   countryName: Dominican Republic
+  button: {fileID: 0}
 --- !u!1 &101550892
 GameObject:
   m_ObjectHideFlags: 0
@@ -2996,6 +3007,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   countryName: United Arab Emirates
+  button: {fileID: 0}
 --- !u!1 &106972102
 GameObject:
   m_ObjectHideFlags: 0
@@ -3331,6 +3343,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   countryName: Syria
+  button: {fileID: 0}
 --- !u!1 &113770177
 GameObject:
   m_ObjectHideFlags: 0
@@ -3517,6 +3530,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   countryName: Taiwan
+  button: {fileID: 0}
 --- !u!1 &126201032
 GameObject:
   m_ObjectHideFlags: 0
@@ -3793,6 +3807,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   countryName: Democratic Republic Of The Congo
+  button: {fileID: 0}
 --- !u!1 &158068877
 GameObject:
   m_ObjectHideFlags: 0
@@ -3991,6 +4006,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   countryName: Honduras
+  button: {fileID: 0}
 --- !u!1 &177636283
 GameObject:
   m_ObjectHideFlags: 0
@@ -4179,6 +4195,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   countryName: Benin
+  button: {fileID: 0}
 --- !u!1 &181294500
 GameObject:
   m_ObjectHideFlags: 0
@@ -4318,7 +4335,10 @@ MonoBehaviour:
   playerNationDisplay: {fileID: 309908498}
   displayStart: {fileID: 325402019}
   displayEnd: {fileID: 1174988528}
+  diplomaticPowerDisplay: {fileID: 1182959605}
+  troopNumDisplay: {fileID: 383382272}
   displaySpeed: 5.265
+  diplomaticPower: 0
 --- !u!1 &210825791
 GameObject:
   m_ObjectHideFlags: 0
@@ -4529,6 +4549,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   countryName: Germany
+  button: {fileID: 0}
 --- !u!1 &222596605
 GameObject:
   m_ObjectHideFlags: 0
@@ -4749,6 +4770,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   countryName: Angola
+  button: {fileID: 0}
 --- !u!1 &230117939
 GameObject:
   m_ObjectHideFlags: 0
@@ -4945,6 +4967,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   countryName: Croatia
+  button: {fileID: 0}
 --- !u!1 &230466843
 GameObject:
   m_ObjectHideFlags: 0
@@ -5371,6 +5394,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   countryName: Afghanistan
+  button: {fileID: 0}
 --- !u!1 &244075090
 GameObject:
   m_ObjectHideFlags: 0
@@ -5599,6 +5623,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   countryName: Tanzania
+  button: {fileID: 0}
 --- !u!1 &246287070
 GameObject:
   m_ObjectHideFlags: 0
@@ -6148,6 +6173,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   countryName: Belarus
+  button: {fileID: 0}
 --- !u!1 &261466522
 GameObject:
   m_ObjectHideFlags: 0
@@ -6332,6 +6358,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   countryName: Portugal
+  button: {fileID: 0}
 --- !u!1 &308032786
 GameObject:
   m_ObjectHideFlags: 0
@@ -6496,6 +6523,8 @@ RectTransform:
   m_Children:
   - {fileID: 1247435761}
   - {fileID: 308032787}
+  - {fileID: 1182959604}
+  - {fileID: 383382271}
   m_Father: {fileID: 1098202726}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
@@ -6753,6 +6782,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   countryName: Ethiopia
+  button: {fileID: 0}
 --- !u!1 &318682504
 GameObject:
   m_ObjectHideFlags: 0
@@ -7111,6 +7141,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   countryName: Zambia
+  button: {fileID: 0}
 --- !u!1 &325402018
 GameObject:
   m_ObjectHideFlags: 0
@@ -7452,6 +7483,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   countryName: Greenland
+  button: {fileID: 0}
 --- !u!1 &348830703
 GameObject:
   m_ObjectHideFlags: 0
@@ -7659,6 +7691,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   countryName: Greece
+  button: {fileID: 0}
 --- !u!1 &365533034
 GameObject:
   m_ObjectHideFlags: 0
@@ -7956,6 +7989,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   countryName: Mauritania
+  button: {fileID: 0}
 --- !u!1 &381275942
 GameObject:
   m_ObjectHideFlags: 0
@@ -8136,6 +8170,141 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   countryName: Qatar
+  button: {fileID: 0}
+--- !u!1 &383382270
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 383382271}
+  - component: {fileID: 383382273}
+  - component: {fileID: 383382272}
+  m_Layer: 5
+  m_Name: Troops
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &383382271
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 383382270}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 309908498}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: -734.3592, y: 113.5}
+  m_SizeDelta: {x: 381.6817, y: 50}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &383382272
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 383382270}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_text: 'Troops: 10'
+  m_isRightToLeft: 0
+  m_fontAsset: {fileID: 11400000, guid: 957dbaf1fa9ef834db97955b0d878f96, type: 2}
+  m_sharedMaterial: {fileID: 8370735618977982747, guid: 957dbaf1fa9ef834db97955b0d878f96, type: 2}
+  m_fontSharedMaterials: []
+  m_fontMaterial: {fileID: 0}
+  m_fontMaterials: []
+  m_fontColor32:
+    serializedVersion: 2
+    rgba: 4278190080
+  m_fontColor: {r: 0, g: 0, b: 0, a: 1}
+  m_enableVertexGradient: 0
+  m_colorMode: 3
+  m_fontColorGradient:
+    topLeft: {r: 1, g: 1, b: 1, a: 1}
+    topRight: {r: 1, g: 1, b: 1, a: 1}
+    bottomLeft: {r: 1, g: 1, b: 1, a: 1}
+    bottomRight: {r: 1, g: 1, b: 1, a: 1}
+  m_fontColorGradientPreset: {fileID: 0}
+  m_spriteAsset: {fileID: 0}
+  m_tintAllSprites: 0
+  m_StyleSheet: {fileID: 0}
+  m_TextStyleHashCode: -1183493901
+  m_overrideHtmlColors: 0
+  m_faceColor:
+    serializedVersion: 2
+    rgba: 4294967295
+  m_fontSize: 24.45
+  m_fontSizeBase: 24.45
+  m_fontWeight: 400
+  m_enableAutoSizing: 0
+  m_fontSizeMin: 18
+  m_fontSizeMax: 72
+  m_fontStyle: 0
+  m_HorizontalAlignment: 1
+  m_VerticalAlignment: 256
+  m_textAlignment: 65535
+  m_characterSpacing: 0
+  m_wordSpacing: 0
+  m_lineSpacing: 0
+  m_lineSpacingMax: 0
+  m_paragraphSpacing: 0
+  m_charWidthMaxAdj: 0
+  m_enableWordWrapping: 1
+  m_wordWrappingRatios: 0.4
+  m_overflowMode: 0
+  m_linkedTextComponent: {fileID: 0}
+  parentLinkedComponent: {fileID: 0}
+  m_enableKerning: 1
+  m_enableExtraPadding: 0
+  checkPaddingRequired: 0
+  m_isRichText: 1
+  m_parseCtrlCharacters: 1
+  m_isOrthographic: 1
+  m_isCullingEnabled: 0
+  m_horizontalMapping: 0
+  m_verticalMapping: 0
+  m_uvLineOffset: 0
+  m_geometrySortingOrder: 0
+  m_IsTextObjectScaleStatic: 0
+  m_VertexBufferAutoSizeReduction: 0
+  m_useMaxVisibleDescender: 1
+  m_pageToDisplay: 1
+  m_margin: {x: 0, y: 0, z: 0, w: 0}
+  m_isUsingLegacyAnimationComponent: 0
+  m_isVolumetricText: 0
+  m_hasFontAssetChanged: 0
+  m_baseMaterial: {fileID: 0}
+  m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!222 &383382273
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 383382270}
+  m_CullTransparentMesh: 1
 --- !u!1 &384687387
 GameObject:
   m_ObjectHideFlags: 0
@@ -8350,6 +8519,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   countryName: Namibia
+  button: {fileID: 0}
 --- !u!1 &394958853
 GameObject:
   m_ObjectHideFlags: 0
@@ -8819,6 +8989,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   countryName: Thailand
+  button: {fileID: 0}
 --- !u!1 &410521182
 GameObject:
   m_ObjectHideFlags: 0
@@ -8920,6 +9091,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   countryName: Kaliningrad
+  button: {fileID: 0}
 --- !u!114 &410521186
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9305,6 +9477,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   countryName: Saudi Arabia
+  button: {fileID: 0}
 --- !u!1 &421556493
 GameObject:
   m_ObjectHideFlags: 0
@@ -9816,6 +9989,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   countryName: Laos
+  button: {fileID: 0}
 --- !u!1 &444836558
 GameObject:
   m_ObjectHideFlags: 0
@@ -10042,6 +10216,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   countryName: Cameroon
+  button: {fileID: 0}
 --- !u!1 &445530650
 GameObject:
   m_ObjectHideFlags: 0
@@ -10527,6 +10702,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   countryName: Georgia
+  button: {fileID: 0}
 --- !u!1 &466007962
 GameObject:
   m_ObjectHideFlags: 0
@@ -10751,6 +10927,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   countryName: United Kingdom
+  button: {fileID: 0}
 --- !u!1 &473134842
 GameObject:
   m_ObjectHideFlags: 0
@@ -10967,6 +11144,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   countryName: Yemen
+  button: {fileID: 0}
 --- !u!1 &478448102
 GameObject:
   m_ObjectHideFlags: 0
@@ -11003,7 +11181,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchoredPosition: {x: -705, y: 0}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &491958833
@@ -11298,6 +11476,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   countryName: Myanmar
+  button: {fileID: 0}
 --- !u!1 &506704654
 GameObject:
   m_ObjectHideFlags: 0
@@ -11486,6 +11665,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   countryName: Costa Rica
+  button: {fileID: 0}
 --- !u!1 &510976899
 GameObject:
   m_ObjectHideFlags: 0
@@ -11678,6 +11858,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   countryName: Armenia
+  button: {fileID: 0}
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0
@@ -12045,6 +12226,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   countryName: Kyrgyzstan
+  button: {fileID: 0}
 --- !u!1 &526328819
 GameObject:
   m_ObjectHideFlags: 0
@@ -12241,6 +12423,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   countryName: Azerbaijan
+  button: {fileID: 0}
 --- !u!1 &537478461
 GameObject:
   m_ObjectHideFlags: 0
@@ -13052,6 +13235,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   countryName: Russia
+  button: {fileID: 0}
 --- !u!1 &549232534
 GameObject:
   m_ObjectHideFlags: 0
@@ -13415,6 +13599,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   countryName: France
+  button: {fileID: 0}
 --- !u!1 &554184879
 GameObject:
   m_ObjectHideFlags: 0
@@ -13617,6 +13802,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   countryName: Uruguay
+  button: {fileID: 0}
 --- !u!1 &563628954
 GameObject:
   m_ObjectHideFlags: 0
@@ -13973,6 +14159,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   countryName: Lithuania
+  button: {fileID: 0}
 --- !u!1 &574624684
 GameObject:
   m_ObjectHideFlags: 0
@@ -14326,6 +14513,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   countryName: Austria
+  button: {fileID: 0}
 --- !u!1 &608734219
 GameObject:
   m_ObjectHideFlags: 0
@@ -14363,8 +14551,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -709.487, y: -62.048}
-  m_SizeDelta: {x: 243.315, y: 222.408}
+  m_AnchoredPosition: {x: 3.9434, y: -46.481}
+  m_SizeDelta: {x: 264.382, y: 216.52}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &608734221
 MonoBehaviour:
@@ -14626,6 +14814,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   countryName: Sierra Leone
+  button: {fileID: 0}
 --- !u!1 &617191870
 GameObject:
   m_ObjectHideFlags: 0
@@ -14977,6 +15166,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   countryName: Jordan
+  button: {fileID: 0}
 --- !u!1 &627009420
 GameObject:
   m_ObjectHideFlags: 0
@@ -15225,6 +15415,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   countryName: Ecuador
+  button: {fileID: 0}
 --- !u!1 &631294880
 GameObject:
   m_ObjectHideFlags: 0
@@ -15448,6 +15639,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   countryName: Bulgaria
+  button: {fileID: 0}
 --- !u!1 &647566400
 GameObject:
   m_ObjectHideFlags: 0
@@ -15510,6 +15702,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   countryName: Brunei
+  button: {fileID: 0}
 --- !u!212 &647566404
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -15878,6 +16071,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   countryName: Bhutan
+  button: {fileID: 0}
 --- !u!1 &687354582
 GameObject:
   m_ObjectHideFlags: 0
@@ -16062,6 +16256,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   countryName: Rwanda
+  button: {fileID: 0}
 --- !u!1 &693042503
 GameObject:
   m_ObjectHideFlags: 0
@@ -16298,6 +16493,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   countryName: Latvia
+  button: {fileID: 0}
 --- !u!1 &697406722
 GameObject:
   m_ObjectHideFlags: 0
@@ -16504,6 +16700,11 @@ PolygonCollider2D:
       - {x: -1.97, y: -0.1599999}
       - {x: -1.96, y: -0.1599999}
       - {x: -1.96, y: -0.17999992}
+    - - {x: -2.06, y: 0.04000008}
+      - {x: -2.05, y: 0.04000008}
+      - {x: -2.05, y: 0.060000084}
+      - {x: -2.06, y: 0.060000084}
+      - {x: -2.06, y: 0.04000008}
   m_UseDelaunayMesh: 0
 --- !u!114 &697406727
 MonoBehaviour:
@@ -16530,6 +16731,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   countryName: Venezuela
+  button: {fileID: 0}
 --- !u!1 &730539424
 GameObject:
   m_ObjectHideFlags: 0
@@ -16790,6 +16992,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   countryName: Italy
+  button: {fileID: 0}
 --- !u!1 &736227027
 GameObject:
   m_ObjectHideFlags: 0
@@ -17149,6 +17352,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   countryName: Cambodia
+  button: {fileID: 0}
 --- !u!1 &790958192
 GameObject:
   m_ObjectHideFlags: 0
@@ -17588,6 +17792,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   countryName: Peru
+  button: {fileID: 0}
 --- !u!1 &810197987
 GameObject:
   m_ObjectHideFlags: 0
@@ -17824,6 +18029,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   countryName: Central African Republic
+  button: {fileID: 0}
 --- !u!1 &812579838
 GameObject:
   m_ObjectHideFlags: 0
@@ -18026,6 +18232,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   countryName: Eritrea
+  button: {fileID: 0}
 --- !u!1 &822973915
 GameObject:
   m_ObjectHideFlags: 0
@@ -18405,6 +18612,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   countryName: South Sudan
+  button: {fileID: 0}
 --- !u!1 &842527323
 GameObject:
   m_ObjectHideFlags: 0
@@ -18647,6 +18855,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   countryName: Ukraine
+  button: {fileID: 0}
 --- !u!1 &844028644
 GameObject:
   m_ObjectHideFlags: 0
@@ -18908,6 +19117,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   countryName: Albania
+  button: {fileID: 0}
 --- !u!1 &870246170
 GameObject:
   m_ObjectHideFlags: 0
@@ -19223,6 +19433,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   countryName: Papua New Guinea
+  button: {fileID: 0}
 --- !u!1 &872566676
 GameObject:
   m_ObjectHideFlags: 0
@@ -19515,6 +19726,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   countryName: Panama
+  button: {fileID: 0}
 --- !u!1 &917457958
 GameObject:
   m_ObjectHideFlags: 0
@@ -19749,6 +19961,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   countryName: Finland
+  button: {fileID: 0}
 --- !u!1 &923868348
 GameObject:
   m_ObjectHideFlags: 0
@@ -19981,7 +20194,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 2086495690}
   m_HandleRect: {fileID: 2086495689}
   m_Direction: 2
-  m_Value: 0
+  m_Value: 1
   m_Size: 0
   m_NumberOfSteps: 0
   m_OnValueChanged:
@@ -20462,6 +20675,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   countryName: United States
+  button: {fileID: 0}
 --- !u!1 &953277260
 GameObject:
   m_ObjectHideFlags: 0
@@ -20648,6 +20862,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   countryName: Belgium
+  button: {fileID: 0}
 --- !u!1 &955576629
 GameObject:
   m_ObjectHideFlags: 0
@@ -20840,6 +21055,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   countryName: Switzerland
+  button: {fileID: 0}
 --- !u!1 &973960341
 GameObject:
   m_ObjectHideFlags: 0
@@ -21092,6 +21308,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   countryName: Oman
+  button: {fileID: 0}
 --- !u!1 &993503742
 GameObject:
   m_ObjectHideFlags: 0
@@ -21551,6 +21768,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   countryName: Iran
+  button: {fileID: 0}
 --- !u!1 &1005429294
 GameObject:
   m_ObjectHideFlags: 0
@@ -21963,6 +22181,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   countryName: Egypt
+  button: {fileID: 0}
 --- !u!1 &1039413085
 GameObject:
   m_ObjectHideFlags: 0
@@ -22237,6 +22456,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   countryName: Guinea
+  button: {fileID: 0}
 --- !u!1 &1062818711
 GameObject:
   m_ObjectHideFlags: 0
@@ -22495,6 +22715,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   countryName: Vietnam
+  button: {fileID: 0}
 --- !u!1 &1068380126
 GameObject:
   m_ObjectHideFlags: 0
@@ -22888,6 +23109,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   countryName: Djibouti
+  button: {fileID: 0}
 --- !u!1 &1087732013
 GameObject:
   m_ObjectHideFlags: 0
@@ -23090,6 +23312,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   countryName: Malawi
+  button: {fileID: 0}
 --- !u!1 &1094051919
 GameObject:
   m_ObjectHideFlags: 0
@@ -23291,6 +23514,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   countryName: Czech Republic
+  button: {fileID: 0}
 --- !u!1 &1098202725
 GameObject:
   m_ObjectHideFlags: 0
@@ -23547,6 +23771,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   countryName: Slovenia
+  button: {fileID: 0}
 --- !u!1 &1102327463
 GameObject:
   m_ObjectHideFlags: 0
@@ -23859,6 +24084,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   countryName: El Salvador
+  button: {fileID: 0}
 --- !u!1 &1112274047
 GameObject:
   m_ObjectHideFlags: 0
@@ -24257,6 +24483,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   countryName: Algeria
+  button: {fileID: 0}
 --- !u!1 &1125515351
 GameObject:
   m_ObjectHideFlags: 0
@@ -24612,6 +24839,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   countryName: Paraguay
+  button: {fileID: 0}
 --- !u!1 &1138296734
 GameObject:
   m_ObjectHideFlags: 0
@@ -24796,6 +25024,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   countryName: Montenegro
+  button: {fileID: 0}
 --- !u!1 &1139255213
 GameObject:
   m_ObjectHideFlags: 0
@@ -25026,6 +25255,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   countryName: Iraq
+  button: {fileID: 0}
 --- !u!1 &1142144974
 GameObject:
   m_ObjectHideFlags: 0
@@ -25322,6 +25552,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   countryName: Chile
+  button: {fileID: 0}
 --- !u!1 &1162103078
 GameObject:
   m_ObjectHideFlags: 0
@@ -25608,6 +25839,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   countryName: Philippines
+  button: {fileID: 0}
 --- !u!1 &1164347653
 GameObject:
   m_ObjectHideFlags: 0
@@ -25670,6 +25902,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   countryName: Alaska
+  button: {fileID: 0}
 --- !u!212 &1164347657
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -26180,6 +26413,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   countryName: Colombia
+  button: {fileID: 0}
 --- !u!1 &1174988527
 GameObject:
   m_ObjectHideFlags: 0
@@ -26251,6 +26485,140 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!1 &1182959603
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1182959604}
+  - component: {fileID: 1182959606}
+  - component: {fileID: 1182959605}
+  m_Layer: 5
+  m_Name: Diplomatic Power
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &1182959604
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1182959603}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 309908498}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: -734.3592, y: 169.7}
+  m_SizeDelta: {x: 381.6817, y: 50}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1182959605
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1182959603}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_text: 'Diplomatic Power: 30'
+  m_isRightToLeft: 0
+  m_fontAsset: {fileID: 11400000, guid: 957dbaf1fa9ef834db97955b0d878f96, type: 2}
+  m_sharedMaterial: {fileID: 8370735618977982747, guid: 957dbaf1fa9ef834db97955b0d878f96, type: 2}
+  m_fontSharedMaterials: []
+  m_fontMaterial: {fileID: 0}
+  m_fontMaterials: []
+  m_fontColor32:
+    serializedVersion: 2
+    rgba: 4278190080
+  m_fontColor: {r: 0, g: 0, b: 0, a: 1}
+  m_enableVertexGradient: 0
+  m_colorMode: 3
+  m_fontColorGradient:
+    topLeft: {r: 1, g: 1, b: 1, a: 1}
+    topRight: {r: 1, g: 1, b: 1, a: 1}
+    bottomLeft: {r: 1, g: 1, b: 1, a: 1}
+    bottomRight: {r: 1, g: 1, b: 1, a: 1}
+  m_fontColorGradientPreset: {fileID: 0}
+  m_spriteAsset: {fileID: 0}
+  m_tintAllSprites: 0
+  m_StyleSheet: {fileID: 0}
+  m_TextStyleHashCode: -1183493901
+  m_overrideHtmlColors: 0
+  m_faceColor:
+    serializedVersion: 2
+    rgba: 4294967295
+  m_fontSize: 24.45
+  m_fontSizeBase: 24.45
+  m_fontWeight: 400
+  m_enableAutoSizing: 0
+  m_fontSizeMin: 18
+  m_fontSizeMax: 72
+  m_fontStyle: 0
+  m_HorizontalAlignment: 1
+  m_VerticalAlignment: 256
+  m_textAlignment: 65535
+  m_characterSpacing: 0
+  m_wordSpacing: 0
+  m_lineSpacing: 0
+  m_lineSpacingMax: 0
+  m_paragraphSpacing: 0
+  m_charWidthMaxAdj: 0
+  m_enableWordWrapping: 1
+  m_wordWrappingRatios: 0.4
+  m_overflowMode: 0
+  m_linkedTextComponent: {fileID: 0}
+  parentLinkedComponent: {fileID: 0}
+  m_enableKerning: 1
+  m_enableExtraPadding: 0
+  checkPaddingRequired: 0
+  m_isRichText: 1
+  m_parseCtrlCharacters: 1
+  m_isOrthographic: 1
+  m_isCullingEnabled: 0
+  m_horizontalMapping: 0
+  m_verticalMapping: 0
+  m_uvLineOffset: 0
+  m_geometrySortingOrder: 0
+  m_IsTextObjectScaleStatic: 0
+  m_VertexBufferAutoSizeReduction: 0
+  m_useMaxVisibleDescender: 1
+  m_pageToDisplay: 1
+  m_margin: {x: 0, y: 0, z: 0, w: 0}
+  m_isUsingLegacyAnimationComponent: 0
+  m_isVolumetricText: 0
+  m_hasFontAssetChanged: 0
+  m_baseMaterial: {fileID: 0}
+  m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!222 &1182959606
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1182959603}
+  m_CullTransparentMesh: 1
 --- !u!1 &1187222022
 GameObject:
   m_ObjectHideFlags: 0
@@ -26441,6 +26809,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   countryName: Serbia
+  button: {fileID: 0}
 --- !u!1 &1215102544
 GameObject:
   m_ObjectHideFlags: 0
@@ -26844,7 +27213,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: -0.000015258789}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &1233244316
@@ -27217,6 +27586,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   countryName: Mexico
+  button: {fileID: 0}
 --- !u!1 &1247435760
 GameObject:
   m_ObjectHideFlags: 0
@@ -27596,6 +27966,42 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   countryName: Kenya
+  button: {fileID: 0}
+--- !u!1 &1258424141
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1258424142}
+  m_Layer: 5
+  m_Name: NotificationHolder
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &1258424142
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1258424141}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1909173906}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 1, y: 0}
+  m_AnchorMax: {x: 1, y: 0}
+  m_AnchoredPosition: {x: -130.1, y: 132.7}
+  m_SizeDelta: {x: 100, y: 100}
+  m_Pivot: {x: 1, y: 0}
 --- !u!1 &1261981901
 GameObject:
   m_ObjectHideFlags: 0
@@ -27851,6 +28257,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   countryName: Kuwait
+  button: {fileID: 0}
 --- !u!1 &1277117211
 GameObject:
   m_ObjectHideFlags: 0
@@ -28033,6 +28440,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   countryName: Kosovo
+  button: {fileID: 0}
 --- !u!1 &1283381516
 GameObject:
   m_ObjectHideFlags: 0
@@ -28219,6 +28627,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   countryName: Israel
+  button: {fileID: 0}
 --- !u!1 &1287342353
 GameObject:
   m_ObjectHideFlags: 0
@@ -28433,6 +28842,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   countryName: Spain
+  button: {fileID: 0}
 --- !u!1 &1298268332
 GameObject:
   m_ObjectHideFlags: 0
@@ -28639,6 +29049,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   countryName: Gabon
+  button: {fileID: 0}
 --- !u!1 &1302200214
 GameObject:
   m_ObjectHideFlags: 0
@@ -29082,6 +29493,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   countryName: Australia
+  button: {fileID: 0}
 --- !u!1 &1305127685
 GameObject:
   m_ObjectHideFlags: 0
@@ -29294,6 +29706,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   countryName: Congo
+  button: {fileID: 0}
 --- !u!1 &1317625505
 GameObject:
   m_ObjectHideFlags: 0
@@ -29376,7 +29789,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1799098170}
   m_HandleRect: {fileID: 1799098169}
   m_Direction: 2
-  m_Value: 1
+  m_Value: 0
   m_Size: 0
   m_NumberOfSteps: 0
   m_OnValueChanged:
@@ -29578,7 +29991,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 765164633}
   m_HandleRect: {fileID: 765164632}
   m_Direction: 2
-  m_Value: 1
+  m_Value: 0
   m_Size: 0
   m_NumberOfSteps: 0
   m_OnValueChanged:
@@ -29868,6 +30281,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   countryName: Niger
+  button: {fileID: 0}
 --- !u!1 &1343595287
 GameObject:
   m_ObjectHideFlags: 0
@@ -30054,6 +30468,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   countryName: Eswatini
+  button: {fileID: 0}
 --- !u!1 &1344714766
 GameObject:
   m_ObjectHideFlags: 0
@@ -30252,6 +30667,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   countryName: Romania
+  button: {fileID: 0}
 --- !u!1 &1347801312
 GameObject:
   m_ObjectHideFlags: 0
@@ -30514,6 +30930,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   countryName: Pakistan
+  button: {fileID: 0}
 --- !u!1 &1347991590
 GameObject:
   m_ObjectHideFlags: 0
@@ -31412,6 +31829,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   countryName: Canada
+  button: {fileID: 0}
 --- !u!1 &1353687596
 GameObject:
   m_ObjectHideFlags: 0
@@ -31606,6 +32024,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   countryName: Iceland
+  button: {fileID: 0}
 --- !u!1 &1358870130
 GameObject:
   m_ObjectHideFlags: 0
@@ -31920,6 +32339,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   countryName: Gambia
+  button: {fileID: 0}
 --- !u!1 &1406347164
 GameObject:
   m_ObjectHideFlags: 0
@@ -32254,6 +32674,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   countryName: Zimbabwe
+  button: {fileID: 0}
 --- !u!1 &1434154806
 GameObject:
   m_ObjectHideFlags: 0
@@ -32708,6 +33129,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   countryName: Bosnia Herzegovina
+  button: {fileID: 0}
 --- !u!1 &1452682420
 GameObject:
   m_ObjectHideFlags: 0
@@ -32892,6 +33314,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   countryName: North Macedonia
+  button: {fileID: 0}
 --- !u!1 &1461203400
 GameObject:
   m_ObjectHideFlags: 0
@@ -33247,6 +33670,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   countryName: Suriname
+  button: {fileID: 0}
 --- !u!1 &1496252670
 GameObject:
   m_ObjectHideFlags: 0
@@ -33466,6 +33890,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   countryName: Guatemala
+  button: {fileID: 0}
 --- !u!1 &1511328777
 GameObject:
   m_ObjectHideFlags: 0
@@ -33634,8 +34059,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -703, y: -33.072}
-  m_SizeDelta: {x: 493.541, y: 493.541}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 500, y: 500}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1513065902
 MonoBehaviour:
@@ -33885,6 +34310,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   countryName: Burkina Faso
+  button: {fileID: 0}
 --- !u!1 &1517859731
 GameObject:
   m_ObjectHideFlags: 0
@@ -34485,6 +34911,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   countryName: Sudan
+  button: {fileID: 0}
 --- !u!1 &1549835229
 GameObject:
   m_ObjectHideFlags: 0
@@ -34791,6 +35218,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   countryName: New Zealand
+  button: {fileID: 0}
 --- !u!1 &1552456016
 GameObject:
   m_ObjectHideFlags: 0
@@ -34987,6 +35415,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   countryName: Ireland
+  button: {fileID: 0}
 --- !u!1 &1556198219
 GameObject:
   m_ObjectHideFlags: 0
@@ -35339,6 +35768,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   countryName: Mongolia
+  button: {fileID: 0}
 --- !u!1 &1579712378
 GameObject:
   m_ObjectHideFlags: 0
@@ -35537,6 +35967,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   countryName: Poland
+  button: {fileID: 0}
 --- !u!1 &1580309998
 GameObject:
   m_ObjectHideFlags: 0
@@ -35721,6 +36152,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   countryName: Belize
+  button: {fileID: 0}
 --- !u!1 &1583392062
 GameObject:
   m_ObjectHideFlags: 0
@@ -35757,6 +36189,37 @@ RectTransform:
   m_AnchoredPosition: {x: -5, y: 0}
   m_SizeDelta: {x: -20, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!1 &1584851001
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1584851002}
+  m_Layer: 0
+  m_Name: TurnManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1584851002
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1584851001}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 551.8255, y: 515.0987, z: -1.7919991}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1586983728
 GameObject:
   m_ObjectHideFlags: 0
@@ -35947,6 +36410,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   countryName: Moldova
+  button: {fileID: 0}
 --- !u!1 &1589668117
 GameObject:
   m_ObjectHideFlags: 0
@@ -36171,6 +36635,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   countryName: Slovakia
+  button: {fileID: 0}
 --- !u!1 &1595305054
 GameObject:
   m_ObjectHideFlags: 0
@@ -36207,7 +36672,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -671, y: -370.21844}
+  m_AnchoredPosition: {x: 0, y: -320.66}
   m_SizeDelta: {x: 306.9579, y: 131.1925}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1595305056
@@ -36914,6 +37379,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   countryName: Indonesia
+  button: {fileID: 0}
 --- !u!1 &1624111093
 GameObject:
   m_ObjectHideFlags: 0
@@ -37179,6 +37645,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   countryName: Netherlands
+  button: {fileID: 0}
 --- !u!1 &1644658672
 GameObject:
   m_ObjectHideFlags: 0
@@ -37383,6 +37850,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   countryName: North Korea
+  button: {fileID: 0}
 --- !u!1 &1659848881
 GameObject:
   m_ObjectHideFlags: 0
@@ -37621,6 +38089,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   countryName: Sweden
+  button: {fileID: 0}
 --- !u!1 &1673770883
 GameObject:
   m_ObjectHideFlags: 0
@@ -37825,6 +38294,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   countryName: Nepal
+  button: {fileID: 0}
 --- !u!1 &1675381305
 GameObject:
   m_ObjectHideFlags: 0
@@ -37859,7 +38329,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -661, y: 160}
+  m_AnchoredPosition: {x: 0, y: 160}
   m_SizeDelta: {x: 520.47, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1675381307
@@ -37916,7 +38386,7 @@ MonoBehaviour:
   m_fontSizeMin: 18
   m_fontSizeMax: 72
   m_fontStyle: 0
-  m_HorizontalAlignment: 1
+  m_HorizontalAlignment: 2
   m_VerticalAlignment: 256
   m_textAlignment: 65535
   m_characterSpacing: 0
@@ -37995,6 +38465,53 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 28}
   m_Pivot: {x: 0.5, y: 1}
+--- !u!1 &1679731694
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1679731695}
+  - component: {fileID: 1679731696}
+  m_Layer: 0
+  m_Name: ComputerAgreementCreator
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1679731695
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1679731694}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 551.8255, y: 515.0987, z: -1.7919991}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1679731696
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1679731694}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7fd3a45af04391b4c9dd1fe5ad14ad9e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  decisionTime: 1
+  notificationPrefab: {fileID: 4093222224863197717, guid: 3a18ad5e6fe1d7d4fa6d15d90f3a3eca, type: 3}
+  notificationParent: {fileID: 1258424142}
 --- !u!1 &1688235325
 GameObject:
   m_ObjectHideFlags: 0
@@ -38119,6 +38636,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   countryName: Northern Ireland
+  button: {fileID: 0}
 --- !u!212 &1688235331
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -38749,6 +39267,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   countryName: India
+  button: {fileID: 0}
 --- !u!1 &1721644217
 GameObject:
   m_ObjectHideFlags: 0
@@ -38939,6 +39458,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   countryName: Hungary
+  button: {fileID: 0}
 --- !u!1 &1728037165
 GameObject:
   m_ObjectHideFlags: 0
@@ -39255,6 +39775,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   countryName: Haiti
+  button: {fileID: 0}
 --- !u!1 &1745926740
 GameObject:
   m_ObjectHideFlags: 0
@@ -39499,6 +40020,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   countryName: Chad
+  button: {fileID: 0}
 --- !u!1 &1749685303
 GameObject:
   m_ObjectHideFlags: 0
@@ -39751,6 +40273,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   countryName: Morocco
+  button: {fileID: 0}
 --- !u!1 &1761430785
 GameObject:
   m_ObjectHideFlags: 0
@@ -39951,6 +40474,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   countryName: Liberia
+  button: {fileID: 0}
 --- !u!1 &1761653649
 GameObject:
   m_ObjectHideFlags: 0
@@ -40205,6 +40729,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   countryName: Uzbekistan
+  button: {fileID: 0}
 --- !u!1 &1761708110
 GameObject:
   m_ObjectHideFlags: 0
@@ -40486,6 +41011,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   countryName: Tunisia
+  button: {fileID: 0}
 --- !u!1 &1776874608
 GameObject:
   m_ObjectHideFlags: 0
@@ -41003,6 +41529,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   countryName: South Africa
+  button: {fileID: 0}
 --- !u!1 &1842674239
 GameObject:
   m_ObjectHideFlags: 0
@@ -41179,6 +41706,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   countryName: Equatorial Guinea
+  button: {fileID: 0}
 --- !u!1 &1845085511
 GameObject:
   m_ObjectHideFlags: 0
@@ -41385,6 +41913,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   countryName: Ivory Coast
+  button: {fileID: 0}
 --- !u!1 &1846816899
 GameObject:
   m_ObjectHideFlags: 0
@@ -41712,6 +42241,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   countryName: Nicaragua
+  button: {fileID: 0}
 --- !u!1 &1854743005
 GameObject:
   m_ObjectHideFlags: 0
@@ -41964,6 +42494,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   countryName: Mali
+  button: {fileID: 0}
 --- !u!1 &1861674530
 GameObject:
   m_ObjectHideFlags: 0
@@ -42296,6 +42827,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   countryName: Uganda
+  button: {fileID: 0}
 --- !u!1 &1863816877
 GameObject:
   m_ObjectHideFlags: 0
@@ -42488,6 +43020,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   countryName: South Korea
+  button: {fileID: 0}
 --- !u!1 &1873174551
 GameObject:
   m_ObjectHideFlags: 0
@@ -42708,6 +43241,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   countryName: Botswana
+  button: {fileID: 0}
 --- !u!1 &1876695375
 GameObject:
   m_ObjectHideFlags: 0
@@ -43038,6 +43572,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   countryName: Kazakhstan
+  button: {fileID: 0}
 --- !u!1 &1877870780
 GameObject:
   m_ObjectHideFlags: 0
@@ -43222,6 +43757,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   countryName: Guinea-Bissau
+  button: {fileID: 0}
 --- !u!1 &1878596330
 GameObject:
   m_ObjectHideFlags: 0
@@ -43468,6 +44004,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   countryName: Libya
+  button: {fileID: 0}
 --- !u!1 &1884402254
 GameObject:
   m_ObjectHideFlags: 0
@@ -43672,6 +44209,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   countryName: Bangladesh
+  button: {fileID: 0}
 --- !u!1 &1895481689
 GameObject:
   m_ObjectHideFlags: 0
@@ -43992,6 +44530,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   countryName: Argentina
+  button: {fileID: 0}
 --- !u!1 &1898342716
 GameObject:
   m_ObjectHideFlags: 0
@@ -44186,6 +44725,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   countryName: Ghana
+  button: {fileID: 0}
 --- !u!1 &1909173902
 GameObject:
   m_ObjectHideFlags: 0
@@ -44285,6 +44825,7 @@ RectTransform:
   - {fileID: 822973916}
   - {fileID: 833648669}
   - {fileID: 1039413086}
+  - {fileID: 1258424142}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
@@ -44564,6 +45105,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   countryName: Tajikistan
+  button: {fileID: 0}
 --- !u!1 &1926477385
 GameObject:
   m_ObjectHideFlags: 0
@@ -45057,6 +45599,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   countryName: China
+  button: {fileID: 0}
 --- !u!1 &1938001409
 GameObject:
   m_ObjectHideFlags: 0
@@ -45347,6 +45890,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   countryName: Turkiye
+  button: {fileID: 0}
 --- !u!1 &1965767009
 GameObject:
   m_ObjectHideFlags: 0
@@ -46041,6 +46585,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   countryName: Estonia
+  button: {fileID: 0}
 --- !u!1 &2013673132
 GameObject:
   m_ObjectHideFlags: 0
@@ -46269,6 +46814,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   countryName: Madagascar
+  button: {fileID: 0}
 --- !u!1 &2024014144
 GameObject:
   m_ObjectHideFlags: 0
@@ -46541,6 +47087,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   countryName: Togo
+  button: {fileID: 0}
 --- !u!1 &2040193845
 GameObject:
   m_ObjectHideFlags: 0
@@ -46811,6 +47358,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   countryName: Lebanon
+  button: {fileID: 0}
 --- !u!1 &2064415130
 GameObject:
   m_ObjectHideFlags: 0
@@ -47202,6 +47750,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   countryName: Denmark
+  button: {fileID: 0}
 --- !u!1 &2114791239
 GameObject:
   m_ObjectHideFlags: 0
@@ -47434,6 +47983,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   countryName: Nigeria
+  button: {fileID: 0}
 --- !u!1 &2116244411
 GameObject:
   m_ObjectHideFlags: 0
@@ -47689,6 +48239,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   countryName: Japan
+  button: {fileID: 0}
 --- !u!1 &2123585593
 GameObject:
   m_ObjectHideFlags: 0
@@ -48099,6 +48650,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   countryName: Brazil
+  button: {fileID: 0}
 --- !u!1 &2133893687
 GameObject:
   m_ObjectHideFlags: 0
@@ -48237,6 +48789,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   countryName: French Guiana
+  button: {fileID: 0}
 --- !u!212 &2133893693
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -48631,6 +49184,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   countryName: Mozambique
+  button: {fileID: 0}
 --- !u!224 &11801139073129967
 RectTransform:
   m_ObjectHideFlags: 0
@@ -55929,3 +56483,5 @@ SceneRoots:
   - {fileID: 1125515352}
   - {fileID: 1909173906}
   - {fileID: 184577636}
+  - {fileID: 1584851002}
+  - {fileID: 1679731695}

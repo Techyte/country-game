@@ -77,7 +77,12 @@ namespace CountryGame
             if (!nationToSwap.agreements.Contains(agreementToJoin) && !agreementToJoin.Nations.Contains(nationToSwap))
             {
                 nationToSwap.JoinAgreement(agreementToJoin);
-                agreementToJoin.NationJointed(nationToSwap); 
+                agreementToJoin.NationJointed(nationToSwap);
+
+                if (agreementToJoin.influence > 0 && agreementToJoin.AgreementLeader != nationToSwap)
+                {
+                    nationToSwap.ChangeInfluence(agreementToJoin.AgreementLeader, agreementToJoin.influence/3f);
+                }
             }
         }
     }
@@ -90,6 +95,8 @@ namespace CountryGame
         public int CountryCount => Countries.Count;
         public Color Color;
         public Sprite flag;
+
+        public int TotalTroopCount;
 
         public void CountryJointed(Country countryThatJoined)
         {
@@ -107,6 +114,52 @@ namespace CountryGame
         public void JoinAgreement(Agreement agreementToJoin)
         {
             agreements.Add(agreementToJoin);
+        }
+
+        public void ChangeInfluence(Nation nation, float influence)
+        {
+            foreach (var country in Countries)
+            {
+                country.button.SetInfluenceColour(nation.Color, influence);
+            }
+        }
+
+        public bool Border(Nation testNation)
+        {
+            foreach (var country in Countries)
+            {
+                foreach (var borderNation in country.GetBorders())
+                {
+                    if (testNation == borderNation)
+                    {
+                        return true;
+                    }
+                }
+            }
+
+            return false;
+        }
+
+        public Vector2 AvgPos()
+        {
+            float x = 0;
+            float y = 0;
+
+            foreach (var country in Countries)
+            {
+                x += country.GetComponent<PolygonCollider2D>().bounds.center.x;
+                y += country.GetComponent<PolygonCollider2D>().bounds.center.y;
+            }
+
+            x /= Countries.Count;
+            y /= Countries.Count;
+
+            return new Vector2(x, y);
+        }
+
+        public float DistanceTo(Nation nation)
+        {
+            return (nation.AvgPos() - AvgPos()).magnitude;
         }
     }
 }

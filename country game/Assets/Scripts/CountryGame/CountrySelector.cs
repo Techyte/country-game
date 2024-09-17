@@ -63,7 +63,7 @@ namespace CountryGame
         public void Clicked(Nation nationSelected)
         {
             _currentNation = nationSelected;
-            if (nationSelected == PlayerNationManager.Instance.PlayerNation)
+            if (nationSelected == PlayerNationManager.PlayerNation)
             {
                 PlayerNationManager.Instance.ClickedPlayerNation();
                 return;
@@ -146,6 +146,15 @@ namespace CountryGame
         {
             Agreement agreement = _currentNation.agreements[factionIndex];
 
+            DisplayAgreementMembers(agreement);
+            _agreementScreen = true;
+            _countrySelected = false;
+            AgreementCreator.Instance.CloseAgreementScreen();
+            agreementName.text = agreement.Name;
+        }
+        
+        public void OpenAgreementScreen(Agreement agreement)
+        {
             DisplayAgreementMembers(agreement);
             _agreementScreen = true;
             _countrySelected = false;
