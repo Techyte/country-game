@@ -59,7 +59,7 @@ namespace CountryGame
             }
         }
 
-        private List<GameObject> currentFactionDisplays = new List<GameObject>();
+        private List<GameObject> currentAgreementDisplays = new List<GameObject>();
         public void Clicked(Nation nationSelected)
         {
             _currentNation = nationSelected;
@@ -76,7 +76,7 @@ namespace CountryGame
             titleCard.position = titleStartPos.position;
             titleText.text = nationSelected.Name;
 
-            foreach (var factionDisplay in currentFactionDisplays)
+            foreach (var factionDisplay in currentAgreementDisplays)
             {
                 Destroy(factionDisplay);
             }
@@ -95,7 +95,7 @@ namespace CountryGame
                     OpenAgreementScreen(index);
                 });
                     
-                currentFactionDisplays.Add(factionNameText.gameObject);
+                currentAgreementDisplays.Add(factionNameText.gameObject);
             }
             
             if (nationSelected.agreements.Count == 0)
@@ -104,7 +104,7 @@ namespace CountryGame
                 nonAlignedText.text = "None";
                 nonAlignedText.color = Color.black;
                 
-                currentFactionDisplays.Add(nonAlignedText.gameObject);
+                currentAgreementDisplays.Add(nonAlignedText.gameObject);
             }
 
             flagImage.sprite = nationSelected.flag;

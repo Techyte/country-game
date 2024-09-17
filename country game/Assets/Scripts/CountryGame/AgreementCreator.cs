@@ -1,10 +1,10 @@
+using System.Collections.Generic;
+
 namespace CountryGame
 {
     using UnityEngine;
     using UnityEngine.UI;
     using TMPro;
-    using System.Collections.Generic;
-    using System.Linq;
 
     public class AgreementCreator : MonoBehaviour
     {
@@ -17,6 +17,9 @@ namespace CountryGame
         [SerializeField] private TextMeshProUGUI influenceLevelDisplay;
         [SerializeField] private GameObject agreementCreatorScreen;
         [SerializeField] private Image colourButton;
+        [SerializeField] private Transform agreementTextParent;
+        [SerializeField] private Transform agreementText;
+        [SerializeField] private Button preexistingAgreementSendButton;
 
         [Space] 
         [SerializeField] private Toggle nonAggression;
@@ -26,6 +29,8 @@ namespace CountryGame
         [SerializeField] private TMP_InputField agreementNameInput;
         [SerializeField] private Image flag1, flag2;
         [SerializeField] private FlexibleColorPicker colourPicker;
+
+        private int preexistingAgreementSelected = -1;
 
         private void Awake()
         {
@@ -57,6 +62,7 @@ namespace CountryGame
             influence.value = 0;
             nation2Head.isOn = false;
             nation1Head.isOn = true;
+            preexistingAgreementSelected = -1;
             colourPicker.gameObject.SetActive(false);
             influenceLevelDisplay.text = $"{PlayerNationManager.Instance.PlayerNation.Name} does not influence {secondaryNation.Name}";
             flag1.sprite = PlayerNationManager.Instance.PlayerNation.flag;
@@ -86,14 +92,41 @@ namespace CountryGame
                     break;
             }
 
+            preexistingAgreementSendButton.interactable = preexistingAgreementSelected != -1;
+
             colourButton.color = colourPicker.color;
+        }
+        
+        private List<GameObject> currentAgreementDisplays = new List<GameObject>();
+        private void SpawnExistingAgreements()
+        {
+            foreach (var factionDisplay in currentAgreementDisplays)
+            {
+                Destroy(factionDisplay);
+            }
+            
+            for (int i = 0; i < PlayerNationManager.Instance.PlayerNation.agreements.Count; i++)
+            {
+                int index = i;
+                Agreement agreement = PlayerNationManager.Instance.PlayerNation.agreements[i];
+                
+                TextMeshProUGUI factionNameText = Instantiate(agreementText, agreementTextParent).GetComponent<TextMeshProUGUI>();
+                factionNameText.text = agreement.Name;
+                factionNameText.color = agreement.Color;
+                    
+                factionNameText.gameObject.GetComponent<Button>().onClick.AddListener(() =>
+                {
+                    preexistingAgreementSelected = index;
+                });
+                    
+                currentAgreementDisplays.Add(factionNameText.gameObject);
+            }
         }
 
         public void Head1ValueChanged(bool value)
         {
             nation2Head.isOn = !value;
         }
-
         
         public void Head2ValueChanged(bool value)
         {
@@ -105,6 +138,7 @@ namespace CountryGame
             secondaryNation = nation2;
             agreementCreatorScreen.SetActive(true);
             ResetUI();
+            SpawnExistingAgreements();
         }
 
         public void CloseAgreementScreen()
@@ -128,6 +162,12 @@ namespace CountryGame
             
             NationManager.Instance.NationJoinAgreement(PlayerNationManager.Instance.PlayerNation, agreement);
             NationManager.Instance.NationJoinAgreement(secondaryNation, agreement);
+        }
+
+        public void SendExistingAgreementRequest()
+        {
+            CloseAgreementScreen();
+            NationManager.Instance.NationJoinAgreement(secondaryNation, PlayerNationManager.Instance.PlayerNation.agreements[preexistingAgreementSelected]);
         }
 
         public void ToggleColourSelection()
