@@ -25517,6 +25517,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   useFactionColour: 0
   beginningTroopCount: 10
+  notificationPrefab: {fileID: 4093222224863197717, guid: 3a18ad5e6fe1d7d4fa6d15d90f3a3eca, type: 3}
+  notificationParent: {fileID: 1258424142}
 --- !u!114 &1125515354
 MonoBehaviour:
   m_ObjectHideFlags: 0

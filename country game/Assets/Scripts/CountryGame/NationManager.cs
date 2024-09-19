@@ -1,4 +1,5 @@
 using System;
+using System.Linq;
 
 namespace CountryGame
 {
@@ -14,6 +15,8 @@ namespace CountryGame
 
         public bool useFactionColour;
         public int beginningTroopCount = 10;
+        [SerializeField] private Notification notificationPrefab;
+        [SerializeField] private Transform notificationParent;
 
         private void Awake()
         {
@@ -23,7 +26,36 @@ namespace CountryGame
 
         private void NewTurn(object sender, EventArgs e)
         {
+            Queue<Agreement> agreementQueue = agreements.ToQueue();
             
+            while (agreementQueue.Count > 0)
+            {
+                Agreement agreement = agreementQueue.Dequeue();
+                
+                if (agreement.influence == 3)
+                {
+                    Queue<Nation> nationQueue = agreement.Nations.ToQueue();
+
+                    while (nationQueue.Count > 0)
+                    {
+                        Nation nation = nationQueue.Dequeue();
+                        
+                        if (nation != agreement.AgreementLeader)
+                        {
+                            Queue<Country> countryQueue = nation.Countries.ToQueue();
+                            
+                            while (countryQueue.Count > 0)
+                            {
+                                Notification notification = Instantiate(notificationPrefab, notificationParent);
+                                notification.Init($"{nation.Name} joins {agreement.AgreementLeader.Name}!", $"Today, under heavy pressure from {agreement.AgreementLeader.Name}, {nation.Name} gave up independence and joined {agreement.AgreementLeader.Name}! This marks a historic day.", () => {CountrySelector.Instance.Clicked(agreement.AgreementLeader);}, 5);
+                                
+                                Debug.Log("Country joining head");
+                                SwapCountriesNation(countryQueue.Dequeue(), agreement.AgreementLeader);
+                            }
+                        }
+                    }
+                }
+            }
         }
 
         public void NewNation(Nation nationToAdd)
@@ -62,6 +94,32 @@ namespace CountryGame
             return null;
         }
 
+        private void NationDestroyed(Nation oldNation)
+        {
+            Debug.Log("Nation destroyed");
+
+            Queue<Agreement> agreementQueue = agreements.ToQueue();
+
+            while (agreementQueue.Count > 0)
+            {
+                NationLeaveAgreement(oldNation, agreementQueue.Dequeue());
+            }
+            
+            nations.Remove(oldNation);
+        }
+
+        private void AgreementDestroyed(Agreement oldAgreement)
+        {
+            Debug.Log("AgreementDestroyed");
+
+            foreach (var nation in oldAgreement.Nations)
+            {
+                nation.agreements.Remove(oldAgreement);
+            }
+            
+            agreements.Remove(oldAgreement);
+        }
+
         public void SwapCountriesNation(Country countryToSwap, Nation nationToSwapTo)
         {
             if (countryToSwap.GetNation() != nationToSwapTo)
@@ -72,7 +130,7 @@ namespace CountryGame
                     oldNation.CountryLeft(countryToSwap);
                     if (oldNation.CountryCount == 0)
                     {
-                        nations.Remove(oldNation);
+                        NationDestroyed(oldNation);
                     }
                 }
                 
@@ -91,6 +149,21 @@ namespace CountryGame
                 if (agreementToJoin.influence > 0 && agreementToJoin.AgreementLeader != nationToSwap)
                 {
                     nationToSwap.ChangeInfluence(agreementToJoin.AgreementLeader, agreementToJoin.influence/3f);
+                }
+            }
+        }
+
+        public void NationLeaveAgreement(Nation nation, Agreement agreement)
+        {
+            Debug.Log("Nation leaving agreement");
+            if (agreement.Nations.Contains(nation))
+            {
+                agreement.NationLeft(nation);
+                nation.agreements.Remove(agreement);
+
+                if (agreement.Nations.Count <= 1)
+                {
+                    AgreementDestroyed(agreement);
                 }
             }
         }
@@ -202,6 +275,21 @@ namespace CountryGame
         public float DistanceTo(Nation nation)
         {
             return (nation.AvgPos() - AvgPos()).magnitude;
+        }
+    }
+
+    public static class ListExtension
+    {
+        public static Queue<T> ToQueue<T>(this List<T> list)
+        {
+            Queue<T> queue = new Queue<T>();
+            
+            foreach (var item in list)
+            {
+                queue.Enqueue(item);
+            }
+
+            return queue;
         }
     }
 }
