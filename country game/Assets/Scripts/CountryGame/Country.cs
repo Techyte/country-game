@@ -2,15 +2,17 @@ namespace CountryGame
 {
     using System.Collections.Generic;
     using System.Globalization;
-    using UnityEditor;
     using UnityEngine;
 
     public class Country : MonoBehaviour
     {
-        public string countryName;
-        [SerializeField] private Nation nation;
+        public string countryName; 
+        private Nation nation;
+        [SerializeField] private TroopDisplay troopDisplay;
 
         [HideInInspector] public CountryButton button;
+
+        public int troopCount;
 
         private void Awake()
         {
@@ -19,14 +21,24 @@ namespace CountryGame
             {
                 countryName = CultureInfo.CurrentUICulture.TextInfo.ToTitleCase(gameObject.name.ToLower()).Replace('_', ' ');
             }
+
+            if (troopDisplay == null)
+            {
+                troopDisplay = Instantiate(Resources.Load<TroopDisplay>("TroopDisplay"), transform);
+            }
         }
 
-        private void Start()
+        public void SignedNewAgreement(Agreement agreement)
         {
-            if (nation != null)
+            if (agreement.militaryAccess && agreement.Nations.Contains(PlayerNationManager.PlayerNation) || nation.playerNation)
             {
-                button.ChangeColor(nation.Color);
+                troopDisplay.UpdateDisplay(this, true);
             }
+        }
+
+        public void BecomePlayerNation()
+        {
+            troopDisplay.UpdateDisplay(this, true);
         }
 
         public void ChangeColour(Color color)
@@ -72,8 +84,9 @@ namespace CountryGame
 
         public void ChangeNation(Nation nation)
         {
-            button.ChangeColor(nation.Color);
+            ChangeColour(nation.Color);
             this.nation = nation;
+            troopDisplay.UpdateDisplay(this, nation.playerNation);
         }
     }
 }

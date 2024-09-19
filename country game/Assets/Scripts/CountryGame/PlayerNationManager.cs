@@ -69,12 +69,13 @@ namespace CountryGame
         private void UpdateUI()
         {
             diplomaticPowerDisplay.text = $"Diplomatic Power: {diplomaticPower}";
-            troopNumDisplay.text = $"Troops: {PlayerNation.TotalTroopCount}";
+            troopNumDisplay.text = $"Troops: {PlayerNation.TotalTroopCount()}";
         }
 
-        public void SetPlayerNation(Nation playerNarion)
+        public void SetPlayerNation(Nation playerNation)
         {
-            PlayerNation = playerNarion;
+            PlayerNation = playerNation;
+            playerNation.BecomePlayerNation();
             SetupUI();
         }
 

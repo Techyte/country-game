@@ -16,7 +16,7 @@ namespace CountryGame
                 nation.Color = new Color(Random.Range(100f, 256f)/256f, Random.Range(100f, 256f)/256f, Random.Range(100f, 256f)/256f);
                 nation.Name = country.countryName;
                 nation.flag = Resources.Load<Sprite>("Flags/" + nation.Name.ToLower().Replace(' ', '_') + "_32");
-                nation.CountryJointed(country);
+                country.troopCount = NationManager.Instance.beginningTroopCount;
                 
                 NationManager.Instance.NewNation(nation);
                 
@@ -25,12 +25,7 @@ namespace CountryGame
                 if (nation.Name == "Australia")
                 {
                     PlayerNationManager.Instance.SetPlayerNation(nation);
-                    nation.TotalTroopCount = 10;
                     PlayerNationManager.Instance.diplomaticPower = 50;
-                }
-                else
-                {
-                    nation.TotalTroopCount = 5;
                 }
             }
 
@@ -39,22 +34,27 @@ namespace CountryGame
                 if (country.countryName == "Greenland")
                 {
                     NationManager.Instance.SwapCountriesNation(country, NationManager.Instance.GetNationByName("Denmark"));
+                    country.troopCount = 3;
                 }
                 else if (country.countryName == "Alaska")
                 {
                     NationManager.Instance.SwapCountriesNation(country, NationManager.Instance.GetNationByName("United States"));
+                    country.troopCount = 3;
                 }
                 else if (country.countryName == "Kaliningrad")
                 {
                     NationManager.Instance.SwapCountriesNation(country, NationManager.Instance.GetNationByName("Russia"));
+                    country.troopCount = 3;
                 }
                 else if (country.countryName == "French Guiana")
                 {
                     NationManager.Instance.SwapCountriesNation(country, NationManager.Instance.GetNationByName("France"));
+                    country.troopCount = 3;
                 }
                 else if (country.countryName == "Northern Ireland")
                 {
                     NationManager.Instance.SwapCountriesNation(country, NationManager.Instance.GetNationByName("United Kingdom"));
+                    country.troopCount = 3;
                 }
             }
         }

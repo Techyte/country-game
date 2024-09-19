@@ -68,14 +68,17 @@ namespace CountryGame
 
             switch (distance)
             {
-                case < 1.5f:
+                case < 2f:
                     // close
+                    Debug.Log("Close");
                     requiredPower *= 0.75f;
                     break;
-                case < 2.5f:
+                case < 3.3f:
+                    Debug.Log("Medium");
                     requiredPower *= 1f;
                     break;
                 case >= 2.5f:
+                    Debug.Log("Far");
                     requiredPower *= 2f;
                     break;
             }

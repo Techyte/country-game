@@ -13,6 +13,7 @@ namespace CountryGame
         public List<Agreement> agreements = new List<Agreement>();
 
         public bool useFactionColour;
+        public int beginningTroopCount = 10;
 
         private void Awake()
         {
@@ -103,12 +104,23 @@ namespace CountryGame
         public int CountryCount => Countries.Count;
         public Color Color;
         public Sprite flag;
-
-        public int TotalTroopCount;
+        public bool playerNation = false;
 
         public void CountryJointed(Country countryThatJoined)
         {
             Countries.Add(countryThatJoined);
+        }
+
+        public int TotalTroopCount()
+        {
+            int count = 0;
+
+            foreach (var country in Countries)
+            {
+                count += country.troopCount;
+            }
+
+            return count;
         }
 
         public void CountryLeft(Country countryThatLeft)
@@ -119,9 +131,23 @@ namespace CountryGame
             }
         }
 
+        public void BecomePlayerNation()
+        {
+            playerNation = true;
+
+            foreach (var country in Countries)
+            {
+                country.BecomePlayerNation();
+            }
+        }
+
         public void JoinAgreement(Agreement agreementToJoin)
         {
             agreements.Add(agreementToJoin);
+            foreach (var country in Countries)
+            {
+                country.SignedNewAgreement(agreementToJoin);
+            }
         }
 
         public void ChangeInfluence(Nation nation, float influence)
@@ -129,6 +155,14 @@ namespace CountryGame
             foreach (var country in Countries)
             {
                 country.button.SetInfluenceColour(nation.Color, influence);
+            }
+        }
+
+        public void ChangeColor(Color color)
+        {
+            foreach (var country in Countries)
+            {
+                country.ChangeColour(color);
             }
         }
 
