@@ -1,3 +1,5 @@
+using System;
+
 namespace CountryGame
 {
     using TMPro;
@@ -16,6 +18,7 @@ namespace CountryGame
         [SerializeField] private TextMeshProUGUI diplomaticPowerDisplay;
         [SerializeField] private TextMeshProUGUI troopNumDisplay;
         [SerializeField] private float displaySpeed;
+        [SerializeField] private int diplomaticPowerGain = 20;
 
         public int diplomaticPower;
 
@@ -25,6 +28,12 @@ namespace CountryGame
         {
             Instance = this;
             playerNationDisplay.position = displayStart.position;
+            TurnManager.Instance.NewTurn += NewTurn;
+        }
+
+        private void NewTurn(object sender, EventArgs e)
+        {
+            diplomaticPower += diplomaticPowerGain;
         }
 
         private void Update()

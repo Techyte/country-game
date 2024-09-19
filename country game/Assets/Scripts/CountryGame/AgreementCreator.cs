@@ -149,7 +149,7 @@ namespace CountryGame
 
         public void SendAgreementRequest()
         {
-            if (agreementNameInput.text == "New Agreement")
+            if (agreementNameInput.text == "New Agreement" || !TurnManager.Instance.CanPerformAction())
             {
                 return;
             }
@@ -166,6 +166,7 @@ namespace CountryGame
             agreement.AgreementLeader = nation1Head ? PlayerNationManager.PlayerNation : secondaryNation;
             
             ComputerAgreementCreator.Instance.PlayerAskedToJoinAgreement(secondaryNation, agreement, false);
+            TurnManager.Instance.PerformedAction();
         }
 
         public void SendExistingAgreementRequest()

@@ -1,3 +1,5 @@
+using System;
+
 namespace CountryGame
 {
     using System.Collections.Generic;
@@ -15,6 +17,12 @@ namespace CountryGame
         private void Awake()
         {
             Instance = this;
+            TurnManager.Instance.NewTurn += NewTurn;
+        }
+
+        private void NewTurn(object sender, EventArgs e)
+        {
+            
         }
 
         public void NewNation(Nation nationToAdd)
