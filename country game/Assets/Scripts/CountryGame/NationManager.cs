@@ -201,7 +201,7 @@ namespace CountryGame
 
             foreach (var country in Countries)
             {
-                count += country.troopCount;
+                count += country.TotalTroopCount();
             }
 
             return count;

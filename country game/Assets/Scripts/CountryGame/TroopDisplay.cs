@@ -15,11 +15,11 @@ namespace CountryGame
         public void UpdateDisplay(Country newCountry, bool visible)
         {
             country = newCountry;
-            numberDisplay.text = country.troopCount.ToString();
+            numberDisplay.text = country.TotalTroopCount().ToString();
             display.SetActive(visible);
 
             Vector3 pos = country.GetComponent<PolygonCollider2D>().bounds.center;
-            pos.z = -1;
+            pos.z = -0.001f;
 
             transform.position = pos;
         }

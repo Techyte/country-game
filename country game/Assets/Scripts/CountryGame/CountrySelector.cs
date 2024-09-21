@@ -252,6 +252,7 @@ namespace CountryGame
 
         public void DeclareWar()
         {
+            Debug.Log("declare war");
             declareWarConfirmationScreen.SetActive(true);
         }
 

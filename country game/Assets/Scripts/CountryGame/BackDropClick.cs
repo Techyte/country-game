@@ -9,6 +9,7 @@ namespace CountryGame
             if (!GameCamera.Instance.IsPointerOverUIObject())
             {
                 CountrySelector.Instance.ResetSelected();
+                TroopMover.Instance.ResetSelected();
             }
         }
     }

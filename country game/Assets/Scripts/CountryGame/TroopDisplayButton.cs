@@ -1,5 +1,3 @@
-using System;
-
 namespace CountryGame
 {
     using UnityEngine;
@@ -45,6 +43,7 @@ namespace CountryGame
         private void OnMouseDown()
         {
             _currentAlphaMultiplier = 0.4f;
+            TroopMover.Instance.Clicked(transform.parent.parent.GetComponent<Country>());
         }
 
         private void OnMouseUp()

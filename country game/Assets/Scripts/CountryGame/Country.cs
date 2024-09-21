@@ -14,7 +14,7 @@ namespace CountryGame
 
         public List<Nation> borders = new List<Nation>();
 
-        public int troopCount;
+        public Dictionary<Nation, TroopInformation> troopInfos = new Dictionary<Nation, TroopInformation>();
 
         private void Awake()
         {
@@ -48,6 +48,47 @@ namespace CountryGame
         public void ChangeColour(Color color)
         {
             button.ChangeColor(color);
+        }
+
+        public int TotalTroopCount()
+        {
+            int total = 0;
+            
+            foreach (var info in troopInfos.Values)
+            {
+                total += info.NumberOfTroops;
+            }
+
+            return total;
+        }
+
+        public void MovedTroopsIn(Nation source, int numberOfTroops)
+        {
+            if (troopInfos.TryGetValue(source, out TroopInformation info))
+            {
+                info.NumberOfTroops += numberOfTroops;
+            }
+            else
+            {
+                TroopInformation newInfo = new TroopInformation();
+                newInfo.ControllerNation = source;
+                newInfo.NumberOfTroops = numberOfTroops;
+                
+                troopInfos.Add(source, newInfo);
+            }
+        }
+
+        public void MoveTroopsOut(Nation controller, int numberOfTroops)
+        {
+            if (troopInfos.TryGetValue(controller, out TroopInformation info))
+            {
+                info.NumberOfTroops -= numberOfTroops;
+            }
+        }
+        
+        public void ResetTroops()
+        {
+            troopInfos.Clear();
         }
 
         public Nation GetNation()
@@ -92,5 +133,11 @@ namespace CountryGame
             this.nation = nation;
             troopDisplay.UpdateDisplay(this, nation.playerNation);
         }
+    }
+
+    public class TroopInformation
+    {
+        public Nation ControllerNation;
+        public int NumberOfTroops;
     }
 }
