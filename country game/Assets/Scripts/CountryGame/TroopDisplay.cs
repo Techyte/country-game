@@ -1,3 +1,5 @@
+using System;
+
 namespace CountryGame
 {
     using UnityEngine;
@@ -10,13 +12,14 @@ namespace CountryGame
 
         private Country country;
 
-        public void UpdateDisplay(Country country, bool visible)
+        public void UpdateDisplay(Country newCountry, bool visible)
         {
-            this.country = country;
-            numberDisplay.text = this.country.troopCount.ToString();
+            country = newCountry;
+            numberDisplay.text = country.troopCount.ToString();
             display.SetActive(visible);
 
-            Vector2 pos = country.GetComponent<PolygonCollider2D>().bounds.center;
+            Vector3 pos = country.GetComponent<PolygonCollider2D>().bounds.center;
+            pos.z = -1;
 
             transform.position = pos;
         }

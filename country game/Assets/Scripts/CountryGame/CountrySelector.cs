@@ -1,3 +1,5 @@
+using System.Linq;
+
 namespace CountryGame
 {
     using System.Collections.Generic;
@@ -20,9 +22,15 @@ namespace CountryGame
         [SerializeField] private GameObject agreementMemberPrefab;
         [SerializeField] private TextMeshProUGUI agreementName;
         [SerializeField] private Transform agreementScreen;
+        [SerializeField] private Transform warScreen;
+        [SerializeField] private Transform warMembersParent;
+        [SerializeField] private TextMeshProUGUI warName;
+        [SerializeField] private Button declareWarButton;
+        [SerializeField] private GameObject declareWarConfirmationScreen;
 
         private bool _countrySelected;
         private bool _agreementScreen;
+        private bool _warScreen;
 
         private Nation _currentNation;
 
@@ -31,6 +39,7 @@ namespace CountryGame
             Instance = this;
             titleCard.position = titleStartPos.position;
             agreementScreen.position = titleStartPos.position;
+            declareWarConfirmationScreen.SetActive(false);
         }
 
         private void Update()
@@ -57,6 +66,15 @@ namespace CountryGame
             {
                 agreementScreen.position = Vector3.Lerp(agreementScreen.position, titleStartPos.position, titleSpeed * Time.deltaTime);
             }
+            
+            if (_warScreen)
+            {
+                warScreen.position = Vector3.Lerp(warScreen.position, titleEndPos.position, titleSpeed * Time.deltaTime);
+            }
+            else
+            {
+                warScreen.position = Vector3.Lerp(warScreen.position, titleStartPos.position, titleSpeed * Time.deltaTime);
+            }
         }
 
         private List<GameObject> currentAgreementDisplays = new List<GameObject>();
@@ -73,8 +91,11 @@ namespace CountryGame
             
             _agreementScreen = false;
             _countrySelected = true;
+            _warScreen = false;
             titleCard.position = titleStartPos.position;
             titleText.text = nationSelected.Name;
+
+            declareWarButton.interactable = CanDeclareWar(PlayerNationManager.PlayerNation, nationSelected);
 
             foreach (var factionDisplay in currentAgreementDisplays)
             {
@@ -110,6 +131,29 @@ namespace CountryGame
             flagImage.sprite = nationSelected.flag;
         }
 
+        private bool CanDeclareWar(Nation nationToDeclare, Nation nationDeclaredOn)
+        {
+            bool canDeclareWar = true;
+
+            foreach (var agreement in nationToDeclare.agreements)
+            {
+                if (agreement.nonAgression && agreement.Nations.Contains(nationDeclaredOn))
+                {
+                    canDeclareWar = false;
+                }
+            }
+
+            foreach (var war in nationToDeclare.Wars)
+            {
+                if (war.Nations.Contains(nationDeclaredOn))
+                {
+                    canDeclareWar = false;
+                }
+            }
+
+            return canDeclareWar;
+        }
+
         private List<GameObject> currentAgreementMembers = new List<GameObject>();
 
         private void DisplayAgreementMembers(Agreement agreement)
@@ -124,7 +168,7 @@ namespace CountryGame
                 GameObject obj = Instantiate(agreementMemberPrefab, agreementMembersParent);
 
                 obj.GetComponentInChildren<TextMeshProUGUI>().text = nation.Name;
-                obj.GetComponentsInChildren<Image>()[1].sprite = Resources.Load<Sprite>("Flags/" + nation.Name.ToLower().Replace(' ', '_') + "_32");
+                obj.GetComponentsInChildren<Image>()[1].sprite = nation.flag;
                 
                 obj.GetComponent<Button>().onClick.AddListener(() =>
                 {
@@ -140,6 +184,8 @@ namespace CountryGame
             _currentNation = null;
             _countrySelected = false;
             _agreementScreen = false;
+            _warScreen = false;
+            declareWarConfirmationScreen.SetActive(false);
         }
 
         public void OpenAgreementScreen(int factionIndex)
@@ -149,8 +195,44 @@ namespace CountryGame
             DisplayAgreementMembers(agreement);
             _agreementScreen = true;
             _countrySelected = false;
+            _warScreen = false;
             AgreementCreator.Instance.CloseAgreementScreen();
             agreementName.text = agreement.Name;
+        }
+        
+        private List<GameObject> currentWarMembers = new List<GameObject>();
+
+        private void DisplayWarMembers(War war)
+        {
+            foreach (var oldMember in currentWarMembers)
+            {
+                Destroy(oldMember);
+            }
+            
+            foreach (var nation in war.Nations)
+            {
+                GameObject obj = Instantiate(agreementMemberPrefab, warMembersParent);
+
+                obj.GetComponentInChildren<TextMeshProUGUI>().text = nation.Name;
+                obj.GetComponentsInChildren<Image>()[1].sprite = nation.flag;
+                
+                obj.GetComponent<Button>().onClick.AddListener(() =>
+                {
+                    Clicked(nation);
+                });
+                
+                currentWarMembers.Add(obj);
+            }
+        }
+
+        public void OpenWarScreen(War war)
+        {
+            _agreementScreen = false;
+            _countrySelected = false;
+            _warScreen = true;
+
+            DisplayWarMembers(war);
+            warName.text = war.Name;
         }
         
         public void OpenAgreementScreen(Agreement agreement)
@@ -166,6 +248,23 @@ namespace CountryGame
         {
             AgreementCreator.Instance.OpenAgreementScreen(_currentNation);
             ResetSelected();
+        }
+
+        public void DeclareWar()
+        {
+            declareWarConfirmationScreen.SetActive(true);
+        }
+
+        public void ConfirmedDeclareWar()
+        {
+            CombatManager.Instance.DeclareWarOn(_currentNation);
+            ResetSelected();
+            declareWarConfirmationScreen.SetActive(false);
+        }
+
+        public void CancelDeclareWar()
+        {
+            declareWarConfirmationScreen.SetActive(false);
         }
     }
 }

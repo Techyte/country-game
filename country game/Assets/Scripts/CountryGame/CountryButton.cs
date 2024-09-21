@@ -39,7 +39,7 @@ namespace CountryGame
 
         private void OnMouseEnter()
         {
-            if (GameCamera.Instance.IsPointerOverUIObject())
+            if (GameCamera.Instance.IsPointerOverUIObject() || GameCamera.Instance.troopDisplayHover)
             {
                 return;
             }
@@ -60,7 +60,7 @@ namespace CountryGame
 
         private void OnMouseDown()
         {
-            if (Input.GetMouseButton(2) || Input.GetMouseButton(1) || GameCamera.Instance.IsPointerOverUIObject())
+            if (Input.GetMouseButton(2) || Input.GetMouseButton(1) || GameCamera.Instance.IsPointerOverUIObject() || GameCamera.Instance.troopDisplayHover)
             {
                 return;
             }

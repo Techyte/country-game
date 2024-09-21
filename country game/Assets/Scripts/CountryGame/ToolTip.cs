@@ -1,6 +1,3 @@
-using System;
-using UnityEngine.UI;
-
 namespace CountryGame
 {
     using UnityEngine;

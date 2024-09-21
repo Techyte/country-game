@@ -19,6 +19,7 @@ namespace CountryGame
         [SerializeField] private float decisionTime = 1f;
         [SerializeField] private Notification notificationPrefab;
         [SerializeField] private Transform notificationParent;
+        public int startingAgreementPowerRequirement = 5;
 
         public void PlayerAskedToJoinAgreement(Nation targetNation, Agreement requestedAgreement, bool preexisting)
         {
@@ -29,89 +30,7 @@ namespace CountryGame
         {
             // TODO: check if the player is currently fighting the nation, if so, immediately reject their agreement
 
-            float requiredPower = 30;
-
-            if (requestedAgreement.nonAgression)
-            {
-                requiredPower = 20;
-            }
-
-            if (requestedAgreement.militaryAccess)
-            {
-                requiredPower += 10;
-            }
-
-            if (requestedAgreement.autoJoinWar)
-            {
-                requiredPower += 20;
-            }
-
-            switch (requestedAgreement.influence)
-            {
-                case 1: // slightly influenced
-                    requiredPower += 5;
-                    break;
-                case 2: // influenced
-                    requiredPower += 10;
-                    break;
-                case 3: // completly influenced
-                    requiredPower += 30;
-                    break;
-            }
-
-            if (PlayerNationManager.PlayerNation.Border(targetNation))
-            {
-                requiredPower -= 15;
-            }
-            
-            float distance = PlayerNationManager.PlayerNation.DistanceTo(targetNation);
-
-            switch (distance)
-            {
-                case < 2f:
-                    // close
-                    Debug.Log("Close");
-                    requiredPower *= 0.75f;
-                    break;
-                case < 3.3f:
-                    Debug.Log("Medium");
-                    requiredPower *= 1f;
-                    break;
-                case >= 2.5f:
-                    Debug.Log("Far");
-                    requiredPower *= 2f;
-                    break;
-            }
-
-            List<Agreement> existingSharedAgreements = new List<Agreement>();
-
-            foreach (var agreement in targetNation.agreements)
-            {
-                if (PlayerNationManager.PlayerNation.agreements.Contains(agreement))
-                {
-                    existingSharedAgreements.Add(agreement);
-                }
-            }
-
-            for (int i = 0; i < existingSharedAgreements.Count; i++)
-            {
-                requiredPower *= 0.8f;
-            }
-
-            int highestInfluence = 0;
-
-            foreach (var agreement in existingSharedAgreements)
-            {
-                if (agreement.influence > highestInfluence)
-                {
-                    highestInfluence = agreement.influence;
-                }
-            }
-
-            if (highestInfluence > 0)
-            {
-                requiredPower *= highestInfluence / 3f;
-            }
+            float requiredPower = GetAgreementCost(requestedAgreement, targetNation);
             
             yield return new WaitForSeconds(decisionTime);
 
@@ -143,6 +62,95 @@ namespace CountryGame
                 Notification notification = Instantiate(notificationPrefab, notificationParent);
                 notification.Init($"{targetNation.Name} Rejects!", $"Today, {targetNation.Name} rejected {PlayerNationManager.PlayerNation.Name} {requestedAgreement.Name} agreement, deciding to forge its own path", () => {CountrySelector.Instance.Clicked(targetNation);}, 5);
             }
+        }
+
+        public static float GetAgreementCost(Agreement agreement, Nation nationSigning)
+        {
+            float requiredPower = Instance.startingAgreementPowerRequirement;
+
+            if (agreement.nonAgression)
+            {
+                requiredPower = 20;
+            }
+
+            if (agreement.militaryAccess)
+            {
+                requiredPower += 10;
+            }
+
+            if (agreement.autoJoinWar)
+            {
+                requiredPower += 20;
+            }
+
+            switch (agreement.influence)
+            {
+                case 1: // slightly influenced
+                    requiredPower += 5;
+                    break;
+                case 2: // influenced
+                    requiredPower += 10;
+                    break;
+                case 3: // completly influenced
+                    requiredPower += 30;
+                    break;
+            }
+
+            if (agreement.AgreementLeader.Border(nationSigning))
+            {
+                requiredPower -= 15;
+            }
+            
+            float distance = agreement.AgreementLeader.DistanceTo(nationSigning);
+
+            switch (distance)
+            {
+                case < 2f:
+                    // close
+                    Debug.Log("Close");
+                    requiredPower *= 0.75f;
+                    break;
+                case < 3.3f:
+                    Debug.Log("Medium");
+                    requiredPower *= 1f;
+                    break;
+                case >= 2.5f:
+                    Debug.Log("Far");
+                    requiredPower *= 2f;
+                    break;
+            }
+
+            List<Agreement> existingSharedAgreements = new List<Agreement>();
+
+            foreach (var agr in nationSigning.agreements)
+            {
+                if (agreement.AgreementLeader.agreements.Contains(agr))
+                {
+                    existingSharedAgreements.Add(agr);
+                }
+            }
+
+            for (int i = 0; i < existingSharedAgreements.Count; i++)
+            {
+                requiredPower *= 0.8f;
+            }
+
+            int highestInfluence = 0;
+
+            foreach (var agr in existingSharedAgreements)
+            {
+                if (agr.influence > highestInfluence)
+                {
+                    highestInfluence = agr.influence;
+                }
+            }
+
+            if (highestInfluence > 0)
+            {
+                requiredPower *= highestInfluence / 3f;
+            }
+
+            return requiredPower;
         }
     }
 }

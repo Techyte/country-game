@@ -12,6 +12,8 @@ namespace CountryGame
 
         [HideInInspector] public CountryButton button;
 
+        public List<Nation> borders = new List<Nation>();
+
         public int troopCount;
 
         private void Awake()
@@ -26,6 +28,8 @@ namespace CountryGame
             {
                 troopDisplay = Instantiate(Resources.Load<TroopDisplay>("TroopDisplay"), transform);
             }
+
+            borders = GetBorders();
         }
 
         public void SignedNewAgreement(Agreement agreement)

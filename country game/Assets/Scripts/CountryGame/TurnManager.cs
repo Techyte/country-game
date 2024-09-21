@@ -39,13 +39,15 @@ namespace CountryGame
 
         private void Awake()
         {
+            turnCount = 1;
             Instance = this;
             confirmPannel.SetActive(false);
         }
 
         private void Start()
         {
-            ProgressTurn();
+            //ProgressTurn();
+            actionPoints = turnActionPoints;
         }
 
         private void Update()

@@ -6,6 +6,7 @@ namespace CountryGame
 
     public class NationSetup : MonoBehaviour
     {
+        [SerializeField] private int startingDiplomaticPower = 25;
         private void Start()
         {
             List<Country> countries = FindObjectsOfType<Country>().ToList();
@@ -21,12 +22,6 @@ namespace CountryGame
                 NationManager.Instance.NewNation(nation);
                 
                 NationManager.Instance.SwapCountriesNation(country, nation);
-
-                if (nation.Name == "Australia")
-                {
-                    PlayerNationManager.Instance.SetPlayerNation(nation);
-                    PlayerNationManager.Instance.diplomaticPower = 50;
-                }
             }
 
             foreach (var country in countries)
@@ -57,6 +52,10 @@ namespace CountryGame
                     country.troopCount = 3;
                 }
             }
+
+            Nation playerNation = NationManager.Instance.GetNationByName("Switzerland");
+            PlayerNationManager.Instance.SetPlayerNation(playerNation);
+            PlayerNationManager.Instance.diplomaticPower = startingDiplomaticPower;
         }
     }
 }

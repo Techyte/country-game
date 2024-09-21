@@ -29,6 +29,7 @@ namespace CountryGame
         [SerializeField] private TMP_InputField agreementNameInput;
         [SerializeField] private Image flag1, flag2;
         [SerializeField] private FlexibleColorPicker colourPicker;
+        [SerializeField] private TextMeshProUGUI costText;
 
         private int preexistingAgreementSelected = -1;
 
@@ -96,6 +97,44 @@ namespace CountryGame
             preexistingAgreementSendButton.interactable = preexistingAgreementSelected != -1;
 
             colourButton.color = colourPicker.color;
+            
+            
+            float requiredPower = ComputerAgreementCreator.Instance.startingAgreementPowerRequirement;
+
+            if (nonAggression.isOn)
+            {
+                requiredPower = 20;
+            }
+
+            if (militaryAccess.isOn)
+            {
+                requiredPower += 10;
+            }
+
+            if (autoJoinWar.isOn)
+            {
+                requiredPower += 20;
+            }
+
+            switch (influenceLevelSlider.value)
+            {
+                case 1: // slightly influenced
+                    requiredPower += 5;
+                    break;
+                case 2: // influenced
+                    requiredPower += 10;
+                    break;
+                case 3: // completly influenced
+                    requiredPower += 30;
+                    break;
+            }
+
+            if (PlayerNationManager.PlayerNation.Border(secondaryNation))
+            {
+                requiredPower -= 15;
+            }
+
+            costText.text = $"Predicted calculated cost: {requiredPower}";
         }
         
         private List<GameObject> currentAgreementDisplays = new List<GameObject>();

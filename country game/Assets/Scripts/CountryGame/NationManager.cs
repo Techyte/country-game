@@ -12,6 +12,7 @@ namespace CountryGame
         
         public List<Nation> nations = new List<Nation>();
         public List<Agreement> agreements = new List<Agreement>();
+        public List<War> wars = new List<War>();
 
         public bool useFactionColour;
         public int beginningTroopCount = 10;
@@ -68,6 +69,11 @@ namespace CountryGame
             agreements.Add(agreementToAdd);
         }
 
+        public void NewWar(War war)
+        {
+            wars.Add(war);
+        }
+
         public Nation GetNationByName(string nationName)
         {
             foreach (var nation in nations)
@@ -96,8 +102,6 @@ namespace CountryGame
 
         private void NationDestroyed(Nation oldNation)
         {
-            Debug.Log("Nation destroyed");
-
             Queue<Agreement> agreementQueue = agreements.ToQueue();
 
             while (agreementQueue.Count > 0)
@@ -110,8 +114,6 @@ namespace CountryGame
 
         private void AgreementDestroyed(Agreement oldAgreement)
         {
-            Debug.Log("AgreementDestroyed");
-
             foreach (var nation in oldAgreement.Nations)
             {
                 nation.agreements.Remove(oldAgreement);
@@ -155,7 +157,6 @@ namespace CountryGame
 
         public void NationLeaveAgreement(Nation nation, Agreement agreement)
         {
-            Debug.Log("Nation leaving agreement");
             if (agreement.Nations.Contains(nation))
             {
                 agreement.NationLeft(nation);
@@ -167,6 +168,15 @@ namespace CountryGame
                 }
             }
         }
+
+        public void NationJoinWar(Nation nationToJoinWar, War warToJoin)
+        {
+            if (!nationToJoinWar.Wars.Contains(warToJoin) && !warToJoin.Nations.Contains(nationToJoinWar))
+            {
+                nationToJoinWar.JoinWar(warToJoin);
+                warToJoin.NationJointed(nationToJoinWar);
+            }
+        }
     }
 
     public class Nation
@@ -174,6 +184,7 @@ namespace CountryGame
         public string Name;
         public List<Country> Countries = new List<Country>();
         public List<Agreement> agreements = new List<Agreement>();
+        public List<War> Wars = new List<War>();
         public int CountryCount => Countries.Count;
         public Color Color;
         public Sprite flag;
@@ -223,6 +234,11 @@ namespace CountryGame
             }
         }
 
+        public void JoinWar(War war)
+        {
+            Wars.Add(war);
+        }
+
         public void ChangeInfluence(Nation nation, float influence)
         {
             foreach (var country in Countries)
@@ -243,7 +259,7 @@ namespace CountryGame
         {
             foreach (var country in Countries)
             {
-                foreach (var borderNation in country.GetBorders())
+                foreach (var borderNation in country.borders)
                 {
                     if (testNation == borderNation)
                     {
@@ -275,6 +291,17 @@ namespace CountryGame
         public float DistanceTo(Nation nation)
         {
             return (nation.AvgPos() - AvgPos()).magnitude;
+        }
+    }
+
+    public class War
+    {
+        public string Name;
+        public List<Nation> Nations = new List<Nation>();
+
+        public void NationJointed(Nation nationThatJoined)
+        {
+            Nations.Add(nationThatJoined);
         }
     }
 
