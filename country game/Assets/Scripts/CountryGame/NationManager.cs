@@ -1,5 +1,4 @@
 using System;
-using System.Linq;
 
 namespace CountryGame
 {
@@ -47,11 +46,23 @@ namespace CountryGame
                             
                             while (countryQueue.Count > 0)
                             {
+                                Country country = countryQueue.Dequeue();
+                                
                                 Notification notification = Instantiate(notificationPrefab, notificationParent);
                                 notification.Init($"{nation.Name} joins {agreement.AgreementLeader.Name}!", $"Today, under heavy pressure from {agreement.AgreementLeader.Name}, {nation.Name} gave up independence and joined {agreement.AgreementLeader.Name}! This marks a historic day.", () => {CountrySelector.Instance.Clicked(agreement.AgreementLeader);}, 5);
                                 
                                 Debug.Log("Country joining head");
-                                SwapCountriesNation(countryQueue.Dequeue(), agreement.AgreementLeader);
+
+                                foreach (var info in country.troopInfos.Values)
+                                {
+                                    if (info.ControllerNation == nation)
+                                    {
+                                        info.ControllerNation = agreement.AgreementLeader;
+                                        info.NumberOfTroops -= (int)(info.NumberOfTroops / 2);
+                                    }
+                                }
+                                
+                                SwapCountriesNation(country, agreement.AgreementLeader);
                             }
                         }
                     }
@@ -127,6 +138,16 @@ namespace CountryGame
             if (countryToSwap.GetNation() != nationToSwapTo)
             {
                 Nation oldNation = countryToSwap.GetNation();
+                
+                // swap all troops in the country to the new one
+                foreach (var info in countryToSwap.troopInfos.Values)
+                {
+                    if (info.ControllerNation == countryToSwap.GetNation())
+                    {
+                        info.ControllerNation = nationToSwapTo;
+                    }
+                }
+                
                 if (oldNation != null)
                 {
                     oldNation.CountryLeft(countryToSwap);
@@ -269,6 +290,22 @@ namespace CountryGame
             }
 
             return false;
+        }
+
+        public int HighestInfluence(out Nation nation)
+        {
+            nation = this;
+            int highestInfluence = 0;
+            foreach (var agreement in agreements)
+            {
+                if (agreement.influence > highestInfluence)
+                {
+                    highestInfluence = agreement.influence;
+                    nation = agreement.AgreementLeader;
+                }
+            }
+
+            return highestInfluence;
         }
 
         public Vector2 AvgPos()

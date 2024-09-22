@@ -1,3 +1,6 @@
+using System;
+using System.Collections.Generic;
+
 namespace CountryGame
 {
     using UnityEngine;
@@ -5,11 +8,11 @@ namespace CountryGame
     public class TroopDisplayButton : MonoBehaviour
     {
         private float _currentAlphaMultiplier = 1;
-        private SpriteRenderer renderer;
+        private SpriteRenderer sr;
 
         private void Awake()
         {
-            renderer = GetComponent<SpriteRenderer>();
+            sr = GetComponent<SpriteRenderer>();
         }
         
         private void Update()
@@ -22,7 +25,7 @@ namespace CountryGame
             Color targetColor = Color.white * _currentAlphaMultiplier;
             targetColor.a = 1;
             
-            renderer.color = Color.Lerp(renderer.color, targetColor, 0.05f);
+            sr.color = Color.Lerp(sr.color, targetColor, 0.05f);
         }
 
         private void OnMouseEnter()
@@ -43,7 +46,14 @@ namespace CountryGame
         private void OnMouseDown()
         {
             _currentAlphaMultiplier = 0.4f;
-            TroopMover.Instance.Clicked(transform.parent.parent.GetComponent<Country>());
+            if (TroopMover.Instance.transferring)
+            {
+                TroopMover.Instance.SelectedTransferLocation(transform.parent.parent.GetComponent<Country>());
+            }
+            else
+            {
+                TroopMover.Instance.Clicked(transform.parent.parent.GetComponent<Country>());
+            }
         }
 
         private void OnMouseUp()

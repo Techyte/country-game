@@ -27,6 +27,8 @@ namespace CountryGame
         [SerializeField] private TextMeshProUGUI warName;
         [SerializeField] private Button declareWarButton;
         [SerializeField] private GameObject declareWarConfirmationScreen;
+        [SerializeField] private Image influencedFlag;
+        [SerializeField] private TextMeshProUGUI influencedToolTip;
 
         private bool _countrySelected;
         private bool _agreementScreen;
@@ -87,6 +89,7 @@ namespace CountryGame
                 return;
             }
             PlayerNationManager.Instance.ResetSelected();
+            TroopMover.Instance.ResetSelected();
             AgreementCreator.Instance.CloseAgreementScreen();
             
             _agreementScreen = false;
@@ -129,6 +132,31 @@ namespace CountryGame
             }
 
             flagImage.sprite = nationSelected.flag;
+            
+            int influence = nationSelected.HighestInfluence(out Nation influencer);
+
+            if (influence > 0)
+            {
+                influencedFlag.sprite = influencer.flag;
+                influencedFlag.color = Color.white;
+                switch (influence)
+                {
+                    case 1:
+                        influencedToolTip.text = $"Minimally Influenced by {influencer.Name}";
+                        break;
+                    case 2:
+                        influencedToolTip.text = $"Influenced by {influencer.Name}";
+                        break;
+                    case 3:
+                        influencedToolTip.text = $"Completely Influenced by {influencer.Name}";
+                        break;
+                }
+            }
+            else
+            {
+                influencedToolTip.text = "Non influenced";
+                influencedFlag.sprite = nationSelected.flag;
+            }
         }
 
         private bool CanDeclareWar(Nation nationToDeclare, Nation nationDeclaredOn)

@@ -24,7 +24,7 @@ public class SpriteScale : MonoBehaviour
         float scaleFactor = visibleHeightAtDepth / spriteHeight;
 
 // Scale to fit, uniformly on all axes.
-        Vector3 target = Vector2.ClampMagnitude(Vector3.one * scaleFactor, 2);
+        Vector3 target = Vector2.ClampMagnitude(Vector3.one * scaleFactor, 0.4f);
         target.z = 1;
         transform.localScale = target;
     }

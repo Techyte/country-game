@@ -23,5 +23,16 @@ namespace CountryGame
 
             transform.position = pos;
         }
+
+        public void UpdateDisplay(Country newCountry)
+        {
+            country = newCountry;
+            numberDisplay.text = country.TotalTroopCount().ToString();
+
+            Vector3 pos = country.GetComponent<PolygonCollider2D>().bounds.center;
+            pos.z = -0.001f;
+
+            transform.position = pos;
+        }
     }
 }

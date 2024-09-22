@@ -37,7 +37,7 @@ namespace CountryGame
                     NationManager.Instance.SwapCountriesNation(country, NationManager.Instance.GetNationByName("United States"));
                     country.ResetTroops();
                     country.MovedTroopsIn(country.GetNation(), 3);
-                    Debug.Log(country.TotalTroopCount());
+                    country.borders.Add(NationManager.Instance.GetNationByName("Russia"));
                 }
                 else if (country.countryName == "Kaliningrad")
                 {

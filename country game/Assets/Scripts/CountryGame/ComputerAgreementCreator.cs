@@ -45,7 +45,7 @@ namespace CountryGame
                     NationManager.Instance.NationJoinAgreement(PlayerNationManager.PlayerNation, requestedAgreement);
                 }
                 NationManager.Instance.NationJoinAgreement(targetNation, requestedAgreement);
-                PlayerNationManager.Instance.diplomaticPower -= 5;
+                PlayerNationManager.Instance.diplomaticPower -= (int)(requiredPower / 2);
                 
                 Debug.Log($"{targetNation.Name} accepted the {requestedAgreement.Name} agreement");
 
@@ -70,7 +70,7 @@ namespace CountryGame
 
             if (agreement.nonAgression)
             {
-                requiredPower = 20;
+                requiredPower = 10;
             }
 
             if (agreement.militaryAccess)
