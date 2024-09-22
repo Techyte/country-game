@@ -8,10 +8,10 @@ namespace CountryGame
     public class NationManager : MonoBehaviour
     {
         public static NationManager Instance;
-        
+
+        public List<Country> counties = new List<Country>();
         public List<Nation> nations = new List<Nation>();
         public List<Agreement> agreements = new List<Agreement>();
-        public List<War> wars = new List<War>();
 
         public bool useFactionColour;
         public int beginningTroopCount = 10;
@@ -70,6 +70,11 @@ namespace CountryGame
             }
         }
 
+        public void NewCountry(Country countryToAdd)
+        {
+            counties.Add(countryToAdd);
+        }
+
         public void NewNation(Nation nationToAdd)
         {
             nations.Add(nationToAdd);
@@ -80,11 +85,6 @@ namespace CountryGame
             agreements.Add(agreementToAdd);
         }
 
-        public void NewWar(War war)
-        {
-            wars.Add(war);
-        }
-
         public Nation GetNationByName(string nationName)
         {
             foreach (var nation in nations)
@@ -92,6 +92,19 @@ namespace CountryGame
                 if (nationName == nation.Name)
                 {
                     return nation;
+                }
+            }
+
+            return null;
+        }
+
+        public Country GetCountryByName(string countryName)
+        {
+            foreach (var country in counties)
+            {
+                if (countryName == country.countryName)
+                {
+                    return country;
                 }
             }
 
@@ -189,15 +202,6 @@ namespace CountryGame
                 }
             }
         }
-
-        public void NationJoinWar(Nation nationToJoinWar, War warToJoin)
-        {
-            if (!nationToJoinWar.Wars.Contains(warToJoin) && !warToJoin.Nations.Contains(nationToJoinWar))
-            {
-                nationToJoinWar.JoinWar(warToJoin);
-                warToJoin.NationJointed(nationToJoinWar);
-            }
-        }
     }
 
     public class Nation
@@ -280,9 +284,9 @@ namespace CountryGame
         {
             foreach (var country in Countries)
             {
-                foreach (var borderNation in country.borders)
+                foreach (var borderCountry in country.borders)
                 {
-                    if (testNation == borderNation)
+                    if (testNation == borderCountry.GetNation())
                     {
                         return true;
                     }
@@ -328,17 +332,6 @@ namespace CountryGame
         public float DistanceTo(Nation nation)
         {
             return (nation.AvgPos() - AvgPos()).magnitude;
-        }
-    }
-
-    public class War
-    {
-        public string Name;
-        public List<Nation> Nations = new List<Nation>();
-
-        public void NationJointed(Nation nationThatJoined)
-        {
-            Nations.Add(nationThatJoined);
         }
     }
 

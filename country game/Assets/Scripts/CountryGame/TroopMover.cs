@@ -1,6 +1,4 @@
-using System;
 using System.Collections.Generic;
-using System.Linq;
 using TMPro;
 using UnityEngine.UI;
 
@@ -78,6 +76,11 @@ namespace CountryGame
 
         public void ResetSelected()
         {
+            if (transferring)
+            {
+                countryTroopInformationDisplay.transform.position = start.position;
+            }
+            
             open = false;
             transferring = false;
             currentCountry = null;
@@ -114,11 +117,38 @@ namespace CountryGame
 
                 TextMeshProUGUI nation = troopDisplay.GetComponentsInChildren<TextMeshProUGUI>()[0];
                 TextMeshProUGUI count = troopDisplay.GetComponentsInChildren<TextMeshProUGUI>()[1];
+
+                Button troopDisplayButton = troopDisplay.GetComponent<Button>();
                 
-                troopDisplay.GetComponent<Button>().onClick.AddListener(() =>
+                troopDisplayButton.onClick.AddListener(() =>
                 {
                     StartTransferringTroops(i);
                 });
+
+                bool controllable = true;
+
+                if (!info.ControllerNation.playerNation)
+                {
+                    controllable = false;
+                    
+                    foreach (var agreement in info.ControllerNation.agreements)
+                    {
+                        if (agreement.influence > 1 && agreement.AgreementLeader == PlayerNationManager.PlayerNation)
+                        {
+                            // interactable
+                            controllable = true;
+                        }
+                    }
+                }
+                else
+                {
+                    if (info.NumberOfTroops == 1)
+                    {
+                        controllable = false;
+                    }
+                }
+                
+                troopDisplayButton.interactable = controllable;
 
                 nation.text = info.ControllerNation.Name;
                 count.text = $"{info.NumberOfTroops} Troops";
@@ -146,9 +176,22 @@ namespace CountryGame
         {
             target = destination;
             amountDisplay.SetActive(true);
+            
+            switch (source.DistanceTo(target))
+            {
+                case < 2f:
+                    // close
+                    actionPointCost = 1;
+                    break;
+                case >= 3.3f:
+                    actionPointCost = 2;
+                    break;
+            }
+            
             UpdateTroopTransferScreen();
         }
 
+        private int actionPointCost = 1;
         private void UpdateTroopTransferScreen()
         {
             amount = 1;
@@ -156,14 +199,26 @@ namespace CountryGame
             sourceNationName.text = controllers[nationIndex].Name;
             sourceCountryName.text = source.countryName;
             targetCountryName.text = target.countryName;
+            costText.text = $"-{actionPointCost} Action Point";
         }
 
         public void TransferTroops()
         {
+            if (!source.CanMoveNumTroopsOut(controllers[nationIndex], amount))
+            {
+                return;
+            }
+            
             source.MoveTroopsOut(controllers[nationIndex], amount);
             target.MovedTroopsIn(controllers[nationIndex], amount);
             
             ResetSelected();
+        }
+
+        public void SwapSourceTarget()
+        {
+            (source, target) = (target, source);
+            UpdateTroopTransferScreen();
         }
 
         public void UpdateAmountDisplay(float value)

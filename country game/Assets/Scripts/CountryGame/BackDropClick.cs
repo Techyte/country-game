@@ -6,7 +6,7 @@ namespace CountryGame
     {
         private void OnMouseDown()
         {
-            if (!GameCamera.Instance.IsPointerOverUIObject())
+            if (!GameCamera.Instance.IsPointerOverUIObject() && !TroopMover.Instance.transferring)
             {
                 CountrySelector.Instance.ResetSelected();
                 TroopMover.Instance.ResetSelected();

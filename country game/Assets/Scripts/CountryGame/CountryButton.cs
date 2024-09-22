@@ -39,7 +39,7 @@ namespace CountryGame
 
         private void OnMouseEnter()
         {
-            if (GameCamera.Instance.IsPointerOverUIObject() || GameCamera.Instance.troopDisplayHover)
+            if (GameCamera.Instance.IsPointerOverUIObject() || GameCamera.Instance.troopDisplayHover || TroopMover.Instance.transferring)
             {
                 return;
             }
@@ -49,6 +49,11 @@ namespace CountryGame
 
         private void OnMouseExit()
         {
+            if (GameCamera.Instance.IsPointerOverUIObject() || GameCamera.Instance.troopDisplayHover || TroopMover.Instance.transferring)
+            {
+                return;
+            }
+            
             _currentAlphaMultiplier = 1f;
         }
 
@@ -60,7 +65,7 @@ namespace CountryGame
 
         private void OnMouseDown()
         {
-            if (Input.GetMouseButton(2) || Input.GetMouseButton(1) || GameCamera.Instance.IsPointerOverUIObject() || GameCamera.Instance.troopDisplayHover)
+            if (Input.GetMouseButton(2) || Input.GetMouseButton(1) || GameCamera.Instance.IsPointerOverUIObject() || GameCamera.Instance.troopDisplayHover || TroopMover.Instance.transferring)
             {
                 return;
             }
@@ -72,6 +77,11 @@ namespace CountryGame
 
         private void OnMouseUp()
         {
+            if (GameCamera.Instance.IsPointerOverUIObject() || GameCamera.Instance.troopDisplayHover || TroopMover.Instance.transferring)
+            {
+                return;
+            }
+            
             _currentAlphaMultiplier = 0.9f;
         }
 

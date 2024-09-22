@@ -25,7 +25,7 @@ namespace CountryGame
 
         private static TurnManager _instance;
 
-        [SerializeField] private int turnCount;
+        public int currentTurn;
         [SerializeField] private int turnActionPoints;
         [SerializeField] private int maxActionPoints;
         [SerializeField] private TextMeshProUGUI actionPointDisplay;
@@ -39,7 +39,7 @@ namespace CountryGame
 
         private void Awake()
         {
-            turnCount = 1;
+            currentTurn = 0;
             Instance = this;
             confirmPannel.SetActive(false);
         }
@@ -52,7 +52,7 @@ namespace CountryGame
 
         private void Update()
         {
-            actionPointDisplay.text = $"A:{actionPoints}";
+            actionPointDisplay.text = $"AP:{actionPoints}";
 
             if (Input.GetKeyDown(KeyCode.Escape))
             {
@@ -62,9 +62,9 @@ namespace CountryGame
 
         private void ProgressTurn()
         {
-            turnCount++;
+            currentTurn++;
             
-            if (turnCount%2==0)
+            if (currentTurn%2==0)
             {
                 additionalActionPoints++;
             }

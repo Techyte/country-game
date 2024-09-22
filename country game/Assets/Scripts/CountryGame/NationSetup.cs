@@ -13,6 +13,8 @@ namespace CountryGame
 
             foreach (var country in countries)
             {
+                NationManager.Instance.NewCountry(country);
+                
                 Nation nation = new Nation();
                 nation.Color = new Color(Random.Range(100f, 256f)/256f, Random.Range(100f, 256f)/256f, Random.Range(100f, 256f)/256f);
                 nation.Name = country.countryName;
@@ -37,7 +39,7 @@ namespace CountryGame
                     NationManager.Instance.SwapCountriesNation(country, NationManager.Instance.GetNationByName("United States"));
                     country.ResetTroops();
                     country.MovedTroopsIn(country.GetNation(), 3);
-                    country.borders.Add(NationManager.Instance.GetNationByName("Russia"));
+                    country.borders.Add(NationManager.Instance.GetCountryByName("Russia"));
                 }
                 else if (country.countryName == "Kaliningrad")
                 {
@@ -59,7 +61,7 @@ namespace CountryGame
                 }
             }
 
-            Nation playerNation = NationManager.Instance.GetNationByName("France");
+            Nation playerNation = NationManager.Instance.GetNationByName("Australia");
             PlayerNationManager.Instance.SetPlayerNation(playerNation);
             PlayerNationManager.Instance.diplomaticPower = startingDiplomaticPower;
         }

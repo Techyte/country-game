@@ -17,9 +17,16 @@ namespace CountryGame
         public bool autoJoinWar;
         public int influence;
 
+        public int turnCreated = 0;
+
         public void NationJointed(Nation nationThatJoined)
         {
             Nations.Add(nationThatJoined);
+        }
+
+        public int Age()
+        {
+            return TurnManager.Instance.currentTurn - turnCreated;
         }
 
         public void NationLeft(Nation nationThatLeft)

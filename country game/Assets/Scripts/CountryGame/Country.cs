@@ -1,3 +1,5 @@
+using System;
+
 namespace CountryGame
 {
     using System.Collections.Generic;
@@ -12,7 +14,7 @@ namespace CountryGame
 
         [HideInInspector] public CountryButton button;
 
-        public List<Nation> borders = new List<Nation>();
+        public List<Country> borders = new List<Country>();
 
         public Dictionary<Nation, TroopInformation> troopInfos = new Dictionary<Nation, TroopInformation>();
 
@@ -28,7 +30,10 @@ namespace CountryGame
             {
                 troopDisplay = Instantiate(Resources.Load<TroopDisplay>("TroopDisplay"), transform);
             }
+        }
 
+        private void Start()
+        {
             borders = GetBorders();
         }
 
@@ -85,8 +90,36 @@ namespace CountryGame
             if (troopInfos.TryGetValue(controller, out TroopInformation info))
             {
                 info.NumberOfTroops -= numberOfTroops;
+                if (info.NumberOfTroops <= 0)
+                {
+                    troopInfos.Remove(controller);
+                }
             }
             troopDisplay.UpdateDisplay(this);
+        }
+
+        public bool CanMoveNumTroopsOut(Nation controller, int amount)
+        {
+            if (troopInfos.TryGetValue(controller, out TroopInformation info))
+            {
+                int minimum = 0;
+
+                if (controller == nation)
+                {
+                    minimum = 1;
+                }
+                
+                if (info.NumberOfTroops - amount >= minimum)
+                {
+                    return true;
+                }
+
+                return false;
+            }
+            else
+            {
+                return false;
+            }
         }
         
         public void ResetTroops()
@@ -99,7 +132,12 @@ namespace CountryGame
             return nation;
         }
 
-        public List<Nation> GetBorders()
+        public float DistanceTo(Country country)
+        {
+            return (GetComponent<PolygonCollider2D>().bounds.center - country.gameObject.GetComponent<PolygonCollider2D>().bounds.center).magnitude;
+        }
+
+        public List<Country> GetBorders()
         {
             PolygonCollider2D thisCollider = GetComponent<PolygonCollider2D>();
             
@@ -109,7 +147,7 @@ namespace CountryGame
             
             Physics2D.OverlapCollider(thisCollider, filter, overlappingColliders);
 
-            List<Nation> borderNations = new List<Nation>();
+            List<Country> borderNations = new List<Country>();
 
             foreach (var colider in overlappingColliders)
             {
@@ -119,101 +157,101 @@ namespace CountryGame
                 
                     if (country != null)
                     {
-                        if (!borderNations.Contains(country.nation))
+                        if (!borderNations.Contains(country))
                         {
-                            borderNations.Add(country.nation);
+                            borderNations.Add(country);
                         }
                     }
                 }
             }
             if (countryName == "France")
             { 
-                borders.Add(NationManager.Instance.GetNationByName("United Kingdom"));
+                borders.Add(NationManager.Instance.GetCountryByName("United Kingdom"));
             }
             else if (countryName == "United Kingdom") 
             { 
-                borders.Add(NationManager.Instance.GetNationByName("France"));
+                borders.Add(NationManager.Instance.GetCountryByName("France"));
             }
             else if (countryName == "Russia")
             { 
-                borders.Add(NationManager.Instance.GetNationByName("Alaska")); 
-                borders.Add(NationManager.Instance.GetNationByName("Japan"));
+                borders.Add(NationManager.Instance.GetCountryByName("Alaska")); 
+                borders.Add(NationManager.Instance.GetCountryByName("Japan"));
             }
             else if (countryName == "Alaska")
             {
-                borders.Add(NationManager.Instance.GetNationByName("Russia"));
+                borders.Add(NationManager.Instance.GetCountryByName("Russia"));
             }
             else if (countryName == "United States")
             {
-                borders.Add(NationManager.Instance.GetNationByName("Cuba"));
+                borders.Add(NationManager.Instance.GetCountryByName("Cuba"));
             }
             else if (countryName == "Mexico")
             {
-                borders.Add(NationManager.Instance.GetNationByName("Cuba"));
+                borders.Add(NationManager.Instance.GetCountryByName("Cuba"));
             }
             else if (countryName == "Cuba")
             {
-                borders.Add(NationManager.Instance.GetNationByName("Mexico"));
-                borders.Add(NationManager.Instance.GetNationByName("United States"));
+                borders.Add(NationManager.Instance.GetCountryByName("Mexico"));
+                borders.Add(NationManager.Instance.GetCountryByName("United States"));
             }
             else if (countryName == "Australia")
             {
-                borders.Add(NationManager.Instance.GetNationByName("New Zealand"));
-                borders.Add(NationManager.Instance.GetNationByName("Indonesia"));
+                borders.Add(NationManager.Instance.GetCountryByName("New Zealand"));
+                borders.Add(NationManager.Instance.GetCountryByName("Indonesia"));
             }
             else if (countryName == "New Zealand")
             {
-                borders.Add(NationManager.Instance.GetNationByName("Australia"));
+                borders.Add(NationManager.Instance.GetCountryByName("Australia"));
             }
             else if (countryName == "China")
             {
-                borders.Add(NationManager.Instance.GetNationByName("Taiwan"));
+                borders.Add(NationManager.Instance.GetCountryByName("Taiwan"));
             }
             else if (countryName == "Taiwan")
             {
-                borders.Add(NationManager.Instance.GetNationByName("China"));
+                borders.Add(NationManager.Instance.GetCountryByName("China"));
             }
             else if (countryName == "Indonesia")
             {
-                borders.Add(NationManager.Instance.GetNationByName("Australia"));
+                borders.Add(NationManager.Instance.GetCountryByName("Australia"));
             }
             else if (countryName == "Madagascar")
             {
-                borders.Add(NationManager.Instance.GetNationByName("Mozambique"));
+                borders.Add(NationManager.Instance.GetCountryByName("Mozambique"));
             }
             else if (countryName == "Mozambique")
             {
-                borders.Add(NationManager.Instance.GetNationByName("Madagascar"));
+                borders.Add(NationManager.Instance.GetCountryByName("Madagascar"));
             }
             else if (countryName == "Spain")
             {
-                borders.Add(NationManager.Instance.GetNationByName("Morocco"));
+                borders.Add(NationManager.Instance.GetCountryByName("Morocco"));
             }
             else if (countryName == "Morocco")
             {
-                borders.Add(NationManager.Instance.GetNationByName("Spain"));
+                borders.Add(NationManager.Instance.GetCountryByName("Spain"));
             }
             else if (countryName == "Japan")
             {
-                borders.Add(NationManager.Instance.GetNationByName("Russia"));
-                borders.Add(NationManager.Instance.GetNationByName("South Korea"));
+                borders.Add(NationManager.Instance.GetCountryByName("Russia"));
+                borders.Add(NationManager.Instance.GetCountryByName("South Korea"));
             }
             else if (countryName == "Japan")
             {
-                borders.Add(NationManager.Instance.GetNationByName("Russia"));
-                borders.Add(NationManager.Instance.GetNationByName("South Korea"));
+                borders.Add(NationManager.Instance.GetCountryByName("Russia"));
+                borders.Add(NationManager.Instance.GetCountryByName("South Korea"));
             }
             else if (countryName == "South Korea")
             {
-                borders.Add(NationManager.Instance.GetNationByName("Japan"));
+                borders.Add(NationManager.Instance.GetCountryByName("Japan"));
             }
             else if (countryName == "Iceland")
             {
-                borders.Add(NationManager.Instance.GetNationByName("Greenland"));
+                borders.Add(NationManager.Instance.GetCountryByName("Greenland"));
             }
             else if (countryName == "Greenland")
             {
-                borders.Add(NationManager.Instance.GetNationByName("Iceland"));
+                borders.Add(NationManager.Instance.GetCountryByName("Iceland"));
             }
 
             return borderNations;

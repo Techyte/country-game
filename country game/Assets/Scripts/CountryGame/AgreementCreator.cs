@@ -203,6 +203,7 @@ namespace CountryGame
             agreement.nonAgression = nonAggression.isOn;
             agreement.Color = colourPicker.color;
             agreement.AgreementLeader = nation1Head ? PlayerNationManager.PlayerNation : secondaryNation;
+            agreement.turnCreated = TurnManager.Instance.currentTurn;
             
             ComputerAgreementCreator.Instance.PlayerAskedToJoinAgreement(secondaryNation, agreement, false);
             TurnManager.Instance.PerformedAction();

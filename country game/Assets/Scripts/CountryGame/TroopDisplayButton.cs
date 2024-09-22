@@ -30,11 +30,6 @@ namespace CountryGame
 
         private void OnMouseEnter()
         {
-            if (GameCamera.Instance.IsPointerOverUIObject())
-            {
-                return;
-            }
-
             _currentAlphaMultiplier = 0.65f;
         }
 
@@ -45,7 +40,13 @@ namespace CountryGame
 
         private void OnMouseDown()
         {
+            if (GameCamera.Instance.IsPointerOverUIObject())
+            {
+                return;
+            }
+            
             _currentAlphaMultiplier = 0.4f;
+            
             if (TroopMover.Instance.transferring)
             {
                 TroopMover.Instance.SelectedTransferLocation(transform.parent.parent.GetComponent<Country>());

@@ -29,6 +29,14 @@ namespace CountryGame
         [SerializeField] private GameObject declareWarConfirmationScreen;
         [SerializeField] private Image influencedFlag;
         [SerializeField] private TextMeshProUGUI influencedToolTip;
+        [SerializeField] private Image nonAgressionImage;
+        [SerializeField] private Image militaryAccessImage;
+        [SerializeField] private Image autoJoinWarsImage;
+        [SerializeField] private Sprite cross;
+        [SerializeField] private Sprite tick;
+        [SerializeField] private Button leaveButton;
+        [SerializeField] private Button warButtonPrefab;
+        [SerializeField] private Transform warButtonParent;
 
         private bool _countrySelected;
         private bool _agreementScreen;
@@ -80,6 +88,7 @@ namespace CountryGame
         }
 
         private List<GameObject> currentAgreementDisplays = new List<GameObject>();
+        private List<GameObject> currentWarButtons = new List<GameObject>();
         public void Clicked(Nation nationSelected)
         {
             _currentNation = nationSelected;
@@ -103,6 +112,11 @@ namespace CountryGame
             foreach (var factionDisplay in currentAgreementDisplays)
             {
                 Destroy(factionDisplay);
+            }
+            
+            foreach (var warButton in currentWarButtons)
+            {
+                Destroy(warButton);
             }
 
             for (int i = 0; i < nationSelected.agreements.Count; i++)
@@ -129,6 +143,19 @@ namespace CountryGame
                 nonAlignedText.color = Color.black;
                 
                 currentAgreementDisplays.Add(nonAlignedText.gameObject);
+            }
+
+            foreach (var war in nationSelected.Wars)
+            {
+                Button warButton = Instantiate(warButtonPrefab, warButtonParent);
+                warButton.GetComponentInChildren<TextMeshProUGUI>().text = war.Name;
+                
+                warButton.onClick.AddListener(() =>
+                {
+                    OpenWarScreen(war);
+                });
+                
+                currentWarButtons.Add(warButton.gameObject);
             }
 
             flagImage.sprite = nationSelected.flag;
@@ -218,14 +245,7 @@ namespace CountryGame
 
         public void OpenAgreementScreen(int factionIndex)
         {
-            Agreement agreement = _currentNation.agreements[factionIndex];
-
-            DisplayAgreementMembers(agreement);
-            _agreementScreen = true;
-            _countrySelected = false;
-            _warScreen = false;
-            AgreementCreator.Instance.CloseAgreementScreen();
-            agreementName.text = agreement.Name;
+            OpenAgreementScreen(_currentNation.agreements[factionIndex]);
         }
         
         private List<GameObject> currentWarMembers = new List<GameObject>();
@@ -265,11 +285,16 @@ namespace CountryGame
         
         public void OpenAgreementScreen(Agreement agreement)
         {
+            PlayerNationManager.Instance.ResetSelected();
             DisplayAgreementMembers(agreement);
             _agreementScreen = true;
             _countrySelected = false;
             AgreementCreator.Instance.CloseAgreementScreen();
             agreementName.text = agreement.Name;
+            nonAgressionImage.sprite = agreement.nonAgression ? tick : cross;
+            militaryAccessImage.sprite = agreement.militaryAccess ? tick : cross;
+            autoJoinWarsImage.sprite = agreement.autoJoinWar ? tick : cross;
+            leaveButton.interactable = agreement.Age() >= 3;
         }
 
         public void BeginCreatingAgreement()
@@ -280,7 +305,6 @@ namespace CountryGame
 
         public void DeclareWar()
         {
-            Debug.Log("declare war");
             declareWarConfirmationScreen.SetActive(true);
         }
 
