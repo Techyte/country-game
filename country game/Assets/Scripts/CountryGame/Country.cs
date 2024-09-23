@@ -87,7 +87,10 @@ namespace CountryGame
 
         public void UpdateTroopDisplay()
         {
-            troopDisplay.UpdateDisplay(this, nation.MilitaryAccessWith(PlayerNationManager.PlayerNation));
+            if (troopDisplay && PlayerNationManager.PlayerNation != null)
+            {
+                troopDisplay.UpdateDisplay(this, nation.MilitaryAccessWith(PlayerNationManager.PlayerNation) || nation.playerNation);
+            }
         }
 
         public void MoveTroopsOut(Nation controller, int numberOfTroops)
@@ -266,7 +269,6 @@ namespace CountryGame
         {
             ChangeColour(nation.Color);
             this.nation = nation;
-            troopDisplay.UpdateDisplay(this, nation.playerNation);
         }
     }
 

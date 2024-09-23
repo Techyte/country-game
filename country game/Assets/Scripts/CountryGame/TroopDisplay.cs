@@ -12,6 +12,11 @@ namespace CountryGame
 
         private Country country;
 
+        private void Awake()
+        {
+            display.SetActive(false);
+        }
+
         public void UpdateDisplay(Country newCountry, bool visible)
         {
             country = newCountry;

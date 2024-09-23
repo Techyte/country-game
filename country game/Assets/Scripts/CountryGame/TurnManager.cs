@@ -1,4 +1,5 @@
 using System;
+using System.Collections;
 using TMPro;
 
 namespace CountryGame
@@ -72,6 +73,12 @@ namespace CountryGame
             NewTurn?.Invoke(this, EventArgs.Empty);
             actionPoints = turnActionPoints+additionalActionPoints;
             actionPoints = Mathf.Clamp(actionPoints, 0, maxActionPoints);
+        }
+
+        public IEnumerator TurnProgressDelay()
+        {
+            yield return new WaitForSeconds(1);
+            ProgressTurn();
         }
 
         public void PerformedAction()

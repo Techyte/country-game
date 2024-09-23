@@ -146,6 +146,16 @@ namespace CountryGame
             {
                 NationLeaveAgreement(oldNation, agreementQueue.Dequeue());
             }
+
+            List<War> wars = oldNation.Wars.ToList();
+
+            foreach (var war in wars)
+            {
+                war.RemoveDefender(oldNation);
+                war.RemoveBelligerent(oldNation);
+
+                oldNation.Wars.Remove(war);
+            }
             
             nations.Remove(oldNation);
         }
@@ -183,8 +193,12 @@ namespace CountryGame
                         NationDestroyed(oldNation);
                     }
                 }
+
+                int influence = nationToSwapTo.HighestInfluence(out Nation highestInfluence);
                 
+                countryToSwap.button.SetInfluenceColour(highestInfluence.Color, influence/3f);
                 countryToSwap.ChangeNation(nationToSwapTo);
+                countryToSwap.UpdateTroopDisplay();
                 nationToSwapTo.CountryJointed(countryToSwap);
             }
         }
@@ -356,7 +370,7 @@ namespace CountryGame
             int highestInfluence = 0;
             foreach (var agreement in agreements)
             {
-                if (agreement.influence > highestInfluence)
+                if (agreement.influence > highestInfluence && agreement.AgreementLeader != this)
                 {
                     highestInfluence = agreement.influence;
                     nation = agreement.AgreementLeader;
