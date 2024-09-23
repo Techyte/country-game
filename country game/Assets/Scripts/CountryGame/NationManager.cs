@@ -1,5 +1,6 @@
 using System;
 using System.Linq;
+using Unity.VisualScripting;
 
 namespace CountryGame
 {
@@ -213,6 +214,8 @@ namespace CountryGame
                 {
                     AgreementDestroyed(agreement);
                 }
+
+                nation.UpdateTroopDisplays();
             }
         }
     }
@@ -245,11 +248,49 @@ namespace CountryGame
             return count;
         }
 
+        public bool MilitaryAccessWith(Nation nationToTest)
+        {
+            foreach (var agreement in agreements)
+            {
+                if (agreement.militaryAccess && agreement.Nations.Contains(nationToTest))
+                {
+                    return true;
+                }
+            }
+
+            return false;
+        }
+
+        public bool IsAtWarWith(Nation nation)
+        {
+            foreach (var war in Wars)
+            {
+                if (war.Belligerents.Contains(this) && war.Defenders.Contains(nation))
+                {
+                    return true;
+                }
+                else if (war.Defenders.Contains(this) && war.Belligerents.Contains(nation))
+                {
+                    return true;
+                }
+            }
+
+            return false;
+        }
+
         public void CountryLeft(Country countryThatLeft)
         {
             if (Countries.Contains(countryThatLeft))
             {
                 Countries.Remove(countryThatLeft);
+            }
+        }
+
+        public void UpdateTroopDisplays()
+        {
+            foreach (var country in Countries)
+            {
+                country.UpdateTroopDisplay();
             }
         }
 

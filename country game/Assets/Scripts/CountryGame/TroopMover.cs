@@ -31,7 +31,7 @@ namespace CountryGame
         [SerializeField] private Slider amountSlider;
 
         private bool open;
-        private Country currentCountry;
+        public Country currentCountry;
 
         public bool transferring;
 

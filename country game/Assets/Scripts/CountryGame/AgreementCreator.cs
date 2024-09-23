@@ -51,8 +51,11 @@ namespace CountryGame
                 CloseAgreementScreen();
                 ResetUI();
             }
-            
-            UpdateUI();
+
+            if (agreementCreatorScreen.gameObject.activeSelf)
+            {
+                UpdateUI();
+            }
         }
 
         private void ResetUI()

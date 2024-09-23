@@ -314,6 +314,7 @@ namespace CountryGame
 
             DisplayWarMembers(war);
             warName.text = war.Name;
+            PlayerNationManager.Instance.ResetSelected();
         }
 
         private bool joinBelligerents;

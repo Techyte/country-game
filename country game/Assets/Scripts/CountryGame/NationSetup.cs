@@ -61,7 +61,7 @@ namespace CountryGame
                 }
             }
 
-            Nation playerNation = NationManager.Instance.GetNationByName("United States");
+            Nation playerNation = NationManager.Instance.GetNationByName("Australia");
             PlayerNationManager.Instance.SetPlayerNation(playerNation);
             PlayerNationManager.Instance.diplomaticPower = startingDiplomaticPower;
             

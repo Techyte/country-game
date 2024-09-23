@@ -11,6 +11,7 @@ namespace CountryGame
                 CountrySelector.Instance.ResetSelected();
                 TroopMover.Instance.ResetSelected();
                 PlayerNationManager.Instance.ResetSelected();
+                CombatManager.Instance.ResetSelected();
             }
         }
     }

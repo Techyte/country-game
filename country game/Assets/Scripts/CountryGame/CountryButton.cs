@@ -69,8 +69,15 @@ namespace CountryGame
             {
                 return;
             }
-            
-            CountrySelector.Instance.Clicked(GetComponent<Country>().GetNation());
+
+            if (CombatManager.Instance.invading)
+            {
+                CombatManager.Instance.SelectInvasionTarget(GetComponent<Country>());
+            }
+            else
+            {
+                CountrySelector.Instance.Clicked(GetComponent<Country>().GetNation());
+            }
             
             _currentAlphaMultiplier = 0.4f;
         }
