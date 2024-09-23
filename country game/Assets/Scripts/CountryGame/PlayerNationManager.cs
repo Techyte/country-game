@@ -17,13 +17,13 @@ namespace CountryGame
         [SerializeField] private Transform playerNationDisplay;
         [SerializeField] private Transform displayStart, displayEnd;
         [SerializeField] private TextMeshProUGUI diplomaticPowerDisplay;
-        [SerializeField] private TextMeshProUGUI troopNumDisplay;
         [SerializeField] private float displaySpeed;
         [SerializeField] private int diplomaticPowerGain = 20;
         [SerializeField] private Button warButtonPrefab;
         [SerializeField] private Transform warButtonParent;
         [SerializeField] private Transform agreementTextParent;
         [SerializeField] private GameObject agreementText;
+        [SerializeField] private GameObject manageTroopsScreen;
         
         [Space]
         [SerializeField] private Image influencedFlag;
@@ -37,6 +37,7 @@ namespace CountryGame
         {
             Instance = this;
             playerNationDisplay.position = displayStart.position;
+            manageTroopsScreen.SetActive(false);
             TurnManager.Instance.NewTurn += NewTurn;
         }
 
@@ -67,6 +68,8 @@ namespace CountryGame
         public void ResetSelected()
         {
             playerNationSelected = false;
+            manageTroopsScreen.SetActive(false);
+            manageTroopsScreen.SetActive(false);
         }
         
         private List<GameObject> currentAgreementDisplays = new List<GameObject>();
@@ -155,13 +158,13 @@ namespace CountryGame
         private void UpdateUI()
         {
             diplomaticPowerDisplay.text = $"DPP: {diplomaticPower}";
-            troopNumDisplay.text = $"TRPS: {PlayerNation.TotalTroopCount()}";
         }
 
         public void SetPlayerNation(Nation playerNation)
         {
             PlayerNation = playerNation;
             playerNation.BecomePlayerNation();
+            SetupUI();
         }
 
         public void ClickedPlayerNation()
@@ -171,6 +174,16 @@ namespace CountryGame
             TroopMover.Instance.ResetSelected();
             AgreementCreator.Instance.CloseAgreementScreen();
             SetupUI();
+        }
+
+        public void ClickedManageTroops()
+        {
+            manageTroopsScreen.SetActive(true);
+        }
+
+        public void CloseManageTroops()
+        {
+            manageTroopsScreen.SetActive(false);
         }
     }
 }

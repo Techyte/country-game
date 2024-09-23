@@ -19,7 +19,7 @@ namespace CountryGame
                 nation.Color = new Color(Random.Range(100f, 256f)/256f, Random.Range(100f, 256f)/256f, Random.Range(100f, 256f)/256f);
                 nation.Name = country.countryName;
                 nation.flag = Resources.Load<Sprite>("Flags/" + nation.Name.ToLower().Replace(' ', '_') + "_32");
-                country.MovedTroopsIn(nation, 10);
+                country.MovedTroopsIn(nation, 9);
                 
                 NationManager.Instance.NewNation(nation);
                 
@@ -61,9 +61,11 @@ namespace CountryGame
                 }
             }
 
-            Nation playerNation = NationManager.Instance.GetNationByName("Australia");
+            Nation playerNation = NationManager.Instance.GetNationByName("United States");
             PlayerNationManager.Instance.SetPlayerNation(playerNation);
             PlayerNationManager.Instance.diplomaticPower = startingDiplomaticPower;
+            
+            //CombatManager.Instance.DeclareWarOn(NationManager.Instance.GetNationByName("Algeria"), NationManager.Instance.GetNationByName("Niger"));
         }
     }
 }

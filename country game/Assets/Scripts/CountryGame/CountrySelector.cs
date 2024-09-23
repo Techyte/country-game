@@ -1,5 +1,3 @@
-using System.Linq;
-
 namespace CountryGame
 {
     using System.Collections.Generic;
@@ -23,7 +21,8 @@ namespace CountryGame
         [SerializeField] private TextMeshProUGUI agreementName;
         [SerializeField] private Transform agreementScreen;
         [SerializeField] private Transform warScreen;
-        [SerializeField] private Transform warMembersParent;
+        [SerializeField] private Transform warDefendersParent;
+        [SerializeField] private Transform warBelligerentsParent;
         [SerializeField] private TextMeshProUGUI warName;
         [SerializeField] private Button declareWarButton;
         [SerializeField] private GameObject declareWarConfirmationScreen;
@@ -37,6 +36,11 @@ namespace CountryGame
         [SerializeField] private Button leaveButton;
         [SerializeField] private Button warButtonPrefab;
         [SerializeField] private Transform warButtonParent;
+        [SerializeField] private GameObject joinWarDisplay;
+        [SerializeField] private TextMeshProUGUI sideToJoinText;
+
+        [SerializeField] private Notification notificationPrefab;
+        [SerializeField] private Transform notificationParent;
 
         private bool _countrySelected;
         private bool _agreementScreen;
@@ -50,6 +54,7 @@ namespace CountryGame
             titleCard.position = titleStartPos.position;
             agreementScreen.position = titleStartPos.position;
             declareWarConfirmationScreen.SetActive(false);
+            joinWarDisplay.SetActive(false);
         }
 
         private void Update()
@@ -200,7 +205,15 @@ namespace CountryGame
 
             foreach (var war in nationToDeclare.Wars)
             {
-                if (war.Nations.Contains(nationDeclaredOn))
+                if (war.Belligerents.Contains(nationDeclaredOn) || war.Defenders.Contains(nationDeclaredOn))
+                {
+                    canDeclareWar = false;
+                }
+            }
+            
+            foreach (var war in nationDeclaredOn.Wars)
+            {
+                if (war.Belligerents.Contains(nationToDeclare) || war.Defenders.Contains(nationToDeclare))
                 {
                     canDeclareWar = false;
                 }
@@ -241,6 +254,7 @@ namespace CountryGame
             _agreementScreen = false;
             _warScreen = false;
             declareWarConfirmationScreen.SetActive(false);
+            joinWarDisplay.SetActive(false);
         }
 
         public void OpenAgreementScreen(int factionIndex)
@@ -250,16 +264,31 @@ namespace CountryGame
         
         private List<GameObject> currentWarMembers = new List<GameObject>();
 
-        private void DisplayWarMembers(War war)
+        public void DisplayWarMembers(War war)
         {
             foreach (var oldMember in currentWarMembers)
             {
                 Destroy(oldMember);
             }
             
-            foreach (var nation in war.Nations)
+            foreach (var nation in war.Defenders)
             {
-                GameObject obj = Instantiate(agreementMemberPrefab, warMembersParent);
+                GameObject obj = Instantiate(agreementMemberPrefab, warDefendersParent);
+
+                obj.GetComponentInChildren<TextMeshProUGUI>().text = nation.Name;
+                obj.GetComponentsInChildren<Image>()[1].sprite = nation.flag;
+                
+                obj.GetComponent<Button>().onClick.AddListener(() =>
+                {
+                    Clicked(nation);
+                });
+                
+                currentWarMembers.Add(obj);
+            }
+            
+            foreach (var nation in war.Belligerents)
+            {
+                GameObject obj = Instantiate(agreementMemberPrefab, warBelligerentsParent);
 
                 obj.GetComponentInChildren<TextMeshProUGUI>().text = nation.Name;
                 obj.GetComponentsInChildren<Image>()[1].sprite = nation.flag;
@@ -273,14 +302,81 @@ namespace CountryGame
             }
         }
 
+        private War currentSelectedWar;
+
         public void OpenWarScreen(War war)
         {
             _agreementScreen = false;
             _countrySelected = false;
             _warScreen = true;
 
+            currentSelectedWar = war;
+
             DisplayWarMembers(war);
             warName.text = war.Name;
+        }
+
+        private bool joinBelligerents;
+
+        public void ClickedJoinDefenders()
+        {
+            joinBelligerents = false;
+            joinWarDisplay.SetActive(true);
+            sideToJoinText.text = "Side: Defenders";
+        }
+        
+        public void ClickedJoinBelligerents()
+        {
+            joinBelligerents = true;
+            joinWarDisplay.SetActive(true);
+            sideToJoinText.text = "Side: Belligerents";
+        }
+
+        public void ConfirmedJoinWar()
+        {
+            if (!TurnManager.Instance.CanPerformAction())
+            {
+                return;
+            }
+            
+            if (joinBelligerents)
+            {
+                JoinWarBelligerents();
+            }
+            else
+            {
+                JoinWarDefenders();
+            }
+            
+            TurnManager.Instance.PerformedAction();
+            joinWarDisplay.SetActive(false);
+        }
+
+        public void CancelJoinWar()
+        {
+            joinWarDisplay.SetActive(false);
+        }
+
+        private void JoinWarDefenders()
+        {
+            if (!currentSelectedWar.Defenders.Contains(PlayerNationManager.PlayerNation))
+            {
+                CombatManager.Instance.NationJoinWarDefenders(PlayerNationManager.PlayerNation, currentSelectedWar);
+                
+                Notification notification = Instantiate(notificationPrefab, notificationParent);
+                notification.Init($"To War!", $"Today, {PlayerNationManager.PlayerNation.Name} joined the {currentSelectedWar.Name}, allying themselves with the defenders", () => {CountrySelector.Instance.OpenWarScreen(currentSelectedWar);}, 5);
+            }
+        }
+
+        private void JoinWarBelligerents()
+        {
+            if (!currentSelectedWar.Belligerents.Contains(PlayerNationManager.PlayerNation))
+            {
+                CombatManager.Instance.NationJoinWarBelligerents(PlayerNationManager.PlayerNation, currentSelectedWar);
+                
+                Notification notification = Instantiate(notificationPrefab, notificationParent);
+                notification.Init($"To War!", $"Today, {PlayerNationManager.PlayerNation.Name} joined the {currentSelectedWar.Name}, allying themselves with the belligerents", () => {CountrySelector.Instance.OpenWarScreen(currentSelectedWar);}, 5);
+            }
         }
         
         public void OpenAgreementScreen(Agreement agreement)

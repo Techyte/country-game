@@ -1,4 +1,5 @@
 using System;
+using System.Linq;
 
 namespace CountryGame
 {
@@ -53,14 +54,26 @@ namespace CountryGame
                                 
                                 Debug.Log("Country joining head");
 
-                                foreach (var info in country.troopInfos.Values)
+                                List<TroopInformation> troopInfos = country.troopInfos.Values.ToList();
+
+                                int originControlledTroops = 0;
+                                
+                                foreach (var info in troopInfos)
                                 {
-                                    if (info.ControllerNation == nation)
+                                    if (info.ControllerNation == country.GetNation())
                                     {
-                                        info.ControllerNation = agreement.AgreementLeader;
-                                        info.NumberOfTroops -= (int)(info.NumberOfTroops / 2);
+                                        originControlledTroops = info.NumberOfTroops;
                                     }
                                 }
+
+                                int leftOver = Mathf.CeilToInt(originControlledTroops / 2f);
+                                if (leftOver < 1)
+                                {
+                                    leftOver = 1;
+                                }
+
+                                country.troopInfos.Remove(country.GetNation());
+                                country.MovedTroopsIn(agreement.AgreementLeader, leftOver);
                                 
                                 SwapCountriesNation(country, agreement.AgreementLeader);
                             }

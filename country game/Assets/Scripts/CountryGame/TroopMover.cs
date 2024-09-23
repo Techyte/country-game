@@ -28,6 +28,7 @@ namespace CountryGame
         [SerializeField] private TextMeshProUGUI sourceCountryName;
         [SerializeField] private TextMeshProUGUI targetCountryName;
         [SerializeField] private TextMeshProUGUI costText;
+        [SerializeField] private Slider amountSlider;
 
         private bool open;
         private Country currentCountry;
@@ -89,7 +90,7 @@ namespace CountryGame
             target = null;
 
             nationIndex = 0;
-            amount = 0;
+            amount = 1;
             
             otherGUIParent.SetActive(true);
             amountDisplay.SetActive(false);
@@ -152,6 +153,7 @@ namespace CountryGame
 
                 nation.text = info.ControllerNation.Name;
                 count.text = $"{info.NumberOfTroops} Troops";
+                amountSlider.value = amount;
                 
                 troopDisplays.Add(troopDisplay);
                 controllers.Add(info.ControllerNation);
