@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine.UI;
@@ -45,6 +46,11 @@ namespace CountryGame
         {
             Instance = this;
             countryTroopInformationDisplay.transform.position = start.position;
+        }
+
+        private void Start()
+        {
+            moveTroopDisplay.SetActive(false);
         }
 
         private void Update()

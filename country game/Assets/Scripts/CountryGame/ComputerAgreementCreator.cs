@@ -70,7 +70,7 @@ namespace CountryGame
 
             if (agreement.nonAgression)
             {
-                requiredPower = 10;
+                requiredPower += 10;
             }
 
             if (agreement.militaryAccess)
@@ -92,7 +92,7 @@ namespace CountryGame
                     requiredPower += 10;
                     break;
                 case 3: // completly influenced
-                    requiredPower += 30;
+                    requiredPower += 20;
                     break;
             }
 
@@ -149,6 +149,8 @@ namespace CountryGame
             {
                 requiredPower *= highestInfluence / 3f;
             }
+            
+            requiredPower = Mathf.Max(requiredPower, 10);
 
             return requiredPower;
         }

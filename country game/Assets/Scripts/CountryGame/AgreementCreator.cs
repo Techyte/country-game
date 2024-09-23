@@ -101,12 +101,11 @@ namespace CountryGame
 
             colourButton.color = colourPicker.color;
             
-            
             float requiredPower = ComputerAgreementCreator.Instance.startingAgreementPowerRequirement;
 
             if (nonAggression.isOn)
             {
-                requiredPower = 20;
+                requiredPower += 10;
             }
 
             if (militaryAccess.isOn)
@@ -128,7 +127,7 @@ namespace CountryGame
                     requiredPower += 10;
                     break;
                 case 3: // completly influenced
-                    requiredPower += 30;
+                    requiredPower += 20;
                     break;
             }
 
@@ -137,7 +136,9 @@ namespace CountryGame
                 requiredPower -= 15;
             }
 
-            costText.text = $"Predicted calculated cost: {requiredPower}";
+            requiredPower = Mathf.Max(requiredPower, 10);
+
+            costText.text = $"Predicted cost: {requiredPower}";
         }
         
         private List<GameObject> currentAgreementDisplays = new List<GameObject>();

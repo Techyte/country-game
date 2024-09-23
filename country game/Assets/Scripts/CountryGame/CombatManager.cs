@@ -20,6 +20,11 @@ namespace CountryGame
             TurnManager.Instance.NewTurn += NewTurn;
         }
 
+        private void Start()
+        {
+            invasionScreen.SetActive(false);
+        }
+
         public void NewWar(War war)
         {
             wars.Add(war);
@@ -141,10 +146,10 @@ namespace CountryGame
 
         public void LaunchAttack()
         {
-            otherGUIParent.SetActive(false);
             invasionScreen.SetActive(true);
             source = TroopMover.Instance.currentCountry;
             TroopMover.Instance.ResetSelected();
+            otherGUIParent.SetActive(false);
             invading = true;
         }
 
