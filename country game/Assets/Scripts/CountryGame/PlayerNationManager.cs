@@ -24,6 +24,23 @@ namespace CountryGame
         [SerializeField] private Transform agreementTextParent;
         [SerializeField] private GameObject agreementText;
         [SerializeField] private GameObject manageTroopsScreen;
+        [SerializeField] private RectTransform troopTypeBreakdownObj;
+        [SerializeField] private RectTransform infantryBreakdownImage;
+        [SerializeField] private RectTransform tanksBreakdownImage;
+        [SerializeField] private RectTransform marinesBreakdownImage;
+        [SerializeField] private Slider infantrySlider;
+        [SerializeField] private Slider tanksSlider;
+        [SerializeField] private Slider marinesSlider;
+        [SerializeField] private TMP_InputField infantryInputField;
+        [SerializeField] private TMP_InputField tanksInputField;
+        [SerializeField] private TMP_InputField marinesInputField;
+        [SerializeField] private TextMeshProUGUI totalTroopPercentage;
+        [SerializeField] private Button changeTroopDistributionButton;
+
+        [Space] 
+        public float infantry;
+        public float tanks;
+        public float marines;
         
         [Space]
         [SerializeField] private Image influencedFlag;
@@ -39,6 +56,37 @@ namespace CountryGame
             playerNationDisplay.position = displayStart.position;
             manageTroopsScreen.SetActive(false);
             TurnManager.Instance.NewTurn += NewTurn;
+            startingBreakdownWidth = troopTypeBreakdownObj.rect.width;
+
+            infantrySlider.onValueChanged.AddListener(arg0 =>
+            {
+                InfantrySliderMoved(arg0);
+            });
+                
+            infantryInputField.onValueChanged.AddListener(arg0 =>
+            {
+                InfantryTextChanged(arg0);
+            });
+
+            tanksSlider.onValueChanged.AddListener(arg0 =>
+            {
+                TanksSliderMoved(arg0);
+            });
+                
+            tanksInputField.onValueChanged.AddListener(arg0 =>
+            {
+                TanksTextChanged(arg0);
+            });
+
+            marinesSlider.onValueChanged.AddListener(arg0 =>
+            {
+                MarinesSliderMoved(arg0);
+            });
+                
+            marinesInputField.onValueChanged.AddListener(arg0 =>
+            {
+                MarinesTextChanged(arg0);
+            });
         }
 
         private void NewTurn(object sender, EventArgs e)
@@ -160,6 +208,118 @@ namespace CountryGame
             diplomaticPowerDisplay.text = $"DPP: {diplomaticPower}";
         }
 
+        private void SetupTroopUI()
+        {
+            infantrySlider.value = infantry;
+            infantryInputField.text = (infantry*100).ToString();
+            
+            tanksSlider.value = tanks;
+            tanksInputField.text = (tanks*100).ToString();
+            
+            marinesSlider.value = marines;
+            marinesInputField.text = (marines*100).ToString();
+        }
+
+        private float startingBreakdownWidth;
+
+        private void UpdateTroopUI()
+        {
+            float currentInfantry = infantrySlider.value;
+            float currentTanks = tanksSlider.value;
+            float currentMarines = marinesSlider.value;
+
+            infantryBreakdownImage.sizeDelta = new Vector2(startingBreakdownWidth * currentInfantry, infantryBreakdownImage.rect.height);
+            tanksBreakdownImage.sizeDelta = new Vector2(startingBreakdownWidth * currentTanks, tanksBreakdownImage.rect.height);
+            marinesBreakdownImage.sizeDelta = new Vector2(startingBreakdownWidth * currentMarines, marinesBreakdownImage.rect.height);
+
+            float total = ((currentInfantry + currentTanks + currentMarines) * 100);
+
+            totalTroopPercentage.text = total.ToString();
+
+            bool availableToChange = false;
+            if (!Mathf.Approximately(currentInfantry, infantry))
+            {
+                availableToChange = true;
+            }
+            if (!Mathf.Approximately(currentTanks, tanks))
+            {
+                availableToChange = true;
+            }
+            if (!Mathf.Approximately(currentMarines, marines))
+            {
+                availableToChange = true;
+            }
+
+            changeTroopDistributionButton.interactable = availableToChange && Mathf.Approximately(total, 100);
+
+            totalTroopPercentage.color = Mathf.Approximately(total, 100) ? availableToChange ? Color.blue : Color.black : Color.red;
+        }
+
+        public void ChangeTroopDistribution()
+        {
+            if (!TurnManager.Instance.CanPerformAction())
+            {
+                return;
+            }
+            
+            TurnManager.Instance.PerformedAction();
+            
+            float currentInfantry = infantrySlider.value;
+            float currentTanks = tanksSlider.value;
+            float currentMarines = marinesSlider.value;
+
+            infantry = currentInfantry;
+            tanks = currentTanks;
+            marines = currentMarines;
+            
+            UpdateTroopUI();
+        }
+
+        public void InfantrySliderMoved(float value)
+        {
+            infantryInputField.text = (value * 100).ToString();
+            UpdateTroopUI();
+        }
+
+        public void InfantryTextChanged(string value)
+        {
+            if (float.TryParse(value, out float result))
+            {
+                infantrySlider.value = result/100;
+            }
+            UpdateTroopUI();
+        }
+
+        public void TanksSliderMoved(float value)
+        {
+            tanksInputField.text = (value * 100).ToString();
+            UpdateTroopUI();
+        }
+
+        public void TanksTextChanged(string value)
+        {
+            if (float.TryParse(value, out float result))
+            {
+                tanksSlider.value = result/100;
+            }
+            UpdateTroopUI();
+        }
+
+        public void MarinesSliderMoved(float value)
+        {
+            marinesInputField.text = (value * 100).ToString();
+            UpdateTroopUI();
+        }
+
+        public void MarinesTextChanged(string value)
+        {
+            if (float.TryParse(value, out float result))
+            {
+                marinesSlider.value = result/100;
+            }
+            UpdateTroopUI();
+        }
+
         public void SetPlayerNation(Nation playerNation)
         {
             PlayerNation = playerNation;
@@ -179,6 +339,8 @@ namespace CountryGame
         public void ClickedManageTroops()
         {
             manageTroopsScreen.SetActive(true);
+            SetupTroopUI();
+            UpdateTroopUI();
         }
 
         public void CloseManageTroops()

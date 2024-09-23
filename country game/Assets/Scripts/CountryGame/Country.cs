@@ -18,6 +18,22 @@ namespace CountryGame
 
         public Dictionary<Nation, TroopInformation> troopInfos = new Dictionary<Nation, TroopInformation>();
 
+        public int defense;
+        public int attack;
+
+        private void OnValidate()
+        {
+            if (defense == 0)
+            {
+                defense = 10;
+            }
+
+            if (attack == 0)
+            {
+                attack = 7;
+            }
+        }
+
         private void Awake()
         {
             button = GetComponent<CountryButton>();

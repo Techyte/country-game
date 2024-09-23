@@ -9,6 +9,7 @@ namespace CountryGame
     {
         [SerializeField] private Transform toolTip;
         [SerializeField] private Button button;
+        [SerializeField] private bool invserse;
 
         private void Start()
         {
@@ -27,9 +28,19 @@ namespace CountryGame
 
         public void OnPointerEnter(PointerEventData eventData)
         {
-            if (!button.interactable)
+            if (invserse)
             {
-                toolTip.gameObject.SetActive(true);
+                if (button.interactable)
+                {
+                    toolTip.gameObject.SetActive(true);
+                }
+            }
+            else
+            {
+                if (!button.interactable)
+                {
+                    toolTip.gameObject.SetActive(true);
+                }
             }
         }
     

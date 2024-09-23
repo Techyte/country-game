@@ -194,9 +194,10 @@ namespace CountryGame
 
         public void SelectInvasionTarget(Country target)
         {
-            if (source.borders.Contains(target) && PlayerNationManager.PlayerNation.IsAtWarWith(target.GetNation()))
+            if (source.borders.Contains(target) && PlayerNationManager.PlayerNation.IsAtWarWith(target.GetNation()) && TurnManager.Instance.CanPerformAction())
             {
                 LaunchedAttack(target, source);
+                TurnManager.Instance.PerformedAction();
             }
         }
 
