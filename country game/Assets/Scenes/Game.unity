@@ -334,7 +334,7 @@ MonoBehaviour:
   troopDisplay: {fileID: 0}
   button: {fileID: 0}
   borders: []
-  defense: 10
+  defense: 7
   attack: 7
 --- !u!1 &5828462
 GameObject:
@@ -371,11 +371,12 @@ RectTransform:
   - {fileID: 833648669}
   - {fileID: 2140491728}
   - {fileID: 1039413086}
-  - {fileID: 1258424142}
   - {fileID: 705286413}
   - {fileID: 1245871518}
   - {fileID: 696680357}
   - {fileID: 740339748}
+  - {fileID: 1287862526}
+  - {fileID: 1258424142}
   m_Father: {fileID: 1909173906}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
@@ -1000,7 +1001,7 @@ MonoBehaviour:
   troopDisplay: {fileID: 0}
   button: {fileID: 0}
   borders: []
-  defense: 10
+  defense: 7
   attack: 7
 --- !u!1 &17738161
 GameObject:
@@ -1261,7 +1262,7 @@ MonoBehaviour:
   troopDisplay: {fileID: 0}
   button: {fileID: 0}
   borders: []
-  defense: 10
+  defense: 7
   attack: 7
 --- !u!1 &18810516
 GameObject:
@@ -1393,9 +1394,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1938001410}
-        m_TargetAssemblyTypeName: CountryGame.CountrySelector, Assembly-CSharp
-        m_MethodName: ConfirmedJoinWar
+      - m_Target: {fileID: 184577637}
+        m_TargetAssemblyTypeName: CountryGame.PlayerNationManager, Assembly-CSharp
+        m_MethodName: ChangeTroopDistribution
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1639,7 +1640,7 @@ MonoBehaviour:
   troopDisplay: {fileID: 0}
   button: {fileID: 0}
   borders: []
-  defense: 10
+  defense: 7
   attack: 7
 --- !u!1 &42686745
 GameObject:
@@ -1836,7 +1837,7 @@ MonoBehaviour:
   troopDisplay: {fileID: 0}
   button: {fileID: 0}
   borders: []
-  defense: 10
+  defense: 7
   attack: 7
 --- !u!1 &45764630
 GameObject:
@@ -2029,7 +2030,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 4170086609955009442, guid: b2a43af76c3f3e74fa8a77b10e559a16, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 891334ceeb409014eb532608d9fbfe7c, type: 3}
   m_Type: 0
   m_PreserveAspect: 1
   m_FillCenter: 1
@@ -2366,7 +2367,7 @@ MonoBehaviour:
   troopDisplay: {fileID: 0}
   button: {fileID: 0}
   borders: []
-  defense: 10
+  defense: 7
   attack: 7
 --- !u!1 &57316346
 GameObject:
@@ -2652,7 +2653,7 @@ MonoBehaviour:
   troopDisplay: {fileID: 0}
   button: {fileID: 0}
   borders: []
-  defense: 10
+  defense: 7
   attack: 7
 --- !u!1 &69870673
 GameObject:
@@ -2974,7 +2975,7 @@ MonoBehaviour:
   troopDisplay: {fileID: 0}
   button: {fileID: 0}
   borders: []
-  defense: 10
+  defense: 7
   attack: 7
 --- !u!1 &77698331
 GameObject:
@@ -3243,7 +3244,7 @@ MonoBehaviour:
   troopDisplay: {fileID: 0}
   button: {fileID: 0}
   borders: []
-  defense: 10
+  defense: 7
   attack: 7
 --- !u!1 &78255413
 GameObject:
@@ -3487,7 +3488,7 @@ MonoBehaviour:
   troopDisplay: {fileID: 0}
   button: {fileID: 0}
   borders: []
-  defense: 10
+  defense: 7
   attack: 7
 --- !u!1 &91535331
 GameObject:
@@ -4306,7 +4307,7 @@ MonoBehaviour:
   troopDisplay: {fileID: 0}
   button: {fileID: 0}
   borders: []
-  defense: 10
+  defense: 7
   attack: 7
 --- !u!1 &101550892
 GameObject:
@@ -4501,7 +4502,7 @@ MonoBehaviour:
   troopDisplay: {fileID: 0}
   button: {fileID: 0}
   borders: []
-  defense: 10
+  defense: 7
   attack: 7
 --- !u!1 &106972102
 GameObject:
@@ -5109,7 +5110,7 @@ MonoBehaviour:
   troopDisplay: {fileID: 0}
   button: {fileID: 0}
   borders: []
-  defense: 10
+  defense: 7
   attack: 7
 --- !u!1 &113770177
 GameObject:
@@ -5300,7 +5301,7 @@ MonoBehaviour:
   troopDisplay: {fileID: 0}
   button: {fileID: 0}
   borders: []
-  defense: 10
+  defense: 7
   attack: 7
 --- !u!1 &121551487
 GameObject:
@@ -5715,7 +5716,7 @@ MonoBehaviour:
   troopDisplay: {fileID: 0}
   button: {fileID: 0}
   borders: []
-  defense: 10
+  defense: 7
   attack: 7
 --- !u!1 &138312202
 GameObject:
@@ -6281,7 +6282,7 @@ MonoBehaviour:
   troopDisplay: {fileID: 0}
   button: {fileID: 0}
   borders: []
-  defense: 10
+  defense: 7
   attack: 7
 --- !u!1 &177636283
 GameObject:
@@ -6474,7 +6475,7 @@ MonoBehaviour:
   troopDisplay: {fileID: 0}
   button: {fileID: 0}
   borders: []
-  defense: 10
+  defense: 7
   attack: 7
 --- !u!1 &181294500
 GameObject:
@@ -6635,9 +6636,6 @@ MonoBehaviour:
   marinesInputField: {fileID: 666813298}
   totalTroopPercentage: {fileID: 511571933}
   changeTroopDistributionButton: {fileID: 18911951}
-  infantry: 0.4
-  tanks: 0.3
-  marines: 0.3
   influencedFlag: {fileID: 1537273912}
   influencedToolTip: {fileID: 144083609}
   diplomaticPower: 0
@@ -7063,7 +7061,7 @@ MonoBehaviour:
   troopDisplay: {fileID: 0}
   button: {fileID: 0}
   borders: []
-  defense: 10
+  defense: 7
   attack: 7
 --- !u!1 &219633381
 GameObject:
@@ -7319,7 +7317,7 @@ MonoBehaviour:
   troopDisplay: {fileID: 0}
   button: {fileID: 0}
   borders: []
-  defense: 10
+  defense: 7
   attack: 7
 --- !u!1 &229968523
 GameObject:
@@ -7595,7 +7593,7 @@ MonoBehaviour:
   troopDisplay: {fileID: 0}
   button: {fileID: 0}
   borders: []
-  defense: 10
+  defense: 7
   attack: 7
 --- !u!1 &230466843
 GameObject:
@@ -8197,7 +8195,7 @@ MonoBehaviour:
   troopDisplay: {fileID: 0}
   button: {fileID: 0}
   borders: []
-  defense: 10
+  defense: 7
   attack: 7
 --- !u!1 &244075090
 GameObject:
@@ -8430,7 +8428,7 @@ MonoBehaviour:
   troopDisplay: {fileID: 0}
   button: {fileID: 0}
   borders: []
-  defense: 10
+  defense: 7
   attack: 7
 --- !u!1 &246287070
 GameObject:
@@ -9219,7 +9217,7 @@ MonoBehaviour:
   troopDisplay: {fileID: 0}
   button: {fileID: 0}
   borders: []
-  defense: 10
+  defense: 7
   attack: 7
 --- !u!1 &261466522
 GameObject:
@@ -9408,8 +9406,142 @@ MonoBehaviour:
   troopDisplay: {fileID: 0}
   button: {fileID: 0}
   borders: []
-  defense: 10
+  defense: 7
   attack: 7
+--- !u!1 &265557672
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 265557673}
+  - component: {fileID: 265557675}
+  - component: {fileID: 265557674}
+  m_Layer: 5
+  m_Name: Title
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &265557673
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 265557672}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1287862526}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 1}
+  m_AnchorMax: {x: 0.5, y: 1}
+  m_AnchoredPosition: {x: 0, y: -149.7}
+  m_SizeDelta: {x: 510.3, y: 50}
+  m_Pivot: {x: 0.5, y: 1}
+--- !u!114 &265557674
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 265557672}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_text: Leave Agreement
+  m_isRightToLeft: 0
+  m_fontAsset: {fileID: 11400000, guid: 957dbaf1fa9ef834db97955b0d878f96, type: 2}
+  m_sharedMaterial: {fileID: 8370735618977982747, guid: 957dbaf1fa9ef834db97955b0d878f96, type: 2}
+  m_fontSharedMaterials: []
+  m_fontMaterial: {fileID: 0}
+  m_fontMaterials: []
+  m_fontColor32:
+    serializedVersion: 2
+    rgba: 4278190080
+  m_fontColor: {r: 0, g: 0, b: 0, a: 1}
+  m_enableVertexGradient: 0
+  m_colorMode: 3
+  m_fontColorGradient:
+    topLeft: {r: 1, g: 1, b: 1, a: 1}
+    topRight: {r: 1, g: 1, b: 1, a: 1}
+    bottomLeft: {r: 1, g: 1, b: 1, a: 1}
+    bottomRight: {r: 1, g: 1, b: 1, a: 1}
+  m_fontColorGradientPreset: {fileID: 0}
+  m_spriteAsset: {fileID: 0}
+  m_tintAllSprites: 0
+  m_StyleSheet: {fileID: 0}
+  m_TextStyleHashCode: -1183493901
+  m_overrideHtmlColors: 0
+  m_faceColor:
+    serializedVersion: 2
+    rgba: 4294967295
+  m_fontSize: 56.66
+  m_fontSizeBase: 56.66
+  m_fontWeight: 400
+  m_enableAutoSizing: 0
+  m_fontSizeMin: 18
+  m_fontSizeMax: 72
+  m_fontStyle: 0
+  m_HorizontalAlignment: 2
+  m_VerticalAlignment: 512
+  m_textAlignment: 65535
+  m_characterSpacing: 0
+  m_wordSpacing: 0
+  m_lineSpacing: 0
+  m_lineSpacingMax: 0
+  m_paragraphSpacing: 0
+  m_charWidthMaxAdj: 0
+  m_enableWordWrapping: 1
+  m_wordWrappingRatios: 0.4
+  m_overflowMode: 0
+  m_linkedTextComponent: {fileID: 0}
+  parentLinkedComponent: {fileID: 0}
+  m_enableKerning: 1
+  m_enableExtraPadding: 0
+  checkPaddingRequired: 0
+  m_isRichText: 1
+  m_parseCtrlCharacters: 1
+  m_isOrthographic: 1
+  m_isCullingEnabled: 0
+  m_horizontalMapping: 0
+  m_verticalMapping: 0
+  m_uvLineOffset: 0
+  m_geometrySortingOrder: 0
+  m_IsTextObjectScaleStatic: 0
+  m_VertexBufferAutoSizeReduction: 0
+  m_useMaxVisibleDescender: 1
+  m_pageToDisplay: 1
+  m_margin: {x: 0, y: 0, z: 0, w: 0}
+  m_isUsingLegacyAnimationComponent: 0
+  m_isVolumetricText: 0
+  m_hasFontAssetChanged: 0
+  m_baseMaterial: {fileID: 0}
+  m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!222 &265557675
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 265557672}
+  m_CullTransparentMesh: 1
 --- !u!1 &271168785
 GameObject:
   m_ObjectHideFlags: 0
@@ -10426,7 +10558,7 @@ MonoBehaviour:
   troopDisplay: {fileID: 0}
   button: {fileID: 0}
   borders: []
-  defense: 10
+  defense: 7
   attack: 7
 --- !u!1 &318682504
 GameObject:
@@ -10789,7 +10921,7 @@ MonoBehaviour:
   troopDisplay: {fileID: 0}
   button: {fileID: 0}
   borders: []
-  defense: 10
+  defense: 7
   attack: 7
 --- !u!1 &325402018
 GameObject:
@@ -11477,7 +11609,7 @@ MonoBehaviour:
   troopDisplay: {fileID: 0}
   button: {fileID: 0}
   borders: []
-  defense: 10
+  defense: 7
   attack: 7
 --- !u!1 &348830703
 GameObject:
@@ -11689,7 +11821,7 @@ MonoBehaviour:
   troopDisplay: {fileID: 0}
   button: {fileID: 0}
   borders: []
-  defense: 10
+  defense: 7
   attack: 7
 --- !u!1 &349670747
 GameObject:
@@ -12271,7 +12403,7 @@ MonoBehaviour:
   troopDisplay: {fileID: 0}
   button: {fileID: 0}
   borders: []
-  defense: 10
+  defense: 7
   attack: 7
 --- !u!1 &381275942
 GameObject:
@@ -12456,7 +12588,7 @@ MonoBehaviour:
   troopDisplay: {fileID: 0}
   button: {fileID: 0}
   borders: []
-  defense: 10
+  defense: 7
   attack: 7
 --- !u!1 &383531932
 GameObject:
@@ -12809,7 +12941,7 @@ MonoBehaviour:
   troopDisplay: {fileID: 0}
   button: {fileID: 0}
   borders: []
-  defense: 10
+  defense: 7
   attack: 7
 --- !u!1 &388971340
 GameObject:
@@ -13527,7 +13659,7 @@ MonoBehaviour:
   troopDisplay: {fileID: 0}
   button: {fileID: 0}
   borders: []
-  defense: 10
+  defense: 7
   attack: 7
 --- !u!1 &410521182
 GameObject:
@@ -13633,7 +13765,7 @@ MonoBehaviour:
   troopDisplay: {fileID: 0}
   button: {fileID: 0}
   borders: []
-  defense: 10
+  defense: 7
   attack: 7
 --- !u!114 &410521186
 MonoBehaviour:
@@ -14232,7 +14364,7 @@ MonoBehaviour:
   troopDisplay: {fileID: 0}
   button: {fileID: 0}
   borders: []
-  defense: 10
+  defense: 7
   attack: 7
 --- !u!1 &421556493
 GameObject:
@@ -14993,7 +15125,7 @@ MonoBehaviour:
   troopDisplay: {fileID: 0}
   button: {fileID: 0}
   borders: []
-  defense: 10
+  defense: 7
   attack: 7
 --- !u!1 &444374592
 GameObject:
@@ -15371,7 +15503,7 @@ MonoBehaviour:
   troopDisplay: {fileID: 0}
   button: {fileID: 0}
   borders: []
-  defense: 10
+  defense: 7
   attack: 7
 --- !u!1 &445530650
 GameObject:
@@ -15864,7 +15996,7 @@ MonoBehaviour:
   troopDisplay: {fileID: 0}
   button: {fileID: 0}
   borders: []
-  defense: 10
+  defense: 7
   attack: 7
 --- !u!1 &466007962
 GameObject:
@@ -16093,7 +16225,7 @@ MonoBehaviour:
   troopDisplay: {fileID: 0}
   button: {fileID: 0}
   borders: []
-  defense: 10
+  defense: 7
   attack: 7
 --- !u!1 &473134842
 GameObject:
@@ -16314,7 +16446,7 @@ MonoBehaviour:
   troopDisplay: {fileID: 0}
   button: {fileID: 0}
   borders: []
-  defense: 10
+  defense: 7
   attack: 7
 --- !u!1 &473204489
 GameObject:
@@ -17268,7 +17400,7 @@ MonoBehaviour:
   troopDisplay: {fileID: 0}
   button: {fileID: 0}
   borders: []
-  defense: 10
+  defense: 7
   attack: 7
 --- !u!1 &506704654
 GameObject:
@@ -17461,7 +17593,7 @@ MonoBehaviour:
   troopDisplay: {fileID: 0}
   button: {fileID: 0}
   borders: []
-  defense: 10
+  defense: 7
   attack: 7
 --- !u!1 &510976899
 GameObject:
@@ -17658,7 +17790,7 @@ MonoBehaviour:
   troopDisplay: {fileID: 0}
   button: {fileID: 0}
   borders: []
-  defense: 10
+  defense: 7
   attack: 7
 --- !u!1 &511571931
 GameObject:
@@ -18275,7 +18407,7 @@ MonoBehaviour:
   troopDisplay: {fileID: 0}
   button: {fileID: 0}
   borders: []
-  defense: 10
+  defense: 7
   attack: 7
 --- !u!1 &526328819
 GameObject:
@@ -18476,7 +18608,7 @@ MonoBehaviour:
   troopDisplay: {fileID: 0}
   button: {fileID: 0}
   borders: []
-  defense: 10
+  defense: 7
   attack: 7
 --- !u!1 &537478461
 GameObject:
@@ -19292,7 +19424,7 @@ MonoBehaviour:
   troopDisplay: {fileID: 0}
   button: {fileID: 0}
   borders: []
-  defense: 10
+  defense: 7
   attack: 7
 --- !u!1 &540020796
 GameObject:
@@ -19813,7 +19945,7 @@ MonoBehaviour:
   troopDisplay: {fileID: 0}
   button: {fileID: 0}
   borders: []
-  defense: 10
+  defense: 7
   attack: 7
 --- !u!1 &554184879
 GameObject:
@@ -20020,7 +20152,7 @@ MonoBehaviour:
   troopDisplay: {fileID: 0}
   button: {fileID: 0}
   borders: []
-  defense: 10
+  defense: 7
   attack: 7
 --- !u!1 &563628954
 GameObject:
@@ -20528,7 +20660,7 @@ MonoBehaviour:
   troopDisplay: {fileID: 0}
   button: {fileID: 0}
   borders: []
-  defense: 10
+  defense: 7
   attack: 7
 --- !u!1 &574624684
 GameObject:
@@ -21090,7 +21222,7 @@ MonoBehaviour:
   troopDisplay: {fileID: 0}
   button: {fileID: 0}
   borders: []
-  defense: 10
+  defense: 7
   attack: 7
 --- !u!1 &608734219
 GameObject:
@@ -21395,7 +21527,7 @@ MonoBehaviour:
   troopDisplay: {fileID: 0}
   button: {fileID: 0}
   borders: []
-  defense: 10
+  defense: 7
   attack: 7
 --- !u!1 &617191870
 GameObject:
@@ -21751,7 +21883,7 @@ MonoBehaviour:
   troopDisplay: {fileID: 0}
   button: {fileID: 0}
   borders: []
-  defense: 10
+  defense: 7
   attack: 7
 --- !u!1 &627009420
 GameObject:
@@ -22087,7 +22219,7 @@ MonoBehaviour:
   troopDisplay: {fileID: 0}
   button: {fileID: 0}
   borders: []
-  defense: 10
+  defense: 7
   attack: 7
 --- !u!1 &631294880
 GameObject:
@@ -22351,7 +22483,7 @@ MonoBehaviour:
   troopDisplay: {fileID: 0}
   button: {fileID: 0}
   borders: []
-  defense: 10
+  defense: 7
   attack: 7
 --- !u!1 &647566400
 GameObject:
@@ -22418,7 +22550,7 @@ MonoBehaviour:
   troopDisplay: {fileID: 0}
   button: {fileID: 0}
   borders: []
-  defense: 10
+  defense: 7
   attack: 7
 --- !u!212 &647566404
 SpriteRenderer:
@@ -23135,7 +23267,7 @@ MonoBehaviour:
   troopDisplay: {fileID: 0}
   button: {fileID: 0}
   borders: []
-  defense: 10
+  defense: 7
   attack: 7
 --- !u!1 &685390238
 GameObject:
@@ -23399,7 +23531,7 @@ MonoBehaviour:
   troopDisplay: {fileID: 0}
   button: {fileID: 0}
   borders: []
-  defense: 10
+  defense: 7
   attack: 7
 --- !u!1 &687502655
 GameObject:
@@ -23849,7 +23981,7 @@ MonoBehaviour:
   troopDisplay: {fileID: 0}
   button: {fileID: 0}
   borders: []
-  defense: 10
+  defense: 7
   attack: 7
 --- !u!1 &696680356
 GameObject:
@@ -24129,7 +24261,7 @@ MonoBehaviour:
   troopDisplay: {fileID: 0}
   button: {fileID: 0}
   borders: []
-  defense: 10
+  defense: 7
   attack: 7
 --- !u!1 &698636223
 GameObject:
@@ -24671,7 +24803,7 @@ MonoBehaviour:
   troopDisplay: {fileID: 0}
   button: {fileID: 0}
   borders: []
-  defense: 10
+  defense: 7
   attack: 7
 --- !u!1 &736227027
 GameObject:
@@ -24955,7 +25087,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 4170086609955009442, guid: b2a43af76c3f3e74fa8a77b10e559a16, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 891334ceeb409014eb532608d9fbfe7c, type: 3}
   m_Type: 0
   m_PreserveAspect: 1
   m_FillCenter: 1
@@ -25802,8 +25934,141 @@ MonoBehaviour:
   troopDisplay: {fileID: 0}
   button: {fileID: 0}
   borders: []
-  defense: 10
+  defense: 7
   attack: 7
+--- !u!1 &788091664
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 788091665}
+  - component: {fileID: 788091668}
+  - component: {fileID: 788091667}
+  - component: {fileID: 788091666}
+  m_Layer: 5
+  m_Name: Cancel
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &788091665
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 788091664}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 885072184}
+  m_Father: {fileID: 1287862526}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0}
+  m_AnchorMax: {x: 0.5, y: 0}
+  m_AnchoredPosition: {x: 137.34, y: 235.7}
+  m_SizeDelta: {x: 235.6253, y: 116.82901}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &788091666
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 788091664}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Navigation:
+    m_Mode: 3
+    m_WrapAround: 0
+    m_SelectOnUp: {fileID: 0}
+    m_SelectOnDown: {fileID: 0}
+    m_SelectOnLeft: {fileID: 0}
+    m_SelectOnRight: {fileID: 0}
+  m_Transition: 1
+  m_Colors:
+    m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
+    m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
+    m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
+    m_ColorMultiplier: 1
+    m_FadeDuration: 0.1
+  m_SpriteState:
+    m_HighlightedSprite: {fileID: 0}
+    m_PressedSprite: {fileID: 0}
+    m_SelectedSprite: {fileID: 0}
+    m_DisabledSprite: {fileID: 0}
+  m_AnimationTriggers:
+    m_NormalTrigger: Normal
+    m_HighlightedTrigger: Highlighted
+    m_PressedTrigger: Pressed
+    m_SelectedTrigger: Selected
+    m_DisabledTrigger: Disabled
+  m_Interactable: 1
+  m_TargetGraphic: {fileID: 788091667}
+  m_OnClick:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1938001410}
+        m_TargetAssemblyTypeName: CountryGame.CountrySelector, Assembly-CSharp
+        m_MethodName: CancelLeaveAgreement
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &788091667
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 788091664}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Sprite: {fileID: 21300000, guid: 9e21b77304e3fa54c8c68d463632fc59, type: 3}
+  m_Type: 0
+  m_PreserveAspect: 1
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
+--- !u!222 &788091668
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 788091664}
+  m_CullTransparentMesh: 1
 --- !u!1 &790958192
 GameObject:
   m_ObjectHideFlags: 0
@@ -25929,8 +26194,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -379, y: 504}
-  m_SizeDelta: {x: 159.0807, y: 50}
+  m_AnchoredPosition: {x: -359.65878, y: 504}
+  m_SizeDelta: {x: 197.7631, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &793588548
 MonoBehaviour:
@@ -26469,7 +26734,7 @@ MonoBehaviour:
   troopDisplay: {fileID: 0}
   button: {fileID: 0}
   borders: []
-  defense: 10
+  defense: 7
   attack: 7
 --- !u!1 &810197987
 GameObject:
@@ -26710,7 +26975,7 @@ MonoBehaviour:
   troopDisplay: {fileID: 0}
   button: {fileID: 0}
   borders: []
-  defense: 10
+  defense: 7
   attack: 7
 --- !u!1 &811288158
 GameObject:
@@ -26952,7 +27217,7 @@ MonoBehaviour:
   troopDisplay: {fileID: 0}
   button: {fileID: 0}
   borders: []
-  defense: 10
+  defense: 7
   attack: 7
 --- !u!1 &821825991
 GameObject:
@@ -27699,8 +27964,155 @@ MonoBehaviour:
   troopDisplay: {fileID: 0}
   button: {fileID: 0}
   borders: []
-  defense: 10
+  defense: 7
   attack: 7
+--- !u!1 &841044290
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 841044291}
+  - component: {fileID: 841044295}
+  - component: {fileID: 841044294}
+  - component: {fileID: 841044293}
+  - component: {fileID: 841044292}
+  m_Layer: 5
+  m_Name: Confirm
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &841044291
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 841044290}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 1717054900}
+  m_Father: {fileID: 1287862526}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0}
+  m_AnchorMax: {x: 0.5, y: 0}
+  m_AnchoredPosition: {x: -137.34, y: 235.7}
+  m_SizeDelta: {x: 235.6253, y: 116.82901}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &841044292
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 841044290}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1c5c0a488ff29294a9e511f532e3f1c7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  toolTip: {fileID: 156701958}
+--- !u!114 &841044293
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 841044290}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Navigation:
+    m_Mode: 3
+    m_WrapAround: 0
+    m_SelectOnUp: {fileID: 0}
+    m_SelectOnDown: {fileID: 0}
+    m_SelectOnLeft: {fileID: 0}
+    m_SelectOnRight: {fileID: 0}
+  m_Transition: 1
+  m_Colors:
+    m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
+    m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
+    m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
+    m_ColorMultiplier: 1
+    m_FadeDuration: 0.1
+  m_SpriteState:
+    m_HighlightedSprite: {fileID: 0}
+    m_PressedSprite: {fileID: 0}
+    m_SelectedSprite: {fileID: 0}
+    m_DisabledSprite: {fileID: 0}
+  m_AnimationTriggers:
+    m_NormalTrigger: Normal
+    m_HighlightedTrigger: Highlighted
+    m_PressedTrigger: Pressed
+    m_SelectedTrigger: Selected
+    m_DisabledTrigger: Disabled
+  m_Interactable: 1
+  m_TargetGraphic: {fileID: 841044294}
+  m_OnClick:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1938001410}
+        m_TargetAssemblyTypeName: CountryGame.CountrySelector, Assembly-CSharp
+        m_MethodName: ConfirmedLeaveAgreement
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &841044294
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 841044290}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Sprite: {fileID: 21300000, guid: 9e21b77304e3fa54c8c68d463632fc59, type: 3}
+  m_Type: 0
+  m_PreserveAspect: 1
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
+--- !u!222 &841044295
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 841044290}
+  m_CullTransparentMesh: 1
 --- !u!1 &842527323
 GameObject:
   m_ObjectHideFlags: 0
@@ -27946,7 +28358,7 @@ MonoBehaviour:
   troopDisplay: {fileID: 0}
   button: {fileID: 0}
   borders: []
-  defense: 10
+  defense: 7
   attack: 7
 --- !u!1 &844028644
 GameObject:
@@ -28421,7 +28833,7 @@ MonoBehaviour:
   troopDisplay: {fileID: 0}
   button: {fileID: 0}
   borders: []
-  defense: 10
+  defense: 7
   attack: 7
 --- !u!1 &870246170
 GameObject:
@@ -28741,7 +29153,7 @@ MonoBehaviour:
   troopDisplay: {fileID: 0}
   button: {fileID: 0}
   borders: []
-  defense: 10
+  defense: 7
   attack: 7
 --- !u!1 &872566676
 GameObject:
@@ -29007,6 +29419,140 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!1 &885072183
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 885072184}
+  - component: {fileID: 885072186}
+  - component: {fileID: 885072185}
+  m_Layer: 5
+  m_Name: Text (TMP)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &885072184
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 885072183}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 788091665}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &885072185
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 885072183}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_text: Cancel
+  m_isRightToLeft: 0
+  m_fontAsset: {fileID: 11400000, guid: 957dbaf1fa9ef834db97955b0d878f96, type: 2}
+  m_sharedMaterial: {fileID: 8370735618977982747, guid: 957dbaf1fa9ef834db97955b0d878f96, type: 2}
+  m_fontSharedMaterials: []
+  m_fontMaterial: {fileID: 0}
+  m_fontMaterials: []
+  m_fontColor32:
+    serializedVersion: 2
+    rgba: 4281479730
+  m_fontColor: {r: 0.19607843, g: 0.19607843, b: 0.19607843, a: 1}
+  m_enableVertexGradient: 0
+  m_colorMode: 3
+  m_fontColorGradient:
+    topLeft: {r: 1, g: 1, b: 1, a: 1}
+    topRight: {r: 1, g: 1, b: 1, a: 1}
+    bottomLeft: {r: 1, g: 1, b: 1, a: 1}
+    bottomRight: {r: 1, g: 1, b: 1, a: 1}
+  m_fontColorGradientPreset: {fileID: 0}
+  m_spriteAsset: {fileID: 0}
+  m_tintAllSprites: 0
+  m_StyleSheet: {fileID: 0}
+  m_TextStyleHashCode: -1183493901
+  m_overrideHtmlColors: 0
+  m_faceColor:
+    serializedVersion: 2
+    rgba: 4294967295
+  m_fontSize: 24
+  m_fontSizeBase: 24
+  m_fontWeight: 400
+  m_enableAutoSizing: 0
+  m_fontSizeMin: 18
+  m_fontSizeMax: 72
+  m_fontStyle: 0
+  m_HorizontalAlignment: 2
+  m_VerticalAlignment: 512
+  m_textAlignment: 65535
+  m_characterSpacing: 0
+  m_wordSpacing: 0
+  m_lineSpacing: 0
+  m_lineSpacingMax: 0
+  m_paragraphSpacing: 0
+  m_charWidthMaxAdj: 0
+  m_enableWordWrapping: 1
+  m_wordWrappingRatios: 0.4
+  m_overflowMode: 0
+  m_linkedTextComponent: {fileID: 0}
+  parentLinkedComponent: {fileID: 0}
+  m_enableKerning: 1
+  m_enableExtraPadding: 0
+  checkPaddingRequired: 0
+  m_isRichText: 1
+  m_parseCtrlCharacters: 1
+  m_isOrthographic: 1
+  m_isCullingEnabled: 0
+  m_horizontalMapping: 0
+  m_verticalMapping: 0
+  m_uvLineOffset: 0
+  m_geometrySortingOrder: 0
+  m_IsTextObjectScaleStatic: 0
+  m_VertexBufferAutoSizeReduction: 0
+  m_useMaxVisibleDescender: 1
+  m_pageToDisplay: 1
+  m_margin: {x: 0, y: 0, z: 0, w: 0}
+  m_isUsingLegacyAnimationComponent: 0
+  m_isVolumetricText: 0
+  m_hasFontAssetChanged: 0
+  m_baseMaterial: {fileID: 0}
+  m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!222 &885072186
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 885072183}
+  m_CullTransparentMesh: 1
 --- !u!1 &885789551
 GameObject:
   m_ObjectHideFlags: 0
@@ -29350,7 +29896,7 @@ MonoBehaviour:
   troopDisplay: {fileID: 0}
   button: {fileID: 0}
   borders: []
-  defense: 10
+  defense: 7
   attack: 7
 --- !u!1 &901160285
 GameObject:
@@ -29785,7 +30331,7 @@ MonoBehaviour:
   troopDisplay: {fileID: 0}
   button: {fileID: 0}
   borders: []
-  defense: 10
+  defense: 7
   attack: 7
 --- !u!1 &921667194
 GameObject:
@@ -30579,7 +31125,7 @@ MonoBehaviour:
   troopDisplay: {fileID: 0}
   button: {fileID: 0}
   borders: []
-  defense: 10
+  defense: 7
   attack: 7
 --- !u!1 &953277260
 GameObject:
@@ -30770,7 +31316,7 @@ MonoBehaviour:
   troopDisplay: {fileID: 0}
   button: {fileID: 0}
   borders: []
-  defense: 10
+  defense: 7
   attack: 7
 --- !u!1 &955576629
 GameObject:
@@ -30967,7 +31513,7 @@ MonoBehaviour:
   troopDisplay: {fileID: 0}
   button: {fileID: 0}
   borders: []
-  defense: 10
+  defense: 7
   attack: 7
 --- !u!1 &973960341
 GameObject:
@@ -31357,7 +31903,7 @@ MonoBehaviour:
   troopDisplay: {fileID: 0}
   button: {fileID: 0}
   borders: []
-  defense: 10
+  defense: 7
   attack: 7
 --- !u!1 &984432234
 GameObject:
@@ -32253,7 +32799,7 @@ MonoBehaviour:
   troopDisplay: {fileID: 0}
   button: {fileID: 0}
   borders: []
-  defense: 10
+  defense: 7
   attack: 7
 --- !u!1 &1005429294
 GameObject:
@@ -32804,7 +33350,7 @@ MonoBehaviour:
   troopDisplay: {fileID: 0}
   button: {fileID: 0}
   borders: []
-  defense: 10
+  defense: 7
   attack: 7
 --- !u!1 &1037357715
 GameObject:
@@ -33463,7 +34009,7 @@ MonoBehaviour:
   troopDisplay: {fileID: 0}
   button: {fileID: 0}
   borders: []
-  defense: 10
+  defense: 7
   attack: 7
 --- !u!1 &1062818711
 GameObject:
@@ -33726,7 +34272,7 @@ MonoBehaviour:
   troopDisplay: {fileID: 0}
   button: {fileID: 0}
   borders: []
-  defense: 10
+  defense: 7
   attack: 7
 --- !u!1 &1063274657
 GameObject:
@@ -34257,7 +34803,7 @@ MonoBehaviour:
   troopDisplay: {fileID: 0}
   button: {fileID: 0}
   borders: []
-  defense: 10
+  defense: 7
   attack: 7
 --- !u!1 &1087732013
 GameObject:
@@ -34464,7 +35010,7 @@ MonoBehaviour:
   troopDisplay: {fileID: 0}
   button: {fileID: 0}
   borders: []
-  defense: 10
+  defense: 7
   attack: 7
 --- !u!1 &1094051919
 GameObject:
@@ -34670,7 +35216,7 @@ MonoBehaviour:
   troopDisplay: {fileID: 0}
   button: {fileID: 0}
   borders: []
-  defense: 10
+  defense: 7
   attack: 7
 --- !u!1 &1098202725
 GameObject:
@@ -34931,7 +35477,7 @@ MonoBehaviour:
   troopDisplay: {fileID: 0}
   button: {fileID: 0}
   borders: []
-  defense: 10
+  defense: 7
   attack: 7
 --- !u!1 &1100352899
 GameObject:
@@ -35382,7 +35928,7 @@ MonoBehaviour:
   troopDisplay: {fileID: 0}
   button: {fileID: 0}
   borders: []
-  defense: 10
+  defense: 7
   attack: 7
 --- !u!1 &1112274047
 GameObject:
@@ -35785,7 +36331,7 @@ MonoBehaviour:
   troopDisplay: {fileID: 0}
   button: {fileID: 0}
   borders: []
-  defense: 10
+  defense: 7
   attack: 7
 --- !u!1 &1125515351
 GameObject:
@@ -36223,7 +36769,7 @@ MonoBehaviour:
   troopDisplay: {fileID: 0}
   button: {fileID: 0}
   borders: []
-  defense: 10
+  defense: 7
   attack: 7
 --- !u!1 &1138296734
 GameObject:
@@ -36412,7 +36958,7 @@ MonoBehaviour:
   troopDisplay: {fileID: 0}
   button: {fileID: 0}
   borders: []
-  defense: 10
+  defense: 7
   attack: 7
 --- !u!1 &1139255213
 GameObject:
@@ -36647,7 +37193,7 @@ MonoBehaviour:
   troopDisplay: {fileID: 0}
   button: {fileID: 0}
   borders: []
-  defense: 10
+  defense: 7
   attack: 7
 --- !u!1 &1142144974
 GameObject:
@@ -36948,7 +37494,7 @@ MonoBehaviour:
   troopDisplay: {fileID: 0}
   button: {fileID: 0}
   borders: []
-  defense: 10
+  defense: 7
   attack: 7
 --- !u!1 &1145503675
 GameObject:
@@ -37528,7 +38074,7 @@ MonoBehaviour:
   troopDisplay: {fileID: 0}
   button: {fileID: 0}
   borders: []
-  defense: 10
+  defense: 7
   attack: 7
 --- !u!1 &1164347653
 GameObject:
@@ -37595,7 +38141,7 @@ MonoBehaviour:
   troopDisplay: {fileID: 0}
   button: {fileID: 0}
   borders: []
-  defense: 10
+  defense: 7
   attack: 7
 --- !u!212 &1164347657
 SpriteRenderer:
@@ -38334,7 +38880,7 @@ MonoBehaviour:
   troopDisplay: {fileID: 0}
   button: {fileID: 0}
   borders: []
-  defense: 10
+  defense: 7
   attack: 7
 --- !u!1 &1174988527
 GameObject:
@@ -38734,7 +39280,7 @@ MonoBehaviour:
   troopDisplay: {fileID: 0}
   button: {fileID: 0}
   borders: []
-  defense: 10
+  defense: 7
   attack: 7
 --- !u!1 &1189595194
 GameObject:
@@ -39919,7 +40465,7 @@ MonoBehaviour:
   troopDisplay: {fileID: 0}
   button: {fileID: 0}
   borders: []
-  defense: 10
+  defense: 7
   attack: 7
 --- !u!1 &1247435760
 GameObject:
@@ -40303,7 +40849,7 @@ MonoBehaviour:
   troopDisplay: {fileID: 0}
   button: {fileID: 0}
   borders: []
-  defense: 10
+  defense: 7
   attack: 7
 --- !u!1 &1258424141
 GameObject:
@@ -40634,7 +41180,7 @@ MonoBehaviour:
   troopDisplay: {fileID: 0}
   button: {fileID: 0}
   borders: []
-  defense: 10
+  defense: 7
   attack: 7
 --- !u!1 &1277117211
 GameObject:
@@ -40821,7 +41367,7 @@ MonoBehaviour:
   troopDisplay: {fileID: 0}
   button: {fileID: 0}
   borders: []
-  defense: 10
+  defense: 7
   attack: 7
 --- !u!1 &1283381516
 GameObject:
@@ -41012,7 +41558,7 @@ MonoBehaviour:
   troopDisplay: {fileID: 0}
   button: {fileID: 0}
   borders: []
-  defense: 10
+  defense: 7
   attack: 7
 --- !u!1 &1287342353
 GameObject:
@@ -41231,8 +41777,47 @@ MonoBehaviour:
   troopDisplay: {fileID: 0}
   button: {fileID: 0}
   borders: []
-  defense: 10
+  defense: 7
   attack: 7
+--- !u!1 &1287862525
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1287862526}
+  m_Layer: 5
+  m_Name: LeaveAgreementConfirmation
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &1287862526
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1287862525}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 1800517010}
+  - {fileID: 265557673}
+  - {fileID: 841044291}
+  - {fileID: 788091665}
+  m_Father: {fileID: 5828463}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 640.2, y: 600}
+  m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &1296912700
 GameObject:
   m_ObjectHideFlags: 0
@@ -41517,7 +42102,7 @@ MonoBehaviour:
   troopDisplay: {fileID: 0}
   button: {fileID: 0}
   borders: []
-  defense: 10
+  defense: 7
   attack: 7
 --- !u!1 &1302200214
 GameObject:
@@ -41965,7 +42550,7 @@ MonoBehaviour:
   troopDisplay: {fileID: 0}
   button: {fileID: 0}
   borders: []
-  defense: 10
+  defense: 7
   attack: 7
 --- !u!1 &1305127685
 GameObject:
@@ -42182,7 +42767,7 @@ MonoBehaviour:
   troopDisplay: {fileID: 0}
   button: {fileID: 0}
   borders: []
-  defense: 10
+  defense: 7
   attack: 7
 --- !u!1 &1317625505
 GameObject:
@@ -42761,7 +43346,7 @@ MonoBehaviour:
   troopDisplay: {fileID: 0}
   button: {fileID: 0}
   borders: []
-  defense: 10
+  defense: 7
   attack: 7
 --- !u!1 &1331301113
 GameObject:
@@ -43096,7 +43681,7 @@ MonoBehaviour:
   troopDisplay: {fileID: 0}
   button: {fileID: 0}
   borders: []
-  defense: 10
+  defense: 7
   attack: 7
 --- !u!1 &1344714766
 GameObject:
@@ -43299,7 +43884,7 @@ MonoBehaviour:
   troopDisplay: {fileID: 0}
   button: {fileID: 0}
   borders: []
-  defense: 10
+  defense: 7
   attack: 7
 --- !u!1 &1347801312
 GameObject:
@@ -43566,7 +44151,7 @@ MonoBehaviour:
   troopDisplay: {fileID: 0}
   button: {fileID: 0}
   borders: []
-  defense: 10
+  defense: 7
   attack: 7
 --- !u!1 &1347991590
 GameObject:
@@ -44469,7 +45054,7 @@ MonoBehaviour:
   troopDisplay: {fileID: 0}
   button: {fileID: 0}
   borders: []
-  defense: 10
+  defense: 7
   attack: 7
 --- !u!1 &1353687596
 GameObject:
@@ -44668,7 +45253,7 @@ MonoBehaviour:
   troopDisplay: {fileID: 0}
   button: {fileID: 0}
   borders: []
-  defense: 10
+  defense: 7
   attack: 7
 --- !u!1 &1357146148
 GameObject:
@@ -45542,7 +46127,7 @@ MonoBehaviour:
   troopDisplay: {fileID: 0}
   button: {fileID: 0}
   borders: []
-  defense: 10
+  defense: 7
   attack: 7
 --- !u!1 &1397484526
 GameObject:
@@ -46416,7 +47001,7 @@ MonoBehaviour:
   troopDisplay: {fileID: 0}
   button: {fileID: 0}
   borders: []
-  defense: 10
+  defense: 7
   attack: 7
 --- !u!1 &1424505579
 GameObject:
@@ -47236,7 +47821,7 @@ MonoBehaviour:
   troopDisplay: {fileID: 0}
   button: {fileID: 0}
   borders: []
-  defense: 10
+  defense: 7
   attack: 7
 --- !u!1 &1448583994
 GameObject:
@@ -47515,7 +48100,7 @@ MonoBehaviour:
   troopDisplay: {fileID: 0}
   button: {fileID: 0}
   borders: []
-  defense: 10
+  defense: 7
   attack: 7
 --- !u!1 &1463001257
 GameObject:
@@ -47875,7 +48460,7 @@ MonoBehaviour:
   troopDisplay: {fileID: 0}
   button: {fileID: 0}
   borders: []
-  defense: 10
+  defense: 7
   attack: 7
 --- !u!1 &1488545900
 GameObject:
@@ -48233,7 +48818,7 @@ MonoBehaviour:
   troopDisplay: {fileID: 0}
   button: {fileID: 0}
   borders: []
-  defense: 10
+  defense: 7
   attack: 7
 --- !u!1 &1507180705
 GameObject:
@@ -48853,7 +49438,7 @@ MonoBehaviour:
   troopDisplay: {fileID: 0}
   button: {fileID: 0}
   borders: []
-  defense: 10
+  defense: 7
   attack: 7
 --- !u!1 &1517859731
 GameObject:
@@ -49815,7 +50400,7 @@ MonoBehaviour:
   troopDisplay: {fileID: 0}
   button: {fileID: 0}
   borders: []
-  defense: 10
+  defense: 7
   attack: 7
 --- !u!1 &1546611424
 GameObject:
@@ -50162,7 +50747,7 @@ MonoBehaviour:
   troopDisplay: {fileID: 0}
   button: {fileID: 0}
   borders: []
-  defense: 10
+  defense: 7
   attack: 7
 --- !u!1 &1552456016
 GameObject:
@@ -50363,7 +50948,7 @@ MonoBehaviour:
   troopDisplay: {fileID: 0}
   button: {fileID: 0}
   borders: []
-  defense: 10
+  defense: 7
   attack: 7
 --- !u!1 &1556198219
 GameObject:
@@ -50854,7 +51439,7 @@ MonoBehaviour:
   troopDisplay: {fileID: 0}
   button: {fileID: 0}
   borders: []
-  defense: 10
+  defense: 7
   attack: 7
 --- !u!1 &1574043705
 GameObject:
@@ -51299,7 +51884,7 @@ MonoBehaviour:
   troopDisplay: {fileID: 0}
   button: {fileID: 0}
   borders: []
-  defense: 10
+  defense: 7
   attack: 7
 --- !u!1 &1580309998
 GameObject:
@@ -51488,7 +52073,7 @@ MonoBehaviour:
   troopDisplay: {fileID: 0}
   button: {fileID: 0}
   borders: []
-  defense: 10
+  defense: 7
   attack: 7
 --- !u!1 &1583392062
 GameObject:
@@ -51769,7 +52354,7 @@ MonoBehaviour:
   troopDisplay: {fileID: 0}
   button: {fileID: 0}
   borders: []
-  defense: 10
+  defense: 7
   attack: 7
 --- !u!1 &1589668117
 GameObject:
@@ -51998,7 +52583,7 @@ MonoBehaviour:
   troopDisplay: {fileID: 0}
   button: {fileID: 0}
   borders: []
-  defense: 10
+  defense: 7
   attack: 7
 --- !u!1 &1595305054
 GameObject:
@@ -52880,7 +53465,7 @@ MonoBehaviour:
   troopDisplay: {fileID: 0}
   button: {fileID: 0}
   borders: []
-  defense: 10
+  defense: 7
   attack: 7
 --- !u!1 &1609770440
 GameObject:
@@ -53688,7 +54273,7 @@ MonoBehaviour:
   troopDisplay: {fileID: 0}
   button: {fileID: 0}
   borders: []
-  defense: 10
+  defense: 7
   attack: 7
 --- !u!1 &1639889085
 GameObject:
@@ -53969,7 +54554,7 @@ MonoBehaviour:
   troopDisplay: {fileID: 0}
   button: {fileID: 0}
   borders: []
-  defense: 10
+  defense: 7
   attack: 7
 --- !u!1 &1648329544
 GameObject:
@@ -54395,7 +54980,7 @@ MonoBehaviour:
   troopDisplay: {fileID: 0}
   button: {fileID: 0}
   borders: []
-  defense: 10
+  defense: 7
   attack: 7
 --- !u!1 &1664678449
 GameObject:
@@ -54754,7 +55339,7 @@ MonoBehaviour:
   troopDisplay: {fileID: 0}
   button: {fileID: 0}
   borders: []
-  defense: 10
+  defense: 7
   attack: 7
 --- !u!1 &1675381305
 GameObject:
@@ -55101,7 +55686,7 @@ MonoBehaviour:
   troopDisplay: {fileID: 0}
   button: {fileID: 0}
   borders: []
-  defense: 10
+  defense: 7
   attack: 7
 --- !u!212 &1688235331
 SpriteRenderer:
@@ -55811,8 +56396,142 @@ MonoBehaviour:
   troopDisplay: {fileID: 0}
   button: {fileID: 0}
   borders: []
-  defense: 10
+  defense: 7
   attack: 7
+--- !u!1 &1717054899
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1717054900}
+  - component: {fileID: 1717054902}
+  - component: {fileID: 1717054901}
+  m_Layer: 5
+  m_Name: Text (TMP)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &1717054900
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1717054899}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 841044291}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1717054901
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1717054899}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_text: Confirm
+  m_isRightToLeft: 0
+  m_fontAsset: {fileID: 11400000, guid: 957dbaf1fa9ef834db97955b0d878f96, type: 2}
+  m_sharedMaterial: {fileID: 8370735618977982747, guid: 957dbaf1fa9ef834db97955b0d878f96, type: 2}
+  m_fontSharedMaterials: []
+  m_fontMaterial: {fileID: 0}
+  m_fontMaterials: []
+  m_fontColor32:
+    serializedVersion: 2
+    rgba: 4281479730
+  m_fontColor: {r: 0.19607843, g: 0.19607843, b: 0.19607843, a: 1}
+  m_enableVertexGradient: 0
+  m_colorMode: 3
+  m_fontColorGradient:
+    topLeft: {r: 1, g: 1, b: 1, a: 1}
+    topRight: {r: 1, g: 1, b: 1, a: 1}
+    bottomLeft: {r: 1, g: 1, b: 1, a: 1}
+    bottomRight: {r: 1, g: 1, b: 1, a: 1}
+  m_fontColorGradientPreset: {fileID: 0}
+  m_spriteAsset: {fileID: 0}
+  m_tintAllSprites: 0
+  m_StyleSheet: {fileID: 0}
+  m_TextStyleHashCode: -1183493901
+  m_overrideHtmlColors: 0
+  m_faceColor:
+    serializedVersion: 2
+    rgba: 4294967295
+  m_fontSize: 24
+  m_fontSizeBase: 24
+  m_fontWeight: 400
+  m_enableAutoSizing: 0
+  m_fontSizeMin: 18
+  m_fontSizeMax: 72
+  m_fontStyle: 0
+  m_HorizontalAlignment: 2
+  m_VerticalAlignment: 512
+  m_textAlignment: 65535
+  m_characterSpacing: 0
+  m_wordSpacing: 0
+  m_lineSpacing: 0
+  m_lineSpacingMax: 0
+  m_paragraphSpacing: 0
+  m_charWidthMaxAdj: 0
+  m_enableWordWrapping: 1
+  m_wordWrappingRatios: 0.4
+  m_overflowMode: 0
+  m_linkedTextComponent: {fileID: 0}
+  parentLinkedComponent: {fileID: 0}
+  m_enableKerning: 1
+  m_enableExtraPadding: 0
+  checkPaddingRequired: 0
+  m_isRichText: 1
+  m_parseCtrlCharacters: 1
+  m_isOrthographic: 1
+  m_isCullingEnabled: 0
+  m_horizontalMapping: 0
+  m_verticalMapping: 0
+  m_uvLineOffset: 0
+  m_geometrySortingOrder: 0
+  m_IsTextObjectScaleStatic: 0
+  m_VertexBufferAutoSizeReduction: 0
+  m_useMaxVisibleDescender: 1
+  m_pageToDisplay: 1
+  m_margin: {x: 0, y: 0, z: 0, w: 0}
+  m_isUsingLegacyAnimationComponent: 0
+  m_isVolumetricText: 0
+  m_hasFontAssetChanged: 0
+  m_baseMaterial: {fileID: 0}
+  m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!222 &1717054902
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1717054899}
+  m_CullTransparentMesh: 1
 --- !u!1 &1721644217
 GameObject:
   m_ObjectHideFlags: 0
@@ -56006,7 +56725,7 @@ MonoBehaviour:
   troopDisplay: {fileID: 0}
   button: {fileID: 0}
   borders: []
-  defense: 10
+  defense: 7
   attack: 7
 --- !u!1 &1728037165
 GameObject:
@@ -56462,7 +57181,7 @@ MonoBehaviour:
   troopDisplay: {fileID: 0}
   button: {fileID: 0}
   borders: []
-  defense: 10
+  defense: 7
   attack: 7
 --- !u!1 &1736262707
 GameObject:
@@ -56844,7 +57563,7 @@ MonoBehaviour:
   troopDisplay: {fileID: 0}
   button: {fileID: 0}
   borders: []
-  defense: 10
+  defense: 7
   attack: 7
 --- !u!1 &1746450240
 GameObject:
@@ -57176,7 +57895,7 @@ MonoBehaviour:
   troopDisplay: {fileID: 0}
   button: {fileID: 0}
   borders: []
-  defense: 10
+  defense: 7
   attack: 7
 --- !u!1 &1761430785
 GameObject:
@@ -57381,7 +58100,7 @@ MonoBehaviour:
   troopDisplay: {fileID: 0}
   button: {fileID: 0}
   borders: []
-  defense: 10
+  defense: 7
   attack: 7
 --- !u!1 &1761653649
 GameObject:
@@ -57640,7 +58359,7 @@ MonoBehaviour:
   troopDisplay: {fileID: 0}
   button: {fileID: 0}
   borders: []
-  defense: 10
+  defense: 7
   attack: 7
 --- !u!1 &1761708110
 GameObject:
@@ -58135,7 +58854,7 @@ MonoBehaviour:
   troopDisplay: {fileID: 0}
   button: {fileID: 0}
   borders: []
-  defense: 10
+  defense: 7
   attack: 7
 --- !u!1 &1770806340
 GameObject:
@@ -58903,7 +59622,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1938001410}
         m_TargetAssemblyTypeName: CountryGame.CountrySelector, Assembly-CSharp
-        m_MethodName: DeclareWar
+        m_MethodName: ClickedLeaveAgreement
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -59040,6 +59759,81 @@ CanvasRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1799098168}
+  m_CullTransparentMesh: 1
+--- !u!1 &1800517009
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1800517010}
+  - component: {fileID: 1800517012}
+  - component: {fileID: 1800517011}
+  m_Layer: 5
+  m_Name: Image
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &1800517010
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1800517009}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1287862526}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1800517011
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1800517009}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Sprite: {fileID: 21300000, guid: c474b395acda4ea4f8ceda6c4df175cf, type: 3}
+  m_Type: 0
+  m_PreserveAspect: 1
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
+--- !u!222 &1800517012
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1800517009}
   m_CullTransparentMesh: 1
 --- !u!1 &1804613715
 GameObject:
@@ -59352,7 +60146,7 @@ MonoBehaviour:
   troopDisplay: {fileID: 0}
   button: {fileID: 0}
   borders: []
-  defense: 10
+  defense: 7
   attack: 7
 --- !u!1 &1834504283
 GameObject:
@@ -59667,7 +60461,7 @@ MonoBehaviour:
   troopDisplay: {fileID: 0}
   button: {fileID: 0}
   borders: []
-  defense: 10
+  defense: 7
   attack: 7
 --- !u!1 &1845085511
 GameObject:
@@ -59878,7 +60672,7 @@ MonoBehaviour:
   troopDisplay: {fileID: 0}
   button: {fileID: 0}
   borders: []
-  defense: 10
+  defense: 7
   attack: 7
 --- !u!1 &1846816899
 GameObject:
@@ -60299,7 +61093,7 @@ MonoBehaviour:
   troopDisplay: {fileID: 0}
   button: {fileID: 0}
   borders: []
-  defense: 10
+  defense: 7
   attack: 7
 --- !u!1 &1854743005
 GameObject:
@@ -60556,7 +61350,7 @@ MonoBehaviour:
   troopDisplay: {fileID: 0}
   button: {fileID: 0}
   borders: []
-  defense: 10
+  defense: 7
   attack: 7
 --- !u!1 &1859216453
 GameObject:
@@ -60945,7 +61739,7 @@ MonoBehaviour:
   troopDisplay: {fileID: 0}
   button: {fileID: 0}
   borders: []
-  defense: 10
+  defense: 7
   attack: 7
 --- !u!1 &1863816877
 GameObject:
@@ -61142,7 +61936,7 @@ MonoBehaviour:
   troopDisplay: {fileID: 0}
   button: {fileID: 0}
   borders: []
-  defense: 10
+  defense: 7
   attack: 7
 --- !u!1 &1864061561
 GameObject:
@@ -61501,7 +62295,7 @@ MonoBehaviour:
   troopDisplay: {fileID: 0}
   button: {fileID: 0}
   borders: []
-  defense: 10
+  defense: 7
   attack: 7
 --- !u!1 &1876695375
 GameObject:
@@ -61836,7 +62630,7 @@ MonoBehaviour:
   troopDisplay: {fileID: 0}
   button: {fileID: 0}
   borders: []
-  defense: 10
+  defense: 7
   attack: 7
 --- !u!1 &1877870780
 GameObject:
@@ -62025,7 +62819,7 @@ MonoBehaviour:
   troopDisplay: {fileID: 0}
   button: {fileID: 0}
   borders: []
-  defense: 10
+  defense: 7
   attack: 7
 --- !u!1 &1878596330
 GameObject:
@@ -62276,7 +63070,7 @@ MonoBehaviour:
   troopDisplay: {fileID: 0}
   button: {fileID: 0}
   borders: []
-  defense: 10
+  defense: 7
   attack: 7
 --- !u!1 &1884402254
 GameObject:
@@ -62485,7 +63279,7 @@ MonoBehaviour:
   troopDisplay: {fileID: 0}
   button: {fileID: 0}
   borders: []
-  defense: 10
+  defense: 7
   attack: 7
 --- !u!1 &1890977100
 GameObject:
@@ -63019,7 +63813,7 @@ MonoBehaviour:
   troopDisplay: {fileID: 0}
   button: {fileID: 0}
   borders: []
-  defense: 10
+  defense: 7
   attack: 7
 --- !u!1 &1898342716
 GameObject:
@@ -63218,7 +64012,7 @@ MonoBehaviour:
   troopDisplay: {fileID: 0}
   button: {fileID: 0}
   borders: []
-  defense: 10
+  defense: 7
   attack: 7
 --- !u!1 &1909173902
 GameObject:
@@ -63607,7 +64401,7 @@ MonoBehaviour:
   troopDisplay: {fileID: 0}
   button: {fileID: 0}
   borders: []
-  defense: 10
+  defense: 7
   attack: 7
 --- !u!1 &1923560029
 GameObject:
@@ -64239,7 +65033,7 @@ MonoBehaviour:
   troopDisplay: {fileID: 0}
   button: {fileID: 0}
   borders: []
-  defense: 10
+  defense: 7
   attack: 7
 --- !u!1 &1926945790
 GameObject:
@@ -64295,7 +65089,7 @@ MonoBehaviour:
     m_Top: 0
     m_Bottom: 0
   m_ChildAlignment: 0
-  m_Spacing: -385.1
+  m_Spacing: -300
   m_ChildForceExpandWidth: 1
   m_ChildForceExpandHeight: 1
   m_ChildControlWidth: 0
@@ -64434,6 +65228,7 @@ MonoBehaviour:
   cross: {fileID: 21300000, guid: 6e84ed269fe751f408fec1927f675453, type: 3}
   tick: {fileID: 21300000, guid: 69ac7aa370da3ac4bb43f561de9b6d2d, type: 3}
   leaveButton: {fileID: 1792443369}
+  leaveAgreementConfirmation: {fileID: 1287862525}
   warButtonPrefab: {fileID: 9178804205593158682, guid: 88ca14a343ead9d4589dc30629a1210a, type: 3}
   warButtonParent: {fileID: 547536664}
   joinWarDisplay: {fileID: 740339747}
@@ -64804,7 +65599,7 @@ MonoBehaviour:
   troopDisplay: {fileID: 0}
   button: {fileID: 0}
   borders: []
-  defense: 10
+  defense: 7
   attack: 7
 --- !u!1 &1965767009
 GameObject:
@@ -65829,7 +66624,7 @@ MonoBehaviour:
   troopDisplay: {fileID: 0}
   button: {fileID: 0}
   borders: []
-  defense: 10
+  defense: 7
   attack: 7
 --- !u!1 &2013673132
 GameObject:
@@ -66062,7 +66857,7 @@ MonoBehaviour:
   troopDisplay: {fileID: 0}
   button: {fileID: 0}
   borders: []
-  defense: 10
+  defense: 7
   attack: 7
 --- !u!1 &2023959907
 GameObject:
@@ -66606,7 +67401,7 @@ MonoBehaviour:
   troopDisplay: {fileID: 0}
   button: {fileID: 0}
   borders: []
-  defense: 10
+  defense: 7
   attack: 7
 --- !u!1 &2040193845
 GameObject:
@@ -66751,7 +67546,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 4170086609955009442, guid: b2a43af76c3f3e74fa8a77b10e559a16, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 891334ceeb409014eb532608d9fbfe7c, type: 3}
   m_Type: 0
   m_PreserveAspect: 1
   m_FillCenter: 1
@@ -67216,7 +68011,7 @@ MonoBehaviour:
   troopDisplay: {fileID: 0}
   button: {fileID: 0}
   borders: []
-  defense: 10
+  defense: 7
   attack: 7
 --- !u!1 &2063119770
 GameObject:
@@ -67782,7 +68577,7 @@ MonoBehaviour:
   troopDisplay: {fileID: 0}
   button: {fileID: 0}
   borders: []
-  defense: 10
+  defense: 7
   attack: 7
 --- !u!1 &2096127740
 GameObject:
@@ -68182,7 +68977,7 @@ MonoBehaviour:
   troopDisplay: {fileID: 0}
   button: {fileID: 0}
   borders: []
-  defense: 10
+  defense: 7
   attack: 7
 --- !u!1 &2116244411
 GameObject:
@@ -68442,7 +69237,7 @@ MonoBehaviour:
   troopDisplay: {fileID: 0}
   button: {fileID: 0}
   borders: []
-  defense: 10
+  defense: 7
   attack: 7
 --- !u!1 &2123585593
 GameObject:
@@ -68857,7 +69652,7 @@ MonoBehaviour:
   troopDisplay: {fileID: 0}
   button: {fileID: 0}
   borders: []
-  defense: 10
+  defense: 7
   attack: 7
 --- !u!1 &2133893687
 GameObject:
@@ -69000,7 +69795,7 @@ MonoBehaviour:
   troopDisplay: {fileID: 0}
   button: {fileID: 0}
   borders: []
-  defense: 10
+  defense: 7
   attack: 7
 --- !u!212 &2133893693
 SpriteRenderer:
@@ -69437,7 +70232,7 @@ MonoBehaviour:
   troopDisplay: {fileID: 0}
   button: {fileID: 0}
   borders: []
-  defense: 10
+  defense: 7
   attack: 7
 --- !u!224 &11801139073129967
 RectTransform:

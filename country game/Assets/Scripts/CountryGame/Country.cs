@@ -23,9 +23,9 @@ namespace CountryGame
 
         private void OnValidate()
         {
-            if (defense == 0)
+            if (defense == 9)
             {
-                defense = 10;
+                defense = 7;
             }
 
             if (attack == 0)
@@ -98,14 +98,14 @@ namespace CountryGame
                 troopInfos.Add(source, newInfo);
             }
             
-            troopDisplay.UpdateDisplay(this);
+            UpdateTroopDisplay();
         }
 
         public void UpdateTroopDisplay()
         {
             if (troopDisplay && PlayerNationManager.PlayerNation != null)
             {
-                troopDisplay.UpdateDisplay(this, nation.MilitaryAccessWith(PlayerNationManager.PlayerNation) || nation.playerNation);
+                troopDisplay.UpdateDisplay(this, nation.MilitaryAccessWith(PlayerNationManager.PlayerNation) || nation.playerNation || nation.InvolvedInWarWith(PlayerNationManager.PlayerNation));
             }
         }
 
@@ -119,7 +119,7 @@ namespace CountryGame
                     troopInfos.Remove(controller);
                 }
             }
-            troopDisplay.UpdateDisplay(this);
+            UpdateTroopDisplay();
         }
 
         public bool CanMoveNumTroopsOut(Nation controller, int amount)
@@ -133,6 +133,7 @@ namespace CountryGame
                     minimum = 1;
                 }
                 
+                Debug.Log($"Pottential leftover from transport: {info.NumberOfTroops - amount} minimum: {minimum}");
                 if (info.NumberOfTroops - amount >= minimum)
                 {
                     return true;

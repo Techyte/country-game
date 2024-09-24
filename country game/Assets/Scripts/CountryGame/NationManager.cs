@@ -76,7 +76,7 @@ namespace CountryGame
                                 country.troopInfos.Remove(country.GetNation());
                                 country.MovedTroopsIn(agreement.AgreementLeader, leftOver);
                                 
-                                SwapCountriesNation(country, agreement.AgreementLeader);
+                                SwapCountriesNation(country, agreement.AgreementLeader, true);
                             }
                         }
                     }
@@ -138,13 +138,13 @@ namespace CountryGame
             return null;
         }
 
-        private void NationDestroyed(Nation oldNation)
+        private void NationDestroyed(Nation oldNation, bool willing)
         {
             Queue<Agreement> agreementQueue = agreements.ToQueue();
 
             while (agreementQueue.Count > 0)
             {
-                NationLeaveAgreement(oldNation, agreementQueue.Dequeue());
+                NationLeaveAgreement(oldNation, agreementQueue.Dequeue(), willing);
             }
 
             List<War> wars = oldNation.Wars.ToList();
@@ -160,8 +160,14 @@ namespace CountryGame
             nations.Remove(oldNation);
         }
 
-        private void AgreementDestroyed(Agreement oldAgreement)
+        private void AgreementDestroyed(Agreement oldAgreement, bool willing)
         {
+            if (!willing)
+            {
+                Notification notification = Instantiate(notificationPrefab, notificationParent);
+                notification.Init($"Dissolution!", $"Today, The {oldAgreement.Name} was dissolved, every nation having decided to turn away to seek their own destiny", null, 5);
+            }
+            
             foreach (var nation in oldAgreement.Nations)
             {
                 nation.agreements.Remove(oldAgreement);
@@ -170,7 +176,7 @@ namespace CountryGame
             agreements.Remove(oldAgreement);
         }
 
-        public void SwapCountriesNation(Country countryToSwap, Nation nationToSwapTo)
+        public void SwapCountriesNation(Country countryToSwap, Nation nationToSwapTo, bool willing)
         {
             if (countryToSwap.GetNation() != nationToSwapTo)
             {
@@ -190,7 +196,7 @@ namespace CountryGame
                     oldNation.CountryLeft(countryToSwap);
                     if (oldNation.CountryCount == 0)
                     {
-                        NationDestroyed(oldNation);
+                        NationDestroyed(oldNation, willing);
                     }
                 }
 
@@ -212,24 +218,47 @@ namespace CountryGame
 
                 if (agreementToJoin.influence > 0 && agreementToJoin.AgreementLeader != nationToSwap)
                 {
-                    nationToSwap.ChangeInfluence(agreementToJoin.AgreementLeader, agreementToJoin.influence/3f);
+                    nationToSwap.UpdateInfluenceColour();
                 }
             }
         }
 
-        public void NationLeaveAgreement(Nation nation, Agreement agreement)
+        public void NationLeaveAgreement(Nation nation, Agreement agreement, bool willing)
         {
             if (agreement.Nations.Contains(nation))
             {
                 agreement.NationLeft(nation);
                 nation.agreements.Remove(agreement);
 
+                foreach (var country in nation.Countries)
+                {
+                    foreach (var troopInfo in country.troopInfos.Values)
+                    {
+                        if (troopInfo.ControllerNation != country.GetNation())
+                        {
+                            Debug.Log("transferring troops because a nation left an agreement");
+                            TroopMover.Instance.TransferTroops(country, nation.Countries[0], troopInfo.ControllerNation, troopInfo.NumberOfTroops);
+                        }
+                    }
+                }
+
                 if (agreement.Nations.Count <= 1)
                 {
-                    AgreementDestroyed(agreement);
+                    AgreementDestroyed(agreement, willing);
+                }
+                else if (agreement.AgreementLeader == nation)
+                {
+                    agreement.AgreementLeader = agreement.Nations[0];
+                }
+
+                foreach (var updateNation in agreement.Nations)
+                {
+                    updateNation.UpdateTroopDisplays();
+                    updateNation.UpdateInfluenceColour();
                 }
 
                 nation.UpdateTroopDisplays();
+                nation.UpdateInfluenceColour();
             }
         }
     }
@@ -244,6 +273,10 @@ namespace CountryGame
         public Color Color;
         public Sprite flag;
         public bool playerNation = false;
+
+        public float infantry = 0.4f;
+        public float tanks = 0.3f;
+        public float marines = 0.3f;
 
         public void CountryJointed(Country countryThatJoined)
         {
@@ -272,6 +305,23 @@ namespace CountryGame
                 }
             }
 
+            return false;
+        }
+
+        public bool InvolvedInWarWith(Nation nationToTest)
+        {
+            foreach (var war in Wars)
+            {
+                if (war.Defenders.Contains(nationToTest) && war.Defenders.Contains(this))
+                {
+                    return true;
+                }
+                if (war.Belligerents.Contains(nationToTest) && war.Belligerents.Contains(this))
+                {
+                    return true;
+                }
+            }
+            
             return false;
         }
 
@@ -316,6 +366,8 @@ namespace CountryGame
             {
                 country.BecomePlayerNation();
             }
+            
+            Countries[0].MovedTroopsIn(this, 6);
         }
 
         public void JoinAgreement(Agreement agreementToJoin)
@@ -338,6 +390,14 @@ namespace CountryGame
             {
                 country.button.SetInfluenceColour(nation.Color, influence);
             }
+        }
+
+        public void UpdateInfluenceColour()
+        {
+            Nation highestInfluenceNation;
+            int highestInfluence = HighestInfluence(out highestInfluenceNation);
+            
+            ChangeInfluence(highestInfluenceNation, highestInfluence/3f);
         }
 
         public void ChangeColor(Color color)

@@ -36,11 +36,6 @@ namespace CountryGame
         [SerializeField] private TMP_InputField marinesInputField;
         [SerializeField] private TextMeshProUGUI totalTroopPercentage;
         [SerializeField] private Button changeTroopDistributionButton;
-
-        [Space] 
-        public float infantry;
-        public float tanks;
-        public float marines;
         
         [Space]
         [SerializeField] private Image influencedFlag;
@@ -210,14 +205,14 @@ namespace CountryGame
 
         private void SetupTroopUI()
         {
-            infantrySlider.value = infantry;
-            infantryInputField.text = (infantry*100).ToString();
+            infantrySlider.value = PlayerNation.infantry;
+            infantryInputField.text = (PlayerNation.infantry*100).ToString();
             
-            tanksSlider.value = tanks;
-            tanksInputField.text = (tanks*100).ToString();
+            tanksSlider.value = PlayerNation.tanks;
+            tanksInputField.text = (PlayerNation.tanks*100).ToString();
             
-            marinesSlider.value = marines;
-            marinesInputField.text = (marines*100).ToString();
+            marinesSlider.value = PlayerNation.marines;
+            marinesInputField.text = (PlayerNation.marines*100).ToString();
         }
 
         private float startingBreakdownWidth;
@@ -237,15 +232,15 @@ namespace CountryGame
             totalTroopPercentage.text = total.ToString();
 
             bool availableToChange = false;
-            if (!Mathf.Approximately(currentInfantry, infantry))
+            if (!Mathf.Approximately(currentInfantry, PlayerNation.infantry))
             {
                 availableToChange = true;
             }
-            if (!Mathf.Approximately(currentTanks, tanks))
+            if (!Mathf.Approximately(currentTanks, PlayerNation.tanks))
             {
                 availableToChange = true;
             }
-            if (!Mathf.Approximately(currentMarines, marines))
+            if (!Mathf.Approximately(currentMarines, PlayerNation.marines))
             {
                 availableToChange = true;
             }
@@ -268,9 +263,9 @@ namespace CountryGame
             float currentTanks = tanksSlider.value;
             float currentMarines = marinesSlider.value;
 
-            infantry = currentInfantry;
-            tanks = currentTanks;
-            marines = currentMarines;
+            PlayerNation.infantry = currentInfantry;
+            PlayerNation.tanks = currentTanks;
+            PlayerNation.marines = currentMarines;
             
             UpdateTroopUI();
         }

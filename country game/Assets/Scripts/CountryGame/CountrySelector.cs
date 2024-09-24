@@ -34,6 +34,7 @@ namespace CountryGame
         [SerializeField] private Sprite cross;
         [SerializeField] private Sprite tick;
         [SerializeField] private Button leaveButton;
+        [SerializeField] private GameObject leaveAgreementConfirmation;
         [SerializeField] private Button warButtonPrefab;
         [SerializeField] private Transform warButtonParent;
         [SerializeField] private GameObject joinWarDisplay;
@@ -55,6 +56,7 @@ namespace CountryGame
             agreementScreen.position = titleStartPos.position;
             declareWarConfirmationScreen.SetActive(false);
             joinWarDisplay.SetActive(false);
+            leaveAgreementConfirmation.SetActive(false);
         }
 
         private void Update()
@@ -255,6 +257,7 @@ namespace CountryGame
             _warScreen = false;
             declareWarConfirmationScreen.SetActive(false);
             joinWarDisplay.SetActive(false);
+            leaveAgreementConfirmation.SetActive(false);
         }
 
         public void OpenAgreementScreen(int factionIndex)
@@ -379,9 +382,12 @@ namespace CountryGame
                 notification.Init($"To War!", $"Today, {PlayerNationManager.PlayerNation.Name} joined the {currentSelectedWar.Name}, allying themselves with the belligerents", () => {CountrySelector.Instance.OpenWarScreen(currentSelectedWar);}, 5);
             }
         }
+
+        private Agreement currentAgreement = null;
         
         public void OpenAgreementScreen(Agreement agreement)
         {
+            currentAgreement = agreement;
             PlayerNationManager.Instance.ResetSelected();
             DisplayAgreementMembers(agreement);
             _agreementScreen = true;
@@ -391,7 +397,30 @@ namespace CountryGame
             nonAgressionImage.sprite = agreement.nonAgression ? tick : cross;
             militaryAccessImage.sprite = agreement.militaryAccess ? tick : cross;
             autoJoinWarsImage.sprite = agreement.autoJoinWar ? tick : cross;
+            leaveButton.gameObject.SetActive(true);
             leaveButton.interactable = agreement.Age() >= 3;
+            leaveButton.gameObject.SetActive(agreement.Nations.Contains(PlayerNationManager.PlayerNation));
+        }
+
+        public void ClickedLeaveAgreement()
+        {
+            leaveAgreementConfirmation.SetActive(true);
+        }
+
+        public void ConfirmedLeaveAgreement()
+        {
+            leaveAgreementConfirmation.SetActive(false);
+            
+            Notification notification = Instantiate(notificationPrefab, notificationParent);
+            notification.Init($"Breaking Ties!", $"Today, {PlayerNationManager.PlayerNation.Name} left the {currentAgreement.Name} agreement, searching to forge its own path!", () => {Clicked(PlayerNationManager.PlayerNation);}, 5);
+            
+            NationManager.Instance.NationLeaveAgreement(PlayerNationManager.PlayerNation, currentAgreement, false);
+            ResetSelected();
+        }
+
+        public void CancelLeaveAgreement()
+        {
+            leaveAgreementConfirmation.SetActive(false);
         }
 
         public void BeginCreatingAgreement()

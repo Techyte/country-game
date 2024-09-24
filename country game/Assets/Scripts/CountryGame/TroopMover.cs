@@ -223,6 +223,19 @@ namespace CountryGame
             ResetSelected();
         }
 
+        public void TransferTroops(Country source, Country target, Nation controller, int amount)
+        {
+            if (!source.CanMoveNumTroopsOut(controller, amount))
+            {
+                return;
+            }
+
+            Debug.Log($"Transferring {amount} troops controlled by {controller.Name} from {source.name} to {target.name}");
+            
+            source.MoveTroopsOut(controllers[nationIndex], amount);
+            target.MovedTroopsIn(controllers[nationIndex], amount);
+        }
+
         public void SwapSourceTarget()
         {
             (source, target) = (target, source);

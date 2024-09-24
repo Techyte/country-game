@@ -46,42 +46,107 @@ namespace CountryGame
             
             foreach (var attack in currentAttacks)
             {
-                if (attack.Source.TotalTroopCount() + 5 > attack.Target.TotalTroopCount())
-                {
-                    Nation nationToTakeTerritory = attack.war.Belligerents[0];
-
-                    if (attack.launchedByDefenders)
-                    {
-                        nationToTakeTerritory = attack.war.Defenders[0];
-                    }
-                    
-                    List<TroopInformation> troopInfos = attack.Target.troopInfos.Values.ToList();
-
-                    int originControlledTroops = 0;
-                                
-                    foreach (var info in troopInfos)
-                    {
-                        if (info.ControllerNation == attack.Target.GetNation())
-                        {
-                            originControlledTroops = info.NumberOfTroops;
-                        }
-                    }
-
-                    int leftOver = Mathf.CeilToInt(originControlledTroops / 2f);
-                    if (leftOver < 1)
-                    {
-                        leftOver = 1;
-                    }
-
-                    attack.Target.troopInfos.Remove(attack.Target.GetNation());
-                    attack.Target.MovedTroopsIn(nationToTakeTerritory, leftOver);
-                    
-                    NationManager.Instance.SwapCountriesNation(attack.Target, nationToTakeTerritory);
-                    
-                    Destroy(attack.line.gameObject);
-                    attacks.Remove(attack);
-                }
+                CompleteAttack(attack);
             }
+        }
+
+        private void CompleteAttack(Attack attack)
+        {
+            if (AttackSuccessful(attack))
+            {
+                Nation nationToTakeTerritory = attack.war.Belligerents[0];
+
+                if (attack.launchedByDefenders)
+                {
+                    nationToTakeTerritory = attack.war.Defenders[0];
+                }
+                    
+                List<TroopInformation> troopInfos = attack.Target.troopInfos.Values.ToList();
+
+                int originControlledTroops = 0;
+                                
+                foreach (var info in troopInfos)
+                {
+                    if (info.ControllerNation == attack.Target.GetNation())
+                    {
+                        originControlledTroops = info.NumberOfTroops;
+                    }
+                }
+
+                int leftOver = Mathf.CeilToInt(originControlledTroops / 2f);
+                if (leftOver < 1)
+                {
+                    leftOver = 1;
+                }
+
+                attack.Target.troopInfos.Remove(attack.Target.GetNation());
+                attack.Target.MovedTroopsIn(nationToTakeTerritory, leftOver);
+                    
+                NationManager.Instance.SwapCountriesNation(attack.Target, nationToTakeTerritory, false);
+                    
+                Destroy(attack.line.gameObject);
+                attacks.Remove(attack);
+            }
+        }
+
+        private bool AttackSuccessful(Attack attack)
+        {
+            float infantryAttack = 0.5f;
+            float infantryDefense = 0.7f;
+            float tanksAttack = 0.2f;
+            float tanksDefense = 1.2f;
+            float marinesAttack = 0.4f;
+            float marinesDefense = 0.5f;
+
+            float originalAttack = attack.Source.attack;
+            float originalDefense = attack.Target.defense;
+
+            float sourceAttack = attack.Source.attack;
+
+            float targetDefense = attack.Target.defense;
+            
+            foreach (var troopInfo in attack.Source.troopInfos.Values)
+            {
+                if (!troopInfo.ControllerNation.Wars.Contains(attack.war))
+                {
+                    continue;
+                }
+                
+                float infantryTroops = troopInfo.NumberOfTroops * troopInfo.ControllerNation.infantry;
+                float tanksTroops = troopInfo.NumberOfTroops * troopInfo.ControllerNation.tanks;
+                float marinesTroops = troopInfo.NumberOfTroops * troopInfo.ControllerNation.marines;
+
+                sourceAttack += infantryAttack * infantryTroops;
+                
+                sourceAttack += tanksAttack * tanksTroops;
+                
+                sourceAttack += marinesAttack * marinesTroops;
+            }
+            
+            foreach (var troopInfo in attack.Target.troopInfos.Values)
+            {
+                if (!troopInfo.ControllerNation.Wars.Contains(attack.war))
+                {
+                    continue;
+                }
+                
+                float infantryTroops = troopInfo.NumberOfTroops * troopInfo.ControllerNation.infantry;
+                float tanksTroops = troopInfo.NumberOfTroops * troopInfo.ControllerNation.tanks;
+                float marinesTroops = troopInfo.NumberOfTroops * troopInfo.ControllerNation.marines;
+
+                targetDefense += infantryDefense * infantryTroops;
+                
+                targetDefense += tanksDefense * tanksTroops;
+                
+                targetDefense += marinesDefense * marinesTroops;
+            }
+            
+            Debug.Log($"Source attack: {sourceAttack}");
+            Debug.Log($"Troop added attack {sourceAttack-originalAttack}");
+            Debug.Log($"Target defense: {targetDefense}");
+            Debug.Log($"Troop added defense {targetDefense-originalDefense}");
+            
+            return sourceAttack > targetDefense;
         }
 
         public void DeclareWarOn(Nation nationToWarWith)
@@ -103,38 +168,29 @@ namespace CountryGame
             war.Name = $"{nationThatDeclared.Name} {nationToWarWith.Name} War";
             
             NewWar(war);
-            NationJoinWarBelligerents(nationThatDeclared, war);
-            NationJoinWarDefenders(nationToWarWith, war);
+            
+            war.Belligerents.Add(nationThatDeclared);
+            nationThatDeclared.Wars.Add(war);
+            
+            war.Defenders.Add(nationToWarWith);
+            nationToWarWith.Wars.Add(war);
             
             Notification notification = Instantiate(notificationPrefab, notificationParent);
             notification.Init($"To War!", $"Today, {nationThatDeclared.Name} declared war on {nationToWarWith.Name}, this will surely be one to remember", () => {CountrySelector.Instance.OpenWarScreen(war);}, 5);
-
-            List<Agreement> agreements = nationThatDeclared.agreements.ToList();
+            
+            List<Agreement> agreements = nationToWarWith.agreements.ToList();
             
             foreach (var agreement in agreements)
             {
-                if (agreement.autoJoinWar && agreement.AgreementLeader == nationThatDeclared)
+                foreach (var nation in war.Belligerents)
                 {
-                    foreach (var nation in agreement.Nations)
+                    if (agreement.Nations.Contains(nation))
                     {
-                        if (!nation.Wars.Contains(war))
-                        {
-                            NationJoinWarBelligerents(nation, war);
-                        }
+                        NationManager.Instance.NationLeaveAgreement(nation, agreement, false);
                     }
                 }
-
-                if (agreement.Nations.Contains(nationToWarWith))
-                {
-                    NationManager.Instance.NationLeaveAgreement(nationToWarWith, agreement);
-                }
-            }
-            
-            agreements = nationToWarWith.agreements.ToList();
-            
-            foreach (var agreement in agreements)
-            {
-                if (agreement.autoJoinWar && agreement.AgreementLeader == nationThatDeclared)
+                
+                if (agreement.autoJoinWar)
                 {
                     foreach (var nation in agreement.Nations)
                     {
@@ -144,20 +200,78 @@ namespace CountryGame
                         }
                     }
                 }
-
-                if (agreement.Nations.Contains(nationThatDeclared))
+            }
+            
+            agreements = nationThatDeclared.agreements.ToList();
+            
+            foreach (var agreement in agreements)
+            {
+                foreach (var nation in war.Defenders)
                 {
-                    NationManager.Instance.NationLeaveAgreement(nationThatDeclared, agreement);
+                    if (agreement.Nations.Contains(nation))
+                    {
+                        NationManager.Instance.NationLeaveAgreement(nation, agreement, false);
+                    }
                 }
+                
+                if (agreement.autoJoinWar)
+                {
+                    foreach (var nation in agreement.Nations)
+                    {
+                        if (!nation.Wars.Contains(war))
+                        {
+                            NationJoinWarBelligerents(nation, war);
+                        }
+                    }
+                }
+            }
+
+            foreach (var belligerent in war.Belligerents)
+            {
+                belligerent.UpdateInfluenceColour();
+                belligerent.UpdateTroopDisplays();
+            }
+
+            foreach (var defender in war.Defenders)
+            {
+                defender.UpdateInfluenceColour();
+                defender.UpdateTroopDisplays();
             }
         }
 
         public void NationJoinWarBelligerents(Nation nationToJoinWar, War warToJoin)
         {
-            if (!nationToJoinWar.Wars.Contains(warToJoin) && !warToJoin.Belligerents.Contains(nationToJoinWar))
+            // already in the war
+            if (nationToJoinWar.Wars.Contains(warToJoin))
             {
-                nationToJoinWar.JoinWar(warToJoin);
-                warToJoin.NationJointedBelligerents(nationToJoinWar);
+                return;
+            }
+            
+            nationToJoinWar.JoinWar(warToJoin);
+            warToJoin.NationJointedBelligerents(nationToJoinWar);
+            
+            List<Agreement> agreements = nationToJoinWar.agreements.ToList();
+            
+            foreach (var agreement in agreements)
+            {
+                foreach (var nation in warToJoin.Defenders)
+                {
+                    if (agreement.Nations.Contains(nation))
+                    {
+                        NationManager.Instance.NationLeaveAgreement(nation, agreement, false);
+                    }
+                }
+                
+                if (agreement.autoJoinWar)
+                {
+                    foreach (var nation in agreement.Nations)
+                    {
+                        if (!nation.Wars.Contains(warToJoin))
+                        {
+                            NationJoinWarBelligerents(nation, warToJoin);
+                        }
+                    }
+                }
             }
 
             CountrySelector.Instance.DisplayWarMembers(warToJoin);
@@ -165,10 +279,37 @@ namespace CountryGame
         
         public void NationJoinWarDefenders(Nation nationToJoinWar, War warToJoin)
         {
-            if (!nationToJoinWar.Wars.Contains(warToJoin) && !warToJoin.Defenders.Contains(nationToJoinWar))
+            // already in the war
+            if (nationToJoinWar.Wars.Contains(warToJoin))
             {
-                nationToJoinWar.JoinWar(warToJoin);
-                warToJoin.NationJointedDefenders(nationToJoinWar);
+                return;
+            }
+            
+            nationToJoinWar.JoinWar(warToJoin);
+            warToJoin.NationJointedDefenders(nationToJoinWar);
+            
+            List<Agreement> agreements = nationToJoinWar.agreements.ToList();
+            
+            foreach (var agreement in agreements)
+            {
+                foreach (var nation in warToJoin.Belligerents)
+                {
+                    if (agreement.Nations.Contains(nation))
+                    {
+                        NationManager.Instance.NationLeaveAgreement(nation, agreement, false);
+                    }
+                }
+                
+                if (agreement.autoJoinWar)
+                {
+                    foreach (var nation in agreement.Nations)
+                    {
+                        if (!nation.Wars.Contains(warToJoin))
+                        {
+                            NationJoinWarDefenders(nation, warToJoin);
+                        }
+                    }
+                }
             }
 
             CountrySelector.Instance.DisplayWarMembers(warToJoin);
