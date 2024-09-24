@@ -33,8 +33,6 @@ namespace CountryGame
         [SerializeField] private GameObject confirmPannel;
 
         public EventHandler<EventArgs> NewTurn;
-
-        private int additionalActionPoints;
         
         public int actionPoints;
 
@@ -47,7 +45,6 @@ namespace CountryGame
 
         private void Start()
         {
-            //ProgressTurn();
             actionPoints = turnActionPoints;
         }
 
@@ -65,14 +62,8 @@ namespace CountryGame
         {
             currentTurn++;
             
-            if (currentTurn%2==0)
-            {
-                additionalActionPoints++;
-            }
-            
             NewTurn?.Invoke(this, EventArgs.Empty);
-            actionPoints = turnActionPoints+additionalActionPoints;
-            actionPoints = Mathf.Clamp(actionPoints, 0, maxActionPoints);
+            actionPoints = Mathf.Clamp(turnActionPoints, 0, maxActionPoints);
         }
 
         public IEnumerator TurnProgressDelay()
