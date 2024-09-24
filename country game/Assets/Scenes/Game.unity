@@ -52156,7 +52156,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   currentTurn: 0
-  turnActionPoints: 5
+  turnActionPoints: 4
   maxActionPoints: 15
   actionPointDisplay: {fileID: 138312204}
   confirmPannel: {fileID: 705286412}

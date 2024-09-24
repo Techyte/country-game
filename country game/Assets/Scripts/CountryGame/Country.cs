@@ -48,7 +48,7 @@ namespace CountryGame
             }
         }
 
-        private void Start()
+        public void CalculateBorders()
         {
             borders = GetBorders();
         }
@@ -146,6 +146,21 @@ namespace CountryGame
                 return false;
             }
         }
+
+        public int TroopsOfController(Nation controller)
+        {
+            int total = 0;
+
+            foreach (var info in troopInfos.Values)
+            {
+                if (info.ControllerNation == controller)
+                {
+                    total += info.NumberOfTroops;
+                }
+            }
+            
+            return total;
+        }
         
         public void ResetTroops()
         {
@@ -160,6 +175,21 @@ namespace CountryGame
         public float DistanceTo(Country country)
         {
             return (GetComponent<PolygonCollider2D>().bounds.center - country.gameObject.GetComponent<PolygonCollider2D>().bounds.center).magnitude;
+        }
+
+        public int GetParticipatingTroops(War war)
+        {
+            int total = 0;
+            
+            foreach (var info in troopInfos.Values)
+            {
+                if (info.ControllerNation.Wars.Contains(war))
+                {
+                    total += info.NumberOfTroops;
+                }
+            }
+
+            return total;
         }
 
         public List<Country> GetBorders()
@@ -189,13 +219,20 @@ namespace CountryGame
                     }
                 }
             }
+            
             if (countryName == "France")
             { 
                 borderNations.Add(NationManager.Instance.GetCountryByName("United Kingdom"));
+                borderNations.Add(NationManager.Instance.GetCountryByName("French Guiana"));
+            }
+            else if (countryName == "French Guiana") 
+            { 
+                borderNations.Add(NationManager.Instance.GetCountryByName("France"));
             }
             else if (countryName == "United Kingdom") 
             { 
                 borderNations.Add(NationManager.Instance.GetCountryByName("France"));
+                borderNations.Add(NationManager.Instance.GetCountryByName("Iceland"));
             }
             else if (countryName == "Russia")
             { 
@@ -273,6 +310,7 @@ namespace CountryGame
             else if (countryName == "Iceland")
             {
                 borderNations.Add(NationManager.Instance.GetCountryByName("Greenland"));
+                borderNations.Add(NationManager.Instance.GetCountryByName("United Kingdom"));
             }
             else if (countryName == "Greenland")
             {

@@ -42,50 +42,105 @@ namespace CountryGame
 
         private void NewTurn(object sender, EventArgs e)
         {
-            List<Attack> currentAttacks = attacks.ToList();
-            
-            foreach (var attack in currentAttacks)
-            {
-                CompleteAttack(attack);
-            }
+            CompleteAttacks();
         }
 
-        private void CompleteAttack(Attack attack)
+        private void CompleteAttacks()
         {
-            if (AttackSuccessful(attack))
+            List<Attack> currentAttacks = attacks.ToList();
+
+            foreach (var attack in currentAttacks)
             {
-                Nation nationToTakeTerritory = attack.war.Belligerents[0];
+                attack.success = AttackSuccessful(attack);
+            }
 
-                if (attack.launchedByDefenders)
+            foreach (var attack in currentAttacks)
+            {
+                if (attack.success && !attack.war.over)
                 {
-                    nationToTakeTerritory = attack.war.Defenders[0];
-                }
-                    
-                List<TroopInformation> troopInfos = attack.Target.troopInfos.Values.ToList();
+                    Nation nationToTakeTerritory = attack.war.Belligerents[0];
 
-                int originControlledTroops = 0;
-                                
-                foreach (var info in troopInfos)
-                {
-                    if (info.ControllerNation == attack.Target.GetNation())
+                    if (attack.launchedByDefenders)
                     {
-                        originControlledTroops = info.NumberOfTroops;
+                        nationToTakeTerritory = attack.war.Defenders[0];
                     }
-                }
 
-                int leftOver = Mathf.CeilToInt(originControlledTroops / 2f);
-                if (leftOver < 1)
+                    List<TroopInformation> troopInfos = attack.Target.troopInfos.Values.ToList();
+
+                    int originControlledTroops = 0;
+
+                    foreach (var info in troopInfos)
+                    {
+                        if (info.ControllerNation == attack.Target.GetNation())
+                        {
+                            originControlledTroops = info.NumberOfTroops;
+                        }
+                    }
+
+                    int leftOver = Mathf.CeilToInt(originControlledTroops / 2f);
+                    if (leftOver < 1)
+                    {
+                        leftOver = 1;
+                    }
+
+                    attack.Target.troopInfos.Remove(attack.Target.GetNation());
+                    attack.Target.MovedTroopsIn(nationToTakeTerritory, leftOver);
+                    
+                    // move the troops to the new territory
+
+                    int troopsToMoveIn = attack.Source.TroopsOfController(attack.Source.GetNation()) / 2;
+
+                    foreach (var info in attack.Source.troopInfos.Values)
+                    {
+                        if (info.ControllerNation.IsAtWarWith(attack.Target.GetNation()))
+                        {
+                            attack.Target.MovedTroopsIn(info.ControllerNation, troopsToMoveIn);
+                            attack.Source.MoveTroopsOut(info.ControllerNation, attack.Source.TroopsOfController(attack.Source.GetNation())-troopsToMoveIn);
+                        }
+                    }
+
+                    NationManager.Instance.SwapCountriesNation(attack.Target, nationToTakeTerritory, false);
+
+                    Destroy(attack.line.gameObject);
+                    attacks.Remove(attack);
+                }
+                else if (attack.war.over)
                 {
-                    leftOver = 1;
+                    // attack was successful it was just got to last
+                    
+                    Debug.Log("Successful attack but we already knew that");
+                    
+                    // COPE: by the time we get here the countrys nation has already been changed so we cant know if the troops were at war with them so for the sake of me not having to fix 
+                    // that we will say that they were a distraction thats only purpose was to take troops away from the line while the main attack took place
+                    
+                    // int troopsToMoveIn = attack.Source.TroopsOfController(attack.Source.GetNation()) / 2;
+                    //
+                    // foreach (var info in attack.Source.troopInfos.Values)
+                    // {
+                    //     if (info.ControllerNation.IsAtWarWith(attack.Target.GetNation()))
+                    //     {
+                    //         attack.Target.MovedTroopsIn(info.ControllerNation, troopsToMoveIn);
+                    //         attack.Source.MoveTroopsOut(info.ControllerNation, attack.Source.TroopsOfController(attack.Source.GetNation())-troopsToMoveIn);
+                    //     }
+                    // }
+                    
+                    Destroy(attack.line.gameObject);
+                    attacks.Remove(attack);
                 }
-
-                attack.Target.troopInfos.Remove(attack.Target.GetNation());
-                attack.Target.MovedTroopsIn(nationToTakeTerritory, leftOver);
+                else
+                {
+                    // attack was a failure
+                    foreach (var info in attack.Source.troopInfos.Values)
+                    {
+                        if (info.ControllerNation.IsAtWarWith(attack.Target.GetNation()))
+                        {
+                            attack.Source.MoveTroopsOut(info.ControllerNation, 1);
+                        }
+                    }
                     
-                NationManager.Instance.SwapCountriesNation(attack.Target, nationToTakeTerritory, false);
-                    
-                Destroy(attack.line.gameObject);
-                attacks.Remove(attack);
+                    Destroy(attack.line.gameObject);
+                    attacks.Remove(attack);
+                }
             }
         }
 
@@ -140,13 +195,48 @@ namespace CountryGame
                 
                 targetDefense += marinesDefense * marinesTroops;
             }
+
+            List<Attack> attacksOnTarget = new List<Attack>();
+            List<Attack> attacksFromSource = new List<Attack>();
+
+            float totalAttackingForce = 0;
+            float totalDefendingForce = 0;
+
+            foreach (var otherAttack in attacks)
+            {
+                if (otherAttack.Target == attack.Target)
+                {
+                    attacksOnTarget.Add(otherAttack);
+                    totalAttackingForce += otherAttack.Source.GetParticipatingTroops(attack.war);
+                }
+
+                if (otherAttack.Source == attack.Source)
+                {
+                    attacksFromSource.Add(attack);
+                    totalDefendingForce += otherAttack.Target.GetParticipatingTroops(attack.war);
+                }
+            }
             
-            Debug.Log($"Source attack: {sourceAttack}");
-            Debug.Log($"Troop added attack {sourceAttack-originalAttack}");
-            Debug.Log($"Target defense: {targetDefense}");
-            Debug.Log($"Troop added defense {targetDefense-originalDefense}");
+            // calculate how much of the defense is being used to counter this attack
+
+            float attackScaler = attack.Target.GetParticipatingTroops(attack.war) / totalDefendingForce; // amount of attacking force of the source that is being allocated to this attack
+            float defenseScaler = attack.Source.GetParticipatingTroops(attack.war) / totalAttackingForce; // amount of defending force of the target that is being allocated to this attack
             
-            return sourceAttack > targetDefense;
+            // calculate how much of the attack is being used to push this attack
+
+            if (totalDefendingForce <= 0)
+            {
+                // attackers will always win
+                targetDefense = 0;
+            }
+
+            if (totalAttackingForce <= 0)
+            {
+                // defenders will always win
+                sourceAttack = 0;
+            }
+            
+            return sourceAttack * attackScaler > targetDefense * defenseScaler;
         }
 
         public void DeclareWarOn(Nation nationToWarWith)
@@ -426,7 +516,6 @@ namespace CountryGame
                 // belligerent is launching the attack
                 if (war.Belligerents.Contains(source.GetNation()) && war.Defenders.Contains(target.GetNation()))
                 {
-                    Debug.Log($"Found the {war.Name}");
                     attack.war = war;
                     attack.launchedByDefenders = false;
                 }
@@ -449,7 +538,6 @@ namespace CountryGame
                             // belligerent is launching the attack
                             if (war.Belligerents.Contains(nation) && war.Defenders.Contains(target.GetNation()))
                             {
-                                Debug.Log($"Found the {war.Name}");
                                 attack.war = war;
                                 attack.launchedByDefenders = false;
                             }
@@ -467,6 +555,8 @@ namespace CountryGame
         public string Name;
         public List<Nation> Defenders = new List<Nation>();
         public List<Nation> Belligerents = new List<Nation>();
+
+        public bool over;
 
         public void NationJointedDefenders(Nation nationThatJoined)
         {
@@ -500,11 +590,13 @@ namespace CountryGame
         {
             if (Defenders.Count <= 0)
             {
-                CombatManager.Instance.WarEnded(this, true);
+                CombatManager.Instance.WarEnded(this, false);
+                over = true;
             }
             else if (Belligerents.Count <= 0)
             {
-                CombatManager.Instance.WarEnded(this, false);
+                CombatManager.Instance.WarEnded(this, true);
+                over = true;
             }
         }
     }
@@ -518,5 +610,7 @@ namespace CountryGame
         public bool launchedByDefenders;
 
         public LineRenderer line;
+
+        public bool success;
     }
 }

@@ -436,6 +436,12 @@ namespace CountryGame
 
         public void ConfirmedDeclareWar()
         {
+            if (!TurnManager.Instance.CanPerformAction())
+            {
+                return;
+            }
+            
+            TurnManager.Instance.PerformedAction();
             CombatManager.Instance.DeclareWarOn(_currentNation);
             ResetSelected();
             declareWarConfirmationScreen.SetActive(false);
