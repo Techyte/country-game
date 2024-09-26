@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using Riptide;
 using Riptide.Transports.Steam;
 using Riptide.Utils;
@@ -7,14 +8,15 @@ using TMPro;
 using UnityEngine.UI;
 using SteamClient = Riptide.Transports.Steam.SteamClient;
 
-public enum LobbyMessageId : ushort
-{
-    BeginGame,
-}
-
 namespace CountryGame.Multiplayer
 {
     using UnityEngine;
+
+    public enum LobbyMessageID : ushort
+    {
+        BeginGame,
+        ResetSelectedNation,
+    }
 
     public class NetworkManager : MonoBehaviour
     {
@@ -40,7 +42,7 @@ namespace CountryGame.Multiplayer
 
         private static NetworkManager _instance;
         
-        public const byte PlayerHostedDemoMessageHandlerGroupId = 255;
+        public const byte PlayerHostedDemoMessageHandlerGroupId = 126;
         
         public Server Server;
         public Client Client;
@@ -53,11 +55,12 @@ namespace CountryGame.Multiplayer
         [SerializeField] private GameObject gameScreen;
 
         protected Callback<AvatarImageLoaded_t> AvatarImageLoaded;
-        //protected Callback<Lobby> LobbyEntered;
+        protected Callback<LobbyDataUpdate_t> LobbyDataUpdated;
         
         private void Awake()
         {
             Instance = this;
+            DontDestroyOnLoad(gameObject);
         }
 
         private void OnEnable()
@@ -69,8 +72,6 @@ namespace CountryGame.Multiplayer
             }
             
             RiptideLogger.Initialize(Debug.Log, Debug.Log, Debug.LogWarning, Debug.LogError, false);
-            
-            OpenMainScreen();
         }
 
         private void Start()
@@ -94,6 +95,7 @@ namespace CountryGame.Multiplayer
             Client.Disconnected += ClientOnClientDisconnected;
 
             AvatarImageLoaded = Callback<AvatarImageLoaded_t>.Create(OnAvatarImageLoaded);
+            LobbyDataUpdated = Callback<LobbyDataUpdate_t>.Create(OnLobbyDataUpdate);
             
             Debug.Log($"Logged in as {SteamFriends.GetPersonaName()}");
             username.text = SteamFriends.GetPersonaName();
@@ -107,11 +109,77 @@ namespace CountryGame.Multiplayer
             Texture2D texture = GetSteamImageAsTexture(imageId);
 
             profilePicture.sprite = Sprite.Create(texture, new Rect(0, 0, texture.width, texture.height), Vector2.zero);
+            
+            OpenMainScreen();
+        }
+
+        private void OnLobbyDataUpdate(LobbyDataUpdate_t callback)
+        {
+            int total = 0;
+
+            CSteamID lobbyId = (CSteamID)callback.m_ulSteamIDLobby;
+
+            List<CSteamID> alreadySentTo = new List<CSteamID>();
+            
+            for (int i = 0; i < SteamMatchmaking.GetNumLobbyMembers(lobbyId); i++)
+            {
+                if (SteamMatchmaking.GetLobbyMemberData(LobbyManager.Instance.lobbyId, SteamMatchmaking.GetLobbyMemberByIndex(lobbyId, i), "ready") == "1")
+                {
+                    total++;
+                }
+
+                string iNation = SteamMatchmaking.GetLobbyMemberData(lobbyId, SteamMatchmaking.GetLobbyMemberByIndex(lobbyId, i),
+                    "nation");
+
+                if (iNation == "" || iNation == "none")
+                {
+                    continue;
+                }
+                for (int j = 0; j < SteamMatchmaking.GetNumLobbyMembers(lobbyId); j++)
+                {
+                    iNation = SteamMatchmaking.GetLobbyMemberData(lobbyId, SteamMatchmaking.GetLobbyMemberByIndex(lobbyId, i), "nation");
+                    string jNation = SteamMatchmaking.GetLobbyMemberData(lobbyId, SteamMatchmaking.GetLobbyMemberByIndex(lobbyId, j), "nation");
+
+                    if (jNation == "" || jNation == "none")
+                    {
+                        continue;
+                    }
+                    
+                    if (iNation == jNation && !alreadySentTo.Contains(SteamMatchmaking.GetLobbyMemberByIndex(lobbyId, i)) && !alreadySentTo.Contains(SteamMatchmaking.GetLobbyMemberByIndex(lobbyId, j)))
+                    {
+                        Debug.Log("Collision Detected");
+                        foreach (var client in Server.Clients)
+                        {
+                            if (((SteamConnection)client).SteamId == SteamMatchmaking.GetLobbyMemberByIndex(lobbyId, i))
+                            {
+                                alreadySentTo.Add(SteamMatchmaking.GetLobbyMemberByIndex(lobbyId, i));
+
+                                Message message = Message.Create(MessageSendMode.Reliable,
+                                    LobbyMessageID.ResetSelectedNation);
+                                Server.Send(message, client.Id);
+                            }
+                            else if (((SteamConnection)client).SteamId == SteamMatchmaking.GetLobbyMemberByIndex(lobbyId, j))
+                            {
+                                alreadySentTo.Add(SteamMatchmaking.GetLobbyMemberByIndex(lobbyId, j));
+
+                                Message message = Message.Create(MessageSendMode.Reliable,
+                                    LobbyMessageID.ResetSelectedNation);
+                                Server.Send(message, client.Id);
+                            }
+                        }
+                    }
+                }
+            }
+
+            if (total == SteamMatchmaking.GetNumLobbyMembers(lobbyId))
+            {
+                EveryoneReady();
+            }
         }
 
         private void ClientOnClientDisconnected(object sender, ClientDisconnectedEventArgs e)
         {
-            //LobbyManager.Instance.DisplayLobbyMembers(LobbyManager.Instance.lobbyId);
+            
         }
 
         private void ClientOnClientDisconnected(object sender, EventArgs e)
@@ -121,7 +189,7 @@ namespace CountryGame.Multiplayer
 
         private void ClientOnClientConnected(object sender, ClientConnectedEventArgs e)
         {
-            //LobbyManager.Instance.DisplayLobbyMembers(LobbyManager.Instance.lobbyId);
+            
         }
 
         private void ClientOnClientConnected(object sender, EventArgs e)
@@ -145,7 +213,7 @@ namespace CountryGame.Multiplayer
 
         public void OpenGameScreen()
         {
-            mainScreen.SetActive(true);
+            mainScreen.SetActive(false);
             lobbyScreen.SetActive(false);
             gameScreen.SetActive(true);
         }
@@ -218,27 +286,32 @@ namespace CountryGame.Multiplayer
 
         private void PlayerConnected(object o, ServerConnectedEventArgs e)
         {
-            Debug.Log("We connected from the lobby");
-            if (Server.ClientCount == 1)
-            {
-                Debug.Log("We are the first in the server");
-            }
+            
         }
 
         private void PlayerDisconnected(object o, ServerDisconnectedEventArgs e)
         {
-            Debug.Log("We disconnected from the lobby");
-        }
-
-        public void BeginGame()
-        {
-            OpenGameScreen();
-        }
-
-        [MessageHandler((ushort)LobbyMessageId.BeginGame, PlayerHostedDemoMessageHandlerGroupId)]
-        private void BeginGameMessageReceived(Message message, ushort fromClientId)
-        {
             
+        }
+
+        private void EveryoneReady()
+        {
+            Message message = Message.Create(MessageSendMode.Reliable, LobbyMessageID.BeginGame);
+            
+            Server.SendToAll(message);
+        }
+
+        [MessageHandler((ushort)LobbyMessageID.BeginGame, PlayerHostedDemoMessageHandlerGroupId)]
+        private static void BeginGame(Message message)
+        {
+            Instance.OpenGameScreen();
+        }
+
+        [MessageHandler((ushort)LobbyMessageID.ResetSelectedNation, PlayerHostedDemoMessageHandlerGroupId)]
+        private static void ResetSelectedNation(Message message)
+        {
+            SteamMatchmaking.SetLobbyMemberData(LobbyManager.Instance.lobbyId, "nation", "none");
+            CountrySelector.Instance.Clicked(CountrySelector.Instance.currentNation);
         }
     }
 }

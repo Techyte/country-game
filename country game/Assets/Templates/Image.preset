@@ -75,7 +75,7 @@ Preset:
   - target: {fileID: 0}
     propertyPath: m_Sprite
     value: 
-    objectReference: {fileID: 21300000, guid: 19480b548a70f3a48a5e2cc8beaf39f1, type: 3}
+    objectReference: {fileID: 0}
   - target: {fileID: 0}
     propertyPath: m_Type
     value: 0
