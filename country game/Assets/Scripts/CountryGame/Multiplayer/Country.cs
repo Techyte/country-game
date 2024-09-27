@@ -5,7 +5,7 @@ namespace CountryGame.Multiplayer
 
     public class Country : MonoBehaviour
     {
-        public string countryName; 
+        public string countryName;
         private Nation nation;
 
         [HideInInspector] public CountryButton button;
@@ -24,10 +24,11 @@ namespace CountryGame.Multiplayer
             {
                 attack = 7;
             }
-            
+
             if (string.IsNullOrEmpty(countryName))
             {
-                countryName = CultureInfo.CurrentUICulture.TextInfo.ToTitleCase(gameObject.name.ToLower()).Replace('_', ' ');
+                countryName = CultureInfo.CurrentUICulture.TextInfo.ToTitleCase(gameObject.name.ToLower())
+                    .Replace('_', ' ');
             }
         }
 
@@ -36,7 +37,8 @@ namespace CountryGame.Multiplayer
             button = GetComponent<CountryButton>();
             if (string.IsNullOrEmpty(countryName))
             {
-                countryName = CultureInfo.CurrentUICulture.TextInfo.ToTitleCase(gameObject.name.ToLower()).Replace('_', ' ');
+                countryName = CultureInfo.CurrentUICulture.TextInfo.ToTitleCase(gameObject.name.ToLower())
+                    .Replace('_', ' ');
             }
         }
 

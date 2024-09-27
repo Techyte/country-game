@@ -5,6 +5,7 @@ using Riptide.Transports.Steam;
 using Riptide.Utils;
 using Steamworks;
 using TMPro;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 using SteamClient = Riptide.Transports.Steam.SteamClient;
 
@@ -52,7 +53,6 @@ namespace CountryGame.Multiplayer
 
         [SerializeField] private GameObject mainScreen;
         [SerializeField] private GameObject lobbyScreen;
-        [SerializeField] private GameObject gameScreen;
 
         protected Callback<AvatarImageLoaded_t> AvatarImageLoaded;
         protected Callback<LobbyDataUpdate_t> LobbyDataUpdated;
@@ -109,8 +109,6 @@ namespace CountryGame.Multiplayer
             Texture2D texture = GetSteamImageAsTexture(imageId);
 
             profilePicture.sprite = Sprite.Create(texture, new Rect(0, 0, texture.width, texture.height), Vector2.zero);
-            
-            OpenMainScreen();
         }
 
         private void OnLobbyDataUpdate(LobbyDataUpdate_t callback)
@@ -123,7 +121,7 @@ namespace CountryGame.Multiplayer
             
             for (int i = 0; i < SteamMatchmaking.GetNumLobbyMembers(lobbyId); i++)
             {
-                if (SteamMatchmaking.GetLobbyMemberData(LobbyManager.Instance.lobbyId, SteamMatchmaking.GetLobbyMemberByIndex(lobbyId, i), "ready") == "1")
+                if (SteamMatchmaking.GetLobbyMemberData(LobbyData.LobbyId, SteamMatchmaking.GetLobbyMemberByIndex(lobbyId, i), "ready") == "1")
                 {
                     total++;
                 }
@@ -141,6 +139,11 @@ namespace CountryGame.Multiplayer
                     string jNation = SteamMatchmaking.GetLobbyMemberData(lobbyId, SteamMatchmaking.GetLobbyMemberByIndex(lobbyId, j), "nation");
 
                     if (jNation == "" || jNation == "none")
+                    {
+                        continue;
+                    }
+
+                    if (i == j)
                     {
                         continue;
                     }
@@ -184,7 +187,7 @@ namespace CountryGame.Multiplayer
 
         private void ClientOnClientDisconnected(object sender, EventArgs e)
         {
-            OpenMainScreen();
+            
         }
 
         private void ClientOnClientConnected(object sender, ClientConnectedEventArgs e)
@@ -194,28 +197,12 @@ namespace CountryGame.Multiplayer
 
         private void ClientOnClientConnected(object sender, EventArgs e)
         {
-            OpenLobbyScreen();
+            
         }
 
-        public void OpenMainScreen()
+        public void OpenGame()
         {
-            mainScreen.SetActive(true);
-            lobbyScreen.SetActive(false);
-            gameScreen.SetActive(false);
-        }
-
-        public void OpenLobbyScreen()
-        {
-            mainScreen.SetActive(false);
-            lobbyScreen.SetActive(true);
-            gameScreen.SetActive(false);
-        }
-
-        public void OpenGameScreen()
-        {
-            mainScreen.SetActive(false);
-            lobbyScreen.SetActive(false);
-            gameScreen.SetActive(true);
+            SceneManager.LoadScene("Game");
         }
 
         protected void OnAvatarImageLoaded(AvatarImageLoaded_t callback)
@@ -304,13 +291,13 @@ namespace CountryGame.Multiplayer
         [MessageHandler((ushort)LobbyMessageID.BeginGame, PlayerHostedDemoMessageHandlerGroupId)]
         private static void BeginGame(Message message)
         {
-            Instance.OpenGameScreen();
+            Instance.OpenGame();
         }
 
         [MessageHandler((ushort)LobbyMessageID.ResetSelectedNation, PlayerHostedDemoMessageHandlerGroupId)]
         private static void ResetSelectedNation(Message message)
         {
-            SteamMatchmaking.SetLobbyMemberData(LobbyManager.Instance.lobbyId, "nation", "none");
+            SteamMatchmaking.SetLobbyMemberData(LobbyData.LobbyId, "nation", "none");
             CountrySelector.Instance.Clicked(CountrySelector.Instance.currentNation);
         }
     }

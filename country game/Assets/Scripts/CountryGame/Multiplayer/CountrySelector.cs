@@ -65,12 +65,10 @@ namespace CountryGame.Multiplayer
 
             bool currentNationAvailble = true;
 
-            for (int i = 0; i < SteamMatchmaking.GetNumLobbyMembers(LobbyManager.Instance.lobbyId); i++)
+            for (int i = 0; i < SteamMatchmaking.GetNumLobbyMembers(LobbyData.LobbyId); i++)
             {
-                string memberNation = SteamMatchmaking.GetLobbyMemberData(LobbyManager.Instance.lobbyId,
-                    SteamMatchmaking.GetLobbyMemberByIndex(LobbyManager.Instance.lobbyId, i), "nation");
-
-                Debug.Log(memberNation);
+                string memberNation = SteamMatchmaking.GetLobbyMemberData(LobbyData.LobbyId,
+                    SteamMatchmaking.GetLobbyMemberByIndex(LobbyData.LobbyId, i), "nation");
                 
                 if (memberNation == nationSelected.Name)
                 {
@@ -105,7 +103,7 @@ namespace CountryGame.Multiplayer
 
         public void SelectNation()
         {
-            SteamMatchmaking.SetLobbyMemberData(LobbyManager.Instance.lobbyId, "nation",
+            SteamMatchmaking.SetLobbyMemberData(LobbyData.LobbyId, "nation",
                 currentNation.Name);
             selectButton.interactable = false;
         }

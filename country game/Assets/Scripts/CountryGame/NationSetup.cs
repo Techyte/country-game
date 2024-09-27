@@ -1,3 +1,6 @@
+using CountryGame.Multiplayer;
+using Steamworks;
+
 namespace CountryGame
 {
     using System.Collections.Generic;
@@ -9,10 +12,17 @@ namespace CountryGame
         [SerializeField] private int startingDiplomaticPower = 25;
         private void Start()
         {
-            List<Country> countries = FindObjectsOfType<Country>().ToList();
+            List<Country> countries = GetComponentsInChildren<Country>().ToList();
 
+            int index = 0;
             foreach (var country in countries)
             {
+                if (index == 0)
+                {
+                    Debug.Log(country.countryName);
+                }
+                Random.InitState(index + int.Parse(SteamMatchmaking.GetLobbyData(LobbyData.LobbyId, "colorSeed")));
+                
                 NationManager.Instance.NewCountry(country);
                 
                 Nation nation = new Nation();
@@ -24,6 +34,8 @@ namespace CountryGame
                 NationManager.Instance.NewNation(nation);
                 
                 NationManager.Instance.SwapCountriesNation(country, nation, true);
+
+                index++;
             }
 
             foreach (var country in countries)
@@ -65,21 +77,12 @@ namespace CountryGame
                 country.CalculateBorders();
             }
 
-            Nation playerNation = NationManager.Instance.GetNationByName("Madagascar");
+            //Nation playerNation = NationManager.Instance.GetNationByName(SteamMatchmaking.GetLobbyMemberData(LobbyData.LobbyId, SteamUser.GetSteamID(), "nation"));
+            string playerNationName =
+                SteamMatchmaking.GetLobbyMemberData(LobbyData.LobbyId, SteamUser.GetSteamID(), "nation");
+            Nation playerNation = NationManager.Instance.GetNationByName(playerNationName);
             PlayerNationManager.Instance.SetPlayerNation(playerNation);
             PlayerNationManager.Instance.diplomaticPower = startingDiplomaticPower;
-
-            Agreement agreement = new Agreement();
-            agreement.Name = "test";
-            agreement.Color = Color.black;
-            agreement.AgreementLeader = NationManager.Instance.GetNationByName("Indonesia");
-            agreement.autoJoinWar = true;
-            agreement.influence = 2;
-            
-            NationManager.Instance.NewAgreement(agreement);
-            NationManager.Instance.NationJoinAgreement(NationManager.Instance.GetNationByName("Indonesia"), agreement);
-            NationManager.Instance.NationJoinAgreement(NationManager.Instance.GetNationByName("Papua New Guinea"), agreement);
-            NationManager.Instance.NationJoinAgreement(NationManager.Instance.GetNationByName("Australia"), agreement);
 
             //CombatManager.Instance.DeclareWarOn(NationManager.Instance.GetNationByName("Algeria"), NationManager.Instance.GetNationByName("Niger"));
         }

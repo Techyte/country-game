@@ -38,9 +38,6 @@ namespace CountryGame.Multiplayer
         protected Callback<AvatarImageLoaded_t> AvatarImageLoaded;
         protected Callback<LobbyChatUpdate_t> LobbyChatUpdate;
         protected Callback<LobbyDataUpdate_t> LobbyDataUpdate;
-        
-        private const string HostAddressKey = "HostAddress";
-        public CSteamID lobbyId;
 
         [SerializeField] private TextMeshProUGUI idText;
         [SerializeField] private TMP_InputField idInput;
@@ -49,7 +46,8 @@ namespace CountryGame.Multiplayer
         [SerializeField] private GameObject lobbyClientPrefab;
         [SerializeField] private Button beginButton;
 
-        public CSteamID lastConnectedUserId;
+        [SerializeField] private GameObject mainScreen;
+        [SerializeField] private GameObject lobbyScreen;
 
         private bool ready;
 
@@ -74,11 +72,13 @@ namespace CountryGame.Multiplayer
             AvatarImageLoaded = Callback<AvatarImageLoaded_t>.Create(OnAvatarImageLoaded);
             LobbyChatUpdate = Callback<LobbyChatUpdate_t>.Create(OnLobbyChatUpdate);
             LobbyDataUpdate = Callback<LobbyDataUpdate_t>.Create(OnLobbyDataUpdate);
+            
+            OpenMainScreen();
         }
         
         public void CreateLobby()
         {
-            SteamMatchmaking.CreateLobby(ELobbyType.k_ELobbyTypeFriendsOnly, 5);
+            SteamMatchmaking.CreateLobby(ELobbyType.k_ELobbyTypeFriendsOnly, 4);
             Debug.Log("Requested Lobby creation");
         }
         
@@ -89,9 +89,11 @@ namespace CountryGame.Multiplayer
                 return;
             }
             
+            OpenLobbyScreen();
+            
             Debug.Log("Lobby created success");
         
-            lobbyId = new CSteamID(callback.m_ulSteamIDLobby);
+            LobbyData.LobbyId = new CSteamID(callback.m_ulSteamIDLobby);
         
             NetworkManager.Instance.Server.Start(0, 5, NetworkManager.PlayerHostedDemoMessageHandlerGroupId);
             NetworkManager.Instance.Client.Connect("127.0.0.1", messageHandlerGroupId: NetworkManager.PlayerHostedDemoMessageHandlerGroupId);
@@ -99,15 +101,28 @@ namespace CountryGame.Multiplayer
             idText.text = $"Lobby ID: {callback.m_ulSteamIDLobby.ToString()}";
             SteamMatchmaking.SetLobbyData((CSteamID)callback.m_ulSteamIDLobby, "name",
                 SteamFriends.GetPersonaName() + "s Lobby");
-            SteamMatchmaking.SetLobbyData((CSteamID)callback.m_ulSteamIDLobby, "nation",
+            SteamMatchmaking.SetLobbyData((CSteamID)callback.m_ulSteamIDLobby, "colorSeed",
+                LobbyData.ColorSeed.ToString());
+            SteamMatchmaking.SetLobbyMemberData((CSteamID)callback.m_ulSteamIDLobby, "nation",
                 "none");
             
             lobbyName.text = SteamFriends.GetPersonaName() + "s Lobby";
             
-            DisplayLobbyMembers(lobbyId);
-
-            lastConnectedUserId = SteamUser.GetSteamID();
+            DisplayLobbyMembers(LobbyData.LobbyId);
+            
             inLobby = true;
+        }
+
+        public void OpenMainScreen()
+        {
+            mainScreen.SetActive(true);
+            lobbyScreen.SetActive(false);
+        }
+
+        public void OpenLobbyScreen()
+        {
+            mainScreen.SetActive(false);
+            lobbyScreen.SetActive(true);
         }
 
         private void OnLobbyEnter(LobbyEnter_t callback)
@@ -117,14 +132,14 @@ namespace CountryGame.Multiplayer
             
             Debug.Log("Entered Lobby");
 
-            lobbyId = new CSteamID(callback.m_ulSteamIDLobby);
-            CSteamID hostId = SteamMatchmaking.GetLobbyOwner(lobbyId);
+            LobbyData.LobbyId = new CSteamID(callback.m_ulSteamIDLobby);
+            CSteamID hostId = SteamMatchmaking.GetLobbyOwner(LobbyData.LobbyId);
             
             NetworkManager.Instance.Client.Connect(hostId.ToString(), messageHandlerGroupId: NetworkManager.PlayerHostedDemoMessageHandlerGroupId);
             idText.text = $"Lobby ID: {callback.m_ulSteamIDLobby}";
-            lobbyName.text = SteamMatchmaking.GetLobbyData(lobbyId, "name");
+            lobbyName.text = SteamMatchmaking.GetLobbyData(LobbyData.LobbyId, "name");
             
-            DisplayLobbyMembers(lobbyId);
+            DisplayLobbyMembers(LobbyData.LobbyId);
             inLobby = true;
         }
 
@@ -223,19 +238,16 @@ namespace CountryGame.Multiplayer
             switch (callback.m_rgfChatMemberStateChange)
             {
                 case (uint)EChatMemberStateChange.k_EChatMemberStateChangeLeft:
-                    DisplayLobbyMembers(lobbyId);
-                    break;
-                case (uint)EChatMemberStateChange.k_EChatMemberStateChangeEntered:
-                    lastConnectedUserId = (CSteamID)callback.m_ulSteamIDUserChanged;
+                    DisplayLobbyMembers(LobbyData.LobbyId);
                     break;
             }
             
-            DisplayLobbyMembers(lobbyId);
+            DisplayLobbyMembers(LobbyData.LobbyId);
         }
 
         private void OnLobbyDataUpdate(LobbyDataUpdate_t callback)
         {
-            DisplayLobbyMembers(lobbyId);
+            DisplayLobbyMembers(LobbyData.LobbyId);
             Debug.Log($"On data updated by {callback.m_ulSteamIDMember}");
 
             if (CountrySelector.Instance.currentNation == null)
@@ -243,15 +255,27 @@ namespace CountryGame.Multiplayer
                 return;
             }
             
-            for (int i = 0; i < SteamMatchmaking.GetNumLobbyMembers(lobbyId); i++)
+            for (int i = 0; i < SteamMatchmaking.GetNumLobbyMembers(LobbyData.LobbyId); i++)
             {
-                CSteamID clientId = SteamMatchmaking.GetLobbyMemberByIndex(lobbyId, i);
+                CSteamID clientId = SteamMatchmaking.GetLobbyMemberByIndex(LobbyData.LobbyId, i);
 
-                string nation = SteamMatchmaking.GetLobbyMemberData(lobbyId, clientId, "nation");
+                string nation = SteamMatchmaking.GetLobbyMemberData(LobbyData.LobbyId, clientId, "nation");
 
-                if (nation == CountrySelector.Instance.currentNation.Name)
+                if (nation == CountrySelector.Instance.currentNation.Name && clientId != SteamUser.GetSteamID())
                 {
+                    // someone (not us) just took our nation
                     CountrySelector.Instance.SomeoneTookCurrentNation();
+                }else if (clientId == SteamUser.GetSteamID() && !string.IsNullOrEmpty(nation) && nation != "none")
+                {
+                    // we have just chosen our new nation
+                    beginButton.interactable = true;
+                    Debug.Log("selected nation");
+                }
+                else if (clientId == SteamUser.GetSteamID() && (string.IsNullOrEmpty(nation) || nation == "none"))
+                {
+                    // we just had our nation reset
+                    beginButton.interactable = false;
+                    Debug.Log("had nation reset");
                 }
             }
         }
@@ -259,21 +283,28 @@ namespace CountryGame.Multiplayer
         public void LeaveLobby()
         {
             NetworkManager.Instance.Client.Disconnect();
-            SteamMatchmaking.LeaveLobby(lobbyId);
-            lobbyId = CSteamID.Nil;
+            SteamMatchmaking.LeaveLobby(LobbyData.LobbyId);
+            LobbyData.LobbyId = CSteamID.Nil;
             idText.text = "Lobby ID: None";
             inLobby = false;
             Camera.main.transform.position = new Vector3(0, 0, -10);
             FindObjectOfType<GameCamera>().targetFov = 40;
             FindObjectOfType<GameCamera>().currentFov = 40;
             CountrySelector.Instance.ResetSelected();
+            OpenMainScreen();
         }
         
         public void ToggleReady()
         {
             ready = !ready;
-            SteamMatchmaking.SetLobbyMemberData(lobbyId, "ready", ready ? "1" : "0");
-            DisplayLobbyMembers(lobbyId);
+            SteamMatchmaking.SetLobbyMemberData(LobbyData.LobbyId, "ready", ready ? "1" : "0");
+            DisplayLobbyMembers(LobbyData.LobbyId);
         }
+    }
+
+    public static class LobbyData
+    {
+        public static CSteamID LobbyId;
+        public static int ColorSeed;
     }
 }

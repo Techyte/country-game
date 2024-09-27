@@ -103,7 +103,7 @@ namespace CountryGame
 
         public void UpdateTroopDisplay()
         {
-            if (troopDisplay && PlayerNationManager.PlayerNation != null)
+            if (troopDisplay != null && PlayerNationManager.PlayerNation != null && nation != null)
             {
                 troopDisplay.UpdateDisplay(this, nation.MilitaryAccessWith(PlayerNationManager.PlayerNation) || nation.playerNation || nation.InvolvedInWarWith(PlayerNationManager.PlayerNation));
             }

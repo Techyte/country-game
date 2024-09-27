@@ -8,10 +8,20 @@ namespace CountryGame.Multiplayer
     {
         private void Start()
         {
-            List<Country> countries = FindObjectsOfType<Country>().ToList();
+            List<Country> countries = GetComponentsInChildren<Country>().ToList();
 
+            //LobbyData.ColorSeed = Random.Range(0, 10000);
+            LobbyData.ColorSeed = 42;
+            
+            int index = 0;
             foreach (var country in countries)
             {
+                if (index == 0)
+                {
+                    Debug.Log(country.countryName);
+                }
+                Random.InitState(index + LobbyData.ColorSeed);
+                
                 NationManager.Instance.NewCountry(country);
                 
                 Nation nation = new Nation();
@@ -22,6 +32,8 @@ namespace CountryGame.Multiplayer
                 NationManager.Instance.NewNation(nation);
                 
                 NationManager.Instance.SwapCountriesNation(country, nation);
+
+                index++;
             }
 
             foreach (var country in countries)
