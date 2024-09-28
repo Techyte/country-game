@@ -1,5 +1,6 @@
 using System;
 using System.Linq;
+using Riptide;
 using Unity.VisualScripting;
 
 namespace CountryGame
@@ -28,6 +29,14 @@ namespace CountryGame
 
         private void NewTurn(object sender, EventArgs e)
         {
+            if (!NetworkManager.Instance.Host)
+            {
+                return;
+            }
+
+            List<string> nationsSubsumed = new List<string>();
+            List<string> nationsThatSubsumed = new List<string>();
+            
             Queue<Agreement> agreementQueue = agreements.ToQueue();
             
             while (agreementQueue.Count > 0)
@@ -81,8 +90,60 @@ namespace CountryGame
                                 
                                 SwapCountriesNation(country, agreement.AgreementLeader, true);
                             }
+                            
+                            nationsSubsumed.Add(nation.Name);
+                            nationsThatSubsumed.Add(agreement.AgreementLeader.Name);
                         }
                     }
+                }
+            }
+
+            Message message = Message.Create(MessageSendMode.Reliable, GameMessageId.SubsumedNations);
+            message.AddStrings(nationsSubsumed.ToArray());
+            message.AddStrings(nationsThatSubsumed.ToArray());
+            
+            NetworkManager.Instance.Server.SendToAll(message, NetworkManager.Instance.Client.Id);
+        }
+
+        public void HandleSubsumedNations(List<string> nationsSubsumed, List<string> nationsThatSubsumed)
+        {
+            for (int i = 0; i < nationsSubsumed.Count; i++)
+            {
+                List<Country> countries = GetNationByName(nationsSubsumed[i]).Countries.ToList();
+                Nation nationThatSubsumed = GetNationByName(nationsThatSubsumed[i]);
+
+                foreach (var country in countries)
+                {
+                    Notification notification = Instantiate(notificationPrefab, notificationParent);
+                    notification.Init($"{country.GetNation().Name} joins {nationThatSubsumed.Name}!",
+                        $"Today, under heavy pressure from {nationThatSubsumed.Name}, " +
+                        $"{country.GetNation().Name} gave up independence and joined {nationThatSubsumed.Name}! This marks a historic day.",
+                        () => { CountrySelector.Instance.Clicked(nationThatSubsumed); }, 5);
+                    
+                    Debug.Log("Country joining head");
+
+                    List<TroopInformation> troopInfos = country.troopInfos.Values.ToList();
+
+                    int originControlledTroops = 0;
+                    
+                    foreach (var info in troopInfos)
+                    {
+                        if (info.ControllerNation == country.GetNation())
+                        {
+                            originControlledTroops = info.NumberOfTroops;
+                        }
+                    }
+                    
+                    int leftOver = Mathf.CeilToInt(originControlledTroops / 2f);
+                    if (leftOver < 1)
+                    {
+                        leftOver = 1;
+                    }
+                    
+                    country.troopInfos.Remove(country.GetNation());
+                    country.MovedTroopsIn(nationThatSubsumed, leftOver);
+                    
+                    SwapCountriesNation(country, nationThatSubsumed, true);
                 }
             }
         }

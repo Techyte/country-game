@@ -17,6 +17,7 @@ namespace CountryGame.Multiplayer
     {
         BeginGame,
         ResetSelectedNation,
+        IdUpdate,
     }
 
     public class NetworkManager : MonoBehaviour
@@ -56,6 +57,8 @@ namespace CountryGame.Multiplayer
 
         protected Callback<AvatarImageLoaded_t> AvatarImageLoaded;
         protected Callback<LobbyDataUpdate_t> LobbyDataUpdated;
+
+        public Dictionary<ushort, CSteamID> riptideToStemId = new Dictionary<ushort, CSteamID>();
         
         private void Awake()
         {
@@ -84,6 +87,7 @@ namespace CountryGame.Multiplayer
             
             SteamServer steamServer = new SteamServer();
             Server = new Server(steamServer);
+            
             Server.ClientConnected += PlayerConnected;
             Server.ClientDisconnected += PlayerDisconnected;
 
@@ -197,7 +201,18 @@ namespace CountryGame.Multiplayer
 
         private void ClientOnClientConnected(object sender, EventArgs e)
         {
+            Message message = Message.Create(MessageSendMode.Reliable, LobbyMessageID.IdUpdate);
+            message.AddULong((ulong)SteamUser.GetSteamID());
+
+            Client.Send(message);
+        }
+
+        [MessageHandler((ushort)LobbyMessageID.IdUpdate, PlayerHostedDemoMessageHandlerGroupId)]
+        private static void IdUpdate(ushort fromClientId, Message message)
+        {
+            CSteamID id = (CSteamID)message.GetULong();
             
+            Instance.riptideToStemId.Add(fromClientId, id);
         }
 
         public void OpenGame()

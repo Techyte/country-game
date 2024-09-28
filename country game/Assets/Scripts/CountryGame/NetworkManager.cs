@@ -1,11 +1,14 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Net.NetworkInformation;
+using CountryGame.Multiplayer;
 using Riptide;
+using Riptide.Transports.Steam;
 using Riptide.Utils;
+using Steamworks;
 using TMPro;
 using UnityEngine.UI;
+using SteamClient = Steamworks.SteamClient;
 
 namespace CountryGame
 {
@@ -14,8 +17,6 @@ namespace CountryGame
     public enum GameMessageId : ushort
     {
         SetupPlayer,
-        NewPlayerSetup,
-        ExistingPlayerInfo,
         RequestNewAgreement,
         AgreementSigned,
         AgreementRejected,
@@ -23,6 +24,8 @@ namespace CountryGame
         NewAttack,
         EndTurn,
         NewTurn,
+        SubsumedNations,
+        CombatResults,
     }
     
     public class NetworkManager : MonoBehaviour
@@ -49,10 +52,9 @@ namespace CountryGame
 
         private static NetworkManager _instance;
 
-        public Server Server;
-        public Client Client;
-
-        public int port = 7777;
+        public Server Server => Multiplayer.NetworkManager.Instance.Server;
+        public Client Client => Multiplayer.NetworkManager.Instance.Client;
+        
         [SerializeField] private GameObject greyedOutObj;
         [SerializeField] private Transform multiplayerScreen;
         [SerializeField] private float titleSpeed = 5.625f;
@@ -61,7 +63,7 @@ namespace CountryGame
         [SerializeField] private GameObject playerPrefab;
         [SerializeField] private Notification notificationPrefab;
         [SerializeField] private Transform notificationParent;
-
+        
         [Space] 
         [SerializeField] private GameObject askPlayerAgreementScreen;
         [SerializeField] private Image nonAgression;
@@ -71,13 +73,13 @@ namespace CountryGame
         [SerializeField] private TextMeshProUGUI sourceNationText;
         [SerializeField] private TextMeshProUGUI agreementNameText;
         [SerializeField] private Sprite tick, cross;
-
+        
         public Dictionary<ushort, PlayerInfo> Players = new Dictionary<ushort, PlayerInfo>();
-
+        
         public bool Host = false;
-
+        
         private bool _multiplayerScreen;
-
+        
         private void Awake()
         {
             Instance = this;
@@ -90,18 +92,7 @@ namespace CountryGame
 
         public void BeginSetup()
         {
-            Server = new Server();
-            
-            Client = new Client();
-            Client.Connect($"127.0.0.1:{port}");
-            
-            Client.Connected += ClientOnClientConnected;
-            Client.ConnectionFailed += (sender, args) =>
-            {
-                Server.Start((ushort)port, 4);
-                Client.Connect($"127.0.0.1:{port}");
-                Host = true;
-            };
+            SetupPlayers();
         }
 
         private void Update()
@@ -136,30 +127,23 @@ namespace CountryGame
             _multiplayerScreen = false;
         }
 
-        private void OnDisable()
+        private void SetupPlayers()
         {
-            Client.Connected -= ClientOnClientConnected;
-            Client.Disconnect();
-            Server.Stop();
-        }
-
-        private void ClientOnClientConnected(object sender, EventArgs e)
-        {
-            string nationName = Client.Id == 1 ? "Australia" : "India";
-            string username = Client.Id == 1 ? "bozo 1" : "idiot 2";
+            foreach (var client in Server.Clients)
+            {
+                Debug.Log("Sending connection information");
             
-            Message message = Message.Create(MessageSendMode.Reliable, GameMessageId.SetupPlayer);
-            message.AddString(nationName);
-            message.AddString(username);
-
-            Client.Send(message);
-            
-            Debug.Log("Sending connection information");
-            
-            Nation newPlayerNation = NationManager.Instance.GetNationByName(nationName);
-            PlayerNationManager.Instance.MakeThePlayerNation(newPlayerNation);
-            newPlayerNation.Countries[0].MovedTroopsIn(newPlayerNation, 6);
-            newPlayerNation.DiplomaticPower = 30;
+                Nation newPlayerNation = NationManager.Instance.GetNationByName(SteamMatchmaking.GetLobbyMemberData(LobbyData.LobbyId, SteamUser.GetSteamID(), "nation"));
+                PlayerNationManager.Instance.MakeThePlayerNation(newPlayerNation);
+                newPlayerNation.Countries[0].MovedTroopsIn(newPlayerNation, 6);
+                newPlayerNation.DiplomaticPower = 30;
+                
+                Message message = Message.Create(MessageSendMode.Reliable, GameMessageId.SetupPlayer);
+                message.AddULong((ulong)Multiplayer.NetworkManager.Instance.riptideToStemId[client.Id]);
+                message.AddUShort(client.Id);
+                
+                Server.SendToAll(message);
+            }
             
             greyedOutObj.SetActive(false);
         }
@@ -177,7 +161,7 @@ namespace CountryGame
             {
                 GameObject obj = Instantiate(playerPrefab, playerParent);
 
-                obj.GetComponentInChildren<TextMeshProUGUI>().text = player.Username;
+                obj.GetComponentInChildren<TextMeshProUGUI>().text = SteamFriends.GetFriendPersonaName(player.steamID);
                 obj.GetComponentsInChildren<Image>()[2].sprite = player.ControlledNation.flag;
                 
                 obj.GetComponent<Button>().onClick.AddListener(() =>
@@ -201,67 +185,28 @@ namespace CountryGame
         }
 
         [MessageHandler((ushort)GameMessageId.SetupPlayer)]
-        private static void SetupPlayer(ushort fromClientId, Message message)
+        private void SetupPlayer(Message message)
         {
-            string nation = message.GetString();
-            string username = message.GetString();
+            Debug.Log("Setting up player");
+            CSteamID id = (CSteamID)message.GetULong();
+            ushort riptideId = message.GetUShort();
+            
+            string nation = SteamMatchmaking.GetLobbyMemberData(LobbyData.LobbyId, id, "nation");
 
             Nation newPlayerNation = NationManager.Instance.GetNationByName(nation);
             newPlayerNation.aPlayerNation = true;
-            if (fromClientId != Instance.Client.Id)
+            if (id != SteamUser.GetSteamID())
             {
                 newPlayerNation.Countries[0].MovedTroopsIn(newPlayerNation, 6);
                 newPlayerNation.DiplomaticPower = 30;
             }
             
             PlayerInfo info = new PlayerInfo();
-            info.Id = fromClientId;
             info.ControlledNation = newPlayerNation;
-            info.Username = username;
+            info.steamID = id;
+            info.riptideID = riptideId;
             
-            Instance.Players.Add(fromClientId, info);
-
-            // send the new player info to the other clients
-            Message updateMessage = Message.Create(MessageSendMode.Reliable, GameMessageId.NewPlayerSetup);
-            updateMessage.AddPlayerInfo(info);
-            
-            Instance.Server.SendToAll(updateMessage, fromClientId);
-            
-            // send all the existing info to the new player
-
-            updateMessage = Message.Create(MessageSendMode.Reliable, GameMessageId.ExistingPlayerInfo);
-            updateMessage.AddPlayerInfos(Instance.Players.Values.ToArray());
-
-            Instance.Server.Send(updateMessage, fromClientId);
-            
-            Debug.Log("sending existing player stuff");
-        }
-
-        [MessageHandler((ushort)GameMessageId.NewPlayerSetup)]
-        private static void NewPlayerSetup(Message message)
-        {
-            Debug.Log("received new player setup");
-            PlayerInfo info = message.GetPlayerInfo();
-
-            if (!Instance.Players.ContainsKey((ushort)info.Id))
-            {
-                Instance.Players.Add((ushort)info.Id, info);
-            }
-        }
-
-        [MessageHandler((ushort)GameMessageId.ExistingPlayerInfo)]
-        private static void ReceivedExistingInfos(Message message)
-        {
-            Debug.Log("receiving existing player stuff");
-            PlayerInfo[] infos = message.GetPlayerInfos();
-
-            foreach (var info in infos)
-            {
-                if (!Instance.Players.ContainsKey((ushort)info.Id))
-                {
-                    Instance.Players.Add((ushort)info.Id, info);
-                }
-            }
+            Players.Add(riptideId, info);
         }
 
         [MessageHandler((ushort)GameMessageId.DeclareWar)]
@@ -308,7 +253,7 @@ namespace CountryGame
                 {
                     if (player.ControlledNation == targetNation)
                     {
-                        Instance.Server.Send(message, (ushort)player.Id);
+                        Instance.Server.Send(message, player.riptideID);
                     }
                 }
             }
@@ -464,36 +409,30 @@ namespace CountryGame
         {
             TurnManager.Instance.ProgressTurnClient();
         }
+
+        [MessageHandler((ushort)GameMessageId.SubsumedNations)]
+        private static void SubsumedNations(Message message)
+        {
+            NationManager.Instance.HandleSubsumedNations(message.GetStrings().ToList(), message.GetStrings().ToList());
+        }
+
+        [MessageHandler((ushort)GameMessageId.CombatResults)]
+        private static void CombatResults(Message message)
+        {
+            CombatManager.Instance.HandleCombatResults(message.GetStrings().ToList(), message.GetStrings().ToList(),
+                message.GetStrings().ToList(), message.GetStrings().ToList());
+        }
     }
     
     public class PlayerInfo
     {
-        public int Id;
         public Nation ControlledNation;
-        public string Username;
+        public CSteamID steamID;
+        public ushort riptideID;
     }
 
     public static class MessageExtensions
     {
-        public static Message AddPlayerInfo(this Message message, PlayerInfo info)
-        {
-            message.Add(info.Id);
-            message.Add(info.Username);
-            message.Add(info.ControlledNation.Name);
-
-            return message;
-        }
-        
-        public static PlayerInfo GetPlayerInfo(this Message message)
-        {
-            PlayerInfo info = new PlayerInfo();
-            info.Id = message.GetInt();
-            info.Username = message.GetString();
-            info.ControlledNation = NationManager.Instance.GetNationByName(message.GetString());
-
-            return info;
-        }
-        
         public static Message AddAgreement(this Message message, Agreement agreement)
         {
             message.Add(agreement.AgreementLeader.Name);
@@ -529,29 +468,6 @@ namespace CountryGame
             agreement.Color = new Color(r, g, b, a);
 
             return agreement;
-        }
-        
-        public static Message AddPlayerInfos(this Message message, PlayerInfo[] infos)
-        {
-            message.AddInt(infos.Length);
-            foreach (var info in infos)
-            {
-                message.AddPlayerInfo(info);
-            }
-
-            return message;
-        }
-        
-        public static PlayerInfo[] GetPlayerInfos(this Message message)
-        {
-            PlayerInfo[] infos = new PlayerInfo[message.GetInt()];
-
-            for (int i = 0; i < infos.Length; i++)
-            {
-                infos[i] = GetPlayerInfo(message);
-            }
-
-            return infos;
         }
     }
 }

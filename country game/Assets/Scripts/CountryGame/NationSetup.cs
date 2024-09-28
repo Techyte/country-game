@@ -1,3 +1,6 @@
+using CountryGame.Multiplayer;
+using Steamworks;
+
 namespace CountryGame
 {
     using System.Collections.Generic;
@@ -14,8 +17,7 @@ namespace CountryGame
             int index = 0;
             foreach (var country in countries)
             {
-                //Random.InitState(index + int.Parse(SteamMatchmaking.GetLobbyData(LobbyData.LobbyId, "colorSeed")));
-                Random.InitState(index + 42);
+                Random.InitState(index + int.Parse(SteamMatchmaking.GetLobbyData(LobbyData.LobbyId, "colorSeed")));
                 
                 NationManager.Instance.NewCountry(country);
                 
@@ -71,7 +73,10 @@ namespace CountryGame
                 country.CalculateBorders();
             }
 
-            NetworkManager.Instance.BeginSetup();
+            if (SteamMatchmaking.GetLobbyOwner(LobbyData.LobbyId) == SteamUser.GetSteamID())
+            {
+                NetworkManager.Instance.BeginSetup();
+            }
 
             //Nation playerNation = NationManager.Instance.GetNationByName(SteamMatchmaking.GetLobbyMemberData(LobbyData.LobbyId, SteamUser.GetSteamID(), "nation"));
             // string playerNationName =

@@ -249,7 +249,6 @@ namespace CountryGame.Multiplayer
         private void OnLobbyDataUpdate(LobbyDataUpdate_t callback)
         {
             DisplayLobbyMembers(LobbyData.LobbyId);
-            Debug.Log($"On data updated by {callback.m_ulSteamIDMember}");
 
             if (CountrySelector.Instance.currentNation == null)
             {

@@ -58,8 +58,19 @@ namespace CountryGame
                 attack.success = AttackSuccessful(attack);
             }
 
+            List<string> countrysTransfered = new List<string>();
+            List<string> countrysThatTookTerritory = new List<string>();
+            List<string> nationsThatTook = new List<string>();
+            List<string> countriesThatFailedAttack = new List<string>();
+
             foreach (var attack in currentAttacks)
             {
+                if (attack.disabled)
+                {
+                    Destroy(attack.line.gameObject);
+                    attacks.Remove(attack);
+                }
+                
                 if (attack.success && !attack.war.over)
                 {
                     Nation nationToTakeTerritory = attack.war.Belligerents[0];
@@ -103,6 +114,19 @@ namespace CountryGame
                         }
                     }
 
+                    // nullify attacks from the territory we just took
+                    foreach (var otherAttack in attacks)
+                    {
+                        if (otherAttack.Source == attack.Target)
+                        {
+                            otherAttack.disabled = true;
+                        }
+                    }
+                    
+                    countrysTransfered.Add(attack.Target.countryName);
+                    nationsThatTook.Add(nationToTakeTerritory.Name);
+                    countrysThatTookTerritory.Add(attack.Source.countryName);
+
                     NationManager.Instance.SwapCountriesNation(attack.Target, nationToTakeTerritory, false);
 
                     Destroy(attack.line.gameObject);
@@ -143,9 +167,98 @@ namespace CountryGame
                         }
                     }
                     
+                    countriesThatFailedAttack.Add(attack.Source.countryName);
+                    
                     Destroy(attack.line.gameObject);
                     attacks.Remove(attack);
                 }
+            }
+
+            Message message = Message.Create(MessageSendMode.Reliable, GameMessageId.CombatResults);
+            message.AddStrings(countrysTransfered.ToArray());
+            message.AddStrings(countrysThatTookTerritory.ToArray());
+            message.AddStrings(nationsThatTook.ToArray());
+            message.AddStrings(countriesThatFailedAttack.ToArray());
+            
+            NetworkManager.Instance.Server.SendToAll(message, NetworkManager.Instance.Client.Id);
+        }
+
+        public void HandleCombatResults(List<string> countriesTransfered, List<string> countriesThatTookTerritory, List<string> nationsThatTook,
+            List<string> countriesThatFailedAttack)
+        {
+            foreach (var failed in countriesThatFailedAttack)
+            {
+                Country country = NationManager.Instance.GetCountryByName(failed);
+                country.MoveTroopsOut(country.GetNation(), 1);
+            }
+
+            for (int i = 0; i < countriesTransfered.Count; i++)
+            {
+                Country countryTaken = NationManager.Instance.GetCountryByName(countriesTransfered[i]);
+                
+                Nation nationToTakeTerritory = NationManager.Instance.GetNationByName(nationsThatTook[i]);
+
+                List<TroopInformation> troopInfos = countryTaken.troopInfos.Values.ToList();
+
+                int originControlledTroops = 0;
+
+                foreach (var info in troopInfos)
+                {
+                    if (info.ControllerNation == countryTaken.GetNation())
+                    {
+                        originControlledTroops = info.NumberOfTroops;
+                    }
+                }
+
+                int leftOver = Mathf.CeilToInt(originControlledTroops / 2f);
+                if (leftOver < 1)
+                {
+                    leftOver = 1;
+                }
+
+                countryTaken.troopInfos.Remove(countryTaken.GetNation());
+                countryTaken.MovedTroopsIn(nationToTakeTerritory, leftOver);
+                    
+                // move the troops to the new territory
+
+                Country countryThatTook = NationManager.Instance.GetCountryByName(countriesThatTookTerritory[i]);
+
+                int troopsToMoveIn = countryThatTook.TroopsOfController(countryThatTook.GetNation()) / 2;
+
+                foreach (var info in countryThatTook.troopInfos.Values)
+                {
+                    if (info.ControllerNation.IsAtWarWith(countryTaken.GetNation()))
+                    {
+                        countryTaken.MovedTroopsIn(info.ControllerNation, troopsToMoveIn);
+                        countryThatTook.MoveTroopsOut(info.ControllerNation, countryThatTook.TroopsOfController(countryThatTook.GetNation())-troopsToMoveIn);
+                    }
+                }
+
+                    // nullify attacks from the territory we just took
+                foreach (var otherAttack in attacks) 
+                {
+                    if (otherAttack.Source == countryTaken)
+                    {
+                        otherAttack.disabled = true;
+                    }
+                }
+                
+                nationsThatTook.Add(nationToTakeTerritory.Name);
+
+                NationManager.Instance.SwapCountriesNation(countryTaken, nationToTakeTerritory, false);
+
+                Attack attackRef = null;
+
+                foreach (var attack in attacks)
+                {
+                    if (attack.Source == countryThatTook && attack.Target == countryTaken)
+                    {
+                        attackRef = attack;
+                    }
+                }
+                
+                Destroy(attackRef.line.gameObject);
+                attacks.Remove(attackRef);
             }
         }
 
@@ -622,5 +735,7 @@ namespace CountryGame
         public LineRenderer line;
 
         public bool success;
+
+        public bool disabled = false;
     }
 }
