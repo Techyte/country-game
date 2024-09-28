@@ -43,7 +43,7 @@ namespace CountryGame.Multiplayer
 
         private static NetworkManager _instance;
         
-        public const byte PlayerHostedDemoMessageHandlerGroupId = 126;
+        public const byte PlayerHostedDemoMessageHandlerGroupId = 8;
         
         public Server Server;
         public Client Client;

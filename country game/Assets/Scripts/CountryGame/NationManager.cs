@@ -15,10 +15,10 @@ namespace CountryGame
         public List<Nation> nations = new List<Nation>();
         public List<Agreement> agreements = new List<Agreement>();
 
-        public bool useFactionColour;
-        public int beginningTroopCount = 10;
         [SerializeField] private Notification notificationPrefab;
         [SerializeField] private Transform notificationParent;
+
+        public List<Nation> PlayerNations = new List<Nation>();
 
         private void Awake()
         {
@@ -272,11 +272,13 @@ namespace CountryGame
         public int CountryCount => Countries.Count;
         public Color Color;
         public Sprite flag;
-        public bool playerNation = false;
+        public bool aPlayerNation = false;
 
         public float infantry = 0.4f;
         public float tanks = 0.3f;
         public float marines = 0.3f;
+
+        public int DiplomaticPower = 0;
 
         public void CountryJointed(Country countryThatJoined)
         {
@@ -310,6 +312,11 @@ namespace CountryGame
 
         public bool InvolvedInWarWith(Nation nationToTest)
         {
+            if (nationToTest == this)
+            {
+                return true;
+            }
+            
             foreach (var war in Wars)
             {
                 if (war.Defenders.Contains(nationToTest) && war.Defenders.Contains(this))
@@ -356,18 +363,8 @@ namespace CountryGame
             {
                 country.UpdateTroopDisplay();
             }
-        }
 
-        public void BecomePlayerNation()
-        {
-            playerNation = true;
-
-            foreach (var country in Countries)
-            {
-                country.BecomePlayerNation();
-            }
-            
-            Countries[0].MovedTroopsIn(this, 6);
+            CombatManager.Instance.UpdateAttackDisplays();
         }
 
         public void JoinAgreement(Agreement agreementToJoin)
@@ -398,6 +395,7 @@ namespace CountryGame
             int highestInfluence = HighestInfluence(out highestInfluenceNation);
             
             ChangeInfluence(highestInfluenceNation, highestInfluence/3f);
+            CombatManager.Instance.UpdateAttackDisplays();
         }
 
         public void ChangeColor(Color color)

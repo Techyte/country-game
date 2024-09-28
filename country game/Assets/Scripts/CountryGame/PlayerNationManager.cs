@@ -41,8 +41,6 @@ namespace CountryGame
         [SerializeField] private Image influencedFlag;
         [SerializeField] private TextMeshProUGUI influencedToolTip;
 
-        public int diplomaticPower;
-
         private bool playerNationSelected;
 
         private void Awake()
@@ -86,7 +84,7 @@ namespace CountryGame
 
         private void NewTurn(object sender, EventArgs e)
         {
-            diplomaticPower += diplomaticPowerGain;
+            PlayerNation.DiplomaticPower += diplomaticPowerGain;
         }
 
         private void Update()
@@ -121,7 +119,6 @@ namespace CountryGame
         {
             flagImage.sprite = PlayerNation.flag;
             countryName.text = PlayerNation.Name;
-            
             
             foreach (var factionDisplay in currentAgreementDisplays)
             {
@@ -200,7 +197,10 @@ namespace CountryGame
 
         private void UpdateUI()
         {
-            diplomaticPowerDisplay.text = $"DPP: {diplomaticPower}";
+            if (PlayerNation != null)
+            {
+                diplomaticPowerDisplay.text = $"DPP: {PlayerNation.DiplomaticPower}";
+            }
         }
 
         private void SetupTroopUI()
@@ -315,11 +315,13 @@ namespace CountryGame
             UpdateTroopUI();
         }
 
-        public void SetPlayerNation(Nation playerNation)
+        public void MakeThePlayerNation(Nation playerNation)
         {
             PlayerNation = playerNation;
-            playerNation.BecomePlayerNation();
+            playerNation.aPlayerNation = true;
             SetupUI();
+            PlayerNation.UpdateTroopDisplays();
+            PlayerNation.UpdateInfluenceColour();
         }
 
         public void ClickedPlayerNation()
@@ -328,6 +330,7 @@ namespace CountryGame
             CountrySelector.Instance.ResetSelected();
             TroopMover.Instance.ResetSelected();
             AgreementCreator.Instance.CloseAgreementScreen();
+            NetworkManager.Instance.ResetSelected();
             SetupUI();
         }
 

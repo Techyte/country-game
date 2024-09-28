@@ -79,6 +79,7 @@ namespace CountryGame
             currentCountry = countryClicked;
             countryTroopInformationDisplay.transform.position = start.position;
             CountrySelector.Instance.ResetSelected();
+            NetworkManager.Instance.ResetSelected();
         }
 
         public void ResetSelected()
@@ -134,7 +135,7 @@ namespace CountryGame
 
                 bool controllable = true;
 
-                if (!info.ControllerNation.playerNation)
+                if (info.ControllerNation != PlayerNationManager.PlayerNation)
                 {
                     controllable = false;
                     

@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Riptide;
 
 namespace CountryGame
 {
@@ -17,16 +18,27 @@ namespace CountryGame
 
         // the time it will take ai controller nations to decide weather to accept your agreement
         [SerializeField] private float decisionTime = 1f;
-        [SerializeField] private Notification notificationPrefab;
-        [SerializeField] private Transform notificationParent;
         public int startingAgreementPowerRequirement = 5;
 
-        public void PlayerAskedToJoinAgreement(Nation targetNation, Agreement requestedAgreement, bool preexisting)
+        public void PlayerAskedToJoinAgreement(Nation requestingNation, Nation targetNation, Agreement requestedAgreement, bool preexisting)
         {
-            StartCoroutine(CompleteAgreement(targetNation, requestedAgreement, preexisting));
+            if (NetworkManager.Instance.Host)
+            {
+                StartCoroutine(CompleteAgreement(requestingNation, targetNation, requestedAgreement, preexisting));
+            }
+            else
+            {
+                Message message = Message.Create(MessageSendMode.Reliable, GameMessageId.RequestNewAgreement);
+                message.AddString(requestingNation.Name);
+                message.AddString(targetNation.Name);
+                message.AddAgreement(requestedAgreement);
+                message.AddBool(preexisting);
+
+                NetworkManager.Instance.Client.Send(message);
+            }
         }
 
-        private IEnumerator CompleteAgreement(Nation targetNation, Agreement requestedAgreement, bool preexisting)
+        private IEnumerator CompleteAgreement(Nation requestingAgreement, Nation targetNation, Agreement requestedAgreement, bool preexisting)
         {
             // TODO: check if the player is currently fighting the nation, if so, immediately reject their agreement
 
@@ -35,32 +47,26 @@ namespace CountryGame
             yield return new WaitForSeconds(decisionTime);
 
             Debug.Log($"Cost: {requiredPower}");
-            if (requiredPower <= PlayerNationManager.Instance.diplomaticPower)
+            if (requiredPower <= requestingAgreement.DiplomaticPower)
             {
-                NationManager.Instance.NewAgreement(requestedAgreement);
+                Message acceptedMessage = Message.Create(MessageSendMode.Reliable, GameMessageId.AgreementSigned);
+                acceptedMessage.AddString(requestingAgreement.Name);
+                acceptedMessage.AddString(targetNation.Name);
+                acceptedMessage.AddAgreement(requestedAgreement);
+                acceptedMessage.AddBool(preexisting);
+                acceptedMessage.AddFloat(requiredPower);
                 
-                // agree
-                if (!preexisting)
-                {
-                    NationManager.Instance.NationJoinAgreement(PlayerNationManager.PlayerNation, requestedAgreement);
-                }
-                NationManager.Instance.NationJoinAgreement(targetNation, requestedAgreement);
-                PlayerNationManager.Instance.diplomaticPower -= (int)(requiredPower / 2);
-                
-                Debug.Log($"{targetNation.Name} accepted the {requestedAgreement.Name} agreement");
-
-                Notification notification = Instantiate(notificationPrefab, notificationParent);
-                notification.Init($"{targetNation.Name} Agrees!", $"Today, {targetNation.Name} agreed to {PlayerNationManager.PlayerNation.Name} request and signed on to the {requestedAgreement.Name} agreement", () => {CountrySelector.Instance.OpenAgreementScreen(requestedAgreement);}, 5);
+                NetworkManager.Instance.Server.SendToAll(acceptedMessage);
             }
             else
             {
-                // disagree
-                PlayerNationManager.Instance.diplomaticPower -= 10;
+                Message rejectedMessage = Message.Create(MessageSendMode.Reliable, GameMessageId.AgreementRejected);
+                rejectedMessage.AddString(requestingAgreement.Name);
+                rejectedMessage.AddString(targetNation.Name);
+                rejectedMessage.AddAgreement(requestedAgreement);
+                rejectedMessage.AddFloat(requiredPower);
                 
-                Debug.Log($"{targetNation.Name} rejected the {requestedAgreement.Name} agreement");
-                
-                Notification notification = Instantiate(notificationPrefab, notificationParent);
-                notification.Init($"{targetNation.Name} Rejects!", $"Today, {targetNation.Name} rejected {PlayerNationManager.PlayerNation.Name} {requestedAgreement.Name} agreement, deciding to forge its own path", () => {CountrySelector.Instance.Clicked(targetNation);}, 5);
+                NetworkManager.Instance.Server.SendToAll(rejectedMessage);
             }
         }
 

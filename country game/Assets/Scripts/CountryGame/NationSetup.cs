@@ -1,6 +1,3 @@
-using CountryGame.Multiplayer;
-using Steamworks;
-
 namespace CountryGame
 {
     using System.Collections.Generic;
@@ -17,11 +14,8 @@ namespace CountryGame
             int index = 0;
             foreach (var country in countries)
             {
-                if (index == 0)
-                {
-                    Debug.Log(country.countryName);
-                }
-                Random.InitState(index + int.Parse(SteamMatchmaking.GetLobbyData(LobbyData.LobbyId, "colorSeed")));
+                //Random.InitState(index + int.Parse(SteamMatchmaking.GetLobbyData(LobbyData.LobbyId, "colorSeed")));
+                Random.InitState(index + 42);
                 
                 NationManager.Instance.NewCountry(country);
                 
@@ -77,12 +71,14 @@ namespace CountryGame
                 country.CalculateBorders();
             }
 
+            NetworkManager.Instance.BeginSetup();
+
             //Nation playerNation = NationManager.Instance.GetNationByName(SteamMatchmaking.GetLobbyMemberData(LobbyData.LobbyId, SteamUser.GetSteamID(), "nation"));
-            string playerNationName =
-                SteamMatchmaking.GetLobbyMemberData(LobbyData.LobbyId, SteamUser.GetSteamID(), "nation");
-            Nation playerNation = NationManager.Instance.GetNationByName(playerNationName);
-            PlayerNationManager.Instance.SetPlayerNation(playerNation);
-            PlayerNationManager.Instance.diplomaticPower = startingDiplomaticPower;
+            // string playerNationName =
+            //     SteamMatchmaking.GetLobbyMemberData(LobbyData.LobbyId, SteamUser.GetSteamID(), "nation");
+            // Nation playerNation = NationManager.Instance.GetNationByName(playerNationName);
+            // PlayerNationManager.Instance.SetPlayerNation(playerNation);
+            // PlayerNationManager.Instance.diplomaticPower = startingDiplomaticPower;
 
             //CombatManager.Instance.DeclareWarOn(NationManager.Instance.GetNationByName("Algeria"), NationManager.Instance.GetNationByName("Niger"));
         }

@@ -141,6 +141,7 @@ namespace CountryGame.Multiplayer
             
             DisplayLobbyMembers(LobbyData.LobbyId);
             inLobby = true;
+            OpenLobbyScreen();
         }
 
         private Dictionary<CSteamID, GameObject> currentLobbyClients = new Dictionary<CSteamID, GameObject>();

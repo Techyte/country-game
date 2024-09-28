@@ -209,7 +209,7 @@ namespace CountryGame
             agreement.AgreementLeader = nation1Head ? PlayerNationManager.PlayerNation : secondaryNation;
             agreement.turnCreated = TurnManager.Instance.currentTurn;
             
-            ComputerAgreementCreator.Instance.PlayerAskedToJoinAgreement(secondaryNation, agreement, false);
+            ComputerAgreementCreator.Instance.PlayerAskedToJoinAgreement(PlayerNationManager.PlayerNation, secondaryNation, agreement, false);
             TurnManager.Instance.PerformedAction();
         }
 
@@ -222,7 +222,7 @@ namespace CountryGame
             
             CloseAgreementScreen();
             
-            ComputerAgreementCreator.Instance.PlayerAskedToJoinAgreement(secondaryNation, PlayerNationManager.PlayerNation.agreements[preexistingAgreementSelected], true);
+            ComputerAgreementCreator.Instance.PlayerAskedToJoinAgreement(PlayerNationManager.PlayerNation, secondaryNation, PlayerNationManager.PlayerNation.agreements[preexistingAgreementSelected], true);
             ResetUI();
         }
 

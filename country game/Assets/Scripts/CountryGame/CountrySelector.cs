@@ -107,6 +107,7 @@ namespace CountryGame
             PlayerNationManager.Instance.ResetSelected();
             TroopMover.Instance.ResetSelected();
             AgreementCreator.Instance.CloseAgreementScreen();
+            NetworkManager.Instance.ResetSelected();
             
             _agreementScreen = false;
             _countrySelected = true;

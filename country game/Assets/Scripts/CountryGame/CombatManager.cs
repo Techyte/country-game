@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using Riptide;
 using TMPro;
 
 namespace CountryGame
@@ -241,7 +242,11 @@ namespace CountryGame
 
         public void DeclareWarOn(Nation nationToWarWith)
         {
-            DeclareWarOn(PlayerNationManager.PlayerNation, nationToWarWith);
+            Message message = Message.Create(MessageSendMode.Reliable, GameMessageId.DeclareWar);
+            message.AddString(PlayerNationManager.PlayerNation.Name);
+            message.AddString(nationToWarWith.Name);
+
+            NetworkManager.Instance.Client.Send(message);
         }
 
         private void Update()
@@ -249,6 +254,14 @@ namespace CountryGame
             if (Input.GetKeyDown(KeyCode.Escape))
             {
                 ResetSelected();
+            }
+        }
+
+        public void UpdateAttackDisplays()
+        {
+            foreach (var attack in attacks)
+            {
+                attack.line.gameObject.SetActive(PlayerNationManager.PlayerNation.InvolvedInWarWith(source.GetNation()));
             }
         }
 
@@ -427,7 +440,12 @@ namespace CountryGame
         {
             if (source.borders.Contains(target) && PlayerNationManager.PlayerNation.IsAtWarWith(target.GetNation()) && TurnManager.Instance.CanPerformAction())
             {
-                LaunchedAttack(target, source);
+                Message message = Message.Create(MessageSendMode.Reliable, GameMessageId.NewAttack);
+                message.AddString(source.countryName);
+                message.AddString(target.countryName);
+
+                NetworkManager.Instance.Client.Send(message);
+                
                 TurnManager.Instance.PerformedAction();
             }
         }
@@ -461,7 +479,7 @@ namespace CountryGame
             warThatEnded.Defenders.Clear();
         }
 
-        private void LaunchedAttack(Country target, Country source)
+        public void LaunchedAttack(Country target, Country source)
         {
             ResetSelected();
 
@@ -473,26 +491,6 @@ namespace CountryGame
 
             line.SetPosition(0, sourcePos);
             line.SetPosition(1, targetPos);
-            
-            // SpriteRenderer arrow = new GameObject("Sprite renderer").AddComponent<SpriteRenderer>();
-            // arrow.transform.parent = line.transform;
-            // arrow.sprite = arrowSprite;
-            //
-            // arrow.transform.position = targetPos;
-            //
-            // Vector3 relativePos = targetPos - sourcePos;
-            // Quaternion rotation = Quaternion.LookRotation(relativePos);
-            // rotation.x = arrow.transform.rotation.x;
-            // rotation.y = arrow.transform.rotation.y;
-            // if (relativePos.y > 0)
-            // {
-            //     rotation.z -= 90;
-            // }
-            // else
-            // {
-            //     rotation.z += 90;
-            // }
-            // arrow.transform.rotation = rotation;
             
             line.sortingOrder = 1;
             line.widthMultiplier = 0.025f;
@@ -545,6 +543,8 @@ namespace CountryGame
                     }
                 }
             }
+            
+            attack.line.gameObject.SetActive(PlayerNationManager.PlayerNation.InvolvedInWarWith(source.GetNation()));
             
             attacks.Add(attack);
         }
