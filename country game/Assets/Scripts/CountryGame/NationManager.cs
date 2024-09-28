@@ -51,7 +51,10 @@ namespace CountryGame
                                 Country country = countryQueue.Dequeue();
                                 
                                 Notification notification = Instantiate(notificationPrefab, notificationParent);
-                                notification.Init($"{nation.Name} joins {agreement.AgreementLeader.Name}!", $"Today, under heavy pressure from {agreement.AgreementLeader.Name}, {nation.Name} gave up independence and joined {agreement.AgreementLeader.Name}! This marks a historic day.", () => {CountrySelector.Instance.Clicked(agreement.AgreementLeader);}, 5);
+                                notification.Init($"{nation.Name} joins {agreement.AgreementLeader.Name}!",
+                                    $"Today, under heavy pressure from {agreement.AgreementLeader.Name}, " +
+                                    $"{nation.Name} gave up independence and joined {agreement.AgreementLeader.Name}! This marks a historic day.",
+                                    () => { CountrySelector.Instance.Clicked(agreement.AgreementLeader); }, 5);
                                 
                                 Debug.Log("Country joining head");
 
@@ -165,7 +168,9 @@ namespace CountryGame
             if (!willing)
             {
                 Notification notification = Instantiate(notificationPrefab, notificationParent);
-                notification.Init($"Dissolution!", $"Today, The {oldAgreement.Name} was dissolved, every nation having decided to turn away to seek their own destiny", null, 5);
+                notification.Init($"Dissolution!",
+                    $"Today, The {oldAgreement.Name} was dissolved, every nation having decided to turn away to seek their own destiny",
+                    null, 5);
             }
             
             foreach (var nation in oldAgreement.Nations)

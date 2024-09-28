@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using TMPro;
 using UnityEngine.Events;
@@ -13,6 +14,18 @@ namespace CountryGame
         [SerializeField] private TextMeshProUGUI titleDisplay;
         [SerializeField] private TextMeshProUGUI contentDisplay;
         [SerializeField] private Button button;
+
+        private float timer;
+
+        private void Update()
+        {
+            timer -= Time.deltaTime;
+
+            if (timer <= 0)
+            {
+                Destroy(gameObject);
+            }
+        }
 
         private void Start()
         {
@@ -41,13 +54,7 @@ namespace CountryGame
             titleDisplay.text = title;
             contentDisplay.text = content;
             button.onClick.AddListener(action);
-            StartCoroutine(LifeTime(lifetime));
-        }
-
-        private IEnumerator LifeTime(float lifetime)
-        {
-            yield return new WaitForSeconds(lifetime);
-            Destroy(gameObject);
+            timer = lifetime;
         }
     }
 }

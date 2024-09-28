@@ -369,7 +369,9 @@ namespace CountryGame
                 CombatManager.Instance.NationJoinWarDefenders(PlayerNationManager.PlayerNation, currentSelectedWar);
                 
                 Notification notification = Instantiate(notificationPrefab, notificationParent);
-                notification.Init($"To War!", $"Today, {PlayerNationManager.PlayerNation.Name} joined the {currentSelectedWar.Name}, allying themselves with the defenders", () => {CountrySelector.Instance.OpenWarScreen(currentSelectedWar);}, 5);
+                notification.Init($"To War!",
+                    $"Today, {PlayerNationManager.PlayerNation.Name} joined the {currentSelectedWar.Name}, allying themselves with the defenders",
+                    () => { CountrySelector.Instance.OpenWarScreen(currentSelectedWar); }, 5);
             }
         }
 
@@ -380,7 +382,9 @@ namespace CountryGame
                 CombatManager.Instance.NationJoinWarBelligerents(PlayerNationManager.PlayerNation, currentSelectedWar);
                 
                 Notification notification = Instantiate(notificationPrefab, notificationParent);
-                notification.Init($"To War!", $"Today, {PlayerNationManager.PlayerNation.Name} joined the {currentSelectedWar.Name}, allying themselves with the belligerents", () => {CountrySelector.Instance.OpenWarScreen(currentSelectedWar);}, 5);
+                notification.Init($"To War!",
+                    $"Today, {PlayerNationManager.PlayerNation.Name} joined the {currentSelectedWar.Name}, allying themselves with the belligerents",
+                    () => { CountrySelector.Instance.OpenWarScreen(currentSelectedWar); }, 5);
             }
         }
 
@@ -413,7 +417,9 @@ namespace CountryGame
             leaveAgreementConfirmation.SetActive(false);
             
             Notification notification = Instantiate(notificationPrefab, notificationParent);
-            notification.Init($"Breaking Ties!", $"Today, {PlayerNationManager.PlayerNation.Name} left the {currentAgreement.Name} agreement, searching to forge its own path!", () => {Clicked(PlayerNationManager.PlayerNation);}, 5);
+            notification.Init($"Breaking Ties!",
+                $"Today, {PlayerNationManager.PlayerNation.Name} left the {currentAgreement.Name} agreement, searching to forge its own path!",
+                () => { Clicked(PlayerNationManager.PlayerNation); }, 5);
             
             NationManager.Instance.NationLeaveAgreement(PlayerNationManager.PlayerNation, currentAgreement, false);
             ResetSelected();

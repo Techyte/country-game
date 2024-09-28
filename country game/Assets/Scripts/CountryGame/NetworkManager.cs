@@ -21,6 +21,8 @@ namespace CountryGame
         AgreementRejected,
         DeclareWar,
         NewAttack,
+        EndTurn,
+        NewTurn,
     }
     
     public class NetworkManager : MonoBehaviour
@@ -451,20 +453,16 @@ namespace CountryGame
             Instance.Server.SendToAll(message);
         }
 
-        private bool IsPortAvailable(int port)
+        [MessageHandler((ushort)GameMessageId.EndTurn)]
+        private static void EndTurn(ushort fromClientId, Message message)
         {
-            IPGlobalProperties ipGlobalProperties = IPGlobalProperties.GetIPGlobalProperties();
-            TcpConnectionInformation[] tcpConnInfoArray = ipGlobalProperties.GetActiveTcpConnections();
+            TurnManager.Instance.SomeoneEndedTheirTurn();
+        }
 
-            foreach (TcpConnectionInformation tcpi in tcpConnInfoArray)
-            {
-                if (tcpi.LocalEndPoint.Port==port)
-                {
-                    return false;
-                }
-            }
-
-            return true;
+        [MessageHandler((ushort)GameMessageId.NewTurn)]
+        private static void NewTurn(Message message)
+        {
+            TurnManager.Instance.ProgressTurnClient();
         }
     }
     

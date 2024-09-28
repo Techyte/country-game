@@ -197,16 +197,14 @@ namespace CountryGame
                 return;
             }
             
+            if (!TurnManager.Instance.CanPerformAction())
+            {
+                return;
+            }
+            
             if (!secondaryNation.aPlayerNation)
             {
-                if (TurnManager.Instance.CanPerformAction())
-                {
-                    TurnManager.Instance.PerformedAction();
-                }
-                else
-                {
-                    return;
-                }
+                TurnManager.Instance.PerformedAction();
             }
             
             CloseAgreementScreen();
@@ -230,22 +228,21 @@ namespace CountryGame
             {
                 return;
             }
+
+            if (!TurnManager.Instance.CanPerformAction())
+            {
+                return;
+            }
             
             if (!secondaryNation.aPlayerNation)
             {
-                if (TurnManager.Instance.CanPerformAction())
-                {
-                    TurnManager.Instance.PerformedAction();
-                }
-                else
-                {
-                    return;
-                }
+                TurnManager.Instance.PerformedAction();
             }
             
             CloseAgreementScreen();
-            
-            ComputerAgreementCreator.Instance.PlayerAskedToJoinAgreement(PlayerNationManager.PlayerNation, secondaryNation, PlayerNationManager.PlayerNation.agreements[preexistingAgreementSelected], true);
+
+            ComputerAgreementCreator.Instance.PlayerAskedToJoinAgreement(PlayerNationManager.PlayerNation,
+                secondaryNation, PlayerNationManager.PlayerNation.agreements[preexistingAgreementSelected], true);
             ResetUI();
         }
 

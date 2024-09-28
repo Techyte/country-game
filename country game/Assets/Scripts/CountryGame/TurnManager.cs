@@ -1,5 +1,5 @@
 using System;
-using System.Collections;
+using Riptide;
 using TMPro;
 
 namespace CountryGame
@@ -28,7 +28,6 @@ namespace CountryGame
 
         public int currentTurn;
         [SerializeField] private int turnActionPoints;
-        [SerializeField] private int maxActionPoints;
         [SerializeField] private TextMeshProUGUI actionPointDisplay;
         [SerializeField] private GameObject confirmPannel;
 
@@ -58,18 +57,33 @@ namespace CountryGame
             }
         }
 
-        private void ProgressTurn()
+        private int totalEnded = 0;
+
+        public void SomeoneEndedTheirTurn()
+        {
+            totalEnded++;
+
+            if (totalEnded >= NetworkManager.Instance.Players.Values.Count)
+            {
+                ProgressTurn();
+                totalEnded = 0;
+            }
+        }
+
+        public void ProgressTurn()
+        {
+            ProgressTurnClient();
+            
+            Message message = Message.Create(MessageSendMode.Reliable, GameMessageId.NewTurn);
+            NetworkManager.Instance.Server.SendToAll(message, NetworkManager.Instance.Client.Id);
+        }
+
+        public void ProgressTurnClient()
         {
             currentTurn++;
             
             NewTurn?.Invoke(this, EventArgs.Empty);
-            actionPoints = Mathf.Clamp(turnActionPoints, 0, maxActionPoints);
-        }
-
-        public IEnumerator TurnProgressDelay()
-        {
-            yield return new WaitForSeconds(1);
-            ProgressTurn();
+            actionPoints = turnActionPoints;
         }
 
         public void PerformedAction()
@@ -90,7 +104,12 @@ namespace CountryGame
         public void ConfirmTurnEnd()
         {
             confirmPannel.SetActive(false);
-            ProgressTurn();
+
+            Message message = Message.Create(MessageSendMode.Reliable, GameMessageId.EndTurn);
+
+            NetworkManager.Instance.Client.Send(message);
+
+            actionPoints = 0;
         }
 
         public void CancelTurnEnd()

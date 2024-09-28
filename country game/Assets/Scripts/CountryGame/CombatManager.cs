@@ -43,7 +43,10 @@ namespace CountryGame
 
         private void NewTurn(object sender, EventArgs e)
         {
-            CompleteAttacks();
+            if (NetworkManager.Instance.Host)
+            {
+                CompleteAttacks();
+            }
         }
 
         private void CompleteAttacks()
@@ -111,7 +114,8 @@ namespace CountryGame
                     
                     Debug.Log("Successful attack but we already knew that");
                     
-                    // COPE: by the time we get here the countrys nation has already been changed so we cant know if the troops were at war with them so for the sake of me not having to fix 
+                    // COPE: by the time we get here the countrys nation has already been changed so we cant know if
+                    // the troops were at war with them so for the sake of me not having to fix 
                     // that we will say that they were a distraction thats only purpose was to take troops away from the line while the main attack took place
                     
                     // int troopsToMoveIn = attack.Source.TroopsOfController(attack.Source.GetNation()) / 2;
@@ -220,8 +224,8 @@ namespace CountryGame
             
             // calculate how much of the defense is being used to counter this attack
 
-            float attackScaler = attack.Target.GetParticipatingTroops(attack.war) / totalDefendingForce; // amount of attacking force of the source that is being allocated to this attack
-            float defenseScaler = attack.Source.GetParticipatingTroops(attack.war) / totalAttackingForce; // amount of defending force of the target that is being allocated to this attack
+            float attackScaler = attack.Target.GetParticipatingTroops(attack.war) / totalDefendingForce; // amount of attacking force that is being allocated to this attack
+            float defenseScaler = attack.Source.GetParticipatingTroops(attack.war) / totalAttackingForce; // amount of defending force that is being allocated to this attack
             
             // calculate how much of the attack is being used to push this attack
 
@@ -279,7 +283,9 @@ namespace CountryGame
             nationToWarWith.Wars.Add(war);
             
             Notification notification = Instantiate(notificationPrefab, notificationParent);
-            notification.Init($"To War!", $"Today, {nationThatDeclared.Name} declared war on {nationToWarWith.Name}, this will surely be one to remember", () => {CountrySelector.Instance.OpenWarScreen(war);}, 5);
+            notification.Init($"To War!",
+                $"Today, {nationThatDeclared.Name} declared war on {nationToWarWith.Name}, this will surely be one to remember",
+                () => { CountrySelector.Instance.OpenWarScreen(war); }, 5);
             
             List<Agreement> agreements = nationToWarWith.agreements.ToList();
             
@@ -457,12 +463,16 @@ namespace CountryGame
             if (defenderVictory)
             {
                 Notification notification = Instantiate(notificationPrefab, notificationParent);
-                notification.Init($"Finality!", $"Today, the {warThatEnded.Name} ended with the Defenders emerging victorious", () => {CountrySelector.Instance.Clicked(warThatEnded.Defenders[0]);}, 5);
+                notification.Init($"Finality!",
+                    $"Today, the {warThatEnded.Name} ended with the Defenders emerging victorious",
+                    () => { CountrySelector.Instance.Clicked(warThatEnded.Defenders[0]); }, 5);
             }
             else
             {
                 Notification notification = Instantiate(notificationPrefab, notificationParent);
-                notification.Init($"Finality!", $"Today, the {warThatEnded.Name} ended with the Belligerents emerging victorious", () => {CountrySelector.Instance.Clicked(warThatEnded.Belligerents[0]);}, 5);
+                notification.Init($"Finality!",
+                    $"Today, the {warThatEnded.Name} ended with the Belligerents emerging victorious",
+                    () => { CountrySelector.Instance.Clicked(warThatEnded.Belligerents[0]); }, 5);
             }
             
             foreach (var defender in warThatEnded.Defenders)

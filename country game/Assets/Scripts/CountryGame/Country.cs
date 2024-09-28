@@ -80,7 +80,6 @@ namespace CountryGame
 
         public void MovedTroopsIn(Nation source, int numberOfTroops)
         {
-            Debug.Log("moving troops n");
             if (troopInfos.TryGetValue(source, out TroopInformation info))
             {
                 info.NumberOfTroops += numberOfTroops;
@@ -101,7 +100,10 @@ namespace CountryGame
         {
             if (troopDisplay != null && PlayerNationManager.PlayerNation != null && nation != null)
             {
-                troopDisplay.UpdateDisplay(this, nation.MilitaryAccessWith(PlayerNationManager.PlayerNation) || nation == PlayerNationManager.PlayerNation || nation.InvolvedInWarWith(PlayerNationManager.PlayerNation));
+                troopDisplay.UpdateDisplay(this,
+                    nation.MilitaryAccessWith(PlayerNationManager.PlayerNation) ||
+                    nation == PlayerNationManager.PlayerNation ||
+                    nation.InvolvedInWarWith(PlayerNationManager.PlayerNation));
             }
         }
 
