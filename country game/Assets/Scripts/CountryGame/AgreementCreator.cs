@@ -192,9 +192,21 @@ namespace CountryGame
 
         public void SendAgreementRequest()
         {
-            if (agreementNameInput.text == "New Agreement" || !TurnManager.Instance.CanPerformAction())
+            if (agreementNameInput.text == "New Agreement")
             {
                 return;
+            }
+            
+            if (!secondaryNation.aPlayerNation)
+            {
+                if (TurnManager.Instance.CanPerformAction())
+                {
+                    TurnManager.Instance.PerformedAction();
+                }
+                else
+                {
+                    return;
+                }
             }
             
             CloseAgreementScreen();
@@ -210,7 +222,6 @@ namespace CountryGame
             agreement.turnCreated = TurnManager.Instance.currentTurn;
             
             ComputerAgreementCreator.Instance.PlayerAskedToJoinAgreement(PlayerNationManager.PlayerNation, secondaryNation, agreement, false);
-            TurnManager.Instance.PerformedAction();
         }
 
         public void SendExistingAgreementRequest()
@@ -218,6 +229,18 @@ namespace CountryGame
             if (secondaryNation.agreements.Contains(PlayerNationManager.PlayerNation.agreements[preexistingAgreementSelected]))
             {
                 return;
+            }
+            
+            if (!secondaryNation.aPlayerNation)
+            {
+                if (TurnManager.Instance.CanPerformAction())
+                {
+                    TurnManager.Instance.PerformedAction();
+                }
+                else
+                {
+                    return;
+                }
             }
             
             CloseAgreementScreen();

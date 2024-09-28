@@ -60,6 +60,16 @@ namespace CountryGame
         [SerializeField] private Notification notificationPrefab;
         [SerializeField] private Transform notificationParent;
 
+        [Space] 
+        [SerializeField] private GameObject askPlayerAgreementScreen;
+        [SerializeField] private Image nonAgression;
+        [SerializeField] private Image militaryAccess;
+        [SerializeField] private Image autoJoinWars;
+        [SerializeField] private TextMeshProUGUI influenceText;
+        [SerializeField] private TextMeshProUGUI sourceNationText;
+        [SerializeField] private TextMeshProUGUI agreementNameText;
+        [SerializeField] private Sprite tick, cross;
+
         public Dictionary<ushort, PlayerInfo> Players = new Dictionary<ushort, PlayerInfo>();
 
         public bool Host = false;
@@ -72,6 +82,8 @@ namespace CountryGame
             
             RiptideLogger.Initialize(Debug.Log, Debug.Log, Debug.LogWarning, Debug.LogError, false);
             multiplayerScreen.position = start.position;
+            
+            askPlayerAgreementScreen.SetActive(false);
         }
 
         public void BeginSetup()
@@ -312,12 +324,68 @@ namespace CountryGame
             Agreement agreementRequested = message.GetAgreement();
             bool preexisting = message.GetBool();
 
+            Instance.AskPlayerForAgreement(agreementRequested, requestingNation, preexisting);
+        }
+        private Agreement currentAgreement;
+        private Nation sourceNation;
+        private bool prexisting;
+
+        private void AskPlayerForAgreement(Agreement agreement, Nation sourceNation, bool prexisting)
+        {
+            askPlayerAgreementScreen.SetActive(true);
+
+            currentAgreement = agreement;
+            this.sourceNation = sourceNation;
+            this.prexisting = prexisting;
             
+            nonAgression.sprite = agreement.nonAgression ? tick : cross;
+            militaryAccess.sprite = agreement.militaryAccess ? tick : cross;
+            autoJoinWars.sprite = agreement.autoJoinWar ? tick : cross;
+
+            sourceNationText.text = sourceNation.Name;
+            agreementNameText.text = agreement.Name;
+
+            switch (agreement.influence)
+            {
+                case 0:
+                    influenceText.text = "Influence: None";
+                    break;
+                case 1:
+                    influenceText.text = "Influence: Minimal Influence";
+                    break;
+                case 2:
+                    influenceText.text = "Influence: influenced";
+                    break;
+                case 3:
+                    influenceText.text = "Influence: Completely Influenced";
+                    break;
+            }
         }
 
-        private void AskPlayerForAgreement()
+        public void AgreeToAgreement()
         {
+            askPlayerAgreementScreen.SetActive(false);
             
+            Message message = Message.Create(MessageSendMode.Reliable, GameMessageId.AgreementSigned);
+            message.AddString(sourceNation.Name);
+            message.AddString(PlayerNationManager.PlayerNation.Name);
+            message.AddAgreement(currentAgreement);
+            message.AddBool(prexisting);
+
+            Client.Send(message);
+        }
+
+        public void RejectAgreement()
+        {
+            askPlayerAgreementScreen.SetActive(false);
+
+            Message message = Message.Create(MessageSendMode.Reliable, GameMessageId.AgreementRejected);
+            message.AddString(sourceNation.Name);
+            message.AddString(PlayerNationManager.PlayerNation.Name);
+            message.AddAgreement(currentAgreement);
+            message.AddBool(prexisting);
+
+            Client.Send(message);
         }
 
         [MessageHandler((ushort)GameMessageId.AgreementRejected)]
@@ -347,7 +415,12 @@ namespace CountryGame
             Nation targetNation = NationManager.Instance.GetNationByName(message.GetString());
             Agreement requestedAgreement = message.GetAgreement();
             bool preexisting = message.GetBool();
-            float requiredPower = message.GetFloat();
+            
+            if (!targetNation.aPlayerNation)
+            {
+                float requiredPower = message.GetFloat();
+                requestingAgreement.DiplomaticPower -= (int)(requiredPower / 2);
+            }
 
             NationManager.Instance.NewAgreement(requestedAgreement);
                 
@@ -357,7 +430,6 @@ namespace CountryGame
                 NationManager.Instance.NationJoinAgreement(requestingAgreement, requestedAgreement);
             }
             NationManager.Instance.NationJoinAgreement(targetNation, requestedAgreement);
-            requestingAgreement.DiplomaticPower -= (int)(requiredPower / 2);
                 
             Debug.Log($"{targetNation.Name} accepted the {requestedAgreement.Name} agreement");
 
@@ -365,6 +437,18 @@ namespace CountryGame
             notification.Init($"{targetNation.Name} Agrees!",
                 $"Today, {targetNation.Name} agreed to {requestingAgreement.Name} request and signed on to the {requestedAgreement.Name} agreement",
                 () => { CountrySelector.Instance.OpenAgreementScreen(requestedAgreement); }, 5);
+        }
+
+        [MessageHandler((ushort)GameMessageId.AgreementSigned)]
+        private static void AgreementAccepted(ushort fromClientId, Message message)
+        {
+            Instance.Server.SendToAll(message);
+        }
+
+        [MessageHandler((ushort)GameMessageId.AgreementRejected)]
+        private static void AgreementRejected(ushort fromClientId, Message message)
+        {
+            Instance.Server.SendToAll(message);
         }
 
         private bool IsPortAvailable(int port)
