@@ -24,6 +24,8 @@ namespace CountryGame
         SubsumedNations,
         CombatResults,
         MovedTroops,
+        ChangedTroopDistribution,
+        JoinedWar,
     }
     
     public class NetworkManager : MonoBehaviour
@@ -209,7 +211,6 @@ namespace CountryGame
         {
             Instance.greyedOutObj.SetActive(false);
             
-            Debug.Log("Setting up player");
             //CSteamID id = (CSteamID)message.GetULong();
             CSteamID id = CSteamID.Nil;
             ushort riptideId = message.GetUShort();
@@ -520,6 +521,39 @@ namespace CountryGame
         private static void NewTurn(Message message)
         {
             TurnManager.Instance.ProgressTurnClient();
+        }
+
+        [MessageHandler((ushort)GameMessageId.ChangedTroopDistribution, Multiplayer.NetworkManager.PlayerHostedDemoMessageHandlerGroupId)]
+        private static void ChangeTroopDistribution(ushort fromClientId, Message message)
+        {
+            Instance.Server.SendToAll(message);
+        }
+
+        [MessageHandler((ushort)GameMessageId.ChangedTroopDistribution, Multiplayer.NetworkManager.PlayerHostedDemoMessageHandlerGroupId)]
+        private static void ChangeTroopDistribution(Message message)
+        {
+            Nation nationThatChanged = NationManager.Instance.GetNationByName(message.GetString());
+            float infantry = message.GetFloat();
+            float tanks = message.GetFloat();
+            float marines = message.GetFloat();
+            
+            PlayerNationManager.Instance.ChangeDistribution(nationThatChanged, infantry, tanks, marines);
+        }
+
+        [MessageHandler((ushort)GameMessageId.JoinedWar, Multiplayer.NetworkManager.PlayerHostedDemoMessageHandlerGroupId)]
+        private static void JoinWar(ushort fromClientId, Message message)
+        {
+            Instance.Server.SendToAll(message);
+        }
+
+        [MessageHandler((ushort)GameMessageId.JoinedWar, Multiplayer.NetworkManager.PlayerHostedDemoMessageHandlerGroupId)]
+        private static void ChangeTroopDistributionMessage(Message message)
+        {
+            War war = CombatManager.Instance.wars[message.GetInt()];
+            Nation nation = NationManager.Instance.GetNationByName(message.GetString());
+            bool defender = message.GetBool();
+            
+            CountrySelector.Instance.JoinWar(war, nation, defender);
         }
 
         [MessageHandler((ushort)GameMessageId.SubsumedNations, Multiplayer.NetworkManager.PlayerHostedDemoMessageHandlerGroupId)]

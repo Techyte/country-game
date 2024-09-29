@@ -99,8 +99,11 @@ namespace CountryGame
 
             nationIndex = 0;
             amount = 1;
-            
-            otherGUIParent.SetActive(true);
+
+            if (!TurnManager.Instance.endedTurn)
+            {
+                otherGUIParent.SetActive(true);
+            }
             amountDisplay.SetActive(false);
             moveTroopDisplay.SetActive(false);
         }

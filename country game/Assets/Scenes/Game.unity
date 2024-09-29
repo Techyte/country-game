@@ -55118,7 +55118,9 @@ MonoBehaviour:
   turnActionPoints: 4
   actionPointDisplay: {fileID: 138312204}
   confirmPannel: {fileID: 705286412}
+  mainUI: {fileID: 5828462}
   actionPoints: 1
+  endedTurn: 0
 --- !u!1 &1586983728
 GameObject:
   m_ObjectHideFlags: 0

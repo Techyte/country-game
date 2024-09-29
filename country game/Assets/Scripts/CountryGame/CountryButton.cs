@@ -65,7 +65,8 @@ namespace CountryGame
 
         private void OnMouseDown()
         {
-            if (Input.GetMouseButton(2) || Input.GetMouseButton(1) || GameCamera.Instance.IsPointerOverUIObject() || GameCamera.Instance.troopDisplayHover || TroopMover.Instance.transferring)
+            if (Input.GetMouseButton(2) || Input.GetMouseButton(1) || GameCamera.Instance.IsPointerOverUIObject() || 
+                GameCamera.Instance.troopDisplayHover || TroopMover.Instance.transferring || TurnManager.Instance.endedTurn)
             {
                 return;
             }

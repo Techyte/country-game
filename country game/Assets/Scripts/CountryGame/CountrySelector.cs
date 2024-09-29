@@ -1,3 +1,5 @@
+using Riptide;
+
 namespace CountryGame
 {
     using System.Collections.Generic;
@@ -344,14 +346,28 @@ namespace CountryGame
                 return;
             }
             
+            Message message = Message.Create(MessageSendMode.Reliable, GameMessageId.JoinedWar);
+
+            for (int i = 0; i < CombatManager.Instance.wars.Count; i++)
+            {
+                if (currentSelectedWar == CombatManager.Instance.wars[i])
+                {
+                    message.AddInt(i);
+                }
+            }
+
+            message.AddString(PlayerNationManager.PlayerNation.Name);
+            
             if (joinBelligerents)
             {
-                JoinWarBelligerents();
+                message.AddBool(false);
             }
             else
             {
-                JoinWarDefenders();
+                message.AddBool(true);
             }
+
+            NetworkManager.Instance.Client.Send(message);
             
             TurnManager.Instance.PerformedAction();
             joinWarDisplay.SetActive(false);
@@ -362,29 +378,41 @@ namespace CountryGame
             joinWarDisplay.SetActive(false);
         }
 
-        private void JoinWarDefenders()
+        public void JoinWar(War warToJoin, Nation nationToJoin, bool defender)
         {
-            if (!currentSelectedWar.Defenders.Contains(PlayerNationManager.PlayerNation))
+            if (defender)
             {
-                CombatManager.Instance.NationJoinWarDefenders(PlayerNationManager.PlayerNation, currentSelectedWar);
-                
-                Notification notification = Instantiate(notificationPrefab, notificationParent);
-                notification.Init($"To War!",
-                    $"Today, {PlayerNationManager.PlayerNation.Name} joined the {currentSelectedWar.Name}, allying themselves with the defenders",
-                    () => { CountrySelector.Instance.OpenWarScreen(currentSelectedWar); }, 5);
+                JoinWarDefenders(nationToJoin, warToJoin);
+            }
+            else
+            {
+                JoinWarBelligerents(nationToJoin, warToJoin);
             }
         }
 
-        private void JoinWarBelligerents()
+        private void JoinWarDefenders(Nation nationToJoin, War warToJoin)
         {
-            if (!currentSelectedWar.Belligerents.Contains(PlayerNationManager.PlayerNation))
+            if (!warToJoin.Defenders.Contains(nationToJoin))
             {
-                CombatManager.Instance.NationJoinWarBelligerents(PlayerNationManager.PlayerNation, currentSelectedWar);
+                CombatManager.Instance.NationJoinWarDefenders(nationToJoin, warToJoin);
                 
                 Notification notification = Instantiate(notificationPrefab, notificationParent);
                 notification.Init($"To War!",
-                    $"Today, {PlayerNationManager.PlayerNation.Name} joined the {currentSelectedWar.Name}, allying themselves with the belligerents",
-                    () => { CountrySelector.Instance.OpenWarScreen(currentSelectedWar); }, 5);
+                    $"Today, {nationToJoin.Name} joined the {warToJoin.Name}, allying themselves with the defenders",
+                    () => { Instance.OpenWarScreen(warToJoin); }, 5);
+            }
+        }
+
+        private void JoinWarBelligerents(Nation nationToJoin, War warToJoin)
+        {
+            if (!warToJoin.Belligerents.Contains(nationToJoin))
+            {
+                CombatManager.Instance.NationJoinWarBelligerents(nationToJoin, warToJoin);
+                
+                Notification notification = Instantiate(notificationPrefab, notificationParent);
+                notification.Init($"To War!",
+                    $"Today, {nationToJoin.Name} joined the {warToJoin.Name}, allying themselves with the belligerents",
+                    () => { CountrySelector.Instance.OpenWarScreen(warToJoin); }, 5);
             }
         }
 

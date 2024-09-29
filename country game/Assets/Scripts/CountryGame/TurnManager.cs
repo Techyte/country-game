@@ -30,10 +30,13 @@ namespace CountryGame
         [SerializeField] private int turnActionPoints;
         [SerializeField] private TextMeshProUGUI actionPointDisplay;
         [SerializeField] private GameObject confirmPannel;
+        [SerializeField] private GameObject mainUI;
 
         public EventHandler<EventArgs> NewTurn;
         
         public int actionPoints;
+
+        public bool endedTurn;
 
         private void Awake()
         {
@@ -84,6 +87,9 @@ namespace CountryGame
             
             NewTurn?.Invoke(this, EventArgs.Empty);
             actionPoints = turnActionPoints;
+            
+            endedTurn = false;
+            mainUI.SetActive(true);
         }
 
         public void PerformedAction()
@@ -98,6 +104,10 @@ namespace CountryGame
 
         public void PressedTurnEnd()
         {
+            if (endedTurn)
+            {
+                return;
+            }
             confirmPannel.SetActive(true);
         }
 
@@ -110,6 +120,9 @@ namespace CountryGame
             NetworkManager.Instance.Client.Send(message);
 
             actionPoints = 0;
+            
+            endedTurn = true;
+            mainUI.SetActive(false);
         }
 
         public void CancelTurnEnd()

@@ -510,6 +510,9 @@ namespace CountryGame
 
         public void NationJoinWarBelligerents(Nation nationToJoinWar, War warToJoin)
         {
+            nationToJoinWar.UpdateTroopDisplays();
+            nationToJoinWar.UpdateInfluenceColour();
+            
             // already in the war
             if (nationToJoinWar.Wars.Contains(warToJoin))
             {
@@ -548,6 +551,9 @@ namespace CountryGame
         
         public void NationJoinWarDefenders(Nation nationToJoinWar, War warToJoin)
         {
+            nationToJoinWar.UpdateTroopDisplays();
+            nationToJoinWar.UpdateInfluenceColour();
+            
             // already in the war
             if (nationToJoinWar.Wars.Contains(warToJoin))
             {
@@ -586,7 +592,10 @@ namespace CountryGame
 
         public void ResetSelected()
         {
-            otherGUIParent.SetActive(true);
+            if (!TurnManager.Instance.endedTurn)
+            {
+                otherGUIParent.SetActive(true);
+            }
             invasionScreen.SetActive(false);
             invading = false;
         }

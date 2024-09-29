@@ -282,10 +282,8 @@ namespace CountryGame
                 nationToSwap.JoinAgreement(agreementToJoin);
                 agreementToJoin.NationJointed(nationToSwap);
 
-                if (agreementToJoin.influence > 0 && agreementToJoin.AgreementLeader != nationToSwap)
-                {
-                    nationToSwap.UpdateInfluenceColour();
-                }
+                nationToSwap.UpdateInfluenceColour();
+                nationToSwap.UpdateTroopDisplays();
             }
         }
 

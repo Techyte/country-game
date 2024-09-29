@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using Riptide;
 
 namespace CountryGame
 {
@@ -266,9 +267,20 @@ namespace CountryGame
             float currentTanks = tanksSlider.value;
             float currentMarines = marinesSlider.value;
 
-            PlayerNation.infantry = currentInfantry;
-            PlayerNation.tanks = currentTanks;
-            PlayerNation.marines = currentMarines;
+            Message message = Message.Create(MessageSendMode.Reliable, GameMessageId.ChangedTroopDistribution);
+            message.AddString(PlayerNation.Name);
+            message.AddFloat(currentInfantry);
+            message.AddFloat(currentTanks);
+            message.AddFloat(currentMarines);
+
+            NetworkManager.Instance.Client.Send(message);
+        }
+
+        public void ChangeDistribution(Nation nation, float infantry, float tanks, float marines)
+        {
+            nation.infantry = infantry;
+            nation.tanks = tanks;
+            nation.marines = marines;
             
             UpdateTroopUI();
         }

@@ -22,6 +22,12 @@ namespace CountryGame
         public void NationJointed(Nation nationThatJoined)
         {
             Nations.Add(nationThatJoined);
+
+            foreach (var nation in Nations)
+            {
+                nation.UpdateInfluenceColour();
+                nation.UpdateTroopDisplays();
+            }
         }
 
         public int Age()

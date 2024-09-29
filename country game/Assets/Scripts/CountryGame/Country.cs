@@ -55,10 +55,7 @@ namespace CountryGame
 
         public void SignedNewAgreement(Agreement agreement)
         {
-            if (agreement.militaryAccess && agreement.Nations.Contains(PlayerNationManager.PlayerNation) || nation == PlayerNationManager.PlayerNation)
-            {
-                troopDisplay.UpdateDisplay(this, true);
-            }
+            UpdateTroopDisplay();
         }
 
         public void ChangeColour(Color color)
@@ -103,7 +100,8 @@ namespace CountryGame
                 troopDisplay.UpdateDisplay(this,
                     nation.MilitaryAccessWith(PlayerNationManager.PlayerNation) ||
                     nation == PlayerNationManager.PlayerNation ||
-                    nation.InvolvedInWarWith(PlayerNationManager.PlayerNation));
+                    nation.InvolvedInWarWith(PlayerNationManager.PlayerNation) ||
+                    nation.IsAtWarWith(PlayerNationManager.PlayerNation));
             }
         }
 
