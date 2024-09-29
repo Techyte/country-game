@@ -25,6 +25,7 @@ namespace CountryGame
         [SerializeField] private Transform warBelligerentsParent;
         [SerializeField] private TextMeshProUGUI warName;
         [SerializeField] private Button declareWarButton;
+        [SerializeField] private Button signAgreementButton;
         [SerializeField] private GameObject declareWarConfirmationScreen;
         [SerializeField] private Image influencedFlag;
         [SerializeField] private TextMeshProUGUI influencedToolTip;
@@ -116,6 +117,7 @@ namespace CountryGame
             titleText.text = nationSelected.Name;
 
             declareWarButton.interactable = CanDeclareWar(PlayerNationManager.PlayerNation, nationSelected);
+            signAgreementButton.interactable = CanSignAgreement(PlayerNationManager.PlayerNation, nationSelected);
 
             foreach (var factionDisplay in currentAgreementDisplays)
             {
@@ -198,31 +200,29 @@ namespace CountryGame
         {
             bool canDeclareWar = true;
 
-            foreach (var agreement in nationToDeclare.agreements)
+            if (nationToDeclare.IsAtWarWith(nationDeclaredOn))
             {
-                if (agreement.nonAgression && agreement.Nations.Contains(nationDeclaredOn))
-                {
-                    canDeclareWar = false;
-                }
+                canDeclareWar = false;
             }
 
-            foreach (var war in nationToDeclare.Wars)
+            if (nationToDeclare.NonAgressionWith(nationDeclaredOn))
             {
-                if (war.Belligerents.Contains(nationDeclaredOn) || war.Defenders.Contains(nationDeclaredOn))
-                {
-                    canDeclareWar = false;
-                }
-            }
-            
-            foreach (var war in nationDeclaredOn.Wars)
-            {
-                if (war.Belligerents.Contains(nationToDeclare) || war.Defenders.Contains(nationToDeclare))
-                {
-                    canDeclareWar = false;
-                }
+                canDeclareWar = false;
             }
 
             return canDeclareWar;
+        }
+
+        private bool CanSignAgreement(Nation nationToDeclare, Nation nationDeclaredOn)
+        {
+            bool canSignAgreement = true;
+
+            if (nationToDeclare.IsAtWarWith(nationDeclaredOn))
+            {
+                canSignAgreement = false;
+            }
+
+            return canSignAgreement;
         }
 
         private List<GameObject> currentAgreementMembers = new List<GameObject>();

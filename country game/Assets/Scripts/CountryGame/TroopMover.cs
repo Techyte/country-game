@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using Riptide;
 using TMPro;
 using UnityEngine.UI;
 
@@ -213,15 +214,22 @@ namespace CountryGame
 
         public void TransferTroops()
         {
-            if (!source.CanMoveNumTroopsOut(controllers[nationIndex], amount))
+            if (!source.CanMoveNumTroopsOut(controllers[nationIndex], amount) || !TurnManager.Instance.CanPerformAction())
             {
                 return;
             }
-            
-            source.MoveTroopsOut(controllers[nationIndex], amount);
-            target.MovedTroopsIn(controllers[nationIndex], amount);
+
+            Message message = Message.Create(MessageSendMode.Reliable, GameMessageId.MovedTroops);
+            message.AddString(source.countryName);
+            message.AddString(target.countryName);
+            message.AddString(PlayerNationManager.PlayerNation.Name);
+            message.AddInt(amount);
+
+            NetworkManager.Instance.Client.Send(message);
             
             ResetSelected();
+            
+            TurnManager.Instance.PerformedAction();
         }
 
         public void TransferTroops(Country source, Country target, Nation controller, int amount)
@@ -233,8 +241,8 @@ namespace CountryGame
 
             Debug.Log($"Transferring {amount} troops controlled by {controller.Name} from {source.name} to {target.name}");
             
-            source.MoveTroopsOut(controllers[nationIndex], amount);
-            target.MovedTroopsIn(controllers[nationIndex], amount);
+            source.MoveTroopsOut(controller, amount);
+            target.MovedTroopsIn(controller, amount);
         }
 
         public void SwapSourceTarget()

@@ -62,6 +62,9 @@ namespace CountryGame
             List<string> countrysThatTookTerritory = new List<string>();
             List<string> nationsThatTook = new List<string>();
             List<string> countriesThatFailedAttack = new List<string>();
+            List<string> countriesThatRepelledAttack = new List<string>();
+            List<string> countriesThatHelpedAttack = new List<string>();
+            List<string> countriesThatTookAHelpedAttack = new List<string>();
 
             foreach (var attack in currentAttacks)
             {
@@ -153,6 +156,9 @@ namespace CountryGame
                     //     }
                     // }
                     
+                    countriesThatHelpedAttack.Add(attack.Source.countryName);
+                    countriesThatTookAHelpedAttack.Add(attack.Target.countryName);
+                    
                     Destroy(attack.line.gameObject);
                     attacks.Remove(attack);
                 }
@@ -168,6 +174,7 @@ namespace CountryGame
                     }
                     
                     countriesThatFailedAttack.Add(attack.Source.countryName);
+                    countriesThatRepelledAttack.Add(attack.Target.countryName);
                     
                     Destroy(attack.line.gameObject);
                     attacks.Remove(attack);
@@ -179,17 +186,54 @@ namespace CountryGame
             message.AddStrings(countrysThatTookTerritory.ToArray());
             message.AddStrings(nationsThatTook.ToArray());
             message.AddStrings(countriesThatFailedAttack.ToArray());
+            message.AddStrings(countriesThatRepelledAttack.ToArray());
+            message.AddStrings(countriesThatHelpedAttack.ToArray());
+            message.AddStrings(countriesThatTookAHelpedAttack.ToArray());
             
             NetworkManager.Instance.Server.SendToAll(message, NetworkManager.Instance.Client.Id);
         }
 
         public void HandleCombatResults(List<string> countriesTransfered, List<string> countriesThatTookTerritory, List<string> nationsThatTook,
-            List<string> countriesThatFailedAttack)
+            List<string> countriesThatFailedAttack, List<string> countriesThatRepelledAttack, List<string> countriesThatHelpedAttack,
+            List<string> countriesThatTookAHelpedAttack)
         {
-            foreach (var failed in countriesThatFailedAttack)
+            for (int i = 0; i < countriesThatFailedAttack.Count; i++)
             {
-                Country country = NationManager.Instance.GetCountryByName(failed);
+                Country country = NationManager.Instance.GetCountryByName(countriesThatFailedAttack[i]);
+                Country repelled = NationManager.Instance.GetCountryByName(countriesThatRepelledAttack[i]);
                 country.MoveTroopsOut(country.GetNation(), 1);
+                
+                Attack attackRef = null;
+
+                foreach (var attack in attacks)
+                {
+                    if (attack.Source == country && attack.Target == repelled)
+                    {
+                        attackRef = attack;
+                    }
+                }
+
+                Destroy(attackRef.line.gameObject);
+                attacks.Remove(attackRef);
+            }
+            
+            for (int i = 0; i < countriesThatHelpedAttack.Count; i++)
+            {
+                Country source = NationManager.Instance.GetCountryByName(countriesThatHelpedAttack[i]);
+                Country target = NationManager.Instance.GetCountryByName(countriesThatTookAHelpedAttack[i]);
+                
+                Attack attackRef = null;
+
+                foreach (var attack in attacks)
+                {
+                    if (attack.Source == source && attack.Target == target)
+                    {
+                        attackRef = attack;
+                    }
+                }
+
+                Destroy(attackRef.line.gameObject);
+                attacks.Remove(attackRef);
             }
 
             for (int i = 0; i < countriesTransfered.Count; i++)
@@ -234,7 +278,7 @@ namespace CountryGame
                     }
                 }
 
-                    // nullify attacks from the territory we just took
+                // nullify attacks from the territory we just took
                 foreach (var otherAttack in attacks) 
                 {
                     if (otherAttack.Source == countryTaken)
@@ -334,6 +378,9 @@ namespace CountryGame
                     totalDefendingForce += otherAttack.Target.GetParticipatingTroops(attack.war);
                 }
             }
+            
+            Debug.Log($"Defending Troops: {attack.Target.GetParticipatingTroops(attack.war)}");
+            Debug.Log($"Attacking Troops: {attack.Target.GetParticipatingTroops(attack.war)}");
             
             // calculate how much of the defense is being used to counter this attack
 
@@ -571,22 +618,22 @@ namespace CountryGame
 
         public void WarEnded(War warThatEnded, bool defenderVictory)
         {
-            wars.Remove(warThatEnded);
-
             if (defenderVictory)
             {
                 Notification notification = Instantiate(notificationPrefab, notificationParent);
                 notification.Init($"Finality!",
                     $"Today, the {warThatEnded.Name} ended with the Defenders emerging victorious",
-                    () => { CountrySelector.Instance.Clicked(warThatEnded.Defenders[0]); }, 5);
+                    () => { return; }, 5);
             }
             else
             {
                 Notification notification = Instantiate(notificationPrefab, notificationParent);
                 notification.Init($"Finality!",
                     $"Today, the {warThatEnded.Name} ended with the Belligerents emerging victorious",
-                    () => { CountrySelector.Instance.Clicked(warThatEnded.Belligerents[0]); }, 5);
+                    () => { return; }, 5);
             }
+
+            wars.Remove(warThatEnded);
             
             foreach (var defender in warThatEnded.Defenders)
             {

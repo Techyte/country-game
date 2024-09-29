@@ -17,7 +17,8 @@ namespace CountryGame
             int index = 0;
             foreach (var country in countries)
             {
-                Random.InitState(index + int.Parse(SteamMatchmaking.GetLobbyData(LobbyData.LobbyId, "colorSeed")));
+                //Random.InitState(index + int.Parse(SteamMatchmaking.GetLobbyData(LobbyData.LobbyId, "colorSeed")));
+                Random.InitState(index + 42);
                 
                 NationManager.Instance.NewCountry(country);
                 
@@ -73,10 +74,11 @@ namespace CountryGame
                 country.CalculateBorders();
             }
 
-            if (SteamMatchmaking.GetLobbyOwner(LobbyData.LobbyId) == SteamUser.GetSteamID())
-            {
-                NetworkManager.Instance.BeginSetup();
-            }
+            // if (SteamMatchmaking.GetLobbyOwner(LobbyData.LobbyId) == SteamUser.GetSteamID())
+            // {
+            //     Debug.Log("finished setup sending connection information");
+            //     NetworkManager.Instance.BeginSetup();
+            // }
 
             //Nation playerNation = NationManager.Instance.GetNationByName(SteamMatchmaking.GetLobbyMemberData(LobbyData.LobbyId, SteamUser.GetSteamID(), "nation"));
             // string playerNationName =

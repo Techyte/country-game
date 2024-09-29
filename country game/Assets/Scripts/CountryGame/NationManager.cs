@@ -376,6 +376,19 @@ namespace CountryGame
             return false;
         }
 
+        public bool NonAgressionWith(Nation nationToTest)
+        {
+            foreach (var agreement in agreements)
+            {
+                if (agreement.nonAgression && agreement.Nations.Contains(nationToTest))
+                {
+                    return true;
+                }
+            }
+
+            return false;
+        }
+
         public bool InvolvedInWarWith(Nation nationToTest)
         {
             if (nationToTest == this)

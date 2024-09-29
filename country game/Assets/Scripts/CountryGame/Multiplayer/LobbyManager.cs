@@ -95,7 +95,7 @@ namespace CountryGame.Multiplayer
         
             LobbyData.LobbyId = new CSteamID(callback.m_ulSteamIDLobby);
         
-            NetworkManager.Instance.Server.Start(0, 5, NetworkManager.PlayerHostedDemoMessageHandlerGroupId);
+            NetworkManager.Instance.Server.Start(0, 4, NetworkManager.PlayerHostedDemoMessageHandlerGroupId);
             NetworkManager.Instance.Client.Connect("127.0.0.1", messageHandlerGroupId: NetworkManager.PlayerHostedDemoMessageHandlerGroupId);
             
             idText.text = $"Lobby ID: {callback.m_ulSteamIDLobby.ToString()}";

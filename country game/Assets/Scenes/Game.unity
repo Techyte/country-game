@@ -10445,7 +10445,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: acc75fa39f960a04c844b7c13df45534, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  port: 7777
   greyedOutObj: {fileID: 1706252830}
   multiplayerScreen: {fileID: 1135291796}
   titleSpeed: 5.625
@@ -16741,7 +16740,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 544236968}
   m_HandleRect: {fileID: 544236967}
   m_Direction: 2
-  m_Value: 0
+  m_Value: 1
   m_Size: 0
   m_NumberOfSteps: 0
   m_OnValueChanged:
@@ -55117,7 +55116,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   currentTurn: 0
   turnActionPoints: 4
-  maxActionPoints: 15
   actionPointDisplay: {fileID: 138312204}
   confirmPannel: {fileID: 705286412}
   actionPoints: 1
@@ -68636,6 +68634,7 @@ MonoBehaviour:
   warBelligerentsParent: {fileID: 599539964}
   warName: {fileID: 2053221138}
   declareWarButton: {fileID: 654331148}
+  signAgreementButton: {fileID: 1736262709}
   declareWarConfirmationScreen: {fileID: 1245871517}
   influencedFlag: {fileID: 992216743}
   influencedToolTip: {fileID: 1557232755}

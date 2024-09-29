@@ -1,14 +1,11 @@
-using System;
 using System.Collections.Generic;
 using System.Linq;
 using CountryGame.Multiplayer;
 using Riptide;
-using Riptide.Transports.Steam;
 using Riptide.Utils;
 using Steamworks;
 using TMPro;
 using UnityEngine.UI;
-using SteamClient = Steamworks.SteamClient;
 
 namespace CountryGame
 {
@@ -16,7 +13,7 @@ namespace CountryGame
 
     public enum GameMessageId : ushort
     {
-        SetupPlayer,
+        SetupPlayer = 1,
         RequestNewAgreement,
         AgreementSigned,
         AgreementRejected,
@@ -26,6 +23,7 @@ namespace CountryGame
         NewTurn,
         SubsumedNations,
         CombatResults,
+        MovedTroops,
     }
     
     public class NetworkManager : MonoBehaviour
@@ -52,8 +50,10 @@ namespace CountryGame
 
         private static NetworkManager _instance;
 
-        public Server Server => Multiplayer.NetworkManager.Instance.Server;
-        public Client Client => Multiplayer.NetworkManager.Instance.Client;
+        // public Server Server => Multiplayer.NetworkManager.Instance.Server;
+        // public Client Client => Multiplayer.NetworkManager.Instance.Client;
+        public Server Server;
+        public Client Client;
         
         [SerializeField] private GameObject greyedOutObj;
         [SerializeField] private Transform multiplayerScreen;
@@ -88,6 +88,31 @@ namespace CountryGame
             multiplayerScreen.position = start.position;
             
             askPlayerAgreementScreen.SetActive(false);
+
+            // if (Server.IsRunning)
+            // {
+            //     Host = true;
+            // }
+
+            Server = new Server();
+            Client = new Client();
+            
+            Client.Connect($"127.0.0.1:7777", messageHandlerGroupId: Multiplayer.NetworkManager.PlayerHostedDemoMessageHandlerGroupId);
+            
+            Server.ClientConnected += (sender, args) =>
+            {
+                if (Server.ClientCount == 2)
+                {
+                    BeginSetup();
+                }
+            };
+            
+            Client.ConnectionFailed += (sender, args) =>
+            {
+                Server.Start(7777, 4, Multiplayer.NetworkManager.PlayerHostedDemoMessageHandlerGroupId);
+                Client.Connect($"127.0.0.1:7777", messageHandlerGroupId: Multiplayer.NetworkManager.PlayerHostedDemoMessageHandlerGroupId);
+                Host = true;
+            };
         }
 
         public void BeginSetup()
@@ -132,14 +157,9 @@ namespace CountryGame
             foreach (var client in Server.Clients)
             {
                 Debug.Log("Sending connection information");
-            
-                Nation newPlayerNation = NationManager.Instance.GetNationByName(SteamMatchmaking.GetLobbyMemberData(LobbyData.LobbyId, SteamUser.GetSteamID(), "nation"));
-                PlayerNationManager.Instance.MakeThePlayerNation(newPlayerNation);
-                newPlayerNation.Countries[0].MovedTroopsIn(newPlayerNation, 6);
-                newPlayerNation.DiplomaticPower = 30;
                 
                 Message message = Message.Create(MessageSendMode.Reliable, GameMessageId.SetupPlayer);
-                message.AddULong((ulong)Multiplayer.NetworkManager.Instance.riptideToStemId[client.Id]);
+                //message.AddULong((ulong)Multiplayer.NetworkManager.Instance.riptideToStemId[client.Id]);
                 message.AddUShort(client.Id);
                 
                 Server.SendToAll(message);
@@ -184,21 +204,33 @@ namespace CountryGame
             _multiplayerScreen = false;
         }
 
-        [MessageHandler((ushort)GameMessageId.SetupPlayer)]
-        private void SetupPlayer(Message message)
+        [MessageHandler((ushort)GameMessageId.SetupPlayer, Multiplayer.NetworkManager.PlayerHostedDemoMessageHandlerGroupId)]
+        private static void SetupPlayer(Message message)
         {
+            Instance.greyedOutObj.SetActive(false);
+            
             Debug.Log("Setting up player");
-            CSteamID id = (CSteamID)message.GetULong();
+            //CSteamID id = (CSteamID)message.GetULong();
+            CSteamID id = CSteamID.Nil;
             ushort riptideId = message.GetUShort();
             
-            string nation = SteamMatchmaking.GetLobbyMemberData(LobbyData.LobbyId, id, "nation");
+            //string nation = SteamMatchmaking.GetLobbyMemberData(LobbyData.LobbyId, id, "nation");
+            string nation = riptideId == 1 ? "India" : "Australia";
 
             Nation newPlayerNation = NationManager.Instance.GetNationByName(nation);
             newPlayerNation.aPlayerNation = true;
-            if (id != SteamUser.GetSteamID())
+            NationManager.Instance.PlayerNations.Add(newPlayerNation);
+            
+            newPlayerNation.Countries[0].MovedTroopsIn(newPlayerNation, 6);
+            newPlayerNation.DiplomaticPower = 30;
+            
+            // if (id == SteamUser.GetSteamID())
+            // {
+            //     PlayerNationManager.Instance.MakeThePlayerNation(newPlayerNation);
+            // }
+            if (riptideId == Instance.Client.Id)
             {
-                newPlayerNation.Countries[0].MovedTroopsIn(newPlayerNation, 6);
-                newPlayerNation.DiplomaticPower = 30;
+                PlayerNationManager.Instance.MakeThePlayerNation(newPlayerNation);
             }
             
             PlayerInfo info = new PlayerInfo();
@@ -206,16 +238,16 @@ namespace CountryGame
             info.steamID = id;
             info.riptideID = riptideId;
             
-            Players.Add(riptideId, info);
+            Instance.Players.Add(riptideId, info);
         }
 
-        [MessageHandler((ushort)GameMessageId.DeclareWar)]
+        [MessageHandler((ushort)GameMessageId.DeclareWar, Multiplayer.NetworkManager.PlayerHostedDemoMessageHandlerGroupId)]
         private static void DeclareWar(ushort fromClientId, Message message)
         {
             Instance.Server.SendToAll(message);
         }
 
-        [MessageHandler((ushort)GameMessageId.DeclareWar)]
+        [MessageHandler((ushort)GameMessageId.DeclareWar, Multiplayer.NetworkManager.PlayerHostedDemoMessageHandlerGroupId)]
         private static void DeclareWar(Message message)
         {
             Nation declaring = NationManager.Instance.GetNationByName(message.GetString());
@@ -224,28 +256,39 @@ namespace CountryGame
             CombatManager.Instance.DeclareWarOn(declaring, declaredOn);
         }
 
-        [MessageHandler((ushort)GameMessageId.NewAttack)]
+        [MessageHandler((ushort)GameMessageId.NewAttack, Multiplayer.NetworkManager.PlayerHostedDemoMessageHandlerGroupId)]
         private static void LaunchAttack(ushort fromClientId, Message message)
         {
             Instance.Server.SendToAll(message);
         }
 
-        [MessageHandler((ushort)GameMessageId.NewAttack)]
+        [MessageHandler((ushort)GameMessageId.NewAttack, Multiplayer.NetworkManager.PlayerHostedDemoMessageHandlerGroupId)]
         private static void LaunchAttack(Message message)
         {
+            Debug.Log("Received New Attack info");
+            
             Country source = NationManager.Instance.GetCountryByName(message.GetString());
             Country target = NationManager.Instance.GetCountryByName(message.GetString());
 
             CombatManager.Instance.LaunchedAttack(target, source);
         }
 
-        [MessageHandler((ushort)GameMessageId.RequestNewAgreement)]
+        [MessageHandler((ushort)GameMessageId.RequestNewAgreement, Multiplayer.NetworkManager.PlayerHostedDemoMessageHandlerGroupId)]
         private static void RequestAgreement(ushort fromClientId, Message message)
         {
+            Debug.Log("agreement requested");
+            bool preexisting = message.GetBool();
             Nation requestingNation = NationManager.Instance.GetNationByName(message.GetString());
             Nation targetNation = NationManager.Instance.GetNationByName(message.GetString());
-            Agreement agreementRequested = message.GetAgreement();
-            bool preexisting = message.GetBool();
+            Agreement agreementRequested = null;
+            if (!preexisting)
+            {
+                agreementRequested = message.GetAgreement();
+            }
+            else
+            {
+                agreementRequested = NationManager.Instance.agreements[message.GetInt()];
+            }
 
             if (targetNation.aPlayerNation)
             {
@@ -263,16 +306,26 @@ namespace CountryGame
             }
         }
 
-        [MessageHandler((ushort)GameMessageId.RequestNewAgreement)]
+        [MessageHandler((ushort)GameMessageId.RequestNewAgreement, Multiplayer.NetworkManager.PlayerHostedDemoMessageHandlerGroupId)]
         private static void RequestAgreement(Message message)
         {
+            Debug.Log("got agreement request");
+            bool preexisting = message.GetBool();
             Nation requestingNation = NationManager.Instance.GetNationByName(message.GetString());
             Nation targetNation = NationManager.Instance.GetNationByName(message.GetString());
-            Agreement agreementRequested = message.GetAgreement();
-            bool preexisting = message.GetBool();
-
+            Agreement agreementRequested = null;
+            if (!preexisting)
+            {
+                agreementRequested = message.GetAgreement();
+            }
+            else
+            {
+                agreementRequested = NationManager.Instance.agreements[message.GetInt()];
+            }
+            
             Instance.AskPlayerForAgreement(agreementRequested, requestingNation, preexisting);
         }
+        
         private Agreement currentAgreement;
         private Nation sourceNation;
         private bool prexisting;
@@ -314,10 +367,23 @@ namespace CountryGame
             askPlayerAgreementScreen.SetActive(false);
             
             Message message = Message.Create(MessageSendMode.Reliable, GameMessageId.AgreementSigned);
+            message.AddBool(prexisting);
             message.AddString(sourceNation.Name);
             message.AddString(PlayerNationManager.PlayerNation.Name);
-            message.AddAgreement(currentAgreement);
-            message.AddBool(prexisting);
+            if (!prexisting)
+            {
+                message.AddAgreement(currentAgreement);
+            }
+            else
+            {
+                for (int i = 0; i < NationManager.Instance.agreements.Count; i++)
+                {
+                    if (NationManager.Instance.agreements[i] == currentAgreement)
+                    {
+                        message.AddInt(i);
+                    }
+                }
+            }
 
             Client.Send(message);
         }
@@ -327,24 +393,49 @@ namespace CountryGame
             askPlayerAgreementScreen.SetActive(false);
 
             Message message = Message.Create(MessageSendMode.Reliable, GameMessageId.AgreementRejected);
+            message.AddBool(prexisting);
             message.AddString(sourceNation.Name);
             message.AddString(PlayerNationManager.PlayerNation.Name);
-            message.AddAgreement(currentAgreement);
-            message.AddBool(prexisting);
+            if (!prexisting)
+            {
+                message.AddAgreement(currentAgreement);
+            }
+            else
+            {
+                for (int i = 0; i < NationManager.Instance.agreements.Count; i++)
+                {
+                    if (NationManager.Instance.agreements[i] == currentAgreement)
+                    {
+                        message.AddInt(i);
+                    }
+                }
+            }
 
             Client.Send(message);
         }
 
-        [MessageHandler((ushort)GameMessageId.AgreementRejected)]
+        [MessageHandler((ushort)GameMessageId.AgreementRejected, Multiplayer.NetworkManager.PlayerHostedDemoMessageHandlerGroupId)]
         private static void AgreementRejected(Message message)
         {
+            bool preexisting = message.GetBool();
             Nation requestingAgreement = NationManager.Instance.GetNationByName(message.GetString());
             Nation targetNation = NationManager.Instance.GetNationByName(message.GetString());
-            Agreement requestedAgreement = message.GetAgreement();
-            float requiredPower = message.GetFloat();
+            Agreement requestedAgreement = null;
+            if (!preexisting)
+            {
+                requestedAgreement = message.GetAgreement();
+            }
+            else
+            {
+                requestedAgreement = NationManager.Instance.agreements[message.GetInt()];
+            }
             
             // disagree
-            requestingAgreement.DiplomaticPower -= (int)requiredPower;
+            if (!targetNation.aPlayerNation)
+            {
+                float requiredPower = message.GetFloat();
+                requestingAgreement.DiplomaticPower -= (int)requiredPower;
+            }
                 
             Debug.Log($"{targetNation.Name} rejected the {requestedAgreement.Name} agreement");
             
@@ -355,13 +446,21 @@ namespace CountryGame
 
         }
 
-        [MessageHandler((ushort)GameMessageId.AgreementSigned)]
+        [MessageHandler((ushort)GameMessageId.AgreementSigned, Multiplayer.NetworkManager.PlayerHostedDemoMessageHandlerGroupId)]
         private static void AgreementAccepted(Message message)
         {
+            bool preexisting = message.GetBool();
             Nation requestingAgreement = NationManager.Instance.GetNationByName(message.GetString());
             Nation targetNation = NationManager.Instance.GetNationByName(message.GetString());
-            Agreement requestedAgreement = message.GetAgreement();
-            bool preexisting = message.GetBool();
+            Agreement requestedAgreement = null;
+            if (!preexisting)
+            {
+                requestedAgreement = message.GetAgreement();
+            }
+            else
+            {
+                requestedAgreement = NationManager.Instance.agreements[message.GetInt()];
+            }
             
             if (!targetNation.aPlayerNation)
             {
@@ -370,13 +469,9 @@ namespace CountryGame
             }
 
             NationManager.Instance.NewAgreement(requestedAgreement);
-                
-            // agree
-            if (!preexisting)
-            {
-                NationManager.Instance.NationJoinAgreement(requestingAgreement, requestedAgreement);
-            }
+            
             NationManager.Instance.NationJoinAgreement(targetNation, requestedAgreement);
+            NationManager.Instance.NationJoinAgreement(requestingAgreement, requestedAgreement);
                 
             Debug.Log($"{targetNation.Name} accepted the {requestedAgreement.Name} agreement");
 
@@ -386,40 +481,58 @@ namespace CountryGame
                 () => { CountrySelector.Instance.OpenAgreementScreen(requestedAgreement); }, 5);
         }
 
-        [MessageHandler((ushort)GameMessageId.AgreementSigned)]
+        [MessageHandler((ushort)GameMessageId.AgreementSigned, Multiplayer.NetworkManager.PlayerHostedDemoMessageHandlerGroupId)]
         private static void AgreementAccepted(ushort fromClientId, Message message)
         {
             Instance.Server.SendToAll(message);
         }
 
-        [MessageHandler((ushort)GameMessageId.AgreementRejected)]
+        [MessageHandler((ushort)GameMessageId.MovedTroops, Multiplayer.NetworkManager.PlayerHostedDemoMessageHandlerGroupId)]
+        private static void TroopsMoved(ushort fromClientId, Message message)
+        {
+            Instance.Server.SendToAll(message);
+        }
+
+        [MessageHandler((ushort)GameMessageId.MovedTroops, Multiplayer.NetworkManager.PlayerHostedDemoMessageHandlerGroupId)]
+        private static void TroopsMoved(Message message)
+        {
+            Country from = NationManager.Instance.GetCountryByName(message.GetString());
+            Country to = NationManager.Instance.GetCountryByName(message.GetString());
+            Nation nation = NationManager.Instance.GetNationByName(message.GetString());
+            int amount = message.GetInt();
+            
+            TroopMover.Instance.TransferTroops(from, to, nation, amount);
+        }
+
+        [MessageHandler((ushort)GameMessageId.AgreementRejected, Multiplayer.NetworkManager.PlayerHostedDemoMessageHandlerGroupId)]
         private static void AgreementRejected(ushort fromClientId, Message message)
         {
             Instance.Server.SendToAll(message);
         }
 
-        [MessageHandler((ushort)GameMessageId.EndTurn)]
+        [MessageHandler((ushort)GameMessageId.EndTurn, Multiplayer.NetworkManager.PlayerHostedDemoMessageHandlerGroupId)]
         private static void EndTurn(ushort fromClientId, Message message)
         {
             TurnManager.Instance.SomeoneEndedTheirTurn();
         }
 
-        [MessageHandler((ushort)GameMessageId.NewTurn)]
+        [MessageHandler((ushort)GameMessageId.NewTurn, Multiplayer.NetworkManager.PlayerHostedDemoMessageHandlerGroupId)]
         private static void NewTurn(Message message)
         {
             TurnManager.Instance.ProgressTurnClient();
         }
 
-        [MessageHandler((ushort)GameMessageId.SubsumedNations)]
+        [MessageHandler((ushort)GameMessageId.SubsumedNations, Multiplayer.NetworkManager.PlayerHostedDemoMessageHandlerGroupId)]
         private static void SubsumedNations(Message message)
         {
             NationManager.Instance.HandleSubsumedNations(message.GetStrings().ToList(), message.GetStrings().ToList());
         }
 
-        [MessageHandler((ushort)GameMessageId.CombatResults)]
+        [MessageHandler((ushort)GameMessageId.CombatResults, Multiplayer.NetworkManager.PlayerHostedDemoMessageHandlerGroupId)]
         private static void CombatResults(Message message)
         {
             CombatManager.Instance.HandleCombatResults(message.GetStrings().ToList(), message.GetStrings().ToList(),
+                message.GetStrings().ToList(), message.GetStrings().ToList(), message.GetStrings().ToList(),
                 message.GetStrings().ToList(), message.GetStrings().ToList());
         }
     }

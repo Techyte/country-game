@@ -84,7 +84,10 @@ namespace CountryGame
 
         private void NewTurn(object sender, EventArgs e)
         {
-            PlayerNation.DiplomaticPower += diplomaticPowerGain;
+            foreach (var playerNation in NationManager.Instance.PlayerNations)
+            {
+                playerNation.DiplomaticPower += diplomaticPowerGain;
+            }
         }
 
         private void Update()

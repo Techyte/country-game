@@ -15,7 +15,7 @@ namespace CountryGame.Multiplayer
 
     public enum LobbyMessageID : ushort
     {
-        BeginGame,
+        BeginGame = 100,
         ResetSelectedNation,
         IdUpdate,
     }
@@ -59,6 +59,8 @@ namespace CountryGame.Multiplayer
         protected Callback<LobbyDataUpdate_t> LobbyDataUpdated;
 
         public Dictionary<ushort, CSteamID> riptideToStemId = new Dictionary<ushort, CSteamID>();
+
+        private bool inGame;
         
         private void Awake()
         {
@@ -178,8 +180,10 @@ namespace CountryGame.Multiplayer
                 }
             }
 
-            if (total == SteamMatchmaking.GetNumLobbyMembers(lobbyId))
+            if (total == SteamMatchmaking.GetNumLobbyMembers(lobbyId) && !inGame)
             {
+                Debug.Log(inGame);
+                inGame = true;
                 EveryoneReady();
             }
         }
@@ -207,17 +211,19 @@ namespace CountryGame.Multiplayer
             Client.Send(message);
         }
 
+        public void OpenGame()
+        {
+            Debug.Log("loading game");
+            inGame = true;
+            SceneManager.LoadScene("Game");
+        }
+
         [MessageHandler((ushort)LobbyMessageID.IdUpdate, PlayerHostedDemoMessageHandlerGroupId)]
         private static void IdUpdate(ushort fromClientId, Message message)
         {
             CSteamID id = (CSteamID)message.GetULong();
             
             Instance.riptideToStemId.Add(fromClientId, id);
-        }
-
-        public void OpenGame()
-        {
-            SceneManager.LoadScene("Game");
         }
 
         protected void OnAvatarImageLoaded(AvatarImageLoaded_t callback)
@@ -298,6 +304,7 @@ namespace CountryGame.Multiplayer
 
         private void EveryoneReady()
         {
+            Debug.Log("sending ready message");
             Message message = Message.Create(MessageSendMode.Reliable, LobbyMessageID.BeginGame);
             
             Server.SendToAll(message);

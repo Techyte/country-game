@@ -22,17 +22,17 @@ namespace CountryGame
 
         public void PlayerAskedToJoinAgreement(Nation requestingNation, Nation targetNation, Agreement requestedAgreement, bool preexisting)
         {
-            if (NetworkManager.Instance.Host)
+            if (NetworkManager.Instance.Host && !targetNation.aPlayerNation)
             {
                 StartCoroutine(CompleteAgreement(requestingNation, targetNation, requestedAgreement, preexisting));
             }
             else
             {
                 Message message = Message.Create(MessageSendMode.Reliable, GameMessageId.RequestNewAgreement);
+                message.AddBool(preexisting);
                 message.AddString(requestingNation.Name);
                 message.AddString(targetNation.Name);
                 message.AddAgreement(requestedAgreement);
-                message.AddBool(preexisting);
 
                 NetworkManager.Instance.Client.Send(message);
             }
@@ -50,10 +50,23 @@ namespace CountryGame
             if (requiredPower <= requestingAgreement.DiplomaticPower)
             {
                 Message acceptedMessage = Message.Create(MessageSendMode.Reliable, GameMessageId.AgreementSigned);
+                acceptedMessage.AddBool(preexisting);
                 acceptedMessage.AddString(requestingAgreement.Name);
                 acceptedMessage.AddString(targetNation.Name);
-                acceptedMessage.AddAgreement(requestedAgreement);
-                acceptedMessage.AddBool(preexisting);
+                if (!preexisting)
+                {
+                    acceptedMessage.AddAgreement(requestedAgreement);
+                }
+                else
+                {
+                    for (int i = 0; i < NationManager.Instance.agreements.Count; i++)
+                    {
+                        if (NationManager.Instance.agreements[i] == requestedAgreement)
+                        {
+                            acceptedMessage.AddInt(i);
+                        }
+                    }
+                }
                 acceptedMessage.AddFloat(requiredPower);
                 
                 NetworkManager.Instance.Server.SendToAll(acceptedMessage);
