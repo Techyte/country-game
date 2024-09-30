@@ -73,40 +73,11 @@ namespace CountryGame
                     {
                         nationToTakeTerritory = attack.war.Defenders[0];
                     }
-
-                    List<TroopInformation> troopInfos = attack.Target.troopInfos.Values.ToList();
-
-                    int originControlledTroops = 0;
-
-                    foreach (var info in troopInfos)
-                    {
-                        if (info.ControllerNation == attack.Target.GetNation())
-                        {
-                            originControlledTroops = info.NumberOfTroops;
-                        }
-                    }
-
-                    int leftOver = Mathf.CeilToInt(originControlledTroops / 2f);
-                    if (leftOver < 1)
-                    {
-                        leftOver = 1;
-                    }
-
-                    attack.Target.troopInfos.Remove(attack.Target.GetNation());
-                    attack.Target.MovedTroopsIn(nationToTakeTerritory, leftOver);
                     
                     // move the troops to the new territory
 
-                    int troopsToMoveIn = attack.Source.TroopsOfController(attack.Source.GetNation()) / 2;
-
-                    foreach (var info in attack.Source.troopInfos.Values)
-                    {
-                        if (info.ControllerNation.IsAtWarWith(attack.Target.GetNation()))
-                        {
-                            attack.Target.MovedTroopsIn(info.ControllerNation, troopsToMoveIn);
-                            attack.Source.MoveTroopsOut(info.ControllerNation, attack.Source.TroopsOfController(attack.Source.GetNation())-troopsToMoveIn);
-                        }
-                    }
+                    attack.Target.MovedTroopsIn(nationToTakeTerritory, attack.Target.TroopsOfController(attack.Target.GetNation()));
+                    attack.Target.troopInfos.Remove(attack.Target.GetNation());
 
                     // nullify attacks from the territory we just took
                     foreach (var otherAttack in attacks)
@@ -232,26 +203,13 @@ namespace CountryGame
                 Country countryTaken = NationManager.Instance.GetCountryByName(countriesTransfered[i]);
                 
                 Nation nationToTakeTerritory = NationManager.Instance.GetNationByName(nationsThatTook[i]);
-
-                List<TroopInformation> troopInfos = countryTaken.troopInfos.Values.ToList();
+                
+                Country countryThatTook = NationManager.Instance.GetCountryByName(countriesThatTookTerritory[i]);
 
                 // move the troops to the new territory
 
                 countryTaken.MovedTroopsIn(nationToTakeTerritory, countryTaken.TroopsOfController(countryTaken.GetNation()));
                 countryTaken.troopInfos.Remove(countryTaken.GetNation());
-
-                Country countryThatTook = NationManager.Instance.GetCountryByName(countriesThatTookTerritory[i]);
-
-                int troopsToMoveIn = countryThatTook.TroopsOfController(countryThatTook.GetNation()) / 2;
-
-                foreach (var info in countryThatTook.troopInfos.Values)
-                {
-                    if (info.ControllerNation.IsAtWarWith(countryTaken.GetNation()))
-                    {
-                        countryTaken.MovedTroopsIn(info.ControllerNation, troopsToMoveIn);
-                        countryThatTook.MoveTroopsOut(info.ControllerNation, countryThatTook.TroopsOfController(countryThatTook.GetNation())-troopsToMoveIn);
-                    }
-                }
 
                 // nullify attacks from the territory we just took
                 foreach (var otherAttack in attacks) 
@@ -373,11 +331,6 @@ namespace CountryGame
             
             // calculate how much of the attack is being used to push this attack
             
-            Debug.Log($"Defense: {targetDefense}");
-            Debug.Log($"Attack: {sourceAttack}");
-            Debug.Log($"Defense Scaler: {defenseScaler}");
-            Debug.Log($"Attack Scaler: {attackScaler}");
-            
             return sourceAttack * attackScaler > targetDefense * defenseScaler;
         }
 
@@ -402,7 +355,7 @@ namespace CountryGame
         {
             foreach (var attack in attacks)
             {
-                attack.line.enabled = PlayerNationManager.PlayerNation.Wars.Contains(attack.war);
+                attack.line.enabled = PlayerNationManager.PlayerNation.Attacking(attack.Target);
             }
         }
 
@@ -719,6 +672,12 @@ namespace CountryGame
             attack.line.enabled = PlayerNationManager.PlayerNation.Wars.Contains(attack.war);
             
             attacks.Add(attack);
+            
+            target.GetNation().UpdateInfluenceColour();
+            target.GetNation().UpdateTroopDisplays();
+            
+            source.GetNation().UpdateInfluenceColour();
+            source.GetNation().UpdateTroopDisplays();
         }
     }
     

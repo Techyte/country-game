@@ -24,6 +24,7 @@ namespace CountryGame
         [SerializeField] private GameObject otherGUIParent;
         [SerializeField] private GameObject amountDisplay;
         [SerializeField] private TextMeshProUGUI amountDisplayText;
+        [SerializeField] private Button launchAttackButton;
 
         [SerializeField] private Image sourceNationFlag;
         [SerializeField] private TextMeshProUGUI sourceNationName;
@@ -75,9 +76,9 @@ namespace CountryGame
 
         public void Clicked(Country countryClicked)
         {
-            DisplayCountryTroops(countryClicked);
             open = true;
             currentCountry = countryClicked;
+            DisplayCountryTroops(countryClicked);
             countryTroopInformationDisplay.transform.position = start.position;
             CountrySelector.Instance.ResetSelected();
             NetworkManager.Instance.ResetSelected();
@@ -171,6 +172,9 @@ namespace CountryGame
             countryName.text = countryClicked.countryName;
             controllerName.text = countryClicked.GetNation().Name;
             controllerFlag.sprite = countryClicked.GetNation().flag;
+            
+            launchAttackButton.interactable =
+                PlayerNationManager.PlayerNation.MilitaryAccessWith(currentCountry.GetNation());
         }
 
         public void StartTransferringTroops(int index)

@@ -32,7 +32,21 @@ namespace CountryGame
                 message.AddBool(preexisting);
                 message.AddString(requestingNation.Name);
                 message.AddString(targetNation.Name);
-                message.AddAgreement(requestedAgreement);
+
+                if (preexisting)
+                {
+                    for (int i = 0; i < NationManager.Instance.agreements.Count; i++)
+                    {
+                        if (requestedAgreement == NationManager.Instance.agreements[i])
+                        {
+                            message.AddInt(i);
+                        }
+                    }
+                }
+                else
+                {
+                    message.AddAgreement(requestedAgreement);
+                }
 
                 NetworkManager.Instance.Client.Send(message);
             }

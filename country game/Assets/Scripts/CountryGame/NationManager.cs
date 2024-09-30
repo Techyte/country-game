@@ -67,26 +67,8 @@ namespace CountryGame
                                 
                                 Debug.Log("Country joining head");
 
-                                List<TroopInformation> troopInfos = country.troopInfos.Values.ToList();
-
-                                int originControlledTroops = 0;
-                                
-                                foreach (var info in troopInfos)
-                                {
-                                    if (info.ControllerNation == country.GetNation())
-                                    {
-                                        originControlledTroops = info.NumberOfTroops;
-                                    }
-                                }
-
-                                int leftOver = Mathf.CeilToInt(originControlledTroops / 2f);
-                                if (leftOver < 1)
-                                {
-                                    leftOver = 1;
-                                }
-
+                                country.MovedTroopsIn(agreement.AgreementLeader, country.TroopsOfController(country.GetNation()));
                                 country.troopInfos.Remove(country.GetNation());
-                                country.MovedTroopsIn(agreement.AgreementLeader, leftOver);
                                 
                                 SwapCountriesNation(country, agreement.AgreementLeader, true);
                             }
@@ -124,26 +106,8 @@ namespace CountryGame
                     
                     Debug.Log("Country joining head");
 
-                    List<TroopInformation> troopInfos = country.troopInfos.Values.ToList();
-
-                    int originControlledTroops = 0;
-                    
-                    foreach (var info in troopInfos)
-                    {
-                        if (info.ControllerNation == country.GetNation())
-                        {
-                            originControlledTroops = info.NumberOfTroops;
-                        }
-                    }
-                    
-                    int leftOver = Mathf.CeilToInt(originControlledTroops / 2f);
-                    if (leftOver < 1)
-                    {
-                        leftOver = 1;
-                    }
-                    
+                    country.MovedTroopsIn(nationThatSubsumed, country.TroopsOfController(country.GetNation()));
                     country.troopInfos.Remove(country.GetNation());
-                    country.MovedTroopsIn(nationThatSubsumed, leftOver);
                     
                     SwapCountriesNation(country, nationThatSubsumed, true);
                 }
@@ -365,6 +329,11 @@ namespace CountryGame
 
         public bool MilitaryAccessWith(Nation nationToTest)
         {
+            if (nationToTest == this)
+            {
+                return true;
+            }
+            
             foreach (var agreement in agreements)
             {
                 if (agreement.militaryAccess && agreement.Nations.Contains(nationToTest))
@@ -383,6 +352,22 @@ namespace CountryGame
                 if (agreement.nonAgression && agreement.Nations.Contains(nationToTest))
                 {
                     return true;
+                }
+            }
+
+            return false;
+        }
+
+        public bool Attacking(Country country)
+        {
+            foreach (var ourCountry in Countries)
+            {
+                foreach (var attack in CombatManager.Instance.attacks)
+                {
+                    if (attack.Source == ourCountry && attack.Target == country)
+                    {
+                        return true;
+                    }
                 }
             }
 

@@ -15,7 +15,7 @@ namespace CountryGame
         private Nation nation;
         [SerializeField] private TroopDisplay troopDisplay;
 
-        public PolygonCollider2D collider;
+        public new PolygonCollider2D collider;
 
         [HideInInspector] public CountryButton button;
 
@@ -133,8 +133,7 @@ namespace CountryGame
                 troopDisplay.UpdateDisplay(this,
                     nation.MilitaryAccessWith(PlayerNationManager.PlayerNation) ||
                     nation == PlayerNationManager.PlayerNation ||
-                    nation.InvolvedInWarWith(PlayerNationManager.PlayerNation) ||
-                    nation.IsAtWarWith(PlayerNationManager.PlayerNation));
+                    PlayerNationManager.PlayerNation.Attacking(this));
             }
         }
 
@@ -155,15 +154,7 @@ namespace CountryGame
         {
             if (troopInfos.TryGetValue(controller, out TroopInformation info))
             {
-                int minimum = 0;
-
-                if (controller == nation)
-                {
-                    minimum = 1;
-                }
-                
-                Debug.Log($"Pottential leftover from transport: {info.NumberOfTroops - amount} minimum: {minimum}");
-                if (info.NumberOfTroops - amount >= minimum)
+                if (info.NumberOfTroops - amount >= 0)
                 {
                     return true;
                 }
@@ -362,6 +353,7 @@ namespace CountryGame
         public int NumberOfTroops;
     }
     
+    #if UNITY_EDITOR
     [CustomEditor(typeof(Country))]
     public class CountryEditor : Editor
     {
@@ -375,4 +367,5 @@ namespace CountryGame
             }
         }
     }
+    #endif
 }
