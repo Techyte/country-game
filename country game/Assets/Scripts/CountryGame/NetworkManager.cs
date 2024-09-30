@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using CountryGame.Multiplayer;
@@ -124,6 +125,12 @@ namespace CountryGame
                 Client.Connect($"127.0.0.1:7777", messageHandlerGroupId: Multiplayer.NetworkManager.PlayerHostedDemoMessageHandlerGroupId);
                 Host = true;
             };
+        }
+
+        private void OnDisable()
+        {
+            Client.Disconnect();
+            Server.Stop();
         }
 
         public void BeginSetup()

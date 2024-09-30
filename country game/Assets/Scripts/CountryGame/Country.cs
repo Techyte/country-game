@@ -15,7 +15,7 @@ namespace CountryGame
         private Nation nation;
         [SerializeField] private TroopDisplay troopDisplay;
 
-        public new PolygonCollider2D collider;
+        public PolygonCollider2D collider;
 
         [HideInInspector] public CountryButton button;
 
