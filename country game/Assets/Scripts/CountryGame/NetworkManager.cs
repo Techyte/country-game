@@ -5,6 +5,7 @@ using Riptide;
 using Riptide.Utils;
 using Steamworks;
 using TMPro;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 namespace CountryGame
@@ -26,6 +27,7 @@ namespace CountryGame
         MovedTroops,
         ChangedTroopDistribution,
         JoinedWar,
+        LeaveAgreement,
     }
     
     public class NetworkManager : MonoBehaviour
@@ -95,6 +97,11 @@ namespace CountryGame
             // {
             //     Host = true;
             // }
+            //
+            // Client.Disconnected += (sender, args) =>
+            // {
+            //     SceneManager.LoadScene("Multiplayer");
+            // };
 
             Server = new Server();
             Client = new Client();
@@ -103,7 +110,7 @@ namespace CountryGame
             
             Server.ClientConnected += (sender, args) =>
             {
-                if (Server.ClientCount == 2)
+                if (Server.ClientCount == 1)
                 {
                     BeginSetup();
                 }
@@ -161,7 +168,7 @@ namespace CountryGame
                 Debug.Log("Sending connection information");
                 
                 Message message = Message.Create(MessageSendMode.Reliable, GameMessageId.SetupPlayer);
-                //message.AddULong((ulong)Multiplayer.NetworkManager.Instance.riptideToStemId[client.Id]);
+                // message.AddULong((ulong)Multiplayer.NetworkManager.Instance.riptideToStemId[client.Id]);
                 message.AddUShort(client.Id);
                 
                 Server.SendToAll(message);
@@ -211,12 +218,12 @@ namespace CountryGame
         {
             Instance.greyedOutObj.SetActive(false);
             
-            //CSteamID id = (CSteamID)message.GetULong();
+            // CSteamID id = (CSteamID)message.GetULong();
             CSteamID id = CSteamID.Nil;
             ushort riptideId = message.GetUShort();
             
-            //string nation = SteamMatchmaking.GetLobbyMemberData(LobbyData.LobbyId, id, "nation");
-            string nation = riptideId == 1 ? "India" : "Australia";
+            // string nation = SteamMatchmaking.GetLobbyMemberData(LobbyData.LobbyId, id, "nation");
+            string nation = riptideId == 1 ? "Germany" : "Poland";
 
             Nation newPlayerNation = NationManager.Instance.GetNationByName(nation);
             newPlayerNation.aPlayerNation = true;
@@ -538,6 +545,21 @@ namespace CountryGame
             float marines = message.GetFloat();
             
             PlayerNationManager.Instance.ChangeDistribution(nationThatChanged, infantry, tanks, marines);
+        }
+
+        [MessageHandler((ushort)GameMessageId.LeaveAgreement, Multiplayer.NetworkManager.PlayerHostedDemoMessageHandlerGroupId)]
+        private static void LeaveAgreement(ushort fromClientId, Message message)
+        {
+            Instance.Server.SendToAll(message);
+        }
+
+        [MessageHandler((ushort)GameMessageId.LeaveAgreement, Multiplayer.NetworkManager.PlayerHostedDemoMessageHandlerGroupId)]
+        private static void LeaveAgreement(Message message)
+        {
+            Nation nation = NationManager.Instance.GetNationByName(message.GetString());
+            Agreement agreement = NationManager.Instance.agreements[message.GetInt()];
+            
+            CountrySelector.Instance.LeaveAgreement(nation, agreement);
         }
 
         [MessageHandler((ushort)GameMessageId.JoinedWar, Multiplayer.NetworkManager.PlayerHostedDemoMessageHandlerGroupId)]

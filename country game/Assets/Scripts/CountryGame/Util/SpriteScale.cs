@@ -7,6 +7,7 @@ public class SpriteScale : MonoBehaviour
     [SerializeField] private SpriteRenderer sr;
 
     [SerializeField] private float depth;
+    [SerializeField] private float maxSize = 0.4f;
 
     private void Awake()
     {
@@ -47,7 +48,7 @@ public class SpriteScale : MonoBehaviour
         float scaleFactor = visibleHeightAtDepth / spriteHeight;
 
 // Scale to fit, uniformly on all axes.
-        Vector3 target = Vector2.ClampMagnitude(Vector3.one * scaleFactor, 0.4f);
+        Vector3 target = Vector2.ClampMagnitude(Vector3.one * scaleFactor, maxSize);
         target.z = 1;
         transform.localScale = target;
     }

@@ -28,7 +28,6 @@ namespace CountryGame
         private void Awake()
         {
             Instance = this;
-            TurnManager.Instance.NewTurn += NewTurn;
         }
 
         private void Start()
@@ -41,15 +40,7 @@ namespace CountryGame
             wars.Add(war);
         }
 
-        private void NewTurn(object sender, EventArgs e)
-        {
-            if (NetworkManager.Instance.Host)
-            {
-                CompleteAttacks();
-            }
-        }
-
-        private void CompleteAttacks()
+        public void CompleteAttacks()
         {
             List<Attack> currentAttacks = attacks.ToList();
 
@@ -165,7 +156,7 @@ namespace CountryGame
                 else
                 {
                     // attack was a failure
-                    foreach (var info in attack.Source.troopInfos.Values)
+                    foreach (var info in attack.Source.troopInfos.Values.ToList())
                     {
                         if (info.ControllerNation.IsAtWarWith(attack.Target.GetNation()))
                         {
@@ -244,26 +235,10 @@ namespace CountryGame
 
                 List<TroopInformation> troopInfos = countryTaken.troopInfos.Values.ToList();
 
-                int originControlledTroops = 0;
-
-                foreach (var info in troopInfos)
-                {
-                    if (info.ControllerNation == countryTaken.GetNation())
-                    {
-                        originControlledTroops = info.NumberOfTroops;
-                    }
-                }
-
-                int leftOver = Mathf.CeilToInt(originControlledTroops / 2f);
-                if (leftOver < 1)
-                {
-                    leftOver = 1;
-                }
-
-                countryTaken.troopInfos.Remove(countryTaken.GetNation());
-                countryTaken.MovedTroopsIn(nationToTakeTerritory, leftOver);
-                    
                 // move the troops to the new territory
+
+                countryTaken.MovedTroopsIn(nationToTakeTerritory, countryTaken.TroopsOfController(countryTaken.GetNation()));
+                countryTaken.troopInfos.Remove(countryTaken.GetNation());
 
                 Country countryThatTook = NationManager.Instance.GetCountryByName(countriesThatTookTerritory[i]);
 
@@ -379,8 +354,17 @@ namespace CountryGame
                 }
             }
             
-            Debug.Log($"Defending Troops: {attack.Target.GetParticipatingTroops(attack.war)}");
-            Debug.Log($"Attacking Troops: {attack.Target.GetParticipatingTroops(attack.war)}");
+            if (totalDefendingForce <= 0)
+            {
+                // attackers will always win
+                return true;
+            }
+
+            if (totalAttackingForce <= 0)
+            {
+                // defenders will always win
+                return false;
+            }
             
             // calculate how much of the defense is being used to counter this attack
 
@@ -388,18 +372,11 @@ namespace CountryGame
             float defenseScaler = attack.Source.GetParticipatingTroops(attack.war) / totalAttackingForce; // amount of defending force that is being allocated to this attack
             
             // calculate how much of the attack is being used to push this attack
-
-            if (totalDefendingForce <= 0)
-            {
-                // attackers will always win
-                targetDefense = 0;
-            }
-
-            if (totalAttackingForce <= 0)
-            {
-                // defenders will always win
-                sourceAttack = 0;
-            }
+            
+            Debug.Log($"Defense: {targetDefense}");
+            Debug.Log($"Attack: {sourceAttack}");
+            Debug.Log($"Defense Scaler: {defenseScaler}");
+            Debug.Log($"Attack Scaler: {attackScaler}");
             
             return sourceAttack * attackScaler > targetDefense * defenseScaler;
         }
@@ -425,7 +402,7 @@ namespace CountryGame
         {
             foreach (var attack in attacks)
             {
-                attack.line.gameObject.SetActive(PlayerNationManager.PlayerNation.InvolvedInWarWith(source.GetNation()));
+                attack.line.enabled = PlayerNationManager.PlayerNation.Wars.Contains(attack.war);
             }
         }
 
@@ -592,10 +569,7 @@ namespace CountryGame
 
         public void ResetSelected()
         {
-            if (!TurnManager.Instance.endedTurn)
-            {
-                otherGUIParent.SetActive(true);
-            }
+            otherGUIParent.SetActive(true);
             invasionScreen.SetActive(false);
             invading = false;
         }
@@ -611,14 +585,29 @@ namespace CountryGame
             invading = true;
         }
 
+        public bool AttackAlreadyExists(Country source, Country target)
+        {
+            foreach (var attack in attacks)
+            {
+                if (attack.Source == source && attack.Target == target)
+                {
+                    return true;
+                }
+            }
+
+            return false;
+        }
+
         public void SelectInvasionTarget(Country target)
         {
-            if (source.borders.Contains(target) && PlayerNationManager.PlayerNation.IsAtWarWith(target.GetNation()) && TurnManager.Instance.CanPerformAction())
+            if (source.borders.Contains(target) &&
+                (source.HasTroopsOfController(PlayerNationManager.PlayerNation) || source.GetNation().IsAtWarWith(target.GetNation())) && 
+                PlayerNationManager.PlayerNation.IsAtWarWith(target.GetNation()) && TurnManager.Instance.CanPerformAction() && 
+                !AttackAlreadyExists(source, target))
             {
                 Message message = Message.Create(MessageSendMode.Reliable, GameMessageId.NewAttack);
                 message.AddString(source.countryName);
                 message.AddString(target.countryName);
-
                 NetworkManager.Instance.Client.Send(message);
                 
                 TurnManager.Instance.PerformedAction();
@@ -687,12 +676,14 @@ namespace CountryGame
                 // defender is launching the attack
                 if (war.Defenders.Contains(source.GetNation()) && war.Belligerents.Contains(target.GetNation()))
                 {
+                    Debug.Log($"found the {war.Name}");
                     attack.war = war;
                     attack.launchedByDefenders = true;
                 }
                 // belligerent is launching the attack
                 if (war.Belligerents.Contains(source.GetNation()) && war.Defenders.Contains(target.GetNation()))
                 {
+                    Debug.Log($"found the {war.Name}");
                     attack.war = war;
                     attack.launchedByDefenders = false;
                 }
@@ -709,12 +700,14 @@ namespace CountryGame
                             // defender is launching the attack
                             if (war.Defenders.Contains(nation) && war.Belligerents.Contains(target.GetNation()))
                             {
+                                Debug.Log($"found the {war.Name}");
                                 attack.war = war;
                                 attack.launchedByDefenders = true;
                             }
                             // belligerent is launching the attack
                             if (war.Belligerents.Contains(nation) && war.Defenders.Contains(target.GetNation()))
                             {
+                                Debug.Log($"found the {war.Name}");
                                 attack.war = war;
                                 attack.launchedByDefenders = false;
                             }
@@ -722,8 +715,8 @@ namespace CountryGame
                     }
                 }
             }
-            
-            attack.line.gameObject.SetActive(PlayerNationManager.PlayerNation.InvolvedInWarWith(source.GetNation()));
+
+            attack.line.enabled = PlayerNationManager.PlayerNation.Wars.Contains(attack.war);
             
             attacks.Add(attack);
         }

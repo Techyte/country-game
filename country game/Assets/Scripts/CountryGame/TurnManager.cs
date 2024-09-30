@@ -30,7 +30,6 @@ namespace CountryGame
         [SerializeField] private int turnActionPoints;
         [SerializeField] private TextMeshProUGUI actionPointDisplay;
         [SerializeField] private GameObject confirmPannel;
-        [SerializeField] private GameObject mainUI;
 
         public EventHandler<EventArgs> NewTurn;
         
@@ -89,7 +88,6 @@ namespace CountryGame
             actionPoints = turnActionPoints;
             
             endedTurn = false;
-            mainUI.SetActive(true);
         }
 
         public void PerformedAction()
@@ -122,7 +120,6 @@ namespace CountryGame
             actionPoints = 0;
             
             endedTurn = true;
-            mainUI.SetActive(false);
         }
 
         public void CancelTurnEnd()

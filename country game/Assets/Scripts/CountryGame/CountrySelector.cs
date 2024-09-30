@@ -443,14 +443,32 @@ namespace CountryGame
         public void ConfirmedLeaveAgreement()
         {
             leaveAgreementConfirmation.SetActive(false);
+            ResetSelected();
+
+            int agreement = 0;
             
+            for (int i = 0; i < NationManager.Instance.agreements.Count; i++)
+            {
+                if (NationManager.Instance.agreements[i] == currentAgreement)
+                {
+                    agreement = i;
+                }
+            }
+            
+            Message message = Message.Create(MessageSendMode.Reliable, GameMessageId.LeaveAgreement);
+            message.AddString(PlayerNationManager.PlayerNation.Name);
+            message.AddInt(agreement);
+
+            NetworkManager.Instance.Client.Send(message);
+        }
+
+        public void LeaveAgreement(Nation nationToLeave, Agreement agreementToLeave)
+        {
+            NationManager.Instance.NationLeaveAgreement(nationToLeave, agreementToLeave, false);
             Notification notification = Instantiate(notificationPrefab, notificationParent);
             notification.Init($"Breaking Ties!",
-                $"Today, {PlayerNationManager.PlayerNation.Name} left the {currentAgreement.Name} agreement, searching to forge its own path!",
-                () => { Clicked(PlayerNationManager.PlayerNation); }, 5);
-            
-            NationManager.Instance.NationLeaveAgreement(PlayerNationManager.PlayerNation, currentAgreement, false);
-            ResetSelected();
+                $"Today, {nationToLeave.Name} left the {agreementToLeave.Name} agreement, searching to forge its own path!",
+                () => { Clicked(nationToLeave); }, 5);
         }
 
         public void CancelLeaveAgreement()

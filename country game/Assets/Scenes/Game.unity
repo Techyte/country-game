@@ -332,6 +332,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   countryName: Guyana
   troopDisplay: {fileID: 0}
+  collider: {fileID: 0}
   button: {fileID: 0}
   borders: []
   defense: 7
@@ -364,6 +365,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
+  - {fileID: 471220498}
   - {fileID: 1098202726}
   - {fileID: 431551629}
   - {fileID: 449639675}
@@ -379,7 +381,6 @@ RectTransform:
   - {fileID: 740339748}
   - {fileID: 1287862526}
   - {fileID: 1258424142}
-  - {fileID: 471220498}
   m_Father: {fileID: 1909173906}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
@@ -1002,6 +1003,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   countryName: Somalia
   troopDisplay: {fileID: 0}
+  collider: {fileID: 0}
   button: {fileID: 0}
   borders: []
   defense: 7
@@ -1263,6 +1265,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   countryName: Turkmenistan
   troopDisplay: {fileID: 0}
+  collider: {fileID: 0}
   button: {fileID: 0}
   borders: []
   defense: 7
@@ -1641,6 +1644,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   countryName: Burundi
   troopDisplay: {fileID: 0}
+  collider: {fileID: 0}
   button: {fileID: 0}
   borders: []
   defense: 7
@@ -1838,6 +1842,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   countryName: Senegal
   troopDisplay: {fileID: 0}
+  collider: {fileID: 0}
   button: {fileID: 0}
   borders: []
   defense: 7
@@ -2368,6 +2373,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   countryName: Lesotho
   troopDisplay: {fileID: 0}
+  collider: {fileID: 0}
   button: {fileID: 0}
   borders: []
   defense: 7
@@ -2654,6 +2660,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   countryName: Cuba
   troopDisplay: {fileID: 0}
+  collider: {fileID: 0}
   button: {fileID: 0}
   borders: []
   defense: 7
@@ -3051,6 +3058,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   countryName: Bolivia
   troopDisplay: {fileID: 0}
+  collider: {fileID: 0}
   button: {fileID: 0}
   borders: []
   defense: 7
@@ -3320,6 +3328,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   countryName: Norway
   troopDisplay: {fileID: 0}
+  collider: {fileID: 0}
   button: {fileID: 0}
   borders: []
   defense: 7
@@ -3564,6 +3573,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   countryName: Malaysia
   troopDisplay: {fileID: 0}
+  collider: {fileID: 0}
   button: {fileID: 0}
   borders: []
   defense: 7
@@ -4383,6 +4393,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   countryName: Dominican Republic
   troopDisplay: {fileID: 0}
+  collider: {fileID: 0}
   button: {fileID: 0}
   borders: []
   defense: 7
@@ -4578,6 +4589,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   countryName: United Arab Emirates
   troopDisplay: {fileID: 0}
+  collider: {fileID: 0}
   button: {fileID: 0}
   borders: []
   defense: 7
@@ -5186,6 +5198,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   countryName: Syria
   troopDisplay: {fileID: 0}
+  collider: {fileID: 0}
   button: {fileID: 0}
   borders: []
   defense: 7
@@ -5377,6 +5390,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   countryName: Taiwan
   troopDisplay: {fileID: 0}
+  collider: {fileID: 0}
   button: {fileID: 0}
   borders: []
   defense: 7
@@ -5792,6 +5806,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   countryName: Democratic Republic Of The Congo
   troopDisplay: {fileID: 0}
+  collider: {fileID: 0}
   button: {fileID: 0}
   borders: []
   defense: 7
@@ -6358,6 +6373,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   countryName: Honduras
   troopDisplay: {fileID: 0}
+  collider: {fileID: 0}
   button: {fileID: 0}
   borders: []
   defense: 7
@@ -6551,6 +6567,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   countryName: Benin
   troopDisplay: {fileID: 0}
+  collider: {fileID: 0}
   button: {fileID: 0}
   borders: []
   defense: 7
@@ -7346,6 +7363,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   countryName: Germany
   troopDisplay: {fileID: 0}
+  collider: {fileID: 0}
   button: {fileID: 0}
   borders: []
   defense: 7
@@ -7602,6 +7620,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   countryName: Angola
   troopDisplay: {fileID: 0}
+  collider: {fileID: 0}
   button: {fileID: 0}
   borders: []
   defense: 7
@@ -7878,6 +7897,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   countryName: Croatia
   troopDisplay: {fileID: 0}
+  collider: {fileID: 0}
   button: {fileID: 0}
   borders: []
   defense: 7
@@ -8480,6 +8500,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   countryName: Afghanistan
   troopDisplay: {fileID: 0}
+  collider: {fileID: 0}
   button: {fileID: 0}
   borders: []
   defense: 7
@@ -8713,6 +8734,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   countryName: Tanzania
   troopDisplay: {fileID: 0}
+  collider: {fileID: 0}
   button: {fileID: 0}
   borders: []
   defense: 7
@@ -9577,6 +9599,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   countryName: Belarus
   troopDisplay: {fileID: 0}
+  collider: {fileID: 0}
   button: {fileID: 0}
   borders: []
   defense: 7
@@ -9766,6 +9789,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   countryName: Portugal
   troopDisplay: {fileID: 0}
+  collider: {fileID: 0}
   button: {fileID: 0}
   borders: []
   defense: 7
@@ -11249,6 +11273,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   countryName: Ethiopia
   troopDisplay: {fileID: 0}
+  collider: {fileID: 0}
   button: {fileID: 0}
   borders: []
   defense: 7
@@ -11612,6 +11637,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   countryName: Zambia
   troopDisplay: {fileID: 0}
+  collider: {fileID: 0}
   button: {fileID: 0}
   borders: []
   defense: 7
@@ -12434,6 +12460,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   countryName: Greenland
   troopDisplay: {fileID: 0}
+  collider: {fileID: 0}
   button: {fileID: 0}
   borders: []
   defense: 7
@@ -12646,6 +12673,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   countryName: Greece
   troopDisplay: {fileID: 0}
+  collider: {fileID: 0}
   button: {fileID: 0}
   borders: []
   defense: 7
@@ -13264,6 +13292,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   countryName: Mauritania
   troopDisplay: {fileID: 0}
+  collider: {fileID: 0}
   button: {fileID: 0}
   borders: []
   defense: 7
@@ -13449,6 +13478,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   countryName: Qatar
   troopDisplay: {fileID: 0}
+  collider: {fileID: 0}
   button: {fileID: 0}
   borders: []
   defense: 7
@@ -13802,6 +13832,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   countryName: Namibia
   troopDisplay: {fileID: 0}
+  collider: {fileID: 0}
   button: {fileID: 0}
   borders: []
   defense: 7
@@ -14520,6 +14551,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   countryName: Thailand
   troopDisplay: {fileID: 0}
+  collider: {fileID: 0}
   button: {fileID: 0}
   borders: []
   defense: 7
@@ -14626,6 +14658,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   countryName: Kaliningrad
   troopDisplay: {fileID: 0}
+  collider: {fileID: 0}
   button: {fileID: 0}
   borders: []
   defense: 7
@@ -15225,6 +15258,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   countryName: Saudi Arabia
   troopDisplay: {fileID: 0}
+  collider: {fileID: 0}
   button: {fileID: 0}
   borders: []
   defense: 7
@@ -15986,6 +16020,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   countryName: Laos
   troopDisplay: {fileID: 0}
+  collider: {fileID: 0}
   button: {fileID: 0}
   borders: []
   defense: 7
@@ -16364,6 +16399,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   countryName: Cameroon
   troopDisplay: {fileID: 0}
+  collider: {fileID: 0}
   button: {fileID: 0}
   borders: []
   defense: 7
@@ -16983,6 +17019,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   countryName: Georgia
   troopDisplay: {fileID: 0}
+  collider: {fileID: 0}
   button: {fileID: 0}
   borders: []
   defense: 7
@@ -17212,6 +17249,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   countryName: United Kingdom
   troopDisplay: {fileID: 0}
+  collider: {fileID: 0}
   button: {fileID: 0}
   borders: []
   defense: 7
@@ -17565,6 +17603,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   countryName: Yemen
   troopDisplay: {fileID: 0}
+  collider: {fileID: 0}
   button: {fileID: 0}
   borders: []
   defense: 7
@@ -18519,6 +18558,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   countryName: Myanmar
   troopDisplay: {fileID: 0}
+  collider: {fileID: 0}
   button: {fileID: 0}
   borders: []
   defense: 7
@@ -18712,6 +18752,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   countryName: Costa Rica
   troopDisplay: {fileID: 0}
+  collider: {fileID: 0}
   button: {fileID: 0}
   borders: []
   defense: 7
@@ -18909,6 +18950,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   countryName: Armenia
   troopDisplay: {fileID: 0}
+  collider: {fileID: 0}
   button: {fileID: 0}
   borders: []
   defense: 7
@@ -19526,6 +19568,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   countryName: Kyrgyzstan
   troopDisplay: {fileID: 0}
+  collider: {fileID: 0}
   button: {fileID: 0}
   borders: []
   defense: 7
@@ -19727,6 +19770,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   countryName: Azerbaijan
   troopDisplay: {fileID: 0}
+  collider: {fileID: 0}
   button: {fileID: 0}
   borders: []
   defense: 7
@@ -20451,13 +20495,9 @@ PolygonCollider2D:
       - {x: 0.05999992, y: 1.3100001}
       - {x: 0.049999923, y: 1.3100001}
       - {x: 0.049999923, y: 1.3000001}
-      - {x: -0.010000078, y: 1.3000001}
-      - {x: -0.010000078, y: 1.2900001}
-      - {x: -0.020000078, y: 1.2900001}
-      - {x: -0.020000078, y: 1.2700001}
-      - {x: -0.000000078231096, y: 1.2700001}
-      - {x: -0.000000078231096, y: 1.2600001}
-      - {x: 0.019999921, y: 1.2600001}
+      - {x: 0.029999921, y: 1.3000001}
+      - {x: 0.029999921, y: 1.2700001}
+      - {x: 0.019999921, y: 1.2700001}
       - {x: 0.019999921, y: 1.21}
       - {x: 0.029999921, y: 1.21}
       - {x: 0.029999921, y: 1.19}
@@ -20543,6 +20583,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   countryName: Russia
   troopDisplay: {fileID: 0}
+  collider: {fileID: 0}
   button: {fileID: 0}
   borders: []
   defense: 7
@@ -20746,8 +20787,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 343.5, y: -360.0525}
-  m_SizeDelta: {x: 100, y: 497.1636}
+  m_AnchoredPosition: {x: 343.5, y: -112.9}
+  m_SizeDelta: {x: 100, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &547536666
 MonoBehaviour:
@@ -20767,13 +20808,13 @@ MonoBehaviour:
     m_Top: 0
     m_Bottom: 0
   m_ChildAlignment: 0
-  m_Spacing: -385.1
+  m_Spacing: 0
   m_ChildForceExpandWidth: 1
   m_ChildForceExpandHeight: 1
-  m_ChildControlWidth: 0
+  m_ChildControlWidth: 1
   m_ChildControlHeight: 0
-  m_ChildScaleWidth: 0
-  m_ChildScaleHeight: 0
+  m_ChildScaleWidth: 1
+  m_ChildScaleHeight: 1
   m_ReverseArrangement: 0
 --- !u!1 &549232534
 GameObject:
@@ -21139,6 +21180,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   countryName: France
   troopDisplay: {fileID: 0}
+  collider: {fileID: 0}
   button: {fileID: 0}
   borders: []
   defense: 7
@@ -21346,6 +21388,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   countryName: Uruguay
   troopDisplay: {fileID: 0}
+  collider: {fileID: 0}
   button: {fileID: 0}
   borders: []
   defense: 7
@@ -21854,6 +21897,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   countryName: Lithuania
   troopDisplay: {fileID: 0}
+  collider: {fileID: 0}
   button: {fileID: 0}
   borders: []
   defense: 7
@@ -22565,6 +22609,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   countryName: Austria
   troopDisplay: {fileID: 0}
+  collider: {fileID: 0}
   button: {fileID: 0}
   borders: []
   defense: 7
@@ -22870,6 +22915,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   countryName: Sierra Leone
   troopDisplay: {fileID: 0}
+  collider: {fileID: 0}
   button: {fileID: 0}
   borders: []
   defense: 7
@@ -23226,6 +23272,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   countryName: Jordan
   troopDisplay: {fileID: 0}
+  collider: {fileID: 0}
   button: {fileID: 0}
   borders: []
   defense: 7
@@ -23562,6 +23609,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   countryName: Ecuador
   troopDisplay: {fileID: 0}
+  collider: {fileID: 0}
   button: {fileID: 0}
   borders: []
   defense: 7
@@ -23826,6 +23874,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   countryName: Bulgaria
   troopDisplay: {fileID: 0}
+  collider: {fileID: 0}
   button: {fileID: 0}
   borders: []
   defense: 7
@@ -23893,6 +23942,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   countryName: Brunei
   troopDisplay: {fileID: 0}
+  collider: {fileID: 0}
   button: {fileID: 0}
   borders: []
   defense: 7
@@ -24610,6 +24660,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   countryName: Bhutan
   troopDisplay: {fileID: 0}
+  collider: {fileID: 0}
   button: {fileID: 0}
   borders: []
   defense: 7
@@ -24874,6 +24925,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   countryName: Rwanda
   troopDisplay: {fileID: 0}
+  collider: {fileID: 0}
   button: {fileID: 0}
   borders: []
   defense: 7
@@ -25324,6 +25376,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   countryName: Latvia
   troopDisplay: {fileID: 0}
+  collider: {fileID: 0}
   button: {fileID: 0}
   borders: []
   defense: 7
@@ -25604,6 +25657,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   countryName: Venezuela
   troopDisplay: {fileID: 0}
+  collider: {fileID: 0}
   button: {fileID: 0}
   borders: []
   defense: 7
@@ -26181,6 +26235,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   countryName: Italy
   troopDisplay: {fileID: 0}
+  collider: {fileID: 0}
   button: {fileID: 0}
   borders: []
   defense: 7
@@ -27356,6 +27411,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   countryName: Cambodia
   troopDisplay: {fileID: 0}
+  collider: {fileID: 0}
   button: {fileID: 0}
   borders: []
   defense: 7
@@ -28156,6 +28212,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   countryName: Peru
   troopDisplay: {fileID: 0}
+  collider: {fileID: 0}
   button: {fileID: 0}
   borders: []
   defense: 7
@@ -28397,6 +28454,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   countryName: Central African Republic
   troopDisplay: {fileID: 0}
+  collider: {fileID: 0}
   button: {fileID: 0}
   borders: []
   defense: 7
@@ -28639,6 +28697,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   countryName: Eritrea
   troopDisplay: {fileID: 0}
+  collider: {fileID: 0}
   button: {fileID: 0}
   borders: []
   defense: 7
@@ -29521,6 +29580,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   countryName: South Sudan
   troopDisplay: {fileID: 0}
+  collider: {fileID: 0}
   button: {fileID: 0}
   borders: []
   defense: 7
@@ -29915,6 +29975,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   countryName: Ukraine
   troopDisplay: {fileID: 0}
+  collider: {fileID: 0}
   button: {fileID: 0}
   borders: []
   defense: 7
@@ -30390,6 +30451,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   countryName: Albania
   troopDisplay: {fileID: 0}
+  collider: {fileID: 0}
   button: {fileID: 0}
   borders: []
   defense: 7
@@ -30710,6 +30772,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   countryName: Papua New Guinea
   troopDisplay: {fileID: 0}
+  collider: {fileID: 0}
   button: {fileID: 0}
   borders: []
   defense: 7
@@ -31453,6 +31516,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   countryName: Panama
   troopDisplay: {fileID: 0}
+  collider: {fileID: 0}
   button: {fileID: 0}
   borders: []
   defense: 7
@@ -31888,6 +31952,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   countryName: Finland
   troopDisplay: {fileID: 0}
+  collider: {fileID: 0}
   button: {fileID: 0}
   borders: []
   defense: 7
@@ -32682,6 +32747,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   countryName: United States
   troopDisplay: {fileID: 0}
+  collider: {fileID: 0}
   button: {fileID: 0}
   borders: []
   defense: 7
@@ -32873,6 +32939,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   countryName: Belgium
   troopDisplay: {fileID: 0}
+  collider: {fileID: 0}
   button: {fileID: 0}
   borders: []
   defense: 7
@@ -33070,6 +33137,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   countryName: Switzerland
   troopDisplay: {fileID: 0}
+  collider: {fileID: 0}
   button: {fileID: 0}
   borders: []
   defense: 7
@@ -33460,6 +33528,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   countryName: Oman
   troopDisplay: {fileID: 0}
+  collider: {fileID: 0}
   button: {fileID: 0}
   borders: []
   defense: 7
@@ -34464,6 +34533,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   countryName: Iran
   troopDisplay: {fileID: 0}
+  collider: {fileID: 0}
   button: {fileID: 0}
   borders: []
   defense: 7
@@ -35149,6 +35219,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   countryName: Egypt
   troopDisplay: {fileID: 0}
+  collider: {fileID: 0}
   button: {fileID: 0}
   borders: []
   defense: 7
@@ -35808,6 +35879,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   countryName: Guinea
   troopDisplay: {fileID: 0}
+  collider: {fileID: 0}
   button: {fileID: 0}
   borders: []
   defense: 7
@@ -36071,6 +36143,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   countryName: Vietnam
   troopDisplay: {fileID: 0}
+  collider: {fileID: 0}
   button: {fileID: 0}
   borders: []
   defense: 7
@@ -36602,6 +36675,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   countryName: Djibouti
   troopDisplay: {fileID: 0}
+  collider: {fileID: 0}
   button: {fileID: 0}
   borders: []
   defense: 7
@@ -36809,6 +36883,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   countryName: Malawi
   troopDisplay: {fileID: 0}
+  collider: {fileID: 0}
   button: {fileID: 0}
   borders: []
   defense: 7
@@ -36981,13 +37056,6 @@ PolygonCollider2D:
       - {x: -0.24000007, y: 1.0200001}
       - {x: -0.23000008, y: 1.0200001}
       - {x: -0.23000008, y: 1.0100001}
-    - - {x: 0.029999921, y: 1.48}
-      - {x: 0.049999923, y: 1.48}
-      - {x: 0.049999923, y: 1.51}
-      - {x: 0.03999992, y: 1.51}
-      - {x: 0.03999992, y: 1.5200001}
-      - {x: 0.029999921, y: 1.5200001}
-      - {x: 0.029999921, y: 1.48}
   m_UseDelaunayMesh: 0
 --- !u!114 &1094051924
 MonoBehaviour:
@@ -37015,6 +37083,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   countryName: Czech Republic
   troopDisplay: {fileID: 0}
+  collider: {fileID: 0}
   button: {fileID: 0}
   borders: []
   defense: 7
@@ -37276,6 +37345,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   countryName: Slovenia
   troopDisplay: {fileID: 0}
+  collider: {fileID: 0}
   button: {fileID: 0}
   borders: []
   defense: 7
@@ -37727,6 +37797,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   countryName: El Salvador
   troopDisplay: {fileID: 0}
+  collider: {fileID: 0}
   button: {fileID: 0}
   borders: []
   defense: 7
@@ -38264,6 +38335,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   countryName: Algeria
   troopDisplay: {fileID: 0}
+  collider: {fileID: 0}
   button: {fileID: 0}
   borders: []
   defense: 7
@@ -39047,6 +39119,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   countryName: Paraguay
   troopDisplay: {fileID: 0}
+  collider: {fileID: 0}
   button: {fileID: 0}
   borders: []
   defense: 7
@@ -39236,6 +39309,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   countryName: Montenegro
   troopDisplay: {fileID: 0}
+  collider: {fileID: 0}
   button: {fileID: 0}
   borders: []
   defense: 7
@@ -39471,6 +39545,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   countryName: Iraq
   troopDisplay: {fileID: 0}
+  collider: {fileID: 0}
   button: {fileID: 0}
   borders: []
   defense: 7
@@ -39772,6 +39847,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   countryName: Chile
   troopDisplay: {fileID: 0}
+  collider: {fileID: 0}
   button: {fileID: 0}
   borders: []
   defense: 7
@@ -40352,6 +40428,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   countryName: Philippines
   troopDisplay: {fileID: 0}
+  collider: {fileID: 0}
   button: {fileID: 0}
   borders: []
   defense: 7
@@ -40419,6 +40496,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   countryName: Alaska
   troopDisplay: {fileID: 0}
+  collider: {fileID: 0}
   button: {fileID: 0}
   borders: []
   defense: 7
@@ -41158,6 +41236,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   countryName: Colombia
   troopDisplay: {fileID: 0}
+  collider: {fileID: 0}
   button: {fileID: 0}
   borders: []
   defense: 7
@@ -41558,6 +41637,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   countryName: Serbia
   troopDisplay: {fileID: 0}
+  collider: {fileID: 0}
   button: {fileID: 0}
   borders: []
   defense: 7
@@ -42743,6 +42823,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   countryName: Mexico
   troopDisplay: {fileID: 0}
+  collider: {fileID: 0}
   button: {fileID: 0}
   borders: []
   defense: 7
@@ -43127,6 +43208,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   countryName: Kenya
   troopDisplay: {fileID: 0}
+  collider: {fileID: 0}
   button: {fileID: 0}
   borders: []
   defense: 7
@@ -43458,6 +43540,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   countryName: Kuwait
   troopDisplay: {fileID: 0}
+  collider: {fileID: 0}
   button: {fileID: 0}
   borders: []
   defense: 7
@@ -43794,6 +43877,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   countryName: Kosovo
   troopDisplay: {fileID: 0}
+  collider: {fileID: 0}
   button: {fileID: 0}
   borders: []
   defense: 7
@@ -43985,6 +44069,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   countryName: Israel
   troopDisplay: {fileID: 0}
+  collider: {fileID: 0}
   button: {fileID: 0}
   borders: []
   defense: 7
@@ -44204,6 +44289,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   countryName: Spain
   troopDisplay: {fileID: 0}
+  collider: {fileID: 0}
   button: {fileID: 0}
   borders: []
   defense: 7
@@ -44529,6 +44615,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   countryName: Gabon
   troopDisplay: {fileID: 0}
+  collider: {fileID: 0}
   button: {fileID: 0}
   borders: []
   defense: 7
@@ -44977,6 +45064,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   countryName: Australia
   troopDisplay: {fileID: 0}
+  collider: {fileID: 0}
   button: {fileID: 0}
   borders: []
   defense: 7
@@ -45194,6 +45282,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   countryName: Congo
   troopDisplay: {fileID: 0}
+  collider: {fileID: 0}
   button: {fileID: 0}
   borders: []
   defense: 7
@@ -45857,6 +45946,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   countryName: Niger
   troopDisplay: {fileID: 0}
+  collider: {fileID: 0}
   button: {fileID: 0}
   borders: []
   defense: 7
@@ -46326,6 +46416,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   countryName: Eswatini
   troopDisplay: {fileID: 0}
+  collider: {fileID: 0}
   button: {fileID: 0}
   borders: []
   defense: 7
@@ -46529,6 +46620,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   countryName: Romania
   troopDisplay: {fileID: 0}
+  collider: {fileID: 0}
   button: {fileID: 0}
   borders: []
   defense: 7
@@ -46796,6 +46888,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   countryName: Pakistan
   troopDisplay: {fileID: 0}
+  collider: {fileID: 0}
   button: {fileID: 0}
   borders: []
   defense: 7
@@ -47699,6 +47792,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   countryName: Canada
   troopDisplay: {fileID: 0}
+  collider: {fileID: 0}
   button: {fileID: 0}
   borders: []
   defense: 7
@@ -47898,6 +47992,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   countryName: Iceland
   troopDisplay: {fileID: 0}
+  collider: {fileID: 0}
   button: {fileID: 0}
   borders: []
   defense: 7
@@ -49011,6 +49106,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   countryName: Gambia
   troopDisplay: {fileID: 0}
+  collider: {fileID: 0}
   button: {fileID: 0}
   borders: []
   defense: 7
@@ -49885,6 +49981,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   countryName: Zimbabwe
   troopDisplay: {fileID: 0}
+  collider: {fileID: 0}
   button: {fileID: 0}
   borders: []
   defense: 7
@@ -50705,6 +50802,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   countryName: Bosnia Herzegovina
   troopDisplay: {fileID: 0}
+  collider: {fileID: 0}
   button: {fileID: 0}
   borders: []
   defense: 7
@@ -50984,6 +51082,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   countryName: North Macedonia
   troopDisplay: {fileID: 0}
+  collider: {fileID: 0}
   button: {fileID: 0}
   borders: []
   defense: 7
@@ -51344,6 +51443,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   countryName: Suriname
   troopDisplay: {fileID: 0}
+  collider: {fileID: 0}
   button: {fileID: 0}
   borders: []
   defense: 7
@@ -51740,6 +51840,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   countryName: Guatemala
   troopDisplay: {fileID: 0}
+  collider: {fileID: 0}
   button: {fileID: 0}
   borders: []
   defense: 7
@@ -52360,6 +52461,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   countryName: Burkina Faso
   troopDisplay: {fileID: 0}
+  collider: {fileID: 0}
   button: {fileID: 0}
   borders: []
   defense: 7
@@ -53322,6 +53424,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   countryName: Sudan
   troopDisplay: {fileID: 0}
+  collider: {fileID: 0}
   button: {fileID: 0}
   borders: []
   defense: 7
@@ -53669,6 +53772,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   countryName: New Zealand
   troopDisplay: {fileID: 0}
+  collider: {fileID: 0}
   button: {fileID: 0}
   borders: []
   defense: 7
@@ -53870,6 +53974,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   countryName: Ireland
   troopDisplay: {fileID: 0}
+  collider: {fileID: 0}
   button: {fileID: 0}
   borders: []
   defense: 7
@@ -54361,6 +54466,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   countryName: Mongolia
   troopDisplay: {fileID: 0}
+  collider: {fileID: 0}
   button: {fileID: 0}
   borders: []
   defense: 7
@@ -54806,6 +54912,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   countryName: Poland
   troopDisplay: {fileID: 0}
+  collider: {fileID: 0}
   button: {fileID: 0}
   borders: []
   defense: 7
@@ -54995,6 +55102,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   countryName: Belize
   troopDisplay: {fileID: 0}
+  collider: {fileID: 0}
   button: {fileID: 0}
   borders: []
   defense: 7
@@ -55312,6 +55420,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   countryName: Moldova
   troopDisplay: {fileID: 0}
+  collider: {fileID: 0}
   button: {fileID: 0}
   borders: []
   defense: 7
@@ -55541,6 +55650,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   countryName: Slovakia
   troopDisplay: {fileID: 0}
+  collider: {fileID: 0}
   button: {fileID: 0}
   borders: []
   defense: 7
@@ -56423,6 +56533,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   countryName: Indonesia
   troopDisplay: {fileID: 0}
+  collider: {fileID: 0}
   button: {fileID: 0}
   borders: []
   defense: 7
@@ -57231,6 +57342,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   countryName: Netherlands
   troopDisplay: {fileID: 0}
+  collider: {fileID: 0}
   button: {fileID: 0}
   borders: []
   defense: 7
@@ -57512,6 +57624,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   countryName: North Korea
   troopDisplay: {fileID: 0}
+  collider: {fileID: 0}
   button: {fileID: 0}
   borders: []
   defense: 7
@@ -58073,6 +58186,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   countryName: Sweden
   troopDisplay: {fileID: 0}
+  collider: {fileID: 0}
   button: {fileID: 0}
   borders: []
   defense: 7
@@ -58432,6 +58546,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   countryName: Nepal
   troopDisplay: {fileID: 0}
+  collider: {fileID: 0}
   button: {fileID: 0}
   borders: []
   defense: 7
@@ -58777,6 +58892,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   countryName: Northern Ireland
   troopDisplay: {fileID: 0}
+  collider: {fileID: 0}
   button: {fileID: 0}
   borders: []
   defense: 7
@@ -59599,6 +59715,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   countryName: India
   troopDisplay: {fileID: 0}
+  collider: {fileID: 0}
   button: {fileID: 0}
   borders: []
   defense: 7
@@ -59928,6 +60045,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   countryName: Hungary
   troopDisplay: {fileID: 0}
+  collider: {fileID: 0}
   button: {fileID: 0}
   borders: []
   defense: 7
@@ -60384,6 +60502,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   countryName: Haiti
   troopDisplay: {fileID: 0}
+  collider: {fileID: 0}
   button: {fileID: 0}
   borders: []
   defense: 7
@@ -60766,6 +60885,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   countryName: Chad
   troopDisplay: {fileID: 0}
+  collider: {fileID: 0}
   button: {fileID: 0}
   borders: []
   defense: 7
@@ -61098,6 +61218,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   countryName: Morocco
   troopDisplay: {fileID: 0}
+  collider: {fileID: 0}
   button: {fileID: 0}
   borders: []
   defense: 7
@@ -61303,6 +61424,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   countryName: Liberia
   troopDisplay: {fileID: 0}
+  collider: {fileID: 0}
   button: {fileID: 0}
   borders: []
   defense: 7
@@ -61562,6 +61684,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   countryName: Uzbekistan
   troopDisplay: {fileID: 0}
+  collider: {fileID: 0}
   button: {fileID: 0}
   borders: []
   defense: 7
@@ -62057,6 +62180,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   countryName: Tunisia
   troopDisplay: {fileID: 0}
+  collider: {fileID: 0}
   button: {fileID: 0}
   borders: []
   defense: 7
@@ -63349,6 +63473,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   countryName: South Africa
   troopDisplay: {fileID: 0}
+  collider: {fileID: 0}
   button: {fileID: 0}
   borders: []
   defense: 7
@@ -63664,6 +63789,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   countryName: Equatorial Guinea
   troopDisplay: {fileID: 0}
+  collider: {fileID: 0}
   button: {fileID: 0}
   borders: []
   defense: 7
@@ -63875,6 +64001,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   countryName: Ivory Coast
   troopDisplay: {fileID: 0}
+  collider: {fileID: 0}
   button: {fileID: 0}
   borders: []
   defense: 7
@@ -64296,6 +64423,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   countryName: Nicaragua
   troopDisplay: {fileID: 0}
+  collider: {fileID: 0}
   button: {fileID: 0}
   borders: []
   defense: 7
@@ -64553,6 +64681,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   countryName: Mali
   troopDisplay: {fileID: 0}
+  collider: {fileID: 0}
   button: {fileID: 0}
   borders: []
   defense: 7
@@ -64942,6 +65071,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   countryName: Uganda
   troopDisplay: {fileID: 0}
+  collider: {fileID: 0}
   button: {fileID: 0}
   borders: []
   defense: 7
@@ -65139,6 +65269,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   countryName: South Korea
   troopDisplay: {fileID: 0}
+  collider: {fileID: 0}
   button: {fileID: 0}
   borders: []
   defense: 7
@@ -65498,6 +65629,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   countryName: Botswana
   troopDisplay: {fileID: 0}
+  collider: {fileID: 0}
   button: {fileID: 0}
   borders: []
   defense: 7
@@ -65833,6 +65965,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   countryName: Kazakhstan
   troopDisplay: {fileID: 0}
+  collider: {fileID: 0}
   button: {fileID: 0}
   borders: []
   defense: 7
@@ -66022,6 +66155,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   countryName: Guinea-Bissau
   troopDisplay: {fileID: 0}
+  collider: {fileID: 0}
   button: {fileID: 0}
   borders: []
   defense: 7
@@ -66273,6 +66407,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   countryName: Libya
   troopDisplay: {fileID: 0}
+  collider: {fileID: 0}
   button: {fileID: 0}
   borders: []
   defense: 7
@@ -66482,6 +66617,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   countryName: Bangladesh
   troopDisplay: {fileID: 0}
+  collider: {fileID: 0}
   button: {fileID: 0}
   borders: []
   defense: 7
@@ -67016,6 +67152,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   countryName: Argentina
   troopDisplay: {fileID: 0}
+  collider: {fileID: 0}
   button: {fileID: 0}
   borders: []
   defense: 7
@@ -67215,6 +67352,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   countryName: Ghana
   troopDisplay: {fileID: 0}
+  collider: {fileID: 0}
   button: {fileID: 0}
   borders: []
   defense: 7
@@ -67739,6 +67877,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   countryName: Tajikistan
   troopDisplay: {fileID: 0}
+  collider: {fileID: 0}
   button: {fileID: 0}
   borders: []
   defense: 7
@@ -68448,6 +68587,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   countryName: China
   troopDisplay: {fileID: 0}
+  collider: {fileID: 0}
   button: {fileID: 0}
   borders: []
   defense: 7
@@ -68506,7 +68646,7 @@ MonoBehaviour:
     m_Top: 0
     m_Bottom: 0
   m_ChildAlignment: 0
-  m_Spacing: -300
+  m_Spacing: -260
   m_ChildForceExpandWidth: 1
   m_ChildForceExpandHeight: 1
   m_ChildControlWidth: 0
@@ -69015,6 +69155,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   countryName: Turkiye
   troopDisplay: {fileID: 0}
+  collider: {fileID: 0}
   button: {fileID: 0}
   borders: []
   defense: 7
@@ -70040,6 +70181,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   countryName: Estonia
   troopDisplay: {fileID: 0}
+  collider: {fileID: 0}
   button: {fileID: 0}
   borders: []
   defense: 7
@@ -70273,6 +70415,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   countryName: Madagascar
   troopDisplay: {fileID: 0}
+  collider: {fileID: 0}
   button: {fileID: 0}
   borders: []
   defense: 7
@@ -70817,6 +70960,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   countryName: Togo
   troopDisplay: {fileID: 0}
+  collider: {fileID: 0}
   button: {fileID: 0}
   borders: []
   defense: 7
@@ -71427,6 +71571,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   countryName: Lebanon
   troopDisplay: {fileID: 0}
+  collider: {fileID: 0}
   button: {fileID: 0}
   borders: []
   defense: 7
@@ -71993,6 +72138,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   countryName: Denmark
   troopDisplay: {fileID: 0}
+  collider: {fileID: 0}
   button: {fileID: 0}
   borders: []
   defense: 7
@@ -72393,6 +72539,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   countryName: Nigeria
   troopDisplay: {fileID: 0}
+  collider: {fileID: 0}
   button: {fileID: 0}
   borders: []
   defense: 7
@@ -72653,6 +72800,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   countryName: Japan
   troopDisplay: {fileID: 0}
+  collider: {fileID: 0}
   button: {fileID: 0}
   borders: []
   defense: 7
@@ -73068,6 +73216,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   countryName: Brazil
   troopDisplay: {fileID: 0}
+  collider: {fileID: 0}
   button: {fileID: 0}
   borders: []
   defense: 7
@@ -73211,6 +73360,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   countryName: French Guiana
   troopDisplay: {fileID: 0}
+  collider: {fileID: 0}
   button: {fileID: 0}
   borders: []
   defense: 7
@@ -73648,6 +73798,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   countryName: Mozambique
   troopDisplay: {fileID: 0}
+  collider: {fileID: 0}
   button: {fileID: 0}
   borders: []
   defense: 7

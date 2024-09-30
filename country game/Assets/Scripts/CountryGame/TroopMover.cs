@@ -100,10 +100,7 @@ namespace CountryGame
             nationIndex = 0;
             amount = 1;
 
-            if (!TurnManager.Instance.endedTurn)
-            {
-                otherGUIParent.SetActive(true);
-            }
+            otherGUIParent.SetActive(true);
             amountDisplay.SetActive(false);
             moveTroopDisplay.SetActive(false);
         }
@@ -154,7 +151,7 @@ namespace CountryGame
                 }
                 else
                 {
-                    if (info.NumberOfTroops == 1)
+                    if (info.NumberOfTroops == 1 && countryClicked.GetNation() == PlayerNationManager.PlayerNation)
                     {
                         controllable = false;
                     }
@@ -187,6 +184,11 @@ namespace CountryGame
 
         public void SelectedTransferLocation(Country destination)
         {
+            if (destination.GetNation().IsAtWarWith(PlayerNationManager.PlayerNation))
+            {
+                return;
+            }
+            
             target = destination;
             amountDisplay.SetActive(true);
             

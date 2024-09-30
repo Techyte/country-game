@@ -1,4 +1,7 @@
 using System;
+using System.Linq;
+using UnityEditor;
+using UnityEngine;
 
 namespace CountryGame
 {
@@ -11,6 +14,8 @@ namespace CountryGame
         public string countryName; 
         private Nation nation;
         [SerializeField] private TroopDisplay troopDisplay;
+
+        public PolygonCollider2D collider;
 
         [HideInInspector] public CountryButton button;
 
@@ -46,6 +51,8 @@ namespace CountryGame
             {
                 troopDisplay = Instantiate(Resources.Load<TroopDisplay>("TroopDisplay"), transform);
             }
+
+            collider = GetComponent<PolygonCollider2D>();
         }
 
         public void CalculateBorders()
@@ -91,6 +98,32 @@ namespace CountryGame
             }
             
             UpdateTroopDisplay();
+        }
+
+        public bool HasTroopsParticipatingInWar(War war)
+        {
+            foreach (var defender in war.Defenders)
+            {
+                if (troopInfos.Keys.Contains(defender))
+                {
+                    return true;
+                }
+            }
+            
+            foreach (var belligerent in war.Belligerents)
+            {
+                if (troopInfos.Keys.Contains(belligerent))
+                {
+                    return true;
+                }
+            }
+
+            return false;
+        }
+
+        public bool HasTroopsOfController(Nation nation)
+        {
+            return troopInfos.Keys.Contains(nation);
         }
 
         public void UpdateTroopDisplay()
@@ -327,5 +360,19 @@ namespace CountryGame
     {
         public Nation ControllerNation;
         public int NumberOfTroops;
+    }
+    
+    [CustomEditor(typeof(Country))]
+    public class CountryEditor : Editor
+    {
+        // Rendering code for the PixelCollider2D custom inspector
+        public override void OnInspectorGUI()
+        {
+            Country country = (Country)target;
+            if (GUILayout.Button("Reset Troops"))
+            {
+                country.ResetTroops();
+            }
+        }
     }
 }

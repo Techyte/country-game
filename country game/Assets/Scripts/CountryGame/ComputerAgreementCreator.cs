@@ -74,6 +74,7 @@ namespace CountryGame
             else
             {
                 Message rejectedMessage = Message.Create(MessageSendMode.Reliable, GameMessageId.AgreementRejected);
+                rejectedMessage.AddBool(false);
                 rejectedMessage.AddString(requestingAgreement.Name);
                 rejectedMessage.AddString(targetNation.Name);
                 rejectedMessage.AddAgreement(requestedAgreement);
@@ -121,9 +122,16 @@ namespace CountryGame
             }
             
             float distance = agreement.AgreementLeader.DistanceTo(nationSigning);
+            
+            Debug.Log($"Distance between Russia and Belarus {distance}");
 
             switch (distance)
             {
+                case < 1f:
+                    // close
+                    Debug.Log("Close");
+                    requiredPower *= 0.5f;
+                    break;
                 case < 2f:
                     // close
                     Debug.Log("Close");

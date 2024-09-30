@@ -103,6 +103,8 @@ namespace CountryGame
             message.AddStrings(nationsThatSubsumed.ToArray());
             
             NetworkManager.Instance.Server.SendToAll(message, NetworkManager.Instance.Client.Id);
+            
+            CombatManager.Instance.CompleteAttacks();
         }
 
         public void HandleSubsumedNations(List<string> nationsSubsumed, List<string> nationsThatSubsumed)
@@ -534,7 +536,28 @@ namespace CountryGame
 
         public float DistanceTo(Nation nation)
         {
-            return (nation.AvgPos() - AvgPos()).magnitude;
+            Country finalCountry1 = Countries[0];
+            Country finalCountry2 = nation.Countries[0];
+            float smallestDistance = (finalCountry1.collider.bounds.center -
+                                      finalCountry2.collider.bounds.center).magnitude;
+
+            foreach (var country1 in Countries)
+            {
+                foreach (var country2 in nation.Countries)
+                {
+                    float distance = (country1.collider.bounds.center -
+                                      country2.collider.bounds.center).magnitude;
+                    
+                    if (smallestDistance > distance)
+                    {
+                        smallestDistance = distance;
+                        finalCountry1 = country1;
+                        finalCountry2 = country2;
+                    }
+                }
+            }
+
+            return finalCountry1.collider.Distance(finalCountry2.collider).distance;
         }
     }
 

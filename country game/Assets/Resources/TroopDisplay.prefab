@@ -103,6 +103,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   sr: {fileID: 5846721073555861583}
   depth: 0.7
+  maxSize: 0.36
 --- !u!114 &6369609238310286590
 MonoBehaviour:
   m_ObjectHideFlags: 0
