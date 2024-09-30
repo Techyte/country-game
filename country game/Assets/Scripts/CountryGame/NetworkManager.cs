@@ -62,7 +62,8 @@ namespace CountryGame
         [SerializeField] private GameObject greyedOutObj;
         [SerializeField] private Transform multiplayerScreen;
         [SerializeField] private float titleSpeed = 5.625f;
-        [SerializeField] private Transform start, end;
+        [SerializeField] private Vector3 start;
+        [SerializeField] private Transform end;
         [SerializeField] private Transform playerParent;
         [SerializeField] private GameObject playerPrefab;
         [SerializeField] private Notification notificationPrefab;
@@ -89,7 +90,8 @@ namespace CountryGame
             Instance = this;
             
             RiptideLogger.Initialize(Debug.Log, Debug.Log, Debug.LogWarning, Debug.LogError, false);
-            multiplayerScreen.position = start.position;
+
+            start = multiplayerScreen.position;
             
             askPlayerAgreementScreen.SetActive(false);
 
@@ -142,7 +144,7 @@ namespace CountryGame
             }
             else
             {
-                multiplayerScreen.position = Vector3.Lerp(multiplayerScreen.position, start.position, titleSpeed * Time.deltaTime);
+                multiplayerScreen.position = Vector3.Lerp(multiplayerScreen.position, start, titleSpeed * Time.deltaTime);
             }
         }
 

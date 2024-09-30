@@ -17,7 +17,8 @@ namespace CountryGame
         [SerializeField] private Transform agreementTextParent;
         [SerializeField] private GameObject agreementText;
         [SerializeField] private Image flagImage;
-        [SerializeField] private Transform titleStartPos, titleEndPos;
+        [SerializeField] private Vector3 titleStartPos;
+        [SerializeField] private Transform titleEndPos;
         [SerializeField] private Transform agreementMembersParent;
         [SerializeField] private GameObject agreementMemberPrefab;
         [SerializeField] private TextMeshProUGUI agreementName;
@@ -55,8 +56,7 @@ namespace CountryGame
         private void Awake()
         {
             Instance = this;
-            titleCard.position = titleStartPos.position;
-            agreementScreen.position = titleStartPos.position;
+            titleStartPos = titleCard.position;
             declareWarConfirmationScreen.SetActive(false);
             joinWarDisplay.SetActive(false);
             leaveAgreementConfirmation.SetActive(false);
@@ -75,7 +75,7 @@ namespace CountryGame
             }
             else
             {
-                titleCard.position = Vector3.Lerp(titleCard.position, titleStartPos.position, titleSpeed * Time.deltaTime);
+                titleCard.position = Vector3.Lerp(titleCard.position, titleStartPos, titleSpeed * Time.deltaTime);
             }
             
             if (_agreementScreen)
@@ -84,7 +84,7 @@ namespace CountryGame
             }
             else
             {
-                agreementScreen.position = Vector3.Lerp(agreementScreen.position, titleStartPos.position, titleSpeed * Time.deltaTime);
+                agreementScreen.position = Vector3.Lerp(agreementScreen.position, titleStartPos, titleSpeed * Time.deltaTime);
             }
             
             if (_warScreen)
@@ -93,7 +93,7 @@ namespace CountryGame
             }
             else
             {
-                warScreen.position = Vector3.Lerp(warScreen.position, titleStartPos.position, titleSpeed * Time.deltaTime);
+                warScreen.position = Vector3.Lerp(warScreen.position, titleStartPos, titleSpeed * Time.deltaTime);
             }
         }
 
@@ -115,7 +115,7 @@ namespace CountryGame
             _agreementScreen = false;
             _countrySelected = true;
             _warScreen = false;
-            titleCard.position = titleStartPos.position;
+            titleCard.position = titleCard.position;
             titleText.text = nationSelected.Name;
 
             declareWarButton.interactable = CanDeclareWar(PlayerNationManager.PlayerNation, nationSelected);

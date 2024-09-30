@@ -13,7 +13,8 @@ namespace CountryGame
         public static TroopMover Instance;
 
         [SerializeField] private GameObject countryTroopInformationDisplay;
-        [SerializeField] private Transform start, end;
+        [SerializeField] private Vector3 start;
+        [SerializeField] private Transform end;
         [SerializeField] private float speed;
         [SerializeField] private GameObject troopDisplayPrefab;
         [SerializeField] private Transform troopDisplayParent;
@@ -47,7 +48,7 @@ namespace CountryGame
         private void Awake()
         {
             Instance = this;
-            countryTroopInformationDisplay.transform.position = start.position;
+            start = countryTroopInformationDisplay.transform.position;
         }
 
         private void Start()
@@ -70,7 +71,7 @@ namespace CountryGame
             else
             {
                 countryTroopInformationDisplay.transform.position =
-                    Vector3.Lerp(countryTroopInformationDisplay.transform.position, start.position, speed * Time.deltaTime);
+                    Vector3.Lerp(countryTroopInformationDisplay.transform.position, start, speed * Time.deltaTime);
             }
         }
 
@@ -79,7 +80,7 @@ namespace CountryGame
             open = true;
             currentCountry = countryClicked;
             DisplayCountryTroops(countryClicked);
-            countryTroopInformationDisplay.transform.position = start.position;
+            countryTroopInformationDisplay.transform.position = start;
             CountrySelector.Instance.ResetSelected();
             NetworkManager.Instance.ResetSelected();
         }
@@ -88,7 +89,7 @@ namespace CountryGame
         {
             if (transferring)
             {
-                countryTroopInformationDisplay.transform.position = start.position;
+                countryTroopInformationDisplay.transform.position = start;
             }
             
             open = false;
