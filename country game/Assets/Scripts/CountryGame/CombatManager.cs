@@ -153,6 +153,8 @@ namespace CountryGame
             message.AddStrings(countriesThatTookAHelpedAttack.ToArray());
             
             NetworkManager.Instance.Server.SendToAll(message, NetworkManager.Instance.Client.Id);
+            
+            NationManager.Instance.HandleHiringTroops();
         }
 
         public void HandleCombatResults(List<string> countriesTransfered, List<string> countriesThatTookTerritory, List<string> nationsThatTook,
@@ -237,6 +239,8 @@ namespace CountryGame
                 Destroy(attackRef.line.gameObject);
                 attacks.Remove(attackRef);
             }
+            
+            NationManager.Instance.HandleHiringTroops();
         }
 
         private bool AttackSuccessful(Attack attack)
@@ -436,6 +440,9 @@ namespace CountryGame
                 defender.UpdateInfluenceColour();
                 defender.UpdateTroopDisplays();
             }
+
+            nationThatDeclared.DiplomaticPower -= 30;
+            nationToWarWith.DiplomaticPower += 30;
         }
 
         public void NationJoinWarBelligerents(Nation nationToJoinWar, War warToJoin)

@@ -29,6 +29,7 @@ namespace CountryGame
         ChangedTroopDistribution,
         JoinedWar,
         LeaveAgreement,
+        HiredTroops,
     }
     
     public class NetworkManager : MonoBehaviour
@@ -200,8 +201,10 @@ namespace CountryGame
                 GameObject obj = Instantiate(playerPrefab, playerParent);
 
                 obj.GetComponentInChildren<TextMeshProUGUI>().text = SteamFriends.GetFriendPersonaName(player.steamID);
+                // Texture2D texture = GetSteamImageAsTexture(SteamFriends.GetLargeFriendAvatar(player.steamID));
                 obj.GetComponentsInChildren<Image>()[2].sprite = player.ControlledNation.flag;
-                
+                // obj.GetComponentsInChildren<Image>()[1].sprite = Sprite.Create(texture, new Rect(0, 0, texture.width, texture.height), Vector2.zero);
+
                 obj.GetComponent<Button>().onClick.AddListener(() =>
                 {
                     CountrySelector.Instance.Clicked(player.ControlledNation);
@@ -209,6 +212,29 @@ namespace CountryGame
                 
                 playerObjects.Add(obj);
             }
+        }
+        
+        private Texture2D GetSteamImageAsTexture(int iImage)
+        {
+            Texture2D texture = null;
+
+            bool isValid = SteamUtils.GetImageSize(iImage, out uint width, out uint height);
+
+            if (isValid)
+            {
+                byte[] image = new byte[width * height * 4];
+
+                isValid = SteamUtils.GetImageRGBA(iImage, image, (int)(width * height * 4));
+
+                if (isValid)
+                {
+                    texture = new Texture2D((int)width, (int)height, TextureFormat.RGBA32, false, true);
+                    texture.LoadRawTextureData(image);
+                    texture.Apply();
+                }
+            }
+
+            return texture;
         }
 
         public void OpenMultiplayerScreen()
@@ -583,8 +609,25 @@ namespace CountryGame
             War war = CombatManager.Instance.wars[message.GetInt()];
             Nation nation = NationManager.Instance.GetNationByName(message.GetString());
             bool defender = message.GetBool();
+            nation.DiplomaticPower -= 20;
             
             CountrySelector.Instance.JoinWar(war, nation, defender);
+        }
+
+        [MessageHandler((ushort)GameMessageId.HiredTroops, Multiplayer.NetworkManager.PlayerHostedDemoMessageHandlerGroupId)]
+        private static void HiredTroops(ushort fromClientId, Message message)
+        {
+            Instance.Server.SendToAll(message);
+        }
+
+        [MessageHandler((ushort)GameMessageId.HiredTroops, Multiplayer.NetworkManager.PlayerHostedDemoMessageHandlerGroupId)]
+        private static void HiredTroops(Message message)
+        {
+            Country country = NationManager.Instance.GetCountryByName(message.GetString());
+            Nation nation = NationManager.Instance.GetNationByName(message.GetString());
+            int amount = message.GetInt();
+            
+            NationManager.Instance.HireTroops(country, nation, amount);
         }
 
         [MessageHandler((ushort)GameMessageId.SubsumedNations, Multiplayer.NetworkManager.PlayerHostedDemoMessageHandlerGroupId)]

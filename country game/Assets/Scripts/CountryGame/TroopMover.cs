@@ -22,10 +22,15 @@ namespace CountryGame
         [SerializeField] private TextMeshProUGUI controllerName;
         [SerializeField] private Image controllerFlag;
         [SerializeField] private GameObject moveTroopDisplay;
+        [SerializeField] private GameObject hireTroopScreen;
+        [SerializeField] private TextMeshProUGUI hireTroopActionPointText;
+        [SerializeField] private TextMeshProUGUI hireAmountText;
         [SerializeField] private GameObject otherGUIParent;
         [SerializeField] private GameObject amountDisplay;
         [SerializeField] private TextMeshProUGUI amountDisplayText;
         [SerializeField] private Button launchAttackButton;
+        [SerializeField] private Button hireTroopsButton;
+        [SerializeField] private Slider hireTroopSlider;
 
         [SerializeField] private Image sourceNationFlag;
         [SerializeField] private TextMeshProUGUI sourceNationName;
@@ -54,6 +59,7 @@ namespace CountryGame
         private void Start()
         {
             moveTroopDisplay.SetActive(false);
+            hireTroopScreen.SetActive(false);
         }
 
         private void Update()
@@ -73,6 +79,9 @@ namespace CountryGame
                 countryTroopInformationDisplay.transform.position =
                     Vector3.Lerp(countryTroopInformationDisplay.transform.position, start, speed * Time.deltaTime);
             }
+
+            hireTroopActionPointText.text = $"-{hireTroopSlider.value} Action Points";
+            hireAmountText.text = hireTroopSlider.value.ToString();
         }
 
         public void Clicked(Country countryClicked)
@@ -105,6 +114,7 @@ namespace CountryGame
             otherGUIParent.SetActive(true);
             amountDisplay.SetActive(false);
             moveTroopDisplay.SetActive(false);
+            hireTroopScreen.SetActive(false);
         }
 
         private List<GameObject> troopDisplays = new List<GameObject>();
@@ -176,6 +186,8 @@ namespace CountryGame
             
             launchAttackButton.interactable =
                 PlayerNationManager.PlayerNation.MilitaryAccessWith(currentCountry.GetNation());
+            hireTroopsButton.interactable =
+                PlayerNationManager.PlayerNation.MilitaryAccessWith(currentCountry.GetNation());
         }
 
         public void StartTransferringTroops(int index)
@@ -185,6 +197,28 @@ namespace CountryGame
             moveTroopDisplay.SetActive(true);
             otherGUIParent.SetActive(false);
             transferring = true;
+        }
+
+        public void StartHiringTroops()
+        {
+            hireTroopScreen.SetActive(true);
+        }
+
+        public void StopHiringTroops()
+        {
+            hireTroopScreen.SetActive(false);
+        }
+        
+        public void ConfirmHiringTroops()
+        {
+            hireTroopScreen.SetActive(false);
+
+            Message message = Message.Create(MessageSendMode.Reliable, GameMessageId.HiredTroops);
+            message.AddString(currentCountry.countryName);
+            message.AddString(currentCountry.GetNation().Name);
+            message.AddInt((int)hireTroopSlider.value);
+
+            NetworkManager.Instance.Client.Send(message);
         }
 
         public void SelectedTransferLocation(Country destination)

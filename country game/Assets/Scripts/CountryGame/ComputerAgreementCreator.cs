@@ -18,7 +18,7 @@ namespace CountryGame
 
         // the time it will take ai controller nations to decide weather to accept your agreement
         [SerializeField] private float decisionTime = 1f;
-        public int startingAgreementPowerRequirement = 5;
+        public int startingAgreementPowerRequirement = 30;
 
         public void PlayerAskedToJoinAgreement(Nation requestingNation, Nation targetNation, Agreement requestedAgreement, bool preexisting)
         {
@@ -141,23 +141,18 @@ namespace CountryGame
 
             switch (distance)
             {
-                case < 1f:
-                    // close
-                    Debug.Log("Close");
-                    requiredPower *= 0.5f;
-                    break;
                 case < 2f:
                     // close
                     Debug.Log("Close");
-                    requiredPower *= 0.75f;
+                    requiredPower *= 1f;
                     break;
                 case < 3.3f:
                     Debug.Log("Medium");
-                    requiredPower *= 1f;
+                    requiredPower *= 1.5f;
                     break;
                 case >= 2.5f:
                     Debug.Log("Far");
-                    requiredPower *= 2f;
+                    requiredPower *= 2.5f;
                     break;
             }
 

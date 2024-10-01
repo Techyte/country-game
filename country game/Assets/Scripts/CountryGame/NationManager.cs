@@ -15,6 +15,7 @@ namespace CountryGame
         public List<Country> counties = new List<Country>();
         public List<Nation> nations = new List<Nation>();
         public List<Agreement> agreements = new List<Agreement>();
+        public List<TroopHiringInfo> hiringInfos = new List<TroopHiringInfo>();
 
         [SerializeField] private Notification notificationPrefab;
         [SerializeField] private Transform notificationParent;
@@ -127,6 +128,35 @@ namespace CountryGame
         public void NewAgreement(Agreement agreementToAdd)
         {
             agreements.Add(agreementToAdd);
+        }
+        
+        public void HireTroops(Country country, Nation nation, int amount)
+        {
+            TroopHiringInfo info = new TroopHiringInfo();
+            info.country = country;
+            info.OriginalNation = nation;
+            info.Amount = amount;
+            info.turnCreated = TurnManager.Instance.currentTurn;
+            
+            hiringInfos.Add(info);
+        }
+
+        public void HandleHiringTroops()
+        {
+            List<TroopHiringInfo> infos = hiringInfos.ToList();
+            
+            foreach (var info in infos)
+            {
+                if (TurnManager.Instance.currentTurn - info.turnCreated >= 1)
+                {
+                    if (info.country.GetNation() == info.OriginalNation)
+                    {
+                        info.country.MovedTroopsIn(info.OriginalNation, info.Amount);
+                    }
+
+                    hiringInfos.Remove(info);
+                }
+            }
         }
 
         public Nation GetNationByName(string nationName)
@@ -559,5 +589,13 @@ namespace CountryGame
 
             return queue;
         }
+    }
+
+    public class TroopHiringInfo
+    {
+        public Country country;
+        public Nation OriginalNation;
+        public int Amount;
+        public int turnCreated;
     }
 }
