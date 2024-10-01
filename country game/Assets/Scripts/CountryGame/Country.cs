@@ -16,12 +16,15 @@ namespace CountryGame
         [SerializeField] private TroopDisplay troopDisplay;
 
         public PolygonCollider2D collider;
+        public Transform center;
 
         [HideInInspector] public CountryButton button;
 
         public List<Country> borders = new List<Country>();
 
         public Dictionary<Nation, TroopInformation> troopInfos = new Dictionary<Nation, TroopInformation>();
+
+        public int troopCapacity;
 
         public int defense;
         public int attack;
@@ -36,6 +39,11 @@ namespace CountryGame
             if (attack == 0)
             {
                 attack = 7;
+            }
+
+            if (troopCapacity == 0)
+            {
+                troopCapacity = 15;
             }
         }
 
@@ -86,13 +94,27 @@ namespace CountryGame
         {
             if (troopInfos.TryGetValue(source, out TroopInformation info))
             {
-                info.NumberOfTroops += numberOfTroops;
+                if (TotalTroopCount() + numberOfTroops > troopCapacity)
+                {
+                    info.NumberOfTroops += troopCapacity - TotalTroopCount();
+                }
+                else
+                {
+                    info.NumberOfTroops += numberOfTroops;
+                }
             }
             else
             {
                 TroopInformation newInfo = new TroopInformation();
                 newInfo.ControllerNation = source;
-                newInfo.NumberOfTroops = numberOfTroops;
+                if (TotalTroopCount() + numberOfTroops > troopCapacity)
+                {
+                    newInfo.NumberOfTroops = troopCapacity - TotalTroopCount();
+                }
+                else
+                {
+                    newInfo.NumberOfTroops = numberOfTroops;
+                }
                 
                 troopInfos.Add(source, newInfo);
             }
@@ -133,7 +155,8 @@ namespace CountryGame
                 troopDisplay.UpdateDisplay(this,
                     nation.MilitaryAccessWith(PlayerNationManager.PlayerNation) ||
                     nation == PlayerNationManager.PlayerNation ||
-                    PlayerNationManager.PlayerNation.Attacking(this));
+                    PlayerNationManager.PlayerNation.Attacking(this) ||
+                    PlayerNationManager.PlayerNation.Defending(nation));
             }
         }
 
@@ -165,6 +188,16 @@ namespace CountryGame
             {
                 return false;
             }
+        }
+
+        public bool CanMoveNumTroopsIn(Nation controller, int amount)
+        {
+            if (TotalTroopCount() + amount > troopCapacity)
+            {
+                return false;
+            }
+
+            return true;
         }
 
         public int TroopsOfController(Nation controller)

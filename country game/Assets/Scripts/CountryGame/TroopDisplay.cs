@@ -23,7 +23,7 @@ namespace CountryGame
             numberDisplay.text = country.TotalTroopCount().ToString();
             display.SetActive(visible);
 
-            Vector3 pos = country.GetComponent<PolygonCollider2D>().bounds.center;
+            Vector3 pos = country.center.position;
             pos.z = -0.001f;
 
             transform.position = pos;

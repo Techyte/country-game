@@ -31,6 +31,7 @@ namespace CountryGame
         [SerializeField] private Button launchAttackButton;
         [SerializeField] private Button hireTroopsButton;
         [SerializeField] private Slider hireTroopSlider;
+        [SerializeField] private TextMeshProUGUI totalText;
 
         [SerializeField] private Image sourceNationFlag;
         [SerializeField] private TextMeshProUGUI sourceNationName;
@@ -161,13 +162,6 @@ namespace CountryGame
                         }
                     }
                 }
-                else
-                {
-                    if (info.NumberOfTroops == 1 && countryClicked.GetNation() == PlayerNationManager.PlayerNation)
-                    {
-                        controllable = false;
-                    }
-                }
                 
                 troopDisplayButton.interactable = controllable;
 
@@ -188,6 +182,8 @@ namespace CountryGame
                 PlayerNationManager.PlayerNation.MilitaryAccessWith(currentCountry.GetNation());
             hireTroopsButton.interactable =
                 PlayerNationManager.PlayerNation.MilitaryAccessWith(currentCountry.GetNation());
+
+            totalText.text = $"Total: {currentCountry.TotalTroopCount().ToString()}/{currentCountry.troopCapacity}";
         }
 
         public void StartTransferringTroops(int index)
@@ -211,6 +207,21 @@ namespace CountryGame
         
         public void ConfirmHiringTroops()
         {
+            if (!currentCountry.CanMoveNumTroopsIn(currentCountry.GetNation(), (int)hireTroopSlider.value))
+            {
+                return;
+            }
+
+            if (TurnManager.Instance.actionPoints - (int)hireTroopSlider.value < 0)
+            {
+                return;
+            }
+            
+            for (int i = 0; i < amount; i++)
+            {
+                TurnManager.Instance.PerformedAction();
+            }
+            
             hireTroopScreen.SetActive(false);
 
             Message message = Message.Create(MessageSendMode.Reliable, GameMessageId.HiredTroops);
@@ -258,7 +269,7 @@ namespace CountryGame
 
         public void TransferTroops()
         {
-            if (!source.CanMoveNumTroopsOut(controllers[nationIndex], amount) || !TurnManager.Instance.CanPerformAction())
+            if (!source.CanMoveNumTroopsOut(controllers[nationIndex], amount) || !target.CanMoveNumTroopsIn(controllers[nationIndex], amount) || !TurnManager.Instance.CanPerformAction())
             {
                 return;
             }

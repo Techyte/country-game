@@ -114,7 +114,7 @@ namespace CountryGame
             
             Server.ClientConnected += (sender, args) =>
             {
-                if (Server.ClientCount == 1)
+                if (Server.ClientCount == 2)
                 {
                     BeginSetup();
                 }
@@ -258,7 +258,7 @@ namespace CountryGame
             ushort riptideId = message.GetUShort();
             
             // string nation = SteamMatchmaking.GetLobbyMemberData(LobbyData.LobbyId, id, "nation");
-            string nation = riptideId == 1 ? "Germany" : "Poland";
+            string nation = riptideId == 1 ? "Indonesia" : "New Zealand";
 
             Nation newPlayerNation = NationManager.Instance.GetNationByName(nation);
             newPlayerNation.aPlayerNation = true;
@@ -563,6 +563,7 @@ namespace CountryGame
         private static void NewTurn(Message message)
         {
             TurnManager.Instance.ProgressTurnClient();
+            NationManager.Instance.HandleHiringTroops();
         }
 
         [MessageHandler((ushort)GameMessageId.ChangedTroopDistribution, Multiplayer.NetworkManager.PlayerHostedDemoMessageHandlerGroupId)]
@@ -609,7 +610,7 @@ namespace CountryGame
             War war = CombatManager.Instance.wars[message.GetInt()];
             Nation nation = NationManager.Instance.GetNationByName(message.GetString());
             bool defender = message.GetBool();
-            nation.DiplomaticPower -= 20;
+            nation.DiplomaticPower -= 10;
             
             CountrySelector.Instance.JoinWar(war, nation, defender);
         }
@@ -641,7 +642,8 @@ namespace CountryGame
         {
             CombatManager.Instance.HandleCombatResults(message.GetStrings().ToList(), message.GetStrings().ToList(),
                 message.GetStrings().ToList(), message.GetStrings().ToList(), message.GetStrings().ToList(),
-                message.GetStrings().ToList(), message.GetStrings().ToList());
+                message.GetStrings().ToList(), message.GetStrings().ToList(), message.GetStrings().ToList(),
+                message.GetStrings().ToList());
         }
     }
     

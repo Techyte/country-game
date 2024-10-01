@@ -86,8 +86,6 @@ namespace CountryGame
             message.AddStrings(nationsThatSubsumed.ToArray());
             
             NetworkManager.Instance.Server.SendToAll(message, NetworkManager.Instance.Client.Id);
-            
-            CombatManager.Instance.CompleteAttacks();
         }
 
         public void HandleSubsumedNations(List<string> nationsSubsumed, List<string> nationsThatSubsumed)
@@ -149,7 +147,7 @@ namespace CountryGame
             {
                 if (TurnManager.Instance.currentTurn - info.turnCreated >= 1)
                 {
-                    if (info.country.GetNation() == info.OriginalNation)
+                    if (info.country.GetNation() == info.OriginalNation && info.country.CanMoveNumTroopsIn(info.OriginalNation, info.Amount))
                     {
                         info.country.MovedTroopsIn(info.OriginalNation, info.Amount);
                     }
@@ -372,6 +370,11 @@ namespace CountryGame
                 }
             }
 
+            if (InvolvedInWarWith(nationToTest))
+            {
+                return true;
+            }
+
             return false;
         }
 
@@ -395,6 +398,22 @@ namespace CountryGame
                 foreach (var attack in CombatManager.Instance.attacks)
                 {
                     if (attack.Source == ourCountry && attack.Target == country)
+                    {
+                        return true;
+                    }
+                }
+            }
+
+            return false;
+        }
+
+        public bool Defending(Nation nation)
+        {
+            foreach (var ourCountry in Countries)
+            {
+                foreach (var attack in CombatManager.Instance.attacks)
+                {
+                    if (attack.Source.GetNation() == nation && attack.Target.GetNation() == this)
                     {
                         return true;
                     }
@@ -551,28 +570,22 @@ namespace CountryGame
 
         public float DistanceTo(Nation nation)
         {
-            Country finalCountry1 = Countries[0];
-            Country finalCountry2 = nation.Countries[0];
-            float smallestDistance = (finalCountry1.collider.bounds.center -
-                                      finalCountry2.collider.bounds.center).magnitude;
+            float smallestDistance = 100000;
 
             foreach (var country1 in Countries)
             {
                 foreach (var country2 in nation.Countries)
                 {
-                    float distance = (country1.collider.bounds.center -
-                                      country2.collider.bounds.center).magnitude;
+                    float distance = country1.GetComponent<PolygonCollider2D>().Distance(country2.collider).distance;
                     
                     if (smallestDistance > distance)
                     {
                         smallestDistance = distance;
-                        finalCountry1 = country1;
-                        finalCountry2 = country2;
                     }
                 }
             }
 
-            return finalCountry1.collider.Distance(finalCountry2.collider).distance;
+            return smallestDistance;
         }
     }
 

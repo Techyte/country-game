@@ -43,6 +43,12 @@ namespace CountryGame
         public void CompleteAttacks()
         {
             List<Attack> currentAttacks = attacks.ToList();
+            
+            foreach (var attack in currentAttacks)
+            {
+                attack.calculatedAttack = CalculateAttackAttack(attack);
+                attack.calculatedDefense = CalculateAttackDefense(attack);
+            }
 
             foreach (var attack in currentAttacks)
             {
@@ -56,6 +62,8 @@ namespace CountryGame
             List<string> countriesThatRepelledAttack = new List<string>();
             List<string> countriesThatHelpedAttack = new List<string>();
             List<string> countriesThatTookAHelpedAttack = new List<string>();
+            List<string> sourceDisabledAttack = new List<string>();
+            List<string> targetDisabledAttack = new List<string>();
 
             foreach (var attack in currentAttacks)
             {
@@ -63,6 +71,18 @@ namespace CountryGame
                 {
                     Destroy(attack.line.gameObject);
                     attacks.Remove(attack);
+                    
+                    sourceDisabledAttack.Add(attack.Source.countryName);
+                    targetDisabledAttack.Add(attack.Target.countryName);
+                }
+
+                if (attack.someoneElseHadMoreAttack)
+                {
+                    Destroy(attack.line.gameObject);
+                    attacks.Remove(attack);
+                    sourceDisabledAttack.Add(attack.Source.countryName);
+                    targetDisabledAttack.Add(attack.Target.countryName);
+                    continue;
                 }
                 
                 if (attack.success && !attack.war.over)
@@ -76,8 +96,14 @@ namespace CountryGame
                     
                     // move the troops to the new territory
 
-                    attack.Target.MovedTroopsIn(nationToTakeTerritory, attack.Target.TroopsOfController(attack.Target.GetNation()));
-                    attack.Target.troopInfos.Remove(attack.Target.GetNation());
+                    foreach (var info in attack.Target.troopInfos.Values.ToList())
+                    {
+                        if (!nationToTakeTerritory.MilitaryAccessWith(info.ControllerNation))
+                        {
+                            attack.Target.MovedTroopsIn(nationToTakeTerritory, info.NumberOfTroops);
+                            attack.Target.troopInfos.Remove(info.ControllerNation);
+                        }
+                    }
 
                     // nullify attacks from the territory we just took
                     foreach (var otherAttack in attacks)
@@ -151,15 +177,15 @@ namespace CountryGame
             message.AddStrings(countriesThatRepelledAttack.ToArray());
             message.AddStrings(countriesThatHelpedAttack.ToArray());
             message.AddStrings(countriesThatTookAHelpedAttack.ToArray());
+            message.AddStrings(sourceDisabledAttack.ToArray());
+            message.AddStrings(targetDisabledAttack.ToArray());
             
             NetworkManager.Instance.Server.SendToAll(message, NetworkManager.Instance.Client.Id);
-            
-            NationManager.Instance.HandleHiringTroops();
         }
 
         public void HandleCombatResults(List<string> countriesTransfered, List<string> countriesThatTookTerritory, List<string> nationsThatTook,
             List<string> countriesThatFailedAttack, List<string> countriesThatRepelledAttack, List<string> countriesThatHelpedAttack,
-            List<string> countriesThatTookAHelpedAttack)
+            List<string> countriesThatTookAHelpedAttack, List<string> sourceDisabledAttack, List<string> targetDisabledAttack)
         {
             for (int i = 0; i < countriesThatFailedAttack.Count; i++)
             {
@@ -179,6 +205,19 @@ namespace CountryGame
 
                 Destroy(attackRef.line.gameObject);
                 attacks.Remove(attackRef);
+            }
+
+            for (int i = 0; i < sourceDisabledAttack.Count; i++)
+            {
+                foreach (var attack in attacks.ToList())
+                {
+                    if (attack.Source == NationManager.Instance.GetCountryByName(sourceDisabledAttack[i]) && 
+                        attack.Target == NationManager.Instance.GetCountryByName(targetDisabledAttack[i]))
+                    {
+                        Destroy(attack.line);
+                        attacks.Remove(attack);
+                    }
+                }
             }
             
             for (int i = 0; i < countriesThatHelpedAttack.Count; i++)
@@ -239,25 +278,20 @@ namespace CountryGame
                 Destroy(attackRef.line.gameObject);
                 attacks.Remove(attackRef);
             }
-            
-            NationManager.Instance.HandleHiringTroops();
         }
+        
+        float infantryAttack = 0.4f;
+        float infantryDefense = 1f;
+            
+        float tanksAttack = 1.1f;
+        float tanksDefense = 0.7f;
+            
+        float marinesAttack = 0.4f;
+        float marinesDefense = 0.5f;
 
-        private bool AttackSuccessful(Attack attack)
+        private float CalculateAttackAttack(Attack attack)
         {
-            float infantryAttack = 0.5f;
-            float infantryDefense = 0.7f;
-            float tanksAttack = 0.2f;
-            float tanksDefense = 1.2f;
-            float marinesAttack = 0.4f;
-            float marinesDefense = 0.5f;
-
-            float originalAttack = attack.Source.attack;
-            float originalDefense = attack.Target.defense;
-
-            float sourceAttack = attack.Source.attack;
-
-            float targetDefense = attack.Target.defense;
+            float finalAttack = attack.Source.attack;
             
             foreach (var troopInfo in attack.Source.troopInfos.Values)
             {
@@ -270,12 +304,46 @@ namespace CountryGame
                 float tanksTroops = troopInfo.NumberOfTroops * troopInfo.ControllerNation.tanks;
                 float marinesTroops = troopInfo.NumberOfTroops * troopInfo.ControllerNation.marines;
 
-                sourceAttack += infantryAttack * infantryTroops;
+                finalAttack += infantryAttack * infantryTroops;
                 
-                sourceAttack += tanksAttack * tanksTroops;
+                finalAttack += tanksAttack * tanksTroops;
                 
-                sourceAttack += marinesAttack * marinesTroops;
+                finalAttack += marinesAttack * marinesTroops;
             }
+            
+            float totalDefendingForce = 0;
+            float totalAttackingForce = 0;
+            
+            foreach (var otherAttack in attacks)
+            {
+                if (otherAttack.Target == attack.Target)
+                {
+                    totalAttackingForce += otherAttack.Source.GetParticipatingTroops(attack.war);
+                }
+
+                if (otherAttack.Source == attack.Source)
+                {
+                    totalDefendingForce += otherAttack.Target.GetParticipatingTroops(attack.war);
+                }
+            }
+
+            if (totalAttackingForce <= 0)
+            {
+                // defenders will always win
+                return 0;
+            }
+            
+            // calculate how much of the defense is being used to counter this attack
+
+            float attackScaler = attack.Target.GetParticipatingTroops(attack.war) / totalDefendingForce; // amount of attacking force that is being allocated to this attack
+            
+            // calculate how much of the attack is being used to push this attack
+            
+            return finalAttack * attackScaler;
+        }
+        private float CalculateAttackDefense(Attack attack)
+        {
+            float finalDefense = attack.Target.defense;
             
             foreach (var troopInfo in attack.Target.troopInfos.Values)
             {
@@ -288,15 +356,12 @@ namespace CountryGame
                 float tanksTroops = troopInfo.NumberOfTroops * troopInfo.ControllerNation.tanks;
                 float marinesTroops = troopInfo.NumberOfTroops * troopInfo.ControllerNation.marines;
 
-                targetDefense += infantryDefense * infantryTroops;
+                finalDefense += infantryDefense * infantryTroops;
                 
-                targetDefense += tanksDefense * tanksTroops;
+                finalDefense += tanksDefense * tanksTroops;
                 
-                targetDefense += marinesDefense * marinesTroops;
+                finalDefense += marinesDefense * marinesTroops;
             }
-
-            List<Attack> attacksOnTarget = new List<Attack>();
-            List<Attack> attacksFromSource = new List<Attack>();
 
             float totalAttackingForce = 0;
             float totalDefendingForce = 0;
@@ -305,13 +370,11 @@ namespace CountryGame
             {
                 if (otherAttack.Target == attack.Target)
                 {
-                    attacksOnTarget.Add(otherAttack);
                     totalAttackingForce += otherAttack.Source.GetParticipatingTroops(attack.war);
                 }
 
                 if (otherAttack.Source == attack.Source)
                 {
-                    attacksFromSource.Add(attack);
                     totalDefendingForce += otherAttack.Target.GetParticipatingTroops(attack.war);
                 }
             }
@@ -319,23 +382,43 @@ namespace CountryGame
             if (totalDefendingForce <= 0)
             {
                 // attackers will always win
-                return true;
-            }
-
-            if (totalAttackingForce <= 0)
-            {
-                // defenders will always win
-                return false;
+                return 0;
             }
             
             // calculate how much of the defense is being used to counter this attack
 
-            float attackScaler = attack.Target.GetParticipatingTroops(attack.war) / totalDefendingForce; // amount of attacking force that is being allocated to this attack
             float defenseScaler = attack.Source.GetParticipatingTroops(attack.war) / totalAttackingForce; // amount of defending force that is being allocated to this attack
             
             // calculate how much of the attack is being used to push this attack
             
-            return sourceAttack * attackScaler > targetDefense * defenseScaler;
+            return finalDefense * defenseScaler;
+        }
+
+        private bool AttackSuccessful(Attack attack)
+        {
+            foreach (var otherAttack in attacks)
+            {
+                if (attack != otherAttack)
+                {
+                    Debug.Log("attack is not us");
+                    if (attack.Target == otherAttack.Target)
+                    {
+                        Debug.Log("attacking the same place as us");
+                        if (attack.calculatedAttack > otherAttack.calculatedAttack)
+                        {
+                            Debug.Log("we have more attack");
+                            otherAttack.someoneElseHadMoreAttack = true;
+                        }
+                        else
+                        {
+                            Debug.Log("they have more attack");
+                            attack.someoneElseHadMoreAttack = true;
+                        }
+                    }
+                }
+            }
+
+            return attack.calculatedAttack > attack.calculatedDefense;
         }
 
         public void DeclareWarOn(Nation nationToWarWith)
@@ -359,7 +442,30 @@ namespace CountryGame
         {
             foreach (var attack in attacks)
             {
-                attack.line.enabled = PlayerNationManager.PlayerNation.Attacking(attack.Target);
+                bool canSee = PlayerNationManager.PlayerNation.Attacking(attack.Target) ||
+                              PlayerNationManager.PlayerNation.MilitaryAccessWith(attack.Source.GetNation()) ||
+                              PlayerNationManager.PlayerNation == attack.Target.GetNation();
+                
+                attack.line.enabled = canSee;
+
+                if (canSee)
+                {
+                    if (attack.Target.GetNation() != PlayerNationManager.PlayerNation)
+                    {
+                        attack.line.startColor = Color.black;
+                        attack.line.endColor = Color.black;
+                    }
+                    else
+                    {
+                        attack.line.startColor = Color.red;
+                        attack.line.endColor = Color.red;
+                    }
+                }
+                else
+                {
+                    attack.line.startColor = Color.black;
+                    attack.line.endColor = Color.black;
+                }
             }
         }
 
@@ -441,8 +547,8 @@ namespace CountryGame
                 defender.UpdateTroopDisplays();
             }
 
-            nationThatDeclared.DiplomaticPower -= 30;
-            nationToWarWith.DiplomaticPower += 30;
+            nationThatDeclared.DiplomaticPower -= 15;
+            nationToWarWith.DiplomaticPower += 15;
         }
 
         public void NationJoinWarBelligerents(Nation nationToJoinWar, War warToJoin)
@@ -614,8 +720,8 @@ namespace CountryGame
             LineRenderer line = new GameObject("Line renderer").AddComponent<LineRenderer>();
             line.transform.parent = attackLinesParent;
 
-            Vector3 sourcePos = source.GetComponent<PolygonCollider2D>().bounds.center;
-            Vector3 targetPos = target.GetComponent<PolygonCollider2D>().bounds.center;
+            Vector3 sourcePos = source.center.position;
+            Vector3 targetPos = target.center.position;
 
             line.SetPosition(0, sourcePos);
             line.SetPosition(1, targetPos);
@@ -752,5 +858,10 @@ namespace CountryGame
         public bool success;
 
         public bool disabled = false;
+
+        public float calculatedAttack;
+        public float calculatedDefense;
+
+        public bool someoneElseHadMoreAttack;
     }
 }
