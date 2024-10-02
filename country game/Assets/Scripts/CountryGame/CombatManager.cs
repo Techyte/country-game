@@ -1,8 +1,6 @@
-using System;
 using System.Collections.Generic;
 using System.Linq;
 using Riptide;
-using TMPro;
 
 namespace CountryGame
 {
@@ -74,6 +72,9 @@ namespace CountryGame
                     
                     sourceDisabledAttack.Add(attack.Source.countryName);
                     targetDisabledAttack.Add(attack.Target.countryName);
+                    
+                    attack.Source.GetNation().UpdateTroopDisplays();
+                    attack.Target.GetNation().UpdateTroopDisplays();
                 }
 
                 if (attack.someoneElseHadMoreAttack)
@@ -82,6 +83,10 @@ namespace CountryGame
                     attacks.Remove(attack);
                     sourceDisabledAttack.Add(attack.Source.countryName);
                     targetDisabledAttack.Add(attack.Target.countryName);
+                    
+                    attack.Source.GetNation().UpdateTroopDisplays();
+                    attack.Target.GetNation().UpdateTroopDisplays();
+                    
                     continue;
                 }
                 
@@ -122,6 +127,9 @@ namespace CountryGame
 
                     Destroy(attack.line.gameObject);
                     attacks.Remove(attack);
+                    
+                    attack.Source.GetNation().UpdateTroopDisplays();
+                    attack.Target.GetNation().UpdateTroopDisplays();
                 }
                 else if (attack.war.over && attack.success)
                 {
@@ -149,6 +157,9 @@ namespace CountryGame
                     
                     Destroy(attack.line.gameObject);
                     attacks.Remove(attack);
+                    
+                    attack.Source.GetNation().UpdateTroopDisplays();
+                    attack.Target.GetNation().UpdateTroopDisplays();
                 }
                 else
                 {
@@ -166,6 +177,9 @@ namespace CountryGame
                     
                     Destroy(attack.line.gameObject);
                     attacks.Remove(attack);
+                    
+                    attack.Source.GetNation().UpdateTroopDisplays();
+                    attack.Target.GetNation().UpdateTroopDisplays();
                 }
             }
 
@@ -205,6 +219,9 @@ namespace CountryGame
 
                 Destroy(attackRef.line.gameObject);
                 attacks.Remove(attackRef);
+                
+                attackRef.Source.GetNation().UpdateTroopDisplays();
+                attackRef.Target.GetNation().UpdateTroopDisplays();
             }
 
             for (int i = 0; i < sourceDisabledAttack.Count; i++)
@@ -217,6 +234,8 @@ namespace CountryGame
                         Destroy(attack.line);
                         attacks.Remove(attack);
                     }
+                    attack.Source.GetNation().UpdateTroopDisplays();
+                    attack.Target.GetNation().UpdateTroopDisplays();
                 }
             }
             
@@ -237,6 +256,9 @@ namespace CountryGame
 
                 Destroy(attackRef.line.gameObject);
                 attacks.Remove(attackRef);
+                
+                attackRef.Source.GetNation().UpdateTroopDisplays();
+                attackRef.Target.GetNation().UpdateTroopDisplays();
             }
 
             for (int i = 0; i < countriesTransfered.Count; i++)
@@ -263,8 +285,6 @@ namespace CountryGame
                 
                 nationsThatTook.Add(nationToTakeTerritory.Name);
 
-                NationManager.Instance.SwapCountriesNation(countryTaken, nationToTakeTerritory, false);
-
                 Attack attackRef = null;
 
                 foreach (var attack in attacks)
@@ -277,6 +297,11 @@ namespace CountryGame
                 
                 Destroy(attackRef.line.gameObject);
                 attacks.Remove(attackRef);
+                
+                NationManager.Instance.SwapCountriesNation(countryTaken, nationToTakeTerritory, false);
+                
+                attackRef.Source.GetNation().UpdateTroopDisplays();
+                attackRef.Target.GetNation().UpdateTroopDisplays();
             }
         }
         
@@ -444,13 +469,15 @@ namespace CountryGame
             {
                 bool canSee = PlayerNationManager.PlayerNation.Attacking(attack.Target) ||
                               PlayerNationManager.PlayerNation.MilitaryAccessWith(attack.Source.GetNation()) ||
-                              PlayerNationManager.PlayerNation == attack.Target.GetNation();
+                              PlayerNationManager.PlayerNation == attack.Target.GetNation() ||
+                              PlayerNationManager.PlayerNation.MilitaryAccessWith(attack.Target.GetNation());
                 
                 attack.line.enabled = canSee;
 
                 if (canSee)
                 {
-                    if (attack.Target.GetNation() != PlayerNationManager.PlayerNation)
+                    if (attack.Target.GetNation() != PlayerNationManager.PlayerNation && 
+                        !PlayerNationManager.PlayerNation.MilitaryAccessWith(attack.Target.GetNation()))
                     {
                         attack.line.startColor = Color.black;
                         attack.line.endColor = Color.black;
