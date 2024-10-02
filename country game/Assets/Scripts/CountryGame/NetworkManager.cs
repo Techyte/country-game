@@ -56,10 +56,10 @@ namespace CountryGame
 
         private static NetworkManager _instance;
 
-        // public Server Server => Multiplayer.NetworkManager.Instance.Server;
-        // public Client Client => Multiplayer.NetworkManager.Instance.Client;
-        public Server Server;
-        public Client Client;
+        public Server Server => Multiplayer.NetworkManager.Instance.Server;
+        public Client Client => Multiplayer.NetworkManager.Instance.Client;
+        // public Server Server;
+        // public Client Client;
         
         [SerializeField] private GameObject greyedOutObj;
         [SerializeField] private Transform multiplayerScreen;
@@ -97,35 +97,35 @@ namespace CountryGame
             
             askPlayerAgreementScreen.SetActive(false);
 
-            // if (Server.IsRunning)
-            // {
-            //     Host = true;
-            // }
-            //
-            // Client.Disconnected += (sender, args) =>
-            // {
-            //     SceneManager.LoadScene("Multiplayer");
-            // };
-
-            Server = new Server();
-            Client = new Client();
-            
-            Client.Connect($"127.0.0.1:7777", messageHandlerGroupId: Multiplayer.NetworkManager.PlayerHostedDemoMessageHandlerGroupId);
-            
-            Server.ClientConnected += (sender, args) =>
+            if (Server.IsRunning)
             {
-                if (Server.ClientCount == 2)
-                {
-                    BeginSetup();
-                }
-            };
-            
-            Client.ConnectionFailed += (sender, args) =>
-            {
-                Server.Start(7777, 4, Multiplayer.NetworkManager.PlayerHostedDemoMessageHandlerGroupId);
-                Client.Connect($"127.0.0.1:7777", messageHandlerGroupId: Multiplayer.NetworkManager.PlayerHostedDemoMessageHandlerGroupId);
                 Host = true;
+            }
+            
+            Client.Disconnected += (sender, args) =>
+            {
+                SceneManager.LoadScene("Multiplayer");
             };
+
+            // Server = new Server();
+            // Client = new Client();
+            //
+            // Client.Connect($"127.0.0.1:7777", messageHandlerGroupId: Multiplayer.NetworkManager.PlayerHostedDemoMessageHandlerGroupId);
+            //
+            // Server.ClientConnected += (sender, args) =>
+            // {
+            //     if (Server.ClientCount == 1)
+            //     {
+            //         BeginSetup();
+            //     }
+            // };
+            //
+            // Client.ConnectionFailed += (sender, args) =>
+            // {
+            //     Server.Start(7777, 4, Multiplayer.NetworkManager.PlayerHostedDemoMessageHandlerGroupId);
+            //     Client.Connect($"127.0.0.1:7777", messageHandlerGroupId: Multiplayer.NetworkManager.PlayerHostedDemoMessageHandlerGroupId);
+            //     Host = true;
+            // };
         }
 
         private void OnDisable()
@@ -178,7 +178,7 @@ namespace CountryGame
                 Debug.Log("Sending connection information");
                 
                 Message message = Message.Create(MessageSendMode.Reliable, GameMessageId.SetupPlayer);
-                // message.AddULong((ulong)Multiplayer.NetworkManager.Instance.riptideToStemId[client.Id]);
+                message.AddULong((ulong)Multiplayer.NetworkManager.Instance.riptideToStemId[client.Id]);
                 message.AddUShort(client.Id);
                 
                 Server.SendToAll(message);
@@ -201,9 +201,9 @@ namespace CountryGame
                 GameObject obj = Instantiate(playerPrefab, playerParent);
 
                 obj.GetComponentInChildren<TextMeshProUGUI>().text = SteamFriends.GetFriendPersonaName(player.steamID);
-                // Texture2D texture = GetSteamImageAsTexture(SteamFriends.GetLargeFriendAvatar(player.steamID));
+                Texture2D texture = GetSteamImageAsTexture(SteamFriends.GetLargeFriendAvatar(player.steamID));
                 obj.GetComponentsInChildren<Image>()[2].sprite = player.ControlledNation.flag;
-                // obj.GetComponentsInChildren<Image>()[1].sprite = Sprite.Create(texture, new Rect(0, 0, texture.width, texture.height), Vector2.zero);
+                obj.GetComponentsInChildren<Image>()[1].sprite = Sprite.Create(texture, new Rect(0, 0, texture.width, texture.height), Vector2.zero);
 
                 obj.GetComponent<Button>().onClick.AddListener(() =>
                 {
@@ -253,12 +253,12 @@ namespace CountryGame
         {
             Instance.greyedOutObj.SetActive(false);
             
-            // CSteamID id = (CSteamID)message.GetULong();
-            CSteamID id = CSteamID.Nil;
+            CSteamID id = (CSteamID)message.GetULong();
+            // CSteamID id = CSteamID.Nil;
             ushort riptideId = message.GetUShort();
             
-            // string nation = SteamMatchmaking.GetLobbyMemberData(LobbyData.LobbyId, id, "nation");
-            string nation = riptideId == 1 ? "United Kingdom" : "New Zealand";
+            string nation = SteamMatchmaking.GetLobbyMemberData(LobbyData.LobbyId, id, "nation");
+            // string nation = riptideId == 1 ? "United Kingdom" : "New Zealand";
 
             Nation newPlayerNation = NationManager.Instance.GetNationByName(nation);
             newPlayerNation.aPlayerNation = true;
@@ -267,14 +267,14 @@ namespace CountryGame
             newPlayerNation.Countries[0].MovedTroopsIn(newPlayerNation, 6);
             newPlayerNation.DiplomaticPower = 30;
             
-            // if (id == SteamUser.GetSteamID())
-            // {
-            //     PlayerNationManager.Instance.MakeThePlayerNation(newPlayerNation);
-            // }
-            if (riptideId == Instance.Client.Id)
+            if (id == SteamUser.GetSteamID())
             {
                 PlayerNationManager.Instance.MakeThePlayerNation(newPlayerNation);
             }
+            // if (riptideId == Instance.Client.Id)
+            // {
+            //     PlayerNationManager.Instance.MakeThePlayerNation(newPlayerNation);
+            // }
             
             PlayerInfo info = new PlayerInfo();
             info.ControlledNation = newPlayerNation;

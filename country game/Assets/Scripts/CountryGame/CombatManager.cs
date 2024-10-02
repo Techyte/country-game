@@ -44,14 +44,17 @@ namespace CountryGame
             {
                 attack.calculatedAttack = CalculateAttackAttack(attack);
                 attack.calculatedDefense = CalculateAttackDefense(attack);
+                Debug.Log($"Defense {attack.calculatedDefense}");
+                Debug.Log($"Attack {attack.calculatedAttack}");
             }
 
             foreach (var attack in attacks)
             {
                 attack.success = AttackSuccessful(attack);
+                Debug.Log($"Successful {attack.success}");
             }
             
-            // nullify attacks from the territory we just took
+            // nullify attacks from territories that have been taken
             foreach (var attack in attacks)
             {
                 if (attack.success)
@@ -232,8 +235,18 @@ namespace CountryGame
             }
             
             // calculate how much of the defense is being used to counter this attack
-
-            float attackScaler = attack.Target.GetParticipatingTroops(attack.war) / totalDefendingForce; // amount of attacking force that is being allocated to this attack
+            
+            float attackScaler = 1f;
+            
+            if (totalDefendingForce == 0)
+            {
+                attackScaler = 1;
+            }
+            else
+            {
+                attackScaler = attack.Target.GetParticipatingTroops(attack.war) / totalDefendingForce; // amount of attacking force that is being allocated to this attack
+            }
+            
             
             // calculate how much of the attack is being used to push this attack
             
@@ -284,8 +297,17 @@ namespace CountryGame
             }
             
             // calculate how much of the defense is being used to counter this attack
-
-            float defenseScaler = attack.Source.GetParticipatingTroops(attack.war) / totalAttackingForce; // amount of defending force that is being allocated to this attack
+            
+            float defenseScaler = 1f;
+            
+            if (totalAttackingForce == 0)
+            {
+                defenseScaler = 1;
+            }
+            else
+            {
+                defenseScaler = attack.Source.GetParticipatingTroops(attack.war) / totalAttackingForce; // amount of attacking force that is being allocated to this attack
+            }
             
             // calculate how much of the attack is being used to push this attack
             

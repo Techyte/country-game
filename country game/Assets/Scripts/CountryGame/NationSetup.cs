@@ -74,11 +74,11 @@ namespace CountryGame
                 country.CalculateBorders();
             }
 
-            // if (SteamMatchmaking.GetLobbyOwner(LobbyData.LobbyId) == SteamUser.GetSteamID())
-            // {
-            //     Debug.Log("finished setup sending connection information");
-            //     NetworkManager.Instance.BeginSetup();
-            // }
+            if (SteamMatchmaking.GetLobbyOwner(LobbyData.LobbyId) == SteamUser.GetSteamID())
+            {
+                Debug.Log("finished setup sending connection information");
+                NetworkManager.Instance.BeginSetup();
+            }
 
             //Nation playerNation = NationManager.Instance.GetNationByName(SteamMatchmaking.GetLobbyMemberData(LobbyData.LobbyId, SteamUser.GetSteamID(), "nation"));
             // string playerNationName =

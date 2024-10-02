@@ -287,6 +287,16 @@ namespace CountryGame
                 borderNations.Add(NationManager.Instance.GetCountryByName("France"));
                 borderNations.Add(NationManager.Instance.GetCountryByName("Iceland"));
                 borderNations.Add(NationManager.Instance.GetCountryByName("Belgium"));
+                borderNations.Add(NationManager.Instance.GetCountryByName("Northern Ireland"));
+            }
+            else if (countryName == "Northern Ireland") 
+            { 
+                borderNations.Add(NationManager.Instance.GetCountryByName("United Kingdom"));
+            }
+            else if (countryName == "Philippines") 
+            { 
+                borderNations.Add(NationManager.Instance.GetCountryByName("Malaysia"));
+                borderNations.Add(NationManager.Instance.GetCountryByName("Indonesia"));
             }
             else if (countryName == "Russia")
             { 
@@ -354,6 +364,7 @@ namespace CountryGame
             else if (countryName == "Indonesia")
             {
                 borderNations.Add(NationManager.Instance.GetCountryByName("Australia"));
+                borderNations.Add(NationManager.Instance.GetCountryByName("Philippines"));
             }
             else if (countryName == "Madagascar")
             {
