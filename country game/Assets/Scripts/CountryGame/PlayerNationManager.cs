@@ -88,6 +88,15 @@ namespace CountryGame
             foreach (var playerNation in NationManager.Instance.PlayerNations)
             {
                 playerNation.DiplomaticPower += diplomaticPowerGain;
+
+                float gain = 0;
+                
+                foreach (var country in playerNation.Countries)
+                {
+                    gain += 0.5f;
+                }
+
+                playerNation.DiplomaticPower += (int)gain;
             }
         }
 

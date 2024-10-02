@@ -186,7 +186,7 @@ namespace CountryGame
                 requiredPower *= highestInfluence / 3f;
             }
             
-            requiredPower = Mathf.Max(requiredPower, 10);
+            requiredPower = Mathf.Clamp(requiredPower, 10, 40);
 
             return requiredPower;
         }

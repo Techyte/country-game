@@ -88,6 +88,10 @@ namespace CountryGame
             NetworkManager.Instance.Server.SendToAll(message, NetworkManager.Instance.Client.Id);
 
             CombatManager.Instance.CompleteAttacks();
+
+            AIWarBehaviour();
+            
+            CombatManager.Instance.AICombatBehaviour();
         }
 
         public void HandleSubsumedNations(List<string> nationsSubsumed, List<string> nationsThatSubsumed)
@@ -128,6 +132,31 @@ namespace CountryGame
         public void NewAgreement(Agreement agreementToAdd)
         {
             agreements.Add(agreementToAdd);
+        }
+
+        private void AIWarBehaviour()
+        {
+            foreach (var nation in nations)
+            {
+                if (nation.aPlayerNation)
+                {
+                    if (nation.DiplomaticPower <= 0)
+                    {
+                        foreach (var country in nation.Countries)
+                        {
+                            foreach (var border in country.borders)
+                            {
+                                bool goingToDeclareWar = Random.Range(0, 4) == 1;
+
+                                if (goingToDeclareWar)
+                                {
+                                    CombatManager.Instance.DeclaredWarOn(border.GetNation(), nation);
+                                }
+                            }
+                        }
+                    }
+                }
+            }
         }
         
         public void HireTroops(Country country, Nation nation, int amount)

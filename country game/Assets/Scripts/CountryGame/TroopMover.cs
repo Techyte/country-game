@@ -217,7 +217,7 @@ namespace CountryGame
                 return;
             }
             
-            for (int i = 0; i < amount; i++)
+            for (int i = 0; i < hireTroopSlider.value; i++)
             {
                 TurnManager.Instance.PerformedAction();
             }

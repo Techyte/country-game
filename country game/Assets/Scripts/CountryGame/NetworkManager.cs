@@ -258,7 +258,7 @@ namespace CountryGame
             ushort riptideId = message.GetUShort();
             
             // string nation = SteamMatchmaking.GetLobbyMemberData(LobbyData.LobbyId, id, "nation");
-            string nation = riptideId == 1 ? "Indonesia" : "New Zealand";
+            string nation = riptideId == 1 ? "United Kingdom" : "New Zealand";
 
             Nation newPlayerNation = NationManager.Instance.GetNationByName(nation);
             newPlayerNation.aPlayerNation = true;
@@ -477,7 +477,7 @@ namespace CountryGame
             if (!targetNation.aPlayerNation)
             {
                 float requiredPower = message.GetFloat();
-                requestingAgreement.DiplomaticPower -= (int)requiredPower;
+                requestingAgreement.DiplomaticPower -= (int)requiredPower/2;
             }
                 
             Debug.Log($"{targetNation.Name} rejected the {requestedAgreement.Name} agreement");
@@ -639,10 +639,8 @@ namespace CountryGame
         [MessageHandler((ushort)GameMessageId.CombatResults, Multiplayer.NetworkManager.PlayerHostedDemoMessageHandlerGroupId)]
         private static void CombatResults(Message message)
         {
-            CombatManager.Instance.HandleCombatResults(message.GetStrings().ToList(), message.GetStrings().ToList(),
-                message.GetStrings().ToList(), message.GetStrings().ToList(), message.GetStrings().ToList(),
-                message.GetStrings().ToList(), message.GetStrings().ToList(), message.GetStrings().ToList(),
-                message.GetStrings().ToList());
+            CombatManager.Instance.HandleCombatResults(message.GetStrings().ToList(),
+                message.GetStrings().ToList(), message.GetStrings().ToList());
         }
     }
     
