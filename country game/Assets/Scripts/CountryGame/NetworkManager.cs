@@ -610,7 +610,6 @@ namespace CountryGame
             War war = CombatManager.Instance.wars[message.GetInt()];
             Nation nation = NationManager.Instance.GetNationByName(message.GetString());
             bool defender = message.GetBool();
-            nation.DiplomaticPower -= 10;
             
             CountrySelector.Instance.JoinWar(war, nation, defender);
         }

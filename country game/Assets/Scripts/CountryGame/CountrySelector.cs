@@ -400,6 +400,12 @@ namespace CountryGame
                 notification.Init($"To War!",
                     $"Today, {nationToJoin.Name} joined the {warToJoin.Name}, allying themselves with the defenders",
                     () => { Instance.OpenWarScreen(warToJoin); }, 5);
+                
+                foreach (var defender in warToJoin.Defenders)
+                {
+                    defender.UpdateInfluenceColour();
+                    defender.UpdateTroopDisplays();
+                }
             }
         }
 
@@ -413,6 +419,12 @@ namespace CountryGame
                 notification.Init($"To War!",
                     $"Today, {nationToJoin.Name} joined the {warToJoin.Name}, allying themselves with the belligerents",
                     () => { CountrySelector.Instance.OpenWarScreen(warToJoin); }, 5);
+                    
+                foreach (var belligerent in warToJoin.Belligerents)
+                {
+                    belligerent.UpdateInfluenceColour();
+                    belligerent.UpdateTroopDisplays();
+                }
             }
         }
 

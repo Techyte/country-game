@@ -123,7 +123,7 @@ namespace CountryGame
                     Destroy(attack.line.gameObject);
                     attacks.Remove(attack);
                 }
-                else if (attack.war.over)
+                else if (attack.war.over && attack.success)
                 {
                     // attack was successful it was just got to last
                     
@@ -547,8 +547,7 @@ namespace CountryGame
                 defender.UpdateTroopDisplays();
             }
 
-            nationThatDeclared.DiplomaticPower -= 15;
-            nationToWarWith.DiplomaticPower += 15;
+            nationThatDeclared.DiplomaticPower -= 20;
         }
 
         public void NationJoinWarBelligerents(Nation nationToJoinWar, War warToJoin)
@@ -834,11 +833,21 @@ namespace CountryGame
         {
             if (Defenders.Count <= 0)
             {
+                foreach (var belligerent in Belligerents)
+                {
+                    Debug.Log("adding to belligerent diplomatic power");
+                    belligerent.DiplomaticPower += 15;
+                }
                 CombatManager.Instance.WarEnded(this, false);
                 over = true;
             }
             else if (Belligerents.Count <= 0)
             {
+                foreach (var defender in Defenders)
+                {
+                    Debug.Log("adding to defender diplomatic power");
+                    defender.DiplomaticPower += 15;
+                }
                 CombatManager.Instance.WarEnded(this, true);
                 over = true;
             }

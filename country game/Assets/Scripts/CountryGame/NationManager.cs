@@ -86,6 +86,8 @@ namespace CountryGame
             message.AddStrings(nationsThatSubsumed.ToArray());
             
             NetworkManager.Instance.Server.SendToAll(message, NetworkManager.Instance.Client.Id);
+
+            CombatManager.Instance.CompleteAttacks();
         }
 
         public void HandleSubsumedNations(List<string> nationsSubsumed, List<string> nationsThatSubsumed)

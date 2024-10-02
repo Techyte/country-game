@@ -313,10 +313,17 @@ namespace CountryGame
             {
                 borderNations.Add(NationManager.Instance.GetCountryByName("New Zealand"));
                 borderNations.Add(NationManager.Instance.GetCountryByName("Indonesia"));
+                borderNations.Add(NationManager.Instance.GetCountryByName("Papua New Guinea"));
             }
             else if (countryName == "New Zealand")
             {
                 borderNations.Add(NationManager.Instance.GetCountryByName("Australia"));
+                borderNations.Add(NationManager.Instance.GetCountryByName("Papua New Guinea"));
+            }
+            else if (countryName == "Papua New Guinea")
+            {
+                borderNations.Add(NationManager.Instance.GetCountryByName("Australia"));
+                borderNations.Add(NationManager.Instance.GetCountryByName("New Zealand"));
             }
             else if (countryName == "China")
             {
