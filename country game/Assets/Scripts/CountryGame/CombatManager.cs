@@ -387,10 +387,11 @@ namespace CountryGame
         {
             foreach (var attack in attacks)
             {
-                bool canSee = PlayerNationManager.PlayerNation.Attacking(attack.Target) ||
-                              PlayerNationManager.PlayerNation.MilitaryAccessWith(attack.Source.GetNation()) ||
-                              PlayerNationManager.PlayerNation == attack.Target.GetNation() ||
-                              PlayerNationManager.PlayerNation.MilitaryAccessWith(attack.Target.GetNation());
+                bool canSee = (PlayerNationManager.PlayerNation.Attacking(attack.Target) ||
+                               PlayerNationManager.PlayerNation.MilitaryAccessWith(attack.Source.GetNation()) ||
+                               PlayerNationManager.PlayerNation == attack.Target.GetNation() ||
+                               PlayerNationManager.PlayerNation.MilitaryAccessWith(attack.Target.GetNation())) &&
+                              ViewTypeManager.Instance.currentView != ViewType.Diplomacy;
                 
                 attack.line.enabled = canSee;
 
@@ -527,6 +528,8 @@ namespace CountryGame
             }
 
             nationThatDeclared.DiplomaticPower -= 20;
+            
+            ViewTypeManager.Instance.UpdateView();
         }
 
         public void NationJoinWarBelligerents(Nation nationToJoinWar, War warToJoin)
@@ -616,6 +619,7 @@ namespace CountryGame
             otherGUIParent.SetActive(true);
             invasionScreen.SetActive(false);
             invading = false;
+            PlayerNationManager.PlayerNation.UpdateTroopDisplays();
         }
 
         private Country source;
@@ -627,6 +631,7 @@ namespace CountryGame
             TroopMover.Instance.ResetSelected();
             otherGUIParent.SetActive(false);
             invading = true;
+            PlayerNationManager.PlayerNation.UpdateTroopDisplays();
         }
 
         public bool AttackAlreadyExists(Country source, Country target)
@@ -656,6 +661,7 @@ namespace CountryGame
                 
                 TurnManager.Instance.PerformedAction();
             }
+            PlayerNationManager.PlayerNation.UpdateTroopDisplays();
         }
 
         public void WarEnded(War warThatEnded, bool defenderVictory)

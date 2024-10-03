@@ -225,6 +225,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   baseColour: {r: 1, g: 1, b: 1, a: 1}
+  doOverrideColour: 0
+  overrideColour: {r: 0, g: 0, b: 0, a: 0}
 --- !u!60 &1525172
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -400,6 +402,9 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 471220498}
+  - {fileID: 1869644958}
+  - {fileID: 631439933}
+  - {fileID: 1923968030}
   - {fileID: 1098202726}
   - {fileID: 431551629}
   - {fileID: 449639675}
@@ -883,6 +888,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   baseColour: {r: 1, g: 1, b: 1, a: 1}
+  doOverrideColour: 0
+  overrideColour: {r: 0, g: 0, b: 0, a: 0}
 --- !u!60 &16436017
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -1148,6 +1155,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   baseColour: {r: 1, g: 1, b: 1, a: 1}
+  doOverrideColour: 0
+  overrideColour: {r: 0, g: 0, b: 0, a: 0}
 --- !u!60 &17738165
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -1732,6 +1741,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   baseColour: {r: 1, g: 1, b: 1, a: 1}
+  doOverrideColour: 0
+  overrideColour: {r: 0, g: 0, b: 0, a: 0}
 --- !u!60 &34191388
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -2052,6 +2063,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   baseColour: {r: 1, g: 1, b: 1, a: 1}
+  doOverrideColour: 0
+  overrideColour: {r: 0, g: 0, b: 0, a: 0}
 --- !u!60 &42686749
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -2596,6 +2609,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   baseColour: {r: 1, g: 1, b: 1, a: 1}
+  doOverrideColour: 0
+  overrideColour: {r: 0, g: 0, b: 0, a: 0}
 --- !u!60 &51006758
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -2895,6 +2910,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   baseColour: {r: 1, g: 1, b: 1, a: 1}
+  doOverrideColour: 0
+  overrideColour: {r: 0, g: 0, b: 0, a: 0}
 --- !u!60 &62626129
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -3258,6 +3275,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   baseColour: {r: 1, g: 1, b: 1, a: 1}
+  doOverrideColour: 0
+  overrideColour: {r: 0, g: 0, b: 0, a: 0}
 --- !u!60 &69944467
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -3674,6 +3693,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   baseColour: {r: 1, g: 1, b: 1, a: 1}
+  doOverrideColour: 0
+  overrideColour: {r: 0, g: 0, b: 0, a: 0}
 --- !u!60 &77698335
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -3947,6 +3968,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   baseColour: {r: 1, g: 1, b: 1, a: 1}
+  doOverrideColour: 0
+  overrideColour: {r: 0, g: 0, b: 0, a: 0}
 --- !u!60 &78255417
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -4831,6 +4854,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   baseColour: {r: 1, g: 1, b: 1, a: 1}
+  doOverrideColour: 0
+  overrideColour: {r: 0, g: 0, b: 0, a: 0}
 --- !u!60 &100185949
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -5018,6 +5043,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   baseColour: {r: 1, g: 1, b: 1, a: 1}
+  doOverrideColour: 0
+  overrideColour: {r: 0, g: 0, b: 0, a: 0}
 --- !u!60 &101550896
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -5620,6 +5647,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   baseColour: {r: 1, g: 1, b: 1, a: 1}
+  doOverrideColour: 0
+  overrideColour: {r: 0, g: 0, b: 0, a: 0}
 --- !u!60 &113641478
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -5829,6 +5858,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   baseColour: {r: 1, g: 1, b: 1, a: 1}
+  doOverrideColour: 0
+  overrideColour: {r: 0, g: 0, b: 0, a: 0}
 --- !u!60 &113770181
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -6189,6 +6220,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   baseColour: {r: 1, g: 1, b: 1, a: 1}
+  doOverrideColour: 0
+  overrideColour: {r: 0, g: 0, b: 0, a: 0}
 --- !u!60 &126201036
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -6992,6 +7025,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   baseColour: {r: 1, g: 1, b: 1, a: 1}
+  doOverrideColour: 0
+  overrideColour: {r: 0, g: 0, b: 0, a: 0}
 --- !u!60 &158068881
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -7261,6 +7296,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   baseColour: {r: 1, g: 1, b: 1, a: 1}
+  doOverrideColour: 0
+  overrideColour: {r: 0, g: 0, b: 0, a: 0}
 --- !u!60 &177636287
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -8100,6 +8137,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   baseColour: {r: 1, g: 1, b: 1, a: 1}
+  doOverrideColour: 0
+  overrideColour: {r: 0, g: 0, b: 0, a: 0}
 --- !u!60 &210825795
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -8381,6 +8420,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   baseColour: {r: 1, g: 1, b: 1, a: 1}
+  doOverrideColour: 0
+  overrideColour: {r: 0, g: 0, b: 0, a: 0}
 --- !u!60 &222596609
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -8716,6 +8757,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   baseColour: {r: 1, g: 1, b: 1, a: 1}
+  doOverrideColour: 0
+  overrideColour: {r: 0, g: 0, b: 0, a: 0}
 --- !u!60 &230117943
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -9290,6 +9333,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   baseColour: {r: 1, g: 1, b: 1, a: 1}
+  doOverrideColour: 0
+  overrideColour: {r: 0, g: 0, b: 0, a: 0}
 --- !u!60 &239023174
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -9527,6 +9572,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   baseColour: {r: 1, g: 1, b: 1, a: 1}
+  doOverrideColour: 0
+  overrideColour: {r: 0, g: 0, b: 0, a: 0}
 --- !u!60 &244075094
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -10448,6 +10495,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   baseColour: {r: 1, g: 1, b: 1, a: 1}
+  doOverrideColour: 0
+  overrideColour: {r: 0, g: 0, b: 0, a: 0}
 --- !u!60 &255860915
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -10797,6 +10846,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   baseColour: {r: 1, g: 1, b: 1, a: 1}
+  doOverrideColour: 0
+  overrideColour: {r: 0, g: 0, b: 0, a: 0}
 --- !u!60 &261466526
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -11581,6 +11632,43 @@ Transform:
   m_Children: []
   m_Father: {fileID: 810197988}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &290151280
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 290151281}
+  m_Layer: 5
+  m_Name: Tooltiip (10)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!224 &290151281
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 290151280}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 2059513019}
+  - {fileID: 1277393205}
+  m_Father: {fileID: 1909173906}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: -50, y: 49.99994}
+  m_SizeDelta: {x: 100, y: 100}
+  m_Pivot: {x: 0, y: 1}
 --- !u!1 &291973938
 GameObject:
   m_ObjectHideFlags: 0
@@ -12342,6 +12430,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   baseColour: {r: 1, g: 1, b: 1, a: 1}
+  doOverrideColour: 0
+  overrideColour: {r: 0, g: 0, b: 0, a: 0}
 --- !u!60 &314071033
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -12766,6 +12856,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   baseColour: {r: 1, g: 1, b: 1, a: 1}
+  doOverrideColour: 0
+  overrideColour: {r: 0, g: 0, b: 0, a: 0}
 --- !u!60 &323788418
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -12999,6 +13091,81 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1389779363}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &335602761
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 335602762}
+  - component: {fileID: 335602764}
+  - component: {fileID: 335602763}
+  m_Layer: 5
+  m_Name: Image
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &335602762
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 335602761}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1666399760}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 10, y: -10}
+  m_SizeDelta: {x: 212.1531, y: 82.1939}
+  m_Pivot: {x: 0, y: 1}
+--- !u!114 &335602763
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 335602761}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Sprite: {fileID: 21300000, guid: 6e79cc900d94282429a0a49cbbbf129f, type: 3}
+  m_Type: 0
+  m_PreserveAspect: 1
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
+--- !u!222 &335602764
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 335602761}
+  m_CullTransparentMesh: 1
 --- !u!1 &336654762
 GameObject:
   m_ObjectHideFlags: 0
@@ -13709,6 +13876,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   baseColour: {r: 1, g: 1, b: 1, a: 1}
+  doOverrideColour: 0
+  overrideColour: {r: 0, g: 0, b: 0, a: 0}
 --- !u!60 &343468321
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -14024,6 +14193,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   baseColour: {r: 1, g: 1, b: 1, a: 1}
+  doOverrideColour: 0
+  overrideColour: {r: 0, g: 0, b: 0, a: 0}
 --- !u!60 &348830707
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -14732,6 +14903,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   baseColour: {r: 1, g: 1, b: 1, a: 1}
+  doOverrideColour: 0
+  overrideColour: {r: 0, g: 0, b: 0, a: 0}
 --- !u!60 &376447761
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -14955,6 +15128,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   baseColour: {r: 1, g: 1, b: 1, a: 1}
+  doOverrideColour: 0
+  overrideColour: {r: 0, g: 0, b: 0, a: 0}
 --- !u!60 &381275946
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -15412,6 +15587,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   baseColour: {r: 1, g: 1, b: 1, a: 1}
+  doOverrideColour: 0
+  overrideColour: {r: 0, g: 0, b: 0, a: 0}
 --- !u!60 &384687391
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -16199,6 +16376,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   baseColour: {r: 1, g: 1, b: 1, a: 1}
+  doOverrideColour: 0
+  overrideColour: {r: 0, g: 0, b: 0, a: 0}
 --- !u!60 &407776981
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -16471,6 +16650,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   baseColour: {r: 1, g: 1, b: 1, a: 1}
+  doOverrideColour: 0
+  overrideColour: {r: 0, g: 0, b: 0, a: 0}
 --- !u!114 &410521187
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -16885,6 +17066,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   baseColour: {r: 1, g: 1, b: 1, a: 1}
+  doOverrideColour: 0
+  overrideColour: {r: 0, g: 0, b: 0, a: 0}
 --- !u!60 &419533102
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -17728,6 +17911,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   baseColour: {r: 1, g: 1, b: 1, a: 1}
+  doOverrideColour: 0
+  overrideColour: {r: 0, g: 0, b: 0, a: 0}
 --- !u!60 &443157239
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -18106,6 +18291,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   baseColour: {r: 1, g: 1, b: 1, a: 1}
+  doOverrideColour: 0
+  overrideColour: {r: 0, g: 0, b: 0, a: 0}
 --- !u!60 &444836562
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -18757,6 +18944,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   baseColour: {r: 1, g: 1, b: 1, a: 1}
+  doOverrideColour: 0
+  overrideColour: {r: 0, g: 0, b: 0, a: 0}
 --- !u!60 &462972624
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -18964,6 +19153,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   baseColour: {r: 1, g: 1, b: 1, a: 1}
+  doOverrideColour: 0
+  overrideColour: {r: 0, g: 0, b: 0, a: 0}
 --- !u!60 &466007966
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -19597,6 +19788,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   baseColour: {r: 1, g: 1, b: 1, a: 1}
+  doOverrideColour: 0
+  overrideColour: {r: 0, g: 0, b: 0, a: 0}
 --- !u!60 &473134846
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -20701,6 +20894,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   baseColour: {r: 1, g: 1, b: 1, a: 1}
+  doOverrideColour: 0
+  overrideColour: {r: 0, g: 0, b: 0, a: 0}
 --- !u!60 &502249935
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -20997,6 +21192,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   baseColour: {r: 1, g: 1, b: 1, a: 1}
+  doOverrideColour: 0
+  overrideColour: {r: 0, g: 0, b: 0, a: 0}
 --- !u!60 &506704658
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -21225,6 +21422,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   baseColour: {r: 1, g: 1, b: 1, a: 1}
+  doOverrideColour: 0
+  overrideColour: {r: 0, g: 0, b: 0, a: 0}
 --- !u!60 &510976903
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -21863,6 +22062,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   baseColour: {r: 1, g: 1, b: 1, a: 1}
+  doOverrideColour: 0
+  overrideColour: {r: 0, g: 0, b: 0, a: 0}
 --- !u!60 &522751848
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -22078,6 +22279,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   baseColour: {r: 1, g: 1, b: 1, a: 1}
+  doOverrideColour: 0
+  overrideColour: {r: 0, g: 0, b: 0, a: 0}
 --- !u!60 &526328823
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -22283,6 +22486,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   baseColour: {r: 1, g: 1, b: 1, a: 1}
+  doOverrideColour: 0
+  overrideColour: {r: 0, g: 0, b: 0, a: 0}
 --- !u!60 &537478465
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -23492,6 +23697,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   baseColour: {r: 1, g: 1, b: 1, a: 1}
+  doOverrideColour: 0
+  overrideColour: {r: 0, g: 0, b: 0, a: 0}
 --- !u!60 &553885511
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -23730,6 +23937,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   baseColour: {r: 1, g: 1, b: 1, a: 1}
+  doOverrideColour: 0
+  overrideColour: {r: 0, g: 0, b: 0, a: 0}
 --- !u!60 &554184883
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -24320,6 +24529,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   baseColour: {r: 1, g: 1, b: 1, a: 1}
+  doOverrideColour: 0
+  overrideColour: {r: 0, g: 0, b: 0, a: 0}
 --- !u!60 &572177888
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -25064,6 +25275,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   baseColour: {r: 1, g: 1, b: 1, a: 1}
+  doOverrideColour: 0
+  overrideColour: {r: 0, g: 0, b: 0, a: 0}
 --- !u!60 &607857447
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -25369,6 +25582,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   baseColour: {r: 1, g: 1, b: 1, a: 1}
+  doOverrideColour: 0
+  overrideColour: {r: 0, g: 0, b: 0, a: 0}
 --- !u!60 &610440498
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -25789,6 +26004,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   baseColour: {r: 1, g: 1, b: 1, a: 1}
+  doOverrideColour: 0
+  overrideColour: {r: 0, g: 0, b: 0, a: 0}
 --- !u!60 &623623129
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -26122,6 +26339,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   baseColour: {r: 1, g: 1, b: 1, a: 1}
+  doOverrideColour: 0
+  overrideColour: {r: 0, g: 0, b: 0, a: 0}
 --- !u!60 &629930297
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -26272,6 +26491,152 @@ RectTransform:
   m_AnchoredPosition: {x: -595, y: 348.81317}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!1 &631439932
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 631439933}
+  - component: {fileID: 631439936}
+  - component: {fileID: 631439935}
+  - component: {fileID: 631439934}
+  - component: {fileID: 631439937}
+  m_Layer: 5
+  m_Name: WarScreen
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &631439933
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 631439932}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 5828463}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 1, y: 0}
+  m_AnchorMax: {x: 1, y: 0}
+  m_AnchoredPosition: {x: -1666.739, y: 32}
+  m_SizeDelta: {x: 100, y: 100}
+  m_Pivot: {x: 1, y: 0}
+--- !u!114 &631439934
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 631439932}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Navigation:
+    m_Mode: 3
+    m_WrapAround: 0
+    m_SelectOnUp: {fileID: 0}
+    m_SelectOnDown: {fileID: 0}
+    m_SelectOnLeft: {fileID: 0}
+    m_SelectOnRight: {fileID: 0}
+  m_Transition: 1
+  m_Colors:
+    m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
+    m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
+    m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
+    m_ColorMultiplier: 1
+    m_FadeDuration: 0.1
+  m_SpriteState:
+    m_HighlightedSprite: {fileID: 0}
+    m_PressedSprite: {fileID: 0}
+    m_SelectedSprite: {fileID: 0}
+    m_DisabledSprite: {fileID: 0}
+  m_AnimationTriggers:
+    m_NormalTrigger: Normal
+    m_HighlightedTrigger: Highlighted
+    m_PressedTrigger: Pressed
+    m_SelectedTrigger: Selected
+    m_DisabledTrigger: Disabled
+  m_Interactable: 1
+  m_TargetGraphic: {fileID: 631439935}
+  m_OnClick:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1034080766}
+        m_TargetAssemblyTypeName: CountryGame.ViewTypeManager, Assembly-CSharp
+        m_MethodName: WarView
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &631439935
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 631439932}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Sprite: {fileID: 21300000, guid: 800299a1dae8184488e565cebb9d5154, type: 3}
+  m_Type: 0
+  m_PreserveAspect: 1
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
+--- !u!222 &631439936
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 631439932}
+  m_CullTransparentMesh: 1
+--- !u!114 &631439937
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 631439932}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1c5c0a488ff29294a9e511f532e3f1c7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  toolTip: {fileID: 1666399760}
 --- !u!1 &632340063
 GameObject:
   m_ObjectHideFlags: 0
@@ -26441,6 +26806,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   baseColour: {r: 1, g: 1, b: 1, a: 1}
+  doOverrideColour: 0
+  overrideColour: {r: 0, g: 0, b: 0, a: 0}
 --- !u!60 &637643330
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -26586,6 +26953,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   baseColour: {r: 1, g: 1, b: 1, a: 1}
+  doOverrideColour: 0
+  overrideColour: {r: 0, g: 0, b: 0, a: 0}
 --- !u!114 &647566403
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -27301,6 +27670,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   baseColour: {r: 1, g: 1, b: 1, a: 1}
+  doOverrideColour: 0
+  overrideColour: {r: 0, g: 0, b: 0, a: 0}
 --- !u!60 &682041236
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -27567,6 +27938,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   baseColour: {r: 1, g: 1, b: 1, a: 1}
+  doOverrideColour: 0
+  overrideColour: {r: 0, g: 0, b: 0, a: 0}
 --- !u!60 &687354586
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -28013,6 +28386,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   baseColour: {r: 1, g: 1, b: 1, a: 1}
+  doOverrideColour: 0
+  overrideColour: {r: 0, g: 0, b: 0, a: 0}
 --- !u!60 &695512058
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -28252,6 +28627,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   baseColour: {r: 1, g: 1, b: 1, a: 1}
+  doOverrideColour: 0
+  overrideColour: {r: 0, g: 0, b: 0, a: 0}
 --- !u!60 &697406726
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -28809,7 +29186,7 @@ Transform:
   m_GameObject: {fileID: 713543991}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.59000003, y: 1.1550001, z: 0}
+  m_LocalPosition: {x: -0.587, y: 1.1706, z: 0}
   m_LocalScale: {x: 0.6993007, y: 0.6993007, z: 0.6993007}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -29109,6 +29486,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   baseColour: {r: 1, g: 1, b: 1, a: 1}
+  doOverrideColour: 0
+  overrideColour: {r: 0, g: 0, b: 0, a: 0}
 --- !u!60 &730539428
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -30468,6 +30847,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   baseColour: {r: 1, g: 1, b: 1, a: 1}
+  doOverrideColour: 0
+  overrideColour: {r: 0, g: 0, b: 0, a: 0}
 --- !u!60 &778435062
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -31328,6 +31709,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   baseColour: {r: 1, g: 1, b: 1, a: 1}
+  doOverrideColour: 0
+  overrideColour: {r: 0, g: 0, b: 0, a: 0}
 --- !u!60 &804188514
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -31611,6 +31994,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   baseColour: {r: 1, g: 1, b: 1, a: 1}
+  doOverrideColour: 0
+  overrideColour: {r: 0, g: 0, b: 0, a: 0}
 --- !u!60 &810197991
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -31891,6 +32276,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   baseColour: {r: 1, g: 1, b: 1, a: 1}
+  doOverrideColour: 0
+  overrideColour: {r: 0, g: 0, b: 0, a: 0}
 --- !u!60 &812579842
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -32826,6 +33213,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   baseColour: {r: 1, g: 1, b: 1, a: 1}
+  doOverrideColour: 0
+  overrideColour: {r: 0, g: 0, b: 0, a: 0}
 --- !u!60 &838002624
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -33210,6 +33599,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   baseColour: {r: 1, g: 1, b: 1, a: 1}
+  doOverrideColour: 0
+  overrideColour: {r: 0, g: 0, b: 0, a: 0}
 --- !u!60 &842527327
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -33776,6 +34167,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   baseColour: {r: 1, g: 1, b: 1, a: 1}
+  doOverrideColour: 0
+  overrideColour: {r: 0, g: 0, b: 0, a: 0}
 --- !u!60 &869675804
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -33971,6 +34364,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   baseColour: {r: 1, g: 1, b: 1, a: 1}
+  doOverrideColour: 0
+  overrideColour: {r: 0, g: 0, b: 0, a: 0}
 --- !u!60 &870246174
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -34827,6 +35222,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   baseColour: {r: 1, g: 1, b: 1, a: 1}
+  doOverrideColour: 0
+  overrideColour: {r: 0, g: 0, b: 0, a: 0}
 --- !u!60 &888886626
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -35423,6 +35820,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   baseColour: {r: 1, g: 1, b: 1, a: 1}
+  doOverrideColour: 0
+  overrideColour: {r: 0, g: 0, b: 0, a: 0}
 --- !u!60 &917457962
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -36196,6 +36595,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   baseColour: {r: 1, g: 1, b: 1, a: 1}
+  doOverrideColour: 0
+  overrideColour: {r: 0, g: 0, b: 0, a: 0}
 --- !u!60 &948924148
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -36673,6 +37074,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   baseColour: {r: 1, g: 1, b: 1, a: 1}
+  doOverrideColour: 0
+  overrideColour: {r: 0, g: 0, b: 0, a: 0}
 --- !u!60 &953277264
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -36868,6 +37271,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   baseColour: {r: 1, g: 1, b: 1, a: 1}
+  doOverrideColour: 0
+  overrideColour: {r: 0, g: 0, b: 0, a: 0}
 --- !u!60 &955576633
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -37001,6 +37406,43 @@ Transform:
   - {fileID: 870246171}
   m_Father: {fileID: 1730082213}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &975328797
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 975328798}
+  m_Layer: 5
+  m_Name: Tooltiip (8)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!224 &975328798
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 975328797}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 1558161641}
+  - {fileID: 2027082669}
+  m_Father: {fileID: 1909173906}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: -50, y: 49.99994}
+  m_SizeDelta: {x: 100, y: 100}
+  m_Pivot: {x: 0, y: 1}
 --- !u!1 &978209056
 GameObject:
   m_ObjectHideFlags: 0
@@ -37267,6 +37709,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   baseColour: {r: 1, g: 1, b: 1, a: 1}
+  doOverrideColour: 0
+  overrideColour: {r: 0, g: 0, b: 0, a: 0}
 --- !u!60 &983521150
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -38240,6 +38684,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   baseColour: {r: 1, g: 1, b: 1, a: 1}
+  doOverrideColour: 0
+  overrideColour: {r: 0, g: 0, b: 0, a: 0}
 --- !u!60 &1005213979
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -39024,6 +39470,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   baseColour: {r: 1, g: 1, b: 1, a: 1}
+  doOverrideColour: 0
+  overrideColour: {r: 0, g: 0, b: 0, a: 0}
 --- !u!60 &1032003475
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -39151,6 +39599,51 @@ MonoBehaviour:
   troopCapacity: 15
   defense: 7
   attack: 7
+--- !u!1 &1034080764
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1034080765}
+  - component: {fileID: 1034080766}
+  m_Layer: 0
+  m_Name: ViewType
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1034080765
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1034080764}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -0.74809426, y: 1.7128189, z: 0.010104605}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1034080766
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1034080764}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 749958ccddf1c0e4793811e154e3fd5b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  currentView: 0
 --- !u!1 &1037357715
 GameObject:
   m_ObjectHideFlags: 0
@@ -39730,6 +40223,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   baseColour: {r: 1, g: 1, b: 1, a: 1}
+  doOverrideColour: 0
+  overrideColour: {r: 0, g: 0, b: 0, a: 0}
 --- !u!60 &1046231874
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -40071,6 +40566,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   baseColour: {r: 1, g: 1, b: 1, a: 1}
+  doOverrideColour: 0
+  overrideColour: {r: 0, g: 0, b: 0, a: 0}
 --- !u!60 &1062818715
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -40746,6 +41243,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   baseColour: {r: 1, g: 1, b: 1, a: 1}
+  doOverrideColour: 0
+  overrideColour: {r: 0, g: 0, b: 0, a: 0}
 --- !u!60 &1081286199
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -40935,6 +41434,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   baseColour: {r: 1, g: 1, b: 1, a: 1}
+  doOverrideColour: 0
+  overrideColour: {r: 0, g: 0, b: 0, a: 0}
 --- !u!60 &1087732017
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -41146,6 +41647,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   baseColour: {r: 1, g: 1, b: 1, a: 1}
+  doOverrideColour: 0
+  overrideColour: {r: 0, g: 0, b: 0, a: 0}
 --- !u!60 &1094051923
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -41502,6 +42005,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   baseColour: {r: 1, g: 1, b: 1, a: 1}
+  doOverrideColour: 0
+  overrideColour: {r: 0, g: 0, b: 0, a: 0}
 --- !u!60 &1100210171
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -41982,6 +42487,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   baseColour: {r: 1, g: 1, b: 1, a: 1}
+  doOverrideColour: 0
+  overrideColour: {r: 0, g: 0, b: 0, a: 0}
 --- !u!60 &1111596171
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -42551,6 +43058,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   baseColour: {r: 1, g: 1, b: 1, a: 1}
+  doOverrideColour: 0
+  overrideColour: {r: 0, g: 0, b: 0, a: 0}
 --- !u!60 &1120025913
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -43081,6 +43590,140 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1127260301}
   m_CullTransparentMesh: 1
+--- !u!1 &1128124355
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1128124356}
+  - component: {fileID: 1128124358}
+  - component: {fileID: 1128124357}
+  m_Layer: 5
+  m_Name: Text
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &1128124356
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1128124355}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1666399760}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 10, y: -19.6495}
+  m_SizeDelta: {x: 209.4292, y: 58.0505}
+  m_Pivot: {x: 0, y: 1}
+--- !u!114 &1128124357
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1128124355}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_text: War Screen
+  m_isRightToLeft: 0
+  m_fontAsset: {fileID: 11400000, guid: 957dbaf1fa9ef834db97955b0d878f96, type: 2}
+  m_sharedMaterial: {fileID: 8370735618977982747, guid: 957dbaf1fa9ef834db97955b0d878f96, type: 2}
+  m_fontSharedMaterials: []
+  m_fontMaterial: {fileID: 0}
+  m_fontMaterials: []
+  m_fontColor32:
+    serializedVersion: 2
+    rgba: 4278190080
+  m_fontColor: {r: 0, g: 0, b: 0, a: 1}
+  m_enableVertexGradient: 0
+  m_colorMode: 3
+  m_fontColorGradient:
+    topLeft: {r: 1, g: 1, b: 1, a: 1}
+    topRight: {r: 1, g: 1, b: 1, a: 1}
+    bottomLeft: {r: 1, g: 1, b: 1, a: 1}
+    bottomRight: {r: 1, g: 1, b: 1, a: 1}
+  m_fontColorGradientPreset: {fileID: 0}
+  m_spriteAsset: {fileID: 0}
+  m_tintAllSprites: 0
+  m_StyleSheet: {fileID: 0}
+  m_TextStyleHashCode: -1183493901
+  m_overrideHtmlColors: 0
+  m_faceColor:
+    serializedVersion: 2
+    rgba: 4294967295
+  m_fontSize: 20.03
+  m_fontSizeBase: 20.03
+  m_fontWeight: 400
+  m_enableAutoSizing: 0
+  m_fontSizeMin: 18
+  m_fontSizeMax: 72
+  m_fontStyle: 0
+  m_HorizontalAlignment: 2
+  m_VerticalAlignment: 512
+  m_textAlignment: 65535
+  m_characterSpacing: 0
+  m_wordSpacing: 0
+  m_lineSpacing: 0
+  m_lineSpacingMax: 0
+  m_paragraphSpacing: 0
+  m_charWidthMaxAdj: 0
+  m_enableWordWrapping: 1
+  m_wordWrappingRatios: 0.4
+  m_overflowMode: 0
+  m_linkedTextComponent: {fileID: 0}
+  parentLinkedComponent: {fileID: 0}
+  m_enableKerning: 1
+  m_enableExtraPadding: 0
+  checkPaddingRequired: 0
+  m_isRichText: 1
+  m_parseCtrlCharacters: 1
+  m_isOrthographic: 1
+  m_isCullingEnabled: 0
+  m_horizontalMapping: 0
+  m_verticalMapping: 0
+  m_uvLineOffset: 0
+  m_geometrySortingOrder: 0
+  m_IsTextObjectScaleStatic: 0
+  m_VertexBufferAutoSizeReduction: 0
+  m_useMaxVisibleDescender: 1
+  m_pageToDisplay: 1
+  m_margin: {x: 0, y: 0, z: 0, w: 0}
+  m_isUsingLegacyAnimationComponent: 0
+  m_isVolumetricText: 0
+  m_hasFontAssetChanged: 0
+  m_baseMaterial: {fileID: 0}
+  m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!222 &1128124358
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1128124355}
+  m_CullTransparentMesh: 1
 --- !u!1 &1129547287
 GameObject:
   m_ObjectHideFlags: 0
@@ -43468,6 +44111,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   baseColour: {r: 1, g: 1, b: 1, a: 1}
+  doOverrideColour: 0
+  overrideColour: {r: 0, g: 0, b: 0, a: 0}
 --- !u!60 &1136086453
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -43730,6 +44375,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   baseColour: {r: 1, g: 1, b: 1, a: 1}
+  doOverrideColour: 0
+  overrideColour: {r: 0, g: 0, b: 0, a: 0}
 --- !u!60 &1138296738
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -43923,6 +44570,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   baseColour: {r: 1, g: 1, b: 1, a: 1}
+  doOverrideColour: 0
+  overrideColour: {r: 0, g: 0, b: 0, a: 0}
 --- !u!60 &1139255217
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -44162,6 +44811,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   baseColour: {r: 1, g: 1, b: 1, a: 1}
+  doOverrideColour: 0
+  overrideColour: {r: 0, g: 0, b: 0, a: 0}
 --- !u!60 &1142144978
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -44886,6 +45537,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   baseColour: {r: 1, g: 1, b: 1, a: 1}
+  doOverrideColour: 0
+  overrideColour: {r: 0, g: 0, b: 0, a: 0}
 --- !u!60 &1162379686
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -45098,6 +45751,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   baseColour: {r: 1, g: 1, b: 1, a: 1}
+  doOverrideColour: 0
+  overrideColour: {r: 0, g: 0, b: 0, a: 0}
 --- !u!114 &1164347656
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -45763,6 +46418,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   baseColour: {r: 1, g: 1, b: 1, a: 1}
+  doOverrideColour: 0
+  overrideColour: {r: 0, g: 0, b: 0, a: 0}
 --- !u!60 &1172711527
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -46231,6 +46888,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   baseColour: {r: 1, g: 1, b: 1, a: 1}
+  doOverrideColour: 0
+  overrideColour: {r: 0, g: 0, b: 0, a: 0}
 --- !u!60 &1187222026
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -47466,6 +48125,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   baseColour: {r: 1, g: 1, b: 1, a: 1}
+  doOverrideColour: 0
+  overrideColour: {r: 0, g: 0, b: 0, a: 0}
 --- !u!60 &1246818269
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -47987,6 +48648,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   baseColour: {r: 1, g: 1, b: 1, a: 1}
+  doOverrideColour: 0
+  overrideColour: {r: 0, g: 0, b: 0, a: 0}
 --- !u!60 &1257289917
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -48401,6 +49064,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   baseColour: {r: 1, g: 1, b: 1, a: 1}
+  doOverrideColour: 0
+  overrideColour: {r: 0, g: 0, b: 0, a: 0}
 --- !u!60 &1266627085
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -48770,6 +49435,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   baseColour: {r: 1, g: 1, b: 1, a: 1}
+  doOverrideColour: 0
+  overrideColour: {r: 0, g: 0, b: 0, a: 0}
 --- !u!60 &1277117215
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -48859,6 +49526,140 @@ MonoBehaviour:
   troopCapacity: 15
   defense: 7
   attack: 7
+--- !u!1 &1277393204
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1277393205}
+  - component: {fileID: 1277393207}
+  - component: {fileID: 1277393206}
+  m_Layer: 5
+  m_Name: Text
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &1277393205
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1277393204}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 290151281}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 10, y: -19.6495}
+  m_SizeDelta: {x: 209.4292, y: 58.0505}
+  m_Pivot: {x: 0, y: 1}
+--- !u!114 &1277393206
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1277393204}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_text: Diplomacy Screen
+  m_isRightToLeft: 0
+  m_fontAsset: {fileID: 11400000, guid: 957dbaf1fa9ef834db97955b0d878f96, type: 2}
+  m_sharedMaterial: {fileID: 8370735618977982747, guid: 957dbaf1fa9ef834db97955b0d878f96, type: 2}
+  m_fontSharedMaterials: []
+  m_fontMaterial: {fileID: 0}
+  m_fontMaterials: []
+  m_fontColor32:
+    serializedVersion: 2
+    rgba: 4278190080
+  m_fontColor: {r: 0, g: 0, b: 0, a: 1}
+  m_enableVertexGradient: 0
+  m_colorMode: 3
+  m_fontColorGradient:
+    topLeft: {r: 1, g: 1, b: 1, a: 1}
+    topRight: {r: 1, g: 1, b: 1, a: 1}
+    bottomLeft: {r: 1, g: 1, b: 1, a: 1}
+    bottomRight: {r: 1, g: 1, b: 1, a: 1}
+  m_fontColorGradientPreset: {fileID: 0}
+  m_spriteAsset: {fileID: 0}
+  m_tintAllSprites: 0
+  m_StyleSheet: {fileID: 0}
+  m_TextStyleHashCode: -1183493901
+  m_overrideHtmlColors: 0
+  m_faceColor:
+    serializedVersion: 2
+    rgba: 4294967295
+  m_fontSize: 20.03
+  m_fontSizeBase: 20.03
+  m_fontWeight: 400
+  m_enableAutoSizing: 0
+  m_fontSizeMin: 18
+  m_fontSizeMax: 72
+  m_fontStyle: 0
+  m_HorizontalAlignment: 2
+  m_VerticalAlignment: 512
+  m_textAlignment: 65535
+  m_characterSpacing: 0
+  m_wordSpacing: 0
+  m_lineSpacing: 0
+  m_lineSpacingMax: 0
+  m_paragraphSpacing: 0
+  m_charWidthMaxAdj: 0
+  m_enableWordWrapping: 1
+  m_wordWrappingRatios: 0.4
+  m_overflowMode: 0
+  m_linkedTextComponent: {fileID: 0}
+  parentLinkedComponent: {fileID: 0}
+  m_enableKerning: 1
+  m_enableExtraPadding: 0
+  checkPaddingRequired: 0
+  m_isRichText: 1
+  m_parseCtrlCharacters: 1
+  m_isOrthographic: 1
+  m_isCullingEnabled: 0
+  m_horizontalMapping: 0
+  m_verticalMapping: 0
+  m_uvLineOffset: 0
+  m_geometrySortingOrder: 0
+  m_IsTextObjectScaleStatic: 0
+  m_VertexBufferAutoSizeReduction: 0
+  m_useMaxVisibleDescender: 1
+  m_pageToDisplay: 1
+  m_margin: {x: 0, y: 0, z: 0, w: 0}
+  m_isUsingLegacyAnimationComponent: 0
+  m_isVolumetricText: 0
+  m_hasFontAssetChanged: 0
+  m_baseMaterial: {fileID: 0}
+  m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!222 &1277393207
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1277393204}
+  m_CullTransparentMesh: 1
 --- !u!1 &1283381516
 GameObject:
   m_ObjectHideFlags: 0
@@ -48961,6 +49762,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   baseColour: {r: 1, g: 1, b: 1, a: 1}
+  doOverrideColour: 0
+  overrideColour: {r: 0, g: 0, b: 0, a: 0}
 --- !u!60 &1283381520
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -49156,6 +49959,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   baseColour: {r: 1, g: 1, b: 1, a: 1}
+  doOverrideColour: 0
+  overrideColour: {r: 0, g: 0, b: 0, a: 0}
 --- !u!60 &1287342357
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -49524,6 +50329,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   baseColour: {r: 1, g: 1, b: 1, a: 1}
+  doOverrideColour: 0
+  overrideColour: {r: 0, g: 0, b: 0, a: 0}
 --- !u!60 &1298268336
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -49739,6 +50546,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   baseColour: {r: 1, g: 1, b: 1, a: 1}
+  doOverrideColour: 0
+  overrideColour: {r: 0, g: 0, b: 0, a: 0}
 --- !u!60 &1302200218
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -50191,6 +51000,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   baseColour: {r: 1, g: 1, b: 1, a: 1}
+  doOverrideColour: 0
+  overrideColour: {r: 0, g: 0, b: 0, a: 0}
 --- !u!60 &1305127689
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -50855,6 +51666,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   baseColour: {r: 1, g: 1, b: 1, a: 1}
+  doOverrideColour: 0
+  overrideColour: {r: 0, g: 0, b: 0, a: 0}
 --- !u!60 &1324750417
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -51388,6 +52201,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   baseColour: {r: 1, g: 1, b: 1, a: 1}
+  doOverrideColour: 0
+  overrideColour: {r: 0, g: 0, b: 0, a: 0}
 --- !u!60 &1343595291
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -51583,6 +52398,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   baseColour: {r: 1, g: 1, b: 1, a: 1}
+  doOverrideColour: 0
+  overrideColour: {r: 0, g: 0, b: 0, a: 0}
 --- !u!60 &1344714770
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -51821,6 +52638,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   baseColour: {r: 1, g: 1, b: 1, a: 1}
+  doOverrideColour: 0
+  overrideColour: {r: 0, g: 0, b: 0, a: 0}
 --- !u!60 &1347801316
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -52092,6 +52911,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   baseColour: {r: 1, g: 1, b: 1, a: 1}
+  doOverrideColour: 0
+  overrideColour: {r: 0, g: 0, b: 0, a: 0}
 --- !u!60 &1347991594
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -53030,6 +53851,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   baseColour: {r: 1, g: 1, b: 1, a: 1}
+  doOverrideColour: 0
+  overrideColour: {r: 0, g: 0, b: 0, a: 0}
 --- !u!60 &1353687600
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -54254,6 +55077,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   baseColour: {r: 1, g: 1, b: 1, a: 1}
+  doOverrideColour: 0
+  overrideColour: {r: 0, g: 0, b: 0, a: 0}
 --- !u!60 &1389779366
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -55117,6 +55942,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   baseColour: {r: 1, g: 1, b: 1, a: 1}
+  doOverrideColour: 0
+  overrideColour: {r: 0, g: 0, b: 0, a: 0}
 --- !u!60 &1418234764
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -55981,6 +56808,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   baseColour: {r: 1, g: 1, b: 1, a: 1}
+  doOverrideColour: 0
+  overrideColour: {r: 0, g: 0, b: 0, a: 0}
 --- !u!60 &1447573086
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -56266,6 +57095,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   baseColour: {r: 1, g: 1, b: 1, a: 1}
+  doOverrideColour: 0
+  overrideColour: {r: 0, g: 0, b: 0, a: 0}
 --- !u!60 &1452682424
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -56624,6 +57455,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   baseColour: {r: 1, g: 1, b: 1, a: 1}
+  doOverrideColour: 0
+  overrideColour: {r: 0, g: 0, b: 0, a: 0}
 --- !u!60 &1487617022
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -57026,6 +57859,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   baseColour: {r: 1, g: 1, b: 1, a: 1}
+  doOverrideColour: 0
+  overrideColour: {r: 0, g: 0, b: 0, a: 0}
 --- !u!60 &1503394772
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -57690,6 +58525,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   baseColour: {r: 1, g: 1, b: 1, a: 1}
+  doOverrideColour: 0
+  overrideColour: {r: 0, g: 0, b: 0, a: 0}
 --- !u!60 &1517003645
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -58655,6 +59492,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   baseColour: {r: 1, g: 1, b: 1, a: 1}
+  doOverrideColour: 0
+  overrideColour: {r: 0, g: 0, b: 0, a: 0}
 --- !u!60 &1546584690
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -58942,6 +59781,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   baseColour: {r: 1, g: 1, b: 1, a: 1}
+  doOverrideColour: 0
+  overrideColour: {r: 0, g: 0, b: 0, a: 0}
 --- !u!60 &1549835233
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -59288,6 +60129,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   baseColour: {r: 1, g: 1, b: 1, a: 1}
+  doOverrideColour: 0
+  overrideColour: {r: 0, g: 0, b: 0, a: 0}
 --- !u!60 &1552456020
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -59611,6 +60454,81 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1557232753}
   m_CullTransparentMesh: 1
+--- !u!1 &1558161640
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1558161641}
+  - component: {fileID: 1558161643}
+  - component: {fileID: 1558161642}
+  m_Layer: 5
+  m_Name: Image
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &1558161641
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1558161640}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 975328798}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 10, y: -10}
+  m_SizeDelta: {x: 212.1531, y: 82.1939}
+  m_Pivot: {x: 0, y: 1}
+--- !u!114 &1558161642
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1558161640}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Sprite: {fileID: 21300000, guid: 6e79cc900d94282429a0a49cbbbf129f, type: 3}
+  m_Type: 0
+  m_PreserveAspect: 1
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
+--- !u!222 &1558161643
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1558161640}
+  m_CullTransparentMesh: 1
 --- !u!1 &1559022294
 GameObject:
   m_ObjectHideFlags: 0
@@ -59837,6 +60755,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   baseColour: {r: 1, g: 1, b: 1, a: 1}
+  doOverrideColour: 0
+  overrideColour: {r: 0, g: 0, b: 0, a: 0}
 --- !u!60 &1569393039
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -60354,6 +61274,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   baseColour: {r: 1, g: 1, b: 1, a: 1}
+  doOverrideColour: 0
+  overrideColour: {r: 0, g: 0, b: 0, a: 0}
 --- !u!60 &1579712382
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -60694,6 +61616,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   baseColour: {r: 1, g: 1, b: 1, a: 1}
+  doOverrideColour: 0
+  overrideColour: {r: 0, g: 0, b: 0, a: 0}
 --- !u!60 &1580310002
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -61008,6 +61932,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   baseColour: {r: 1, g: 1, b: 1, a: 1}
+  doOverrideColour: 0
+  overrideColour: {r: 0, g: 0, b: 0, a: 0}
 --- !u!60 &1586983732
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -61243,6 +62169,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   baseColour: {r: 1, g: 1, b: 1, a: 1}
+  doOverrideColour: 0
+  overrideColour: {r: 0, g: 0, b: 0, a: 0}
 --- !u!60 &1592914861
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -61813,6 +62741,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   baseColour: {r: 1, g: 1, b: 1, a: 1}
+  doOverrideColour: 0
+  overrideColour: {r: 0, g: 0, b: 0, a: 0}
 --- !u!60 &1605397342
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -63002,6 +63932,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   baseColour: {r: 1, g: 1, b: 1, a: 1}
+  doOverrideColour: 0
+  overrideColour: {r: 0, g: 0, b: 0, a: 0}
 --- !u!60 &1638054733
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -63273,6 +64205,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   baseColour: {r: 1, g: 1, b: 1, a: 1}
+  doOverrideColour: 0
+  overrideColour: {r: 0, g: 0, b: 0, a: 0}
 --- !u!60 &1644658676
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -63866,6 +64800,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   baseColour: {r: 1, g: 1, b: 1, a: 1}
+  doOverrideColour: 0
+  overrideColour: {r: 0, g: 0, b: 0, a: 0}
 --- !u!60 &1659848885
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -64261,6 +65197,43 @@ Transform:
   m_Children: []
   m_Father: {fileID: 2114791240}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1666399759
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1666399760}
+  m_Layer: 5
+  m_Name: Tooltiip (9)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!224 &1666399760
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1666399759}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 335602762}
+  - {fileID: 1128124356}
+  m_Father: {fileID: 1909173906}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: -50, y: 49.99994}
+  m_SizeDelta: {x: 100, y: 100}
+  m_Pivot: {x: 0, y: 1}
 --- !u!1 &1673714595
 GameObject:
   m_ObjectHideFlags: 0
@@ -64438,6 +65411,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   baseColour: {r: 1, g: 1, b: 1, a: 1}
+  doOverrideColour: 0
+  overrideColour: {r: 0, g: 0, b: 0, a: 0}
 --- !u!60 &1673770887
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -64908,6 +65883,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   baseColour: {r: 1, g: 1, b: 1, a: 1}
+  doOverrideColour: 0
+  overrideColour: {r: 0, g: 0, b: 0, a: 0}
 --- !u!114 &1688235330
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -65478,6 +66455,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   baseColour: {r: 1, g: 1, b: 1, a: 1}
+  doOverrideColour: 0
+  overrideColour: {r: 0, g: 0, b: 0, a: 0}
 --- !u!60 &1706852125
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -65991,6 +66970,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   baseColour: {r: 1, g: 1, b: 1, a: 1}
+  doOverrideColour: 0
+  overrideColour: {r: 0, g: 0, b: 0, a: 0}
 --- !u!60 &1721644221
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -66459,6 +67440,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   baseColour: {r: 1, g: 1, b: 1, a: 1}
+  doOverrideColour: 0
+  overrideColour: {r: 0, g: 0, b: 0, a: 0}
 --- !u!60 &1733563743
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -66814,6 +67797,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   baseColour: {r: 1, g: 1, b: 1, a: 1}
+  doOverrideColour: 0
+  overrideColour: {r: 0, g: 0, b: 0, a: 0}
 --- !u!60 &1745926744
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -67142,6 +68127,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   baseColour: {r: 1, g: 1, b: 1, a: 1}
+  doOverrideColour: 0
+  overrideColour: {r: 0, g: 0, b: 0, a: 0}
 --- !u!60 &1749685307
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -67434,6 +68421,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   baseColour: {r: 1, g: 1, b: 1, a: 1}
+  doOverrideColour: 0
+  overrideColour: {r: 0, g: 0, b: 0, a: 0}
 --- !u!60 &1761430789
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -67643,6 +68632,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   baseColour: {r: 1, g: 1, b: 1, a: 1}
+  doOverrideColour: 0
+  overrideColour: {r: 0, g: 0, b: 0, a: 0}
 --- !u!60 &1761653653
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -68252,6 +69243,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   baseColour: {r: 1, g: 1, b: 1, a: 1}
+  doOverrideColour: 0
+  overrideColour: {r: 0, g: 0, b: 0, a: 0}
 --- !u!60 &1770030621
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -69667,6 +70660,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   baseColour: {r: 1, g: 1, b: 1, a: 1}
+  doOverrideColour: 0
+  overrideColour: {r: 0, g: 0, b: 0, a: 0}
 --- !u!60 &1816711728
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -70114,6 +71109,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   baseColour: {r: 1, g: 1, b: 1, a: 1}
+  doOverrideColour: 0
+  overrideColour: {r: 0, g: 0, b: 0, a: 0}
 --- !u!60 &1842674243
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -70299,6 +71296,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   baseColour: {r: 1, g: 1, b: 1, a: 1}
+  doOverrideColour: 0
+  overrideColour: {r: 0, g: 0, b: 0, a: 0}
 --- !u!60 &1845085515
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -70767,6 +71766,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   baseColour: {r: 1, g: 1, b: 1, a: 1}
+  doOverrideColour: 0
+  overrideColour: {r: 0, g: 0, b: 0, a: 0}
 --- !u!60 &1852445542
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -70970,6 +71971,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   baseColour: {r: 1, g: 1, b: 1, a: 1}
+  doOverrideColour: 0
+  overrideColour: {r: 0, g: 0, b: 0, a: 0}
 --- !u!60 &1854743009
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -71448,6 +72451,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   baseColour: {r: 1, g: 1, b: 1, a: 1}
+  doOverrideColour: 0
+  overrideColour: {r: 0, g: 0, b: 0, a: 0}
 --- !u!60 &1861718233
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -71686,6 +72691,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   baseColour: {r: 1, g: 1, b: 1, a: 1}
+  doOverrideColour: 0
+  overrideColour: {r: 0, g: 0, b: 0, a: 0}
 --- !u!60 &1863816881
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -71919,6 +72926,152 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1864061561}
   m_CullTransparentMesh: 1
+--- !u!1 &1869644957
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1869644958}
+  - component: {fileID: 1869644961}
+  - component: {fileID: 1869644960}
+  - component: {fileID: 1869644959}
+  - component: {fileID: 1869644962}
+  m_Layer: 5
+  m_Name: MainScreen
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &1869644958
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1869644957}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 5828463}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 1, y: 0}
+  m_AnchorMax: {x: 1, y: 0}
+  m_AnchoredPosition: {x: -1779, y: 32}
+  m_SizeDelta: {x: 100, y: 100}
+  m_Pivot: {x: 1, y: 0}
+--- !u!114 &1869644959
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1869644957}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Navigation:
+    m_Mode: 3
+    m_WrapAround: 0
+    m_SelectOnUp: {fileID: 0}
+    m_SelectOnDown: {fileID: 0}
+    m_SelectOnLeft: {fileID: 0}
+    m_SelectOnRight: {fileID: 0}
+  m_Transition: 1
+  m_Colors:
+    m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
+    m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
+    m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
+    m_ColorMultiplier: 1
+    m_FadeDuration: 0.1
+  m_SpriteState:
+    m_HighlightedSprite: {fileID: 0}
+    m_PressedSprite: {fileID: 0}
+    m_SelectedSprite: {fileID: 0}
+    m_DisabledSprite: {fileID: 0}
+  m_AnimationTriggers:
+    m_NormalTrigger: Normal
+    m_HighlightedTrigger: Highlighted
+    m_PressedTrigger: Pressed
+    m_SelectedTrigger: Selected
+    m_DisabledTrigger: Disabled
+  m_Interactable: 1
+  m_TargetGraphic: {fileID: 1869644960}
+  m_OnClick:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1034080766}
+        m_TargetAssemblyTypeName: CountryGame.ViewTypeManager, Assembly-CSharp
+        m_MethodName: MainView
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &1869644960
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1869644957}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Sprite: {fileID: 21300000, guid: 9412346eaab60194ea28bfcfde688077, type: 3}
+  m_Type: 0
+  m_PreserveAspect: 1
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
+--- !u!222 &1869644961
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1869644957}
+  m_CullTransparentMesh: 1
+--- !u!114 &1869644962
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1869644957}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1c5c0a488ff29294a9e511f532e3f1c7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  toolTip: {fileID: 975328798}
 --- !u!1 &1869886815
 GameObject:
   m_ObjectHideFlags: 0
@@ -72052,6 +73205,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   baseColour: {r: 1, g: 1, b: 1, a: 1}
+  doOverrideColour: 0
+  overrideColour: {r: 0, g: 0, b: 0, a: 0}
 --- !u!60 &1873174555
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -72415,6 +73570,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   baseColour: {r: 1, g: 1, b: 1, a: 1}
+  doOverrideColour: 0
+  overrideColour: {r: 0, g: 0, b: 0, a: 0}
 --- !u!60 &1876695379
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -72754,6 +73911,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   baseColour: {r: 1, g: 1, b: 1, a: 1}
+  doOverrideColour: 0
+  overrideColour: {r: 0, g: 0, b: 0, a: 0}
 --- !u!60 &1877870784
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -72947,6 +74106,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   baseColour: {r: 1, g: 1, b: 1, a: 1}
+  doOverrideColour: 0
+  overrideColour: {r: 0, g: 0, b: 0, a: 0}
 --- !u!60 &1878596334
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -73202,6 +74363,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   baseColour: {r: 1, g: 1, b: 1, a: 1}
+  doOverrideColour: 0
+  overrideColour: {r: 0, g: 0, b: 0, a: 0}
 --- !u!60 &1884402258
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -73686,6 +74849,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   baseColour: {r: 1, g: 1, b: 1, a: 1}
+  doOverrideColour: 0
+  overrideColour: {r: 0, g: 0, b: 0, a: 0}
 --- !u!60 &1895481693
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -74015,6 +75180,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   baseColour: {r: 1, g: 1, b: 1, a: 1}
+  doOverrideColour: 0
+  overrideColour: {r: 0, g: 0, b: 0, a: 0}
 --- !u!60 &1898342720
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -74284,6 +75451,9 @@ RectTransform:
   - {fileID: 2114272649}
   - {fileID: 1135724721}
   - {fileID: 698636224}
+  - {fileID: 975328798}
+  - {fileID: 1666399760}
+  - {fileID: 290151281}
   - {fileID: 1706252831}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -74604,6 +75774,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   baseColour: {r: 1, g: 1, b: 1, a: 1}
+  doOverrideColour: 0
+  overrideColour: {r: 0, g: 0, b: 0, a: 0}
 --- !u!60 &1919975971
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -74918,6 +76090,152 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1923560029}
   m_CullTransparentMesh: 1
+--- !u!1 &1923968029
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1923968030}
+  - component: {fileID: 1923968033}
+  - component: {fileID: 1923968032}
+  - component: {fileID: 1923968031}
+  - component: {fileID: 1923968034}
+  m_Layer: 5
+  m_Name: DiplomacyScreen
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &1923968030
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1923968029}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 5828463}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 1, y: 0}
+  m_AnchorMax: {x: 1, y: 0}
+  m_AnchoredPosition: {x: -1552, y: 32}
+  m_SizeDelta: {x: 100, y: 100}
+  m_Pivot: {x: 1, y: 0}
+--- !u!114 &1923968031
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1923968029}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Navigation:
+    m_Mode: 3
+    m_WrapAround: 0
+    m_SelectOnUp: {fileID: 0}
+    m_SelectOnDown: {fileID: 0}
+    m_SelectOnLeft: {fileID: 0}
+    m_SelectOnRight: {fileID: 0}
+  m_Transition: 1
+  m_Colors:
+    m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
+    m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
+    m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
+    m_ColorMultiplier: 1
+    m_FadeDuration: 0.1
+  m_SpriteState:
+    m_HighlightedSprite: {fileID: 0}
+    m_PressedSprite: {fileID: 0}
+    m_SelectedSprite: {fileID: 0}
+    m_DisabledSprite: {fileID: 0}
+  m_AnimationTriggers:
+    m_NormalTrigger: Normal
+    m_HighlightedTrigger: Highlighted
+    m_PressedTrigger: Pressed
+    m_SelectedTrigger: Selected
+    m_DisabledTrigger: Disabled
+  m_Interactable: 1
+  m_TargetGraphic: {fileID: 1923968032}
+  m_OnClick:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1034080766}
+        m_TargetAssemblyTypeName: CountryGame.ViewTypeManager, Assembly-CSharp
+        m_MethodName: DiplomacyView
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &1923968032
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1923968029}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Sprite: {fileID: 21300000, guid: 46a907bf3dcfdd44f82e2b620562d78b, type: 3}
+  m_Type: 0
+  m_PreserveAspect: 1
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
+--- !u!222 &1923968033
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1923968029}
+  m_CullTransparentMesh: 1
+--- !u!114 &1923968034
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1923968029}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1c5c0a488ff29294a9e511f532e3f1c7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  toolTip: {fileID: 290151281}
 --- !u!1 &1926477385
 GameObject:
   m_ObjectHideFlags: 0
@@ -75020,6 +76338,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   baseColour: {r: 1, g: 1, b: 1, a: 1}
+  doOverrideColour: 0
+  overrideColour: {r: 0, g: 0, b: 0, a: 0}
 --- !u!60 &1926477389
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -76067,6 +77387,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   baseColour: {r: 1, g: 1, b: 1, a: 1}
+  doOverrideColour: 0
+  overrideColour: {r: 0, g: 0, b: 0, a: 0}
 --- !u!60 &1958647792
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -77338,6 +78660,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   baseColour: {r: 1, g: 1, b: 1, a: 1}
+  doOverrideColour: 0
+  overrideColour: {r: 0, g: 0, b: 0, a: 0}
 --- !u!60 &2004589795
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -77566,6 +78890,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   baseColour: {r: 1, g: 1, b: 1, a: 1}
+  doOverrideColour: 0
+  overrideColour: {r: 0, g: 0, b: 0, a: 0}
 --- !u!60 &2013673136
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -78058,6 +79384,140 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2024451491}
   m_CullTransparentMesh: 1
+--- !u!1 &2027082668
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2027082669}
+  - component: {fileID: 2027082671}
+  - component: {fileID: 2027082670}
+  m_Layer: 5
+  m_Name: Text
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &2027082669
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2027082668}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 975328798}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 10, y: -19.6495}
+  m_SizeDelta: {x: 209.4292, y: 58.0505}
+  m_Pivot: {x: 0, y: 1}
+--- !u!114 &2027082670
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2027082668}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_text: Main Screen
+  m_isRightToLeft: 0
+  m_fontAsset: {fileID: 11400000, guid: 957dbaf1fa9ef834db97955b0d878f96, type: 2}
+  m_sharedMaterial: {fileID: 8370735618977982747, guid: 957dbaf1fa9ef834db97955b0d878f96, type: 2}
+  m_fontSharedMaterials: []
+  m_fontMaterial: {fileID: 0}
+  m_fontMaterials: []
+  m_fontColor32:
+    serializedVersion: 2
+    rgba: 4278190080
+  m_fontColor: {r: 0, g: 0, b: 0, a: 1}
+  m_enableVertexGradient: 0
+  m_colorMode: 3
+  m_fontColorGradient:
+    topLeft: {r: 1, g: 1, b: 1, a: 1}
+    topRight: {r: 1, g: 1, b: 1, a: 1}
+    bottomLeft: {r: 1, g: 1, b: 1, a: 1}
+    bottomRight: {r: 1, g: 1, b: 1, a: 1}
+  m_fontColorGradientPreset: {fileID: 0}
+  m_spriteAsset: {fileID: 0}
+  m_tintAllSprites: 0
+  m_StyleSheet: {fileID: 0}
+  m_TextStyleHashCode: -1183493901
+  m_overrideHtmlColors: 0
+  m_faceColor:
+    serializedVersion: 2
+    rgba: 4294967295
+  m_fontSize: 20.03
+  m_fontSizeBase: 20.03
+  m_fontWeight: 400
+  m_enableAutoSizing: 0
+  m_fontSizeMin: 18
+  m_fontSizeMax: 72
+  m_fontStyle: 0
+  m_HorizontalAlignment: 2
+  m_VerticalAlignment: 512
+  m_textAlignment: 65535
+  m_characterSpacing: 0
+  m_wordSpacing: 0
+  m_lineSpacing: 0
+  m_lineSpacingMax: 0
+  m_paragraphSpacing: 0
+  m_charWidthMaxAdj: 0
+  m_enableWordWrapping: 1
+  m_wordWrappingRatios: 0.4
+  m_overflowMode: 0
+  m_linkedTextComponent: {fileID: 0}
+  parentLinkedComponent: {fileID: 0}
+  m_enableKerning: 1
+  m_enableExtraPadding: 0
+  checkPaddingRequired: 0
+  m_isRichText: 1
+  m_parseCtrlCharacters: 1
+  m_isOrthographic: 1
+  m_isCullingEnabled: 0
+  m_horizontalMapping: 0
+  m_verticalMapping: 0
+  m_uvLineOffset: 0
+  m_geometrySortingOrder: 0
+  m_IsTextObjectScaleStatic: 0
+  m_VertexBufferAutoSizeReduction: 0
+  m_useMaxVisibleDescender: 1
+  m_pageToDisplay: 1
+  m_margin: {x: 0, y: 0, z: 0, w: 0}
+  m_isUsingLegacyAnimationComponent: 0
+  m_isVolumetricText: 0
+  m_hasFontAssetChanged: 0
+  m_baseMaterial: {fileID: 0}
+  m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!222 &2027082671
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2027082668}
+  m_CullTransparentMesh: 1
 --- !u!1 &2034537578
 GameObject:
   m_ObjectHideFlags: 0
@@ -78160,6 +79620,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   baseColour: {r: 1, g: 1, b: 1, a: 1}
+  doOverrideColour: 0
+  overrideColour: {r: 0, g: 0, b: 0, a: 0}
 --- !u!60 &2034537582
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -78803,6 +80265,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   baseColour: {r: 1, g: 1, b: 1, a: 1}
+  doOverrideColour: 0
+  overrideColour: {r: 0, g: 0, b: 0, a: 0}
 --- !u!60 &2058077584
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -78894,6 +80358,81 @@ MonoBehaviour:
   troopCapacity: 15
   defense: 7
   attack: 7
+--- !u!1 &2059513018
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2059513019}
+  - component: {fileID: 2059513021}
+  - component: {fileID: 2059513020}
+  m_Layer: 5
+  m_Name: Image
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &2059513019
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2059513018}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 290151281}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 10, y: -10}
+  m_SizeDelta: {x: 212.1531, y: 82.1939}
+  m_Pivot: {x: 0, y: 1}
+--- !u!114 &2059513020
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2059513018}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Sprite: {fileID: 21300000, guid: 6e79cc900d94282429a0a49cbbbf129f, type: 3}
+  m_Type: 0
+  m_PreserveAspect: 1
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
+--- !u!222 &2059513021
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2059513018}
+  m_CullTransparentMesh: 1
 --- !u!1 &2059635677
 GameObject:
   m_ObjectHideFlags: 0
@@ -79707,6 +81246,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   baseColour: {r: 1, g: 1, b: 1, a: 1}
+  doOverrideColour: 0
+  overrideColour: {r: 0, g: 0, b: 0, a: 0}
 --- !u!60 &2087815433
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -80128,6 +81669,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   baseColour: {r: 1, g: 1, b: 1, a: 1}
+  doOverrideColour: 0
+  overrideColour: {r: 0, g: 0, b: 0, a: 0}
 --- !u!60 &2114791243
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -80369,6 +81912,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   baseColour: {r: 1, g: 1, b: 1, a: 1}
+  doOverrideColour: 0
+  overrideColour: {r: 0, g: 0, b: 0, a: 0}
 --- !u!60 &2116244415
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -80633,6 +82178,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   baseColour: {r: 1, g: 1, b: 1, a: 1}
+  doOverrideColour: 0
+  overrideColour: {r: 0, g: 0, b: 0, a: 0}
 --- !u!60 &2123585597
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -81107,6 +82654,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   baseColour: {r: 1, g: 1, b: 1, a: 1}
+  doOverrideColour: 0
+  overrideColour: {r: 0, g: 0, b: 0, a: 0}
 --- !u!114 &2133893692
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -81400,6 +82949,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   baseColour: {r: 1, g: 1, b: 1, a: 1}
+  doOverrideColour: 0
+  overrideColour: {r: 0, g: 0, b: 0, a: 0}
 --- !u!60 &2146050966
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -88872,3 +90423,4 @@ SceneRoots:
   - {fileID: 1507180707}
   - {fileID: 731134301}
   - {fileID: 294502266}
+  - {fileID: 1034080765}

@@ -41,31 +41,31 @@ namespace CountryGame
                 {
                     NationManager.Instance.SwapCountriesNation(country, NationManager.Instance.GetNationByName("Denmark"), true);
                     country.ResetTroops();
-                    country.MovedTroopsIn(country.GetNation(), 3);
+                    country.MovedTroopsIn(NationManager.Instance.GetNationByName("Denmark"), 1);
                 }
                 else if (country.countryName == "Alaska")
                 {
                     NationManager.Instance.SwapCountriesNation(country, NationManager.Instance.GetNationByName("United States"), true);
                     country.ResetTroops();
-                    country.MovedTroopsIn(country.GetNation(), 3);
+                    country.MovedTroopsIn(NationManager.Instance.GetNationByName("United States"), 1);
                 }
                 else if (country.countryName == "Kaliningrad")
                 {
                     NationManager.Instance.SwapCountriesNation(country, NationManager.Instance.GetNationByName("Russia"), true);
                     country.ResetTroops();
-                    country.MovedTroopsIn(country.GetNation(), 3);
+                    country.MovedTroopsIn(NationManager.Instance.GetNationByName("Russia"), 1);
                 }
                 else if (country.countryName == "French Guiana")
                 {
                     NationManager.Instance.SwapCountriesNation(country, NationManager.Instance.GetNationByName("France"), true);
                     country.ResetTroops();
-                    country.MovedTroopsIn(country.GetNation(), 3);
+                    country.MovedTroopsIn(NationManager.Instance.GetNationByName("France"), 1);
                 }
                 else if (country.countryName == "Northern Ireland")
                 {
                     NationManager.Instance.SwapCountriesNation(country, NationManager.Instance.GetNationByName("United Kingdom"), true);
                     country.ResetTroops();
-                    country.MovedTroopsIn(country.GetNation(), 3);
+                    country.MovedTroopsIn(NationManager.Instance.GetNationByName("United Kingdom"), 1);
                 }
             }
 

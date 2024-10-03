@@ -60,7 +60,6 @@ namespace CountryGame
             
             yield return new WaitForSeconds(decisionTime);
 
-            Debug.Log($"Cost: {requiredPower}");
             if (requiredPower <= requestingAgreement.DiplomaticPower)
             {
                 Message acceptedMessage = Message.Create(MessageSendMode.Reliable, GameMessageId.AgreementSigned);
@@ -136,22 +135,17 @@ namespace CountryGame
             }
             
             float distance = agreement.AgreementLeader.DistanceTo(nationSigning);
-            
-            Debug.Log($"Distance between Russia and Belarus {distance}");
 
             switch (distance)
             {
                 case < 2f:
                     // close
-                    Debug.Log("Close");
                     requiredPower *= 1f;
                     break;
                 case < 3.3f:
-                    Debug.Log("Medium");
                     requiredPower *= 1.5f;
                     break;
                 case >= 2.5f:
-                    Debug.Log("Far");
                     requiredPower *= 2.5f;
                     break;
             }

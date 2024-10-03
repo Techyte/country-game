@@ -4,7 +4,7 @@ namespace CountryGame
 
     public class CountryButton : MonoBehaviour
     {
-        [SerializeField] private Color baseColour = Color.white;
+        public Color baseColour = Color.white;
 
         private float _currentAlphaMultiplier = 1;
 
@@ -12,6 +12,9 @@ namespace CountryGame
 
         private Color targetColour;
         private float targetColourInfluence = 0;
+        
+        public bool doOverrideColour;
+        public Color overrideColour;
 
         private void Awake()
         {
@@ -30,8 +33,18 @@ namespace CountryGame
             {
                 _currentAlphaMultiplier = 1;
             }
+
+            Color targetColor = baseColour;
+
+            if (!doOverrideColour)
+            {
+                targetColor = Color.Lerp(baseColour, targetColour, targetColourInfluence) * _currentAlphaMultiplier;
+            }
+            else
+            {
+                targetColor = overrideColour * _currentAlphaMultiplier;
+            }
             
-            Color targetColor = Color.Lerp(baseColour, targetColour, targetColourInfluence) * _currentAlphaMultiplier;
             targetColor.a = 1;
             
             _renderer.color = Color.Lerp(_renderer.color, targetColor, 0.05f);

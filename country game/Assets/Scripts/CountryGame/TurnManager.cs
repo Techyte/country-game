@@ -89,6 +89,7 @@ namespace CountryGame
             actionPoints = turnActionPoints;
             
             endedTurn = false;
+            ViewTypeManager.Instance.UpdateView();
         }
 
         public void PerformedAction()

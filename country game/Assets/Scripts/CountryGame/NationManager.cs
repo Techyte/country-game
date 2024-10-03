@@ -273,15 +273,6 @@ namespace CountryGame
             {
                 Nation oldNation = countryToSwap.GetNation();
                 
-                // swap all troops in the country to the new one
-                foreach (var info in countryToSwap.troopInfos.Values)
-                {
-                    if (info.ControllerNation == countryToSwap.GetNation())
-                    {
-                        info.ControllerNation = nationToSwapTo;
-                    }
-                }
-                
                 if (oldNation != null)
                 {
                     oldNation.CountryLeft(countryToSwap);
@@ -367,7 +358,19 @@ namespace CountryGame
         public float tanks = 0.3f;
         public float marines = 0.3f;
 
-        public int DiplomaticPower = 0;
+        public int DiplomaticPower
+        {
+            get
+            {
+                return _diplomaticPower;
+            }
+            set
+            {
+                _diplomaticPower = Math.Clamp(value, -100, 100);
+            }
+        }
+
+        private int _diplomaticPower;
 
         public void CountryJointed(Country countryThatJoined)
         {
@@ -501,11 +504,48 @@ namespace CountryGame
             }
         }
 
+        public void UpdateTroopDisplaysNonRecursivly()
+        {
+            foreach (var country in Countries)
+            {
+                country.UpdateTroopDisplay();
+            }
+        }
+
         public void UpdateTroopDisplays()
         {
             foreach (var country in Countries)
             {
                 country.UpdateTroopDisplay();
+            }
+
+            foreach (var agreement in agreements)
+            {
+                if (agreement.militaryAccess)
+                {
+                    foreach (var nation in agreement.Nations)
+                    {
+                        nation.UpdateTroopDisplaysNonRecursivly();
+                    }
+                }
+            }
+
+            foreach (var war in Wars)
+            {
+                if (war.Belligerents.Contains(this))
+                {
+                    foreach (var bel in war.Belligerents)
+                    {
+                        bel.UpdateTroopDisplaysNonRecursivly();
+                    }
+                }
+                else
+                {
+                    foreach (var def in war.Defenders)
+                    {
+                        def.UpdateTroopDisplaysNonRecursivly();
+                    }
+                }
             }
 
             CombatManager.Instance.UpdateAttackDisplays();

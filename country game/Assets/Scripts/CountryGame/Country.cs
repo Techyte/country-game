@@ -153,10 +153,11 @@ namespace CountryGame
             if (troopDisplay != null && PlayerNationManager.PlayerNation != null && nation != null)
             {
                 troopDisplay.UpdateDisplay(this,
-                    nation.MilitaryAccessWith(PlayerNationManager.PlayerNation) ||
+                    (nation.MilitaryAccessWith(PlayerNationManager.PlayerNation) ||
                     nation == PlayerNationManager.PlayerNation ||
                     PlayerNationManager.PlayerNation.Attacking(this) ||
-                    PlayerNationManager.PlayerNation.Defending(nation));
+                    PlayerNationManager.PlayerNation.Defending(nation)) &&
+                    !CombatManager.Instance.invading && ViewTypeManager.Instance.currentView != ViewType.Diplomacy);
             }
         }
 
@@ -175,13 +176,17 @@ namespace CountryGame
 
         public bool CanMoveNumTroopsOut(Nation controller, int amount)
         {
+            Debug.Log(countryName);
             if (troopInfos.TryGetValue(controller, out TroopInformation info))
             {
+                Debug.Log("found that controller");
                 if (info.NumberOfTroops - amount >= 0)
                 {
+                    Debug.Log("moving that amount of troops would result in negative troops, cancelling");
                     return true;
                 }
 
+                Debug.Log("moving that amount of troops would NOT result in negative troops, cancelling");
                 return false;
             }
             else

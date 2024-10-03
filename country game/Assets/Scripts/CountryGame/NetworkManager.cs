@@ -264,7 +264,6 @@ namespace CountryGame
             newPlayerNation.aPlayerNation = true;
             NationManager.Instance.PlayerNations.Add(newPlayerNation);
             
-            newPlayerNation.Countries[0].MovedTroopsIn(newPlayerNation, 6);
             newPlayerNation.DiplomaticPower = 30;
             
             if (id == SteamUser.GetSteamID())
@@ -522,6 +521,8 @@ namespace CountryGame
             notification.Init($"{targetNation.Name} Agrees!",
                 $"Today, {targetNation.Name} agreed to {requestingAgreement.Name} request and signed on to the {requestedAgreement.Name} agreement",
                 () => { CountrySelector.Instance.OpenAgreementScreen(requestedAgreement); }, 5);
+            
+            ViewTypeManager.Instance.UpdateView();
         }
 
         [MessageHandler((ushort)GameMessageId.AgreementSigned, Multiplayer.NetworkManager.PlayerHostedDemoMessageHandlerGroupId)]
