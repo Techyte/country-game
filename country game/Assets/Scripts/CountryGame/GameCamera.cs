@@ -33,6 +33,7 @@ namespace CountryGame
         }
 
         private bool hoveringThisFrame = false;
+
         public bool troopDisplayHover;
 
         private void Update()

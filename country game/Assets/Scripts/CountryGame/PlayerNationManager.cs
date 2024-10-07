@@ -18,6 +18,7 @@ namespace CountryGame
         [SerializeField] private Transform playerNationDisplay;
         [SerializeField] private Transform displayStart, displayEnd;
         [SerializeField] private TextMeshProUGUI diplomaticPowerDisplay;
+        [SerializeField] private TextMeshProUGUI moneyDisplay;
         [SerializeField] private float displaySpeed;
         [SerializeField] private int diplomaticPowerGain = 20;
         [SerializeField] private Button warButtonPrefab;
@@ -87,16 +88,9 @@ namespace CountryGame
         {
             foreach (var playerNation in NationManager.Instance.PlayerNations)
             {
-                playerNation.DiplomaticPower += diplomaticPowerGain;
+                int gain = Math.Clamp(250 / (playerNation.DiplomaticPower - 10) - 3, 1, 7);
 
-                float gain = 0;
-                
-                foreach (var country in playerNation.Countries)
-                {
-                    gain += 0.5f;
-                }
-
-                playerNation.DiplomaticPower += (int)gain;
+                playerNation.DiplomaticPower += gain;
             }
         }
 
@@ -213,6 +207,7 @@ namespace CountryGame
             if (PlayerNation != null)
             {
                 diplomaticPowerDisplay.text = $"DPP: {PlayerNation.DiplomaticPower}";
+                moneyDisplay.text = $"Money: {PlayerNation.Money}";
             }
         }
 

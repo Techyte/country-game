@@ -20,6 +20,8 @@ namespace CountryGame
         [SerializeField] private Transform troopDisplayParent;
         [SerializeField] private TextMeshProUGUI countryName;
         [SerializeField] private TextMeshProUGUI controllerName;
+        [SerializeField] private TextMeshProUGUI defenseText;
+        [SerializeField] private TextMeshProUGUI attackText;
         [SerializeField] private Image controllerFlag;
         [SerializeField] private GameObject moveTroopDisplay;
         [SerializeField] private GameObject hireTroopScreen;
@@ -177,6 +179,8 @@ namespace CountryGame
             countryName.text = countryClicked.countryName;
             controllerName.text = countryClicked.GetNation().Name;
             controllerFlag.sprite = countryClicked.GetNation().flag;
+            defenseText.text = countryClicked.defense.ToString();
+            attackText.text = countryClicked.attack.ToString();
             
             launchAttackButton.interactable =
                 PlayerNationManager.PlayerNation.MilitaryAccessWith(currentCountry.GetNation());

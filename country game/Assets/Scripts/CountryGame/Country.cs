@@ -13,14 +13,14 @@ namespace CountryGame
     {
         public string countryName; 
         private Nation nation;
-        [SerializeField] private TroopDisplay troopDisplay;
+        private TroopDisplay troopDisplay;
 
-        public PolygonCollider2D collider;
-        public Transform center;
+        [HideInInspector] public PolygonCollider2D collider;
+        [HideInInspector] public Transform center;
 
         [HideInInspector] public CountryButton button;
 
-        public List<Country> borders = new List<Country>();
+        [HideInInspector] public List<Country> borders = new List<Country>();
 
         public Dictionary<Nation, TroopInformation> troopInfos = new Dictionary<Nation, TroopInformation>();
 
@@ -41,9 +41,9 @@ namespace CountryGame
                 attack = 7;
             }
 
-            if (troopCapacity == 0)
+            if (troopCapacity == 15)
             {
-                troopCapacity = 15;
+                troopCapacity = 4;
             }
         }
 
@@ -429,11 +429,13 @@ namespace CountryGame
     
     #if UNITY_EDITOR
     [CustomEditor(typeof(Country))]
+    [CanEditMultipleObjects]
     public class CountryEditor : Editor
     {
         // Rendering code for the PixelCollider2D custom inspector
         public override void OnInspectorGUI()
         {
+            base.OnInspectorGUI();
             Country country = (Country)target;
             if (GUILayout.Button("Reset Troops"))
             {

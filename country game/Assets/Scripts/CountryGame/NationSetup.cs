@@ -26,6 +26,7 @@ namespace CountryGame
                 nation.Color = new Color(Random.Range(100f, 256f)/256f, Random.Range(100f, 256f)/256f, Random.Range(100f, 256f)/256f);
                 nation.Name = country.countryName;
                 nation.flag = Resources.Load<Sprite>("Flags/" + nation.Name.ToLower().Replace(' ', '_') + "_32");
+                nation.Money = 0;
                 country.MovedTroopsIn(nation, 4);
                 
                 NationManager.Instance.NewNation(nation);
@@ -74,11 +75,11 @@ namespace CountryGame
                 country.CalculateBorders();
             }
 
-            if (SteamMatchmaking.GetLobbyOwner(LobbyData.LobbyId) == SteamUser.GetSteamID())
-            {
-                Debug.Log("finished setup sending connection information");
-                NetworkManager.Instance.BeginSetup();
-            }
+            // if (SteamMatchmaking.GetLobbyOwner(LobbyData.LobbyId) == SteamUser.GetSteamID())
+            // {
+            //     Debug.Log("finished setup sending connection information");
+            //     NetworkManager.Instance.BeginSetup();
+            // }
 
             //Nation playerNation = NationManager.Instance.GetNationByName(SteamMatchmaking.GetLobbyMemberData(LobbyData.LobbyId, SteamUser.GetSteamID(), "nation"));
             // string playerNationName =

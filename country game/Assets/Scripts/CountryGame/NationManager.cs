@@ -88,10 +88,6 @@ namespace CountryGame
             NetworkManager.Instance.Server.SendToAll(message, NetworkManager.Instance.Client.Id);
 
             CombatManager.Instance.CompleteAttacks();
-
-            AIWarBehaviour();
-            
-            CombatManager.Instance.AICombatBehaviour();
         }
 
         public void HandleSubsumedNations(List<string> nationsSubsumed, List<string> nationsThatSubsumed)
@@ -134,7 +130,7 @@ namespace CountryGame
             agreements.Add(agreementToAdd);
         }
 
-        private void AIWarBehaviour()
+        public void AIWarBehaviour()
         {
             foreach (var nation in nations)
             {
@@ -267,6 +263,41 @@ namespace CountryGame
             agreements.Remove(oldAgreement);
         }
 
+        public void MassSwapCountiesNation(List<Country> countries, List<Nation> nations, bool willing)
+        {
+            List<Nation> oldNations = new List<Nation>();
+            
+            for (int i = 0; i < countries.Count; i++)
+            {
+                Country countryToSwap = countries[i];
+                Nation nationToSwapTo = nations[i];
+                
+                if (countryToSwap.GetNation() != nationToSwapTo)
+                {
+                    Nation oldNation = countryToSwap.GetNation();
+                    
+                    oldNations.Add(oldNation);
+                
+                    oldNation.CountryLeft(countryToSwap);
+
+                    int influence = nationToSwapTo.HighestInfluence(out Nation highestInfluence);
+                
+                    countryToSwap.button.SetInfluenceColour(highestInfluence.Color, influence/3f);
+                    countryToSwap.ChangeNation(nationToSwapTo);
+                    countryToSwap.UpdateTroopDisplay();
+                    nationToSwapTo.CountryJointed(countryToSwap);
+                }
+            }
+
+            for (int i = 0; i < oldNations.Count; i++)
+            {
+                if (oldNations[i].CountryCount == 0)
+                {
+                    NationDestroyed(oldNations[i], willing);
+                }
+            }
+        }
+
         public void SwapCountriesNation(Country countryToSwap, Nation nationToSwapTo, bool willing)
         {
             if (countryToSwap.GetNation() != nationToSwapTo)
@@ -353,6 +384,7 @@ namespace CountryGame
         public Color Color;
         public Sprite flag;
         public bool aPlayerNation = false;
+        public int Money = 0;
 
         public float infantry = 0.4f;
         public float tanks = 0.3f;
