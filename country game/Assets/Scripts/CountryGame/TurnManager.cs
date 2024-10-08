@@ -75,7 +75,9 @@ namespace CountryGame
         public void ProgressTurn()
         {
             ProgressTurnClient();
+            NationManager.Instance.HandleFinance();
             NationManager.Instance.HandleHiringTroops();
+            NationManager.Instance.HandleInfrastructureUpgrades();
             
             Message message = Message.Create(MessageSendMode.Reliable, GameMessageId.NewTurn);
             NetworkManager.Instance.Server.SendToAll(message, NetworkManager.Instance.Client.Id);

@@ -27,6 +27,10 @@ namespace CountryGame
             {
                 DiplomacyView();
             }
+            if (Input.GetKeyDown(KeyCode.F3))
+            {
+                InfrastructureView();
+            }
         }
 
         public void UpdateView()
@@ -43,6 +47,9 @@ namespace CountryGame
                         break;
                     case ViewType.Diplomacy:
                         DiplomacyViewColor(country);
+                        break;
+                    case ViewType.Infrastructure:
+                        InfrastructureViewColor(country);
                         break;
                 }
             }
@@ -85,7 +92,7 @@ namespace CountryGame
 
             int influence = country.GetNation().HighestInfluence(out Nation nation);
 
-            if (influence > 0)
+            if (influence > 0 || country.GetNation().aPlayerNation)
             {
                 country.button.overrideColour = Color.Lerp(country.button.baseColour, nation.Color, influence / 3f);
             }
@@ -101,9 +108,15 @@ namespace CountryGame
             country.button.doOverrideColour = true;
         }
 
-        private void StrengthViewColor(Country country)
+        private void InfrastructureViewColor(Country country)
         {
             country.button.overrideColour = Color.grey;
+
+            if (PlayerNationManager.PlayerNation.MilitaryAccessWith(country.GetNation()))
+            {
+                country.button.overrideColour = Color.Lerp(Color.red, Color.green, country.infrastructure / 10f);
+            }
+            
             country.button.doOverrideColour = true;
         }
         
@@ -119,9 +132,9 @@ namespace CountryGame
             UpdateView();
         }
         
-        public void StrengthView()
+        public void InfrastructureView()
         {
-            currentView = ViewType.Strength;
+            currentView = ViewType.Infrastructure;
             UpdateView();
         }
         
@@ -136,7 +149,7 @@ namespace CountryGame
     {
         Main,
         War,
-        Strength,
+        Infrastructure,
         Diplomacy
     }
 }

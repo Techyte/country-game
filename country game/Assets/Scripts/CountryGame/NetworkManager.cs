@@ -30,6 +30,7 @@ namespace CountryGame
         JoinedWar,
         LeaveAgreement,
         HiredTroops,
+        UpgradeInfrastructure,
     }
     
     public class NetworkManager : MonoBehaviour
@@ -564,7 +565,9 @@ namespace CountryGame
         private static void NewTurn(Message message)
         {
             TurnManager.Instance.ProgressTurnClient();
+            NationManager.Instance.HandleFinance();
             NationManager.Instance.HandleHiringTroops();
+            NationManager.Instance.HandleInfrastructureUpgrades();
         }
 
         [MessageHandler((ushort)GameMessageId.ChangedTroopDistribution, Multiplayer.NetworkManager.PlayerHostedDemoMessageHandlerGroupId)]
@@ -629,6 +632,22 @@ namespace CountryGame
             int amount = message.GetInt();
             
             NationManager.Instance.HireTroops(country, nation, amount);
+        }
+
+        [MessageHandler((ushort)GameMessageId.UpgradeInfrastructure, Multiplayer.NetworkManager.PlayerHostedDemoMessageHandlerGroupId)]
+        private static void UpgradeInfrastructure(ushort fromClientId, Message message)
+        {
+            Instance.Server.SendToAll(message);
+        }
+
+        [MessageHandler((ushort)GameMessageId.UpgradeInfrastructure, Multiplayer.NetworkManager.PlayerHostedDemoMessageHandlerGroupId)]
+        private static void UpgradeInfrastructure(Message message)
+        {
+            Country country = NationManager.Instance.GetCountryByName(message.GetString());
+            Nation nation = NationManager.Instance.GetNationByName(message.GetString());
+            bool upgrading = message.GetBool();
+            
+            NationManager.Instance.UpgradeInfrastructure(country, nation, upgrading);
         }
 
         [MessageHandler((ushort)GameMessageId.SubsumedNations, Multiplayer.NetworkManager.PlayerHostedDemoMessageHandlerGroupId)]

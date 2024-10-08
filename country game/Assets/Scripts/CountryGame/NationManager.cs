@@ -16,6 +16,7 @@ namespace CountryGame
         public List<Nation> nations = new List<Nation>();
         public List<Agreement> agreements = new List<Agreement>();
         public List<TroopHiringInfo> hiringInfos = new List<TroopHiringInfo>();
+        public Dictionary<Country, InfrastructureUpgradeInfo> UpgradeInfos = new Dictionary<Country, InfrastructureUpgradeInfo>();
 
         [SerializeField] private Notification notificationPrefab;
         [SerializeField] private Transform notificationParent;
@@ -180,6 +181,97 @@ namespace CountryGame
                     }
 
                     hiringInfos.Remove(info);
+                }
+            }
+        }
+        
+        public void UpgradeInfrastructure(Country country, Nation nation, bool upgrading)
+        {
+            Debug.Log("changing infrastructure level");
+            
+            if (upgrading)
+            {
+                InfrastructureUpgradeInfo info = new InfrastructureUpgradeInfo();
+                info.country = country;
+                info.OriginalNation = nation;
+            
+                UpgradeInfos.Add(country, info);
+            }
+            else
+            {
+                UpgradeInfos.Remove(country);
+            }
+        }
+
+        public void HandleInfrastructureUpgrades()
+        {
+            List<InfrastructureUpgradeInfo> infos = UpgradeInfos.Values.ToList();
+            
+            foreach (var info in infos)
+            {
+                if (info.country.GetNation() != info.OriginalNation)
+                {
+                    continue;
+                }
+                
+                float cost = Mathf.Pow(13f / 10f, info.country.infrastructure) * 2f;
+
+                info.OriginalNation.Money -= Mathf.CeilToInt(cost);
+
+                info.country.infrastructure++;
+
+                UpgradeInfos.Remove(info.country);
+            }
+        }
+
+        public void HandleFinance()
+        {
+            HandleProfits();
+            HandleExpenses();
+        }
+
+        private void HandleProfits()
+        {
+            foreach (var nation in nations)
+            {
+                foreach (var country in nation.Countries)
+                {
+                    for (int i = 0; i < country.infrastructure; i++)
+                    {
+                        Debug.Log("gaining");
+                        nation.Money += Mathf.Clamp(7 / (i+1) * 2, 1, 10);
+                    }
+                }
+            }
+        }
+
+        private void HandleExpenses()
+        {
+            foreach (var nation in nations)
+            {
+                List<Country> countriesToSearch = new List<Country>();
+                countriesToSearch.AddRange(nation.Countries);
+                
+                foreach (var agreement in agreements)
+                {
+                    if (agreement.militaryAccess)
+                    {
+                        foreach (var agreementNation in agreement.Nations)
+                        {
+                            countriesToSearch.AddRange(agreementNation.Countries);
+                        }
+                    }
+                }
+
+                foreach (var country in countriesToSearch)
+                {
+                    foreach (var value in country.troopInfos.Values)
+                    {
+                        if (value.ControllerNation == nation)
+                        {
+                            nation.Money -= value.NumberOfTroops * 5;
+                        }
+                    }
                 }
             }
         }
@@ -713,5 +805,11 @@ namespace CountryGame
         public Nation OriginalNation;
         public int Amount;
         public int turnCreated;
+    }
+
+    public class InfrastructureUpgradeInfo
+    {
+        public Country country;
+        public Nation OriginalNation;
     }
 }

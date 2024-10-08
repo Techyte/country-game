@@ -21,12 +21,14 @@ namespace CountryGame
                 Random.InitState(index + 42);
                 
                 NationManager.Instance.NewCountry(country);
+
+                country.infrastructure = 1;
                 
                 Nation nation = new Nation();
                 nation.Color = new Color(Random.Range(100f, 256f)/256f, Random.Range(100f, 256f)/256f, Random.Range(100f, 256f)/256f);
                 nation.Name = country.countryName;
                 nation.flag = Resources.Load<Sprite>("Flags/" + nation.Name.ToLower().Replace(' ', '_') + "_32");
-                nation.Money = 0;
+                nation.Money = 50;
                 country.MovedTroopsIn(nation, 4);
                 
                 NationManager.Instance.NewNation(nation);

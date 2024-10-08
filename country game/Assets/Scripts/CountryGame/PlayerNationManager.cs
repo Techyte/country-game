@@ -202,6 +202,23 @@ namespace CountryGame
             }
         }
 
+        public void UpgradeInfrastructure(Country country)
+        {
+            if (!PlayerNation.MilitaryAccessWith(country.GetNation()))
+            {
+                return;
+            }
+
+            country.upgradingThisTurn = !country.upgradingThisTurn;
+            
+            Message message = Message.Create(MessageSendMode.Reliable, GameMessageId.UpgradeInfrastructure);
+            message.AddString(country.countryName);
+            message.AddString(PlayerNation.Name);
+            message.AddBool(country.upgradingThisTurn);
+
+            NetworkManager.Instance.Client.Send(message);
+        }
+
         private void UpdateUI()
         {
             if (PlayerNation != null)

@@ -26,8 +26,12 @@ namespace CountryGame
 
         public int troopCapacity;
 
+        public int infrastructure;
+
         public int defense;
         public int attack;
+        
+        public bool upgradingThisTurn;
 
         private void OnValidate()
         {
@@ -157,7 +161,8 @@ namespace CountryGame
                     nation == PlayerNationManager.PlayerNation ||
                     PlayerNationManager.PlayerNation.Attacking(this) ||
                     PlayerNationManager.PlayerNation.Defending(nation)) &&
-                    !CombatManager.Instance.invading && ViewTypeManager.Instance.currentView != ViewType.Diplomacy);
+                    !CombatManager.Instance.invading && ViewTypeManager.Instance.currentView != ViewType.Diplomacy &&
+                    !CombatManager.Instance.invading && ViewTypeManager.Instance.currentView != ViewType.Infrastructure);
             }
         }
 
