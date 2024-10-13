@@ -8,6 +8,8 @@ namespace CountryGame
         
         public ViewType currentView = ViewType.Main;
 
+        [SerializeField] private GameObject upgradingOverlay;
+
         private void Awake()
         {
             Instance = this;
@@ -27,7 +29,7 @@ namespace CountryGame
             {
                 DiplomacyView();
             }
-            if (Input.GetKeyDown(KeyCode.F3))
+            if (Input.GetKeyDown(KeyCode.F4))
             {
                 InfrastructureView();
             }
@@ -35,6 +37,7 @@ namespace CountryGame
 
         public void UpdateView()
         {
+            upgradingOverlay.SetActive(false);
             foreach (var country in NationManager.Instance.counties)
             {
                 switch (currentView)
@@ -52,6 +55,11 @@ namespace CountryGame
                         InfrastructureViewColor(country);
                         break;
                 }
+            }
+
+            if (currentView == ViewType.Infrastructure)
+            {
+                upgradingOverlay.SetActive(true);
             }
             
             CombatManager.Instance.UpdateAttackDisplays();
@@ -115,6 +123,11 @@ namespace CountryGame
             if (PlayerNationManager.PlayerNation.MilitaryAccessWith(country.GetNation()))
             {
                 country.button.overrideColour = Color.Lerp(Color.red, Color.green, country.infrastructure / 10f);
+            }
+
+            if (country.upgradingThisTurn)
+            {
+                country.button.overrideColour = Color.Lerp(country.button.overrideColour, Color.blue, 1/3f);
             }
             
             country.button.doOverrideColour = true;

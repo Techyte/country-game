@@ -103,26 +103,26 @@ namespace CountryGame
 
             if (agreement.nonAgression)
             {
-                requiredPower += 10;
+                requiredPower += 2;
             }
 
             if (agreement.militaryAccess)
             {
-                requiredPower += 10;
+                requiredPower += 5;
             }
 
             if (agreement.autoJoinWar)
             {
-                requiredPower += 20;
+                requiredPower += 10;
             }
 
             switch (agreement.influence)
             {
                 case 1: // slightly influenced
-                    requiredPower += 5;
+                    requiredPower += 2;
                     break;
                 case 2: // influenced
-                    requiredPower += 10;
+                    requiredPower += 5;
                     break;
                 case 3: // completly influenced
                     requiredPower += 20;

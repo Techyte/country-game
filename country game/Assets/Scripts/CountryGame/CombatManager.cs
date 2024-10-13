@@ -1,6 +1,8 @@
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using Riptide;
+using UnityEngine.UI;
 
 namespace CountryGame
 {
@@ -309,7 +311,7 @@ namespace CountryGame
                             {
                                 // found a border to attack
                                     
-                                LaunchAttack(border, country);
+                                LaunchAttack(border, country, nation);
                             }
                         }
                     }
@@ -471,7 +473,7 @@ namespace CountryGame
                             {
                                 // found a border to attack
                                     
-                                LaunchedAttack(border, country);
+                                LaunchedAttack(border, country, nationToWarWith);
                             }
                         }
                     }
@@ -479,6 +481,7 @@ namespace CountryGame
             }
 
             nationThatDeclared.DiplomaticPower -= 20;
+            nationThatDeclared.DiplomaticPower += 20;
             
             ViewTypeManager.Instance.UpdateView();
         }
@@ -604,15 +607,17 @@ namespace CountryGame
             if (source.borders.Contains(target) &&
                 (source.HasTroopsOfController(PlayerNationManager.PlayerNation) || source.GetNation().IsAtWarWith(target.GetNation())) && 
                 PlayerNationManager.PlayerNation.IsAtWarWith(target.GetNation()) && TurnManager.Instance.CanPerformAction() && 
-                !AttackAlreadyExists(source, target))
+                !AttackAlreadyExists(source, target) && PlayerNationManager.PlayerNation.CanAfford(TroopMover.Instance.attackCost))
             {
                 Message message = Message.Create(MessageSendMode.Reliable, GameMessageId.NewAttack);
                 message.AddString(source.countryName);
                 message.AddString(target.countryName);
+                message.AddString(PlayerNationManager.PlayerNation.Name);
                 NetworkManager.Instance.Client.Send(message);
                 
                 TurnManager.Instance.PerformedAction();
             }
+            
             PlayerNationManager.PlayerNation.UpdateTroopDisplays();
         }
 
@@ -649,17 +654,18 @@ namespace CountryGame
             warThatEnded.Defenders.Clear();
         }
 
-        public void LaunchAttack(Country target, Country source)
+        public void LaunchAttack(Country target, Country source, Nation instigator)
         {
             Message message = Message.Create(MessageSendMode.Reliable, GameMessageId.NewAttack);
             message.AddString(source.countryName);
             message.AddString(target.countryName);
+            message.AddString(instigator.Name);
             NetworkManager.Instance.Client.Send(message);
                 
             TurnManager.Instance.PerformedAction();
         }
 
-        public void LaunchedAttack(Country target, Country source)
+        public void LaunchedAttack(Country target, Country source, Nation instigator)
         {
             ResetSelected();
 
@@ -682,6 +688,7 @@ namespace CountryGame
             attack.Source = source;
             attack.Target = target;
             attack.line = line;
+            attack.Instigator = instigator;
 
             foreach (var war in source.GetNation().Wars)
             {
@@ -783,7 +790,9 @@ namespace CountryGame
                 foreach (var belligerent in Belligerents)
                 {
                     Debug.Log("adding to belligerent diplomatic power");
-                    belligerent.DiplomaticPower += 15;
+                    int gain = Math.Clamp(250 / (belligerent.DiplomaticPower - 10) - 3, 1, 7);
+
+                    belligerent.DiplomaticPower += gain;
                 }
                 CombatManager.Instance.WarEnded(this, false);
                 over = true;
@@ -793,7 +802,9 @@ namespace CountryGame
                 foreach (var defender in Defenders)
                 {
                     Debug.Log("adding to defender diplomatic power");
-                    defender.DiplomaticPower += 15;
+                    int gain = Math.Clamp(250 / (defender.DiplomaticPower - 10) - 3, 1, 7);
+
+                    defender.DiplomaticPower += gain;
                 }
                 CombatManager.Instance.WarEnded(this, true);
                 over = true;
@@ -805,6 +816,8 @@ namespace CountryGame
     {
         public Country Source;
         public Country Target;
+
+        public Nation Instigator;
 
         public War war;
         public bool launchedByDefenders;

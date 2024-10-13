@@ -18,7 +18,7 @@ namespace CountryGame
             foreach (var country in countries)
             {
                 //Random.InitState(index + int.Parse(SteamMatchmaking.GetLobbyData(LobbyData.LobbyId, "colorSeed")));
-                Random.InitState(index + 42);
+                Random.InitState(index + 3);
                 
                 NationManager.Instance.NewCountry(country);
 

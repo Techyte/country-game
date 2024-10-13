@@ -1,12 +1,9 @@
-using System;
 using System.Collections.Generic;
 using System.Linq;
-using CountryGame.Multiplayer;
 using Riptide;
 using Riptide.Utils;
 using Steamworks;
 using TMPro;
-using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 namespace CountryGame
@@ -30,7 +27,7 @@ namespace CountryGame
         JoinedWar,
         LeaveAgreement,
         HiredTroops,
-        UpgradeInfrastructure,
+        UpgradeInfrastructure
     }
     
     public class NetworkManager : MonoBehaviour
@@ -259,7 +256,7 @@ namespace CountryGame
             ushort riptideId = message.GetUShort();
             
             // string nation = SteamMatchmaking.GetLobbyMemberData(LobbyData.LobbyId, id, "nation");
-            string nation = riptideId == 1 ? "Iran" : "New Zealand";
+            string nation = riptideId == 1 ? NationManager.Instance.nations[new System.Random().Next(0, NationManager.Instance.nations.Count)].Name : "New Zealand";
 
             Nation newPlayerNation = NationManager.Instance.GetNationByName(nation);
             newPlayerNation.aPlayerNation = true;
@@ -312,8 +309,9 @@ namespace CountryGame
             
             Country source = NationManager.Instance.GetCountryByName(message.GetString());
             Country target = NationManager.Instance.GetCountryByName(message.GetString());
+            Nation instigator = NationManager.Instance.GetNationByName(message.GetString());
 
-            CombatManager.Instance.LaunchedAttack(target, source);
+            CombatManager.Instance.LaunchedAttack(target, source, instigator);
         }
 
         [MessageHandler((ushort)GameMessageId.RequestNewAgreement, Multiplayer.NetworkManager.PlayerHostedDemoMessageHandlerGroupId)]
@@ -477,7 +475,7 @@ namespace CountryGame
             if (!targetNation.aPlayerNation)
             {
                 float requiredPower = message.GetFloat();
-                requestingAgreement.DiplomaticPower -= (int)requiredPower/2;
+                requestingAgreement.DiplomaticPower -= (int)requiredPower;
             }
                 
             Debug.Log($"{targetNation.Name} rejected the {requestedAgreement.Name} agreement");
@@ -508,7 +506,7 @@ namespace CountryGame
             if (!targetNation.aPlayerNation)
             {
                 float requiredPower = message.GetFloat();
-                requestingAgreement.DiplomaticPower -= (int)(requiredPower / 2);
+                requestingAgreement.DiplomaticPower -= (int)requiredPower;
             }
 
             NationManager.Instance.NewAgreement(requestedAgreement);

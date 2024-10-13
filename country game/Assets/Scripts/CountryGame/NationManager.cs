@@ -143,6 +143,11 @@ namespace CountryGame
                         {
                             foreach (var border in country.borders)
                             {
+                                if (border.GetNation() == nation || border.GetNation().IsAtWarWith(nation))
+                                {
+                                    continue;
+                                }
+                                
                                 bool goingToDeclareWar = Random.Range(0, 4) == 1;
 
                                 if (goingToDeclareWar)
@@ -165,6 +170,8 @@ namespace CountryGame
             info.turnCreated = TurnManager.Instance.currentTurn;
             
             hiringInfos.Add(info);
+
+            nation.Money -= amount * TroopMover.Instance.flatHireCostPerTroop;
         }
 
         public void HandleHiringTroops()
@@ -187,8 +194,6 @@ namespace CountryGame
         
         public void UpgradeInfrastructure(Country country, Nation nation, bool upgrading)
         {
-            Debug.Log("changing infrastructure level");
-            
             if (upgrading)
             {
                 InfrastructureUpgradeInfo info = new InfrastructureUpgradeInfo();
@@ -196,11 +201,25 @@ namespace CountryGame
                 info.OriginalNation = nation;
             
                 UpgradeInfos.Add(country, info);
+                country.ChangeUpgradingStatus(true);
+
+                if (nation == PlayerNationManager.PlayerNation)
+                {
+                    TurnManager.Instance.PerformedAction();
+                }
             }
             else
             {
+                country.ChangeUpgradingStatus(false);
                 UpgradeInfos.Remove(country);
+                
+                if (nation == PlayerNationManager.PlayerNation)
+                {
+                    TurnManager.Instance.actionPoints += 1;
+                }
             }
+            
+            ViewTypeManager.Instance.UpdateView();
         }
 
         public void HandleInfrastructureUpgrades()
@@ -209,18 +228,25 @@ namespace CountryGame
             
             foreach (var info in infos)
             {
-                if (info.country.GetNation() != info.OriginalNation)
+                if (!info.country.GetNation().MilitaryAccessWith(info.OriginalNation))
                 {
                     continue;
                 }
+
+                float cost = GetUpgradeExpense(info);
                 
-                float cost = Mathf.Pow(13f / 10f, info.country.infrastructure) * 2f;
-
                 info.OriginalNation.Money -= Mathf.CeilToInt(cost);
-
+                
                 info.country.infrastructure++;
 
                 UpgradeInfos.Remove(info.country);
+
+                info.country.ChangeUpgradingStatus(false);
+                
+                if (info.OriginalNation.Money < 0)
+                {
+                    info.OriginalNation.Money = 0;
+                }
             }
         }
 
@@ -230,18 +256,80 @@ namespace CountryGame
             HandleExpenses();
         }
 
+        public int GetTroopCost(Nation nation)
+        {
+            List<Country> countriesToSearch = new List<Country>();
+            countriesToSearch.AddRange(nation.Countries);
+                
+            foreach (var agreement in nation.agreements)
+            {
+                if (agreement.militaryAccess)
+                {
+                    foreach (var agreementNation in agreement.Nations)
+                    {
+                        countriesToSearch.AddRange(agreementNation.Countries);
+                    }
+                }
+            }
+
+            float cost = 0;
+
+            foreach (var country in countriesToSearch)
+            {
+                foreach (var value in country.troopInfos.Values)
+                {
+                    if (value.ControllerNation == nation)
+                    {
+                        cost += GetCostOfTroops(value.NumberOfTroops);
+                    }
+                }
+            }
+
+            return Mathf.RoundToInt(cost);
+        }
+
+        public int GetCostOfTroops(int num)
+        {
+            return num * 3;
+        }
+
+        public float GetNationWarCosts(Nation nation)
+        {
+            int cost = 0;
+            
+            foreach (var attack in CombatManager.Instance.attacks)
+            {
+                if (attack.Instigator == nation)
+                {
+                    cost += TroopMover.Instance.attackCost;
+                }
+            }
+
+            return cost;
+        }
+
+        public int GetNationProfits(Nation nation)
+        {
+            int profits = 0;
+            
+            foreach (var country in nation.Countries)
+            {
+                profits += (int)Mathf.Pow((1.9f / 1f), country.infrastructure) + 6;
+            }
+
+            return profits;
+        }
+
+        public float GetUpgradeExpense(InfrastructureUpgradeInfo info)
+        {
+            return Mathf.Pow(13f / 10f, info.country.infrastructure) * 3f;
+        }
+
         private void HandleProfits()
         {
             foreach (var nation in nations)
             {
-                foreach (var country in nation.Countries)
-                {
-                    for (int i = 0; i < country.infrastructure; i++)
-                    {
-                        Debug.Log("gaining");
-                        nation.Money += Mathf.Clamp(7 / (i+1) * 2, 1, 10);
-                    }
-                }
+                nation.Money += GetNationProfits(nation);
             }
         }
 
@@ -249,29 +337,15 @@ namespace CountryGame
         {
             foreach (var nation in nations)
             {
-                List<Country> countriesToSearch = new List<Country>();
-                countriesToSearch.AddRange(nation.Countries);
-                
-                foreach (var agreement in agreements)
-                {
-                    if (agreement.militaryAccess)
-                    {
-                        foreach (var agreementNation in agreement.Nations)
-                        {
-                            countriesToSearch.AddRange(agreementNation.Countries);
-                        }
-                    }
-                }
+                int cost = GetTroopCost(nation);
+                nation.Money -= cost;
 
-                foreach (var country in countriesToSearch)
+                float warCost = GetNationWarCosts(nation);
+                nation.Money -= Mathf.RoundToInt(warCost);
+                
+                if (nation.Money < 0)
                 {
-                    foreach (var value in country.troopInfos.Values)
-                    {
-                        if (value.ControllerNation == nation)
-                        {
-                            nation.Money -= value.NumberOfTroops * 5;
-                        }
-                    }
+                    nation.Money = 0;
                 }
             }
         }
@@ -511,6 +585,11 @@ namespace CountryGame
             }
 
             return count;
+        }
+
+        public bool CanAfford(int amount)
+        {
+            return Money - amount >= 0;
         }
 
         public bool MilitaryAccessWith(Nation nationToTest)

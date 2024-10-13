@@ -78,14 +78,19 @@ namespace CountryGame
 
         private void OnMouseDown()
         {
+            if (Input.GetMouseButton(2) || Input.GetMouseButton(1) || GameCamera.Instance.IsPointerOverUIObject() || 
+                GameCamera.Instance.troopDisplayHover)
+            {
+                return;
+            }
+            
             if (ViewTypeManager.Instance.currentView == ViewType.Infrastructure)
             {
                 PlayerNationManager.Instance.UpgradeInfrastructure(GetComponent<Country>());
                 return;
             }
             
-            if (Input.GetMouseButton(2) || Input.GetMouseButton(1) || GameCamera.Instance.IsPointerOverUIObject() || 
-                GameCamera.Instance.troopDisplayHover || TroopMover.Instance.transferring || TurnManager.Instance.endedTurn)
+            if (TroopMover.Instance.transferring || TurnManager.Instance.endedTurn)
             {
                 return;
             }

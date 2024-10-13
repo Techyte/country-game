@@ -43,6 +43,13 @@ namespace CountryGame
         [SerializeField] private TextMeshProUGUI costText;
         [SerializeField] private Slider amountSlider;
 
+        [Space] 
+        [SerializeField] private TextMeshProUGUI additionalHireCostText;
+        [SerializeField] private TextMeshProUGUI flatHireCostText;
+
+        public int flatHireCostPerTroop = 5;
+        public int attackCost = 10;
+
         private bool open;
         public Country currentCountry;
 
@@ -185,11 +192,19 @@ namespace CountryGame
             infrastructureText.text = countryClicked.infrastructure.ToString();
             
             launchAttackButton.interactable =
-                PlayerNationManager.PlayerNation.MilitaryAccessWith(currentCountry.GetNation());
+                PlayerNationManager.PlayerNation.MilitaryAccessWith(currentCountry.GetNation()) &&
+                PlayerNationManager.PlayerNation.CanAfford(flatHireCostPerTroop);
             hireTroopsButton.interactable =
-                PlayerNationManager.PlayerNation.MilitaryAccessWith(currentCountry.GetNation());
+                PlayerNationManager.PlayerNation.MilitaryAccessWith(currentCountry.GetNation()) && 
+                PlayerNationManager.PlayerNation.CanAfford(flatHireCostPerTroop);
 
             totalText.text = $"Total: {currentCountry.TotalTroopCount().ToString()}/{currentCountry.troopCapacity}";
+        }
+
+        public void UpdateHireCostText()
+        {
+            additionalHireCostText.text = NationManager.Instance.GetCostOfTroops((int)hireTroopSlider.value).ToString();
+            flatHireCostText.text = (hireTroopSlider.value * flatHireCostPerTroop).ToString();
         }
 
         public void StartTransferringTroops(int index)

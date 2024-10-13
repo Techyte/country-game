@@ -38,6 +38,16 @@ namespace CountryGame
         [SerializeField] private TMP_InputField marinesInputField;
         [SerializeField] private TextMeshProUGUI totalTroopPercentage;
         [SerializeField] private Button changeTroopDistributionButton;
+
+        [Space]
+        [SerializeField] private TextMeshProUGUI infantryCostText;
+        [SerializeField] private TextMeshProUGUI tanksCostText;
+        [SerializeField] private TextMeshProUGUI marinesCostText;
+        [SerializeField] private TextMeshProUGUI infrastructureCostText;
+        [SerializeField] private TextMeshProUGUI warCostsText;
+        
+        [Space]
+        [SerializeField] private TextMeshProUGUI countryProfitText;
         
         [Space]
         [SerializeField] private Image influencedFlag;
@@ -88,6 +98,11 @@ namespace CountryGame
         {
             foreach (var playerNation in NationManager.Instance.PlayerNations)
             {
+                if (playerNation.DiplomaticPower == 10)
+                {
+                    playerNation.DiplomaticPower += 7;
+                    continue;
+                }
                 int gain = Math.Clamp(250 / (playerNation.DiplomaticPower - 10) - 3, 1, 7);
 
                 playerNation.DiplomaticPower += gain;
@@ -202,19 +217,40 @@ namespace CountryGame
             }
         }
 
+        public void UpdateFinanceDropdown()
+        {
+            int cost = NationManager.Instance.GetTroopCost(PlayerNation);
+            
+            float upgradeCost = 0;
+
+            foreach (var info in NationManager.Instance.UpgradeInfos.Values)
+            {
+                if (info.OriginalNation == PlayerNation)
+                {
+                    upgradeCost -= NationManager.Instance.GetUpgradeExpense(info);
+                }
+            }
+
+            float profits = NationManager.Instance.GetNationProfits(PlayerNation);
+            float warCosts = NationManager.Instance.GetNationWarCosts(PlayerNation);
+
+            infantryCostText.text = cost.ToString();
+            infrastructureCostText.text = upgradeCost.ToString();
+            countryProfitText.text = profits.ToString();
+            warCostsText.text = warCosts.ToString();
+        }
+
         public void UpgradeInfrastructure(Country country)
         {
-            if (!PlayerNation.MilitaryAccessWith(country.GetNation()))
+            if (!PlayerNation.MilitaryAccessWith(country.GetNation()) || !TurnManager.Instance.CanPerformAction())
             {
                 return;
             }
-
-            country.upgradingThisTurn = !country.upgradingThisTurn;
             
             Message message = Message.Create(MessageSendMode.Reliable, GameMessageId.UpgradeInfrastructure);
             message.AddString(country.countryName);
             message.AddString(PlayerNation.Name);
-            message.AddBool(country.upgradingThisTurn);
+            message.AddBool(!country.upgradingThisTurn);
 
             NetworkManager.Instance.Client.Send(message);
         }

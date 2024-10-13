@@ -1,3 +1,5 @@
+using UnityEngine.Events;
+
 namespace CountryGame
 {
     using UnityEngine;
@@ -6,6 +8,7 @@ namespace CountryGame
     public class ToolTip : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
     {
         [SerializeField] private Transform toolTip;
+        [SerializeField] private UnityEvent onHover;
 
         private void Start()
         {
@@ -25,6 +28,7 @@ namespace CountryGame
         public void OnPointerEnter(PointerEventData eventData)
         {
             toolTip.gameObject.SetActive(true);
+            onHover?.Invoke();
         }
     
         public void OnPointerExit(PointerEventData eventData)

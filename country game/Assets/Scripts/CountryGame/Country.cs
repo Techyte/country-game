@@ -33,6 +33,8 @@ namespace CountryGame
         
         public bool upgradingThisTurn;
 
+        public SpriteMask mask;
+
         private void OnValidate()
         {
             if (defense == 9)
@@ -53,6 +55,8 @@ namespace CountryGame
 
         private void Awake()
         {
+            mask.enabled = false;
+            
             button = GetComponent<CountryButton>();
             if (string.IsNullOrEmpty(countryName))
             {
@@ -65,6 +69,12 @@ namespace CountryGame
             }
 
             collider = GetComponent<PolygonCollider2D>();
+        }
+
+        public void ChangeUpgradingStatus(bool newUpgrading)
+        {
+            upgradingThisTurn = newUpgrading;
+            mask.enabled = newUpgrading && PlayerNationManager.PlayerNation.MilitaryAccessWith(nation);
         }
 
         public void CalculateBorders()
