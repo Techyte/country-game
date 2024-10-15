@@ -43,6 +43,8 @@ namespace CountryGame
         [SerializeField] private Transform warButtonParent;
         [SerializeField] private GameObject joinWarDisplay;
         [SerializeField] private TextMeshProUGUI sideToJoinText;
+        [SerializeField] private Button joinDefendersButton;
+        [SerializeField] private Button joinBelligerentsButton;
 
         [SerializeField] private Notification notificationPrefab;
         [SerializeField] private Transform notificationParent;
@@ -318,6 +320,9 @@ namespace CountryGame
 
             currentSelectedWar = war;
 
+            joinBelligerentsButton.interactable = !PlayerNationManager.PlayerNation.Wars.Contains(currentSelectedWar);
+            joinDefendersButton.interactable = !PlayerNationManager.PlayerNation.Wars.Contains(currentSelectedWar);
+
             DisplayWarMembers(war);
             warName.text = war.Name;
             PlayerNationManager.Instance.ResetSelected();
@@ -341,7 +346,7 @@ namespace CountryGame
 
         public void ConfirmedJoinWar()
         {
-            if (!TurnManager.Instance.CanPerformAction())
+            if (!TurnManager.Instance.CanPerformAction() || PlayerNationManager.PlayerNation.Wars.Contains(currentSelectedWar))
             {
                 return;
             }
@@ -380,6 +385,11 @@ namespace CountryGame
 
         public void JoinWar(War warToJoin, Nation nationToJoin, bool defender)
         {
+            if (nationToJoin.Wars.Contains(warToJoin))
+            {
+                return;
+            }
+            
             if (defender)
             {
                 JoinWarDefenders(nationToJoin, warToJoin);

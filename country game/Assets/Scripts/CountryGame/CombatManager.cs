@@ -232,18 +232,13 @@ namespace CountryGame
             }
 
             float totalAttackingForce = 0;
-            float totalDefendingForce = 0;
+            float totalDefendingForce = attack.Source.GetParticipatingTroops(attack.war);
 
             foreach (var otherAttack in attacks)
             {
                 if (otherAttack.Target == attack.Target)
                 {
                     totalAttackingForce += otherAttack.Source.GetParticipatingTroops(attack.war);
-                }
-
-                if (otherAttack.Source == attack.Source)
-                {
-                    totalDefendingForce += otherAttack.Target.GetParticipatingTroops(attack.war);
                 }
             }
             
@@ -481,7 +476,6 @@ namespace CountryGame
             }
 
             nationThatDeclared.DiplomaticPower -= 20;
-            nationThatDeclared.DiplomaticPower += 20;
             
             ViewTypeManager.Instance.UpdateView();
         }

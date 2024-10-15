@@ -379,6 +379,19 @@ namespace CountryGame
             return null;
         }
 
+        public Nation GetNationByFlag(Sprite flag)
+        {
+            foreach (var nation in nations)
+            {
+                if (flag == nation.flag)
+                {
+                    return nation;
+                }
+            }
+
+            return null;
+        }
+
         public Country GetCountryByName(string countryName)
         {
             foreach (var country in counties)
