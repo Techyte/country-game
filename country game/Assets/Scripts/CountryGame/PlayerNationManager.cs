@@ -261,6 +261,8 @@ namespace CountryGame
             {
                 diplomaticPowerDisplay.text = $"DPP: {PlayerNation.DiplomaticPower}";
                 moneyDisplay.text = $"Money: {PlayerNation.Money}";
+                flagImage.sprite = PlayerNation.flag;
+                countryName.text = PlayerNation.Name;
             }
         }
 

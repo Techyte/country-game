@@ -27,7 +27,8 @@ namespace CountryGame
         JoinedWar,
         LeaveAgreement,
         HiredTroops,
-        UpgradeInfrastructure
+        UpgradeInfrastructure,
+        ProclaimNewNation
     }
     
     public class NetworkManager : MonoBehaviour
@@ -646,6 +647,23 @@ namespace CountryGame
             bool upgrading = message.GetBool();
             
             NationManager.Instance.UpgradeInfrastructure(country, nation, upgrading);
+        }
+
+        [MessageHandler((ushort)GameMessageId.ProclaimNewNation, Multiplayer.NetworkManager.PlayerHostedDemoMessageHandlerGroupId)]
+        private static void ProclaimNewNation(ushort fromClientId, Message message)
+        {
+            Instance.Server.SendToAll(message);
+        }
+
+        [MessageHandler((ushort)GameMessageId.ProclaimNewNation, Multiplayer.NetworkManager.PlayerHostedDemoMessageHandlerGroupId)]
+        private static void ProclaimNewNation(Message message)
+        {
+            Nation nationToChange = NationManager.Instance.GetNationByName(message.GetString());
+            string newName = message.GetString();
+            string flag = message.GetString();
+            Color color = new Color(message.GetFloat(), message.GetFloat(), message.GetFloat(), message.GetFloat());
+            
+            NationManager.Instance.ProclaimNation(nationToChange, newName, flag, color);
         }
 
         [MessageHandler((ushort)GameMessageId.SubsumedNations, Multiplayer.NetworkManager.PlayerHostedDemoMessageHandlerGroupId)]

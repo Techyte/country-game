@@ -13,6 +13,7 @@ namespace CountryGame
                 PlayerNationManager.Instance.ResetSelected();
                 CombatManager.Instance.ResetSelected();
                 NetworkManager.Instance.ResetSelected();
+                NationProclaimer.Instance.ResetSelected();
             }
         }
     }

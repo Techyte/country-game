@@ -1,7 +1,6 @@
 using System;
 using System.Linq;
 using Riptide;
-using Unity.VisualScripting;
 
 namespace CountryGame
 {
@@ -254,6 +253,23 @@ namespace CountryGame
         {
             HandleProfits();
             HandleExpenses();
+        }
+
+        public void ProclaimNation(Nation nation, string newName, string flag, Color color)
+        {
+            string oldName = nation.Name;
+
+            nation.Name = newName;
+            nation.flag = Resources.Load<Sprite>("Flags/"+flag);
+            nation.Color = color;
+            
+            Notification notification = Instantiate(notificationPrefab, notificationParent);
+            notification.Init(newName+"!",
+                $"Today, the nation previously known as {oldName} proclaimed {newName}, a successor state destined to carry on its legacy",
+                () => CountrySelector.Instance.Clicked(nation), 5);
+            
+            nation.UpdateInfluenceColour();
+            nation.UpdateTroopDisplays();
         }
 
         public int GetTroopCost(Nation nation)
@@ -783,6 +799,11 @@ namespace CountryGame
             
             ChangeInfluence(highestInfluenceNation, highestInfluence/3f);
             CombatManager.Instance.UpdateAttackDisplays();
+            
+            foreach (var country in Countries)
+            {
+                country.ChangeColour(Color);
+            }
         }
 
         public void ChangeColor(Color color)
