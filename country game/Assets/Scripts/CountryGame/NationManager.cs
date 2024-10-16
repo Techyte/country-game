@@ -272,6 +272,12 @@ namespace CountryGame
             nation.UpdateTroopDisplays();
         }
 
+        public static int GetDiplomaticPowerGain(Nation nation)
+        {
+            int gain = Math.Clamp(250 / (nation.DiplomaticPower - 10) - 3, 1, 7);
+            return gain;
+        }
+
         public int GetTroopCost(Nation nation)
         {
             List<Country> countriesToSearch = new List<Country>();

@@ -46,6 +46,7 @@ namespace CountryGame
             {
                 attack.calculatedAttack = CalculateAttackAttack(attack);
                 attack.calculatedDefense = CalculateAttackDefense(attack);
+                Debug.Log($"{attack.Source.name} to {attack.Target.name} is {attack.calculatedAttack} to {attack.calculatedDefense}");
             }
 
             foreach (var attack in attacks)
@@ -170,18 +171,13 @@ namespace CountryGame
             }
             
             float totalDefendingForce = 0;
-            float totalAttackingForce = 0;
+            float totalAttackingForce = attack.Source.GetParticipatingTroops(attack.war);
             
             foreach (var otherAttack in attacks)
             {
-                if (otherAttack.Target == attack.Target)
-                {
-                    totalAttackingForce += otherAttack.Source.GetParticipatingTroops(attack.war);
-                }
-
                 if (otherAttack.Source == attack.Source)
                 {
-                    totalDefendingForce += otherAttack.Target.GetParticipatingTroops(attack.war);
+                    totalDefendingForce += otherAttack.Target.GetParticipatingTroopsAttacking(attack.Source.GetNation());
                 }
             }
 
@@ -232,13 +228,13 @@ namespace CountryGame
             }
 
             float totalAttackingForce = 0;
-            float totalDefendingForce = attack.Source.GetParticipatingTroops(attack.war);
+            float totalDefendingForce = attack.Target.GetParticipatingTroops(attack.war);
 
             foreach (var otherAttack in attacks)
             {
                 if (otherAttack.Target == attack.Target)
                 {
-                    totalAttackingForce += otherAttack.Source.GetParticipatingTroops(attack.war);
+                    totalAttackingForce += otherAttack.Source.GetParticipatingTroopsAttacking(attack.Target.GetNation());
                 }
             }
             
@@ -270,7 +266,7 @@ namespace CountryGame
         {
             foreach (var otherAttack in attacks)
             {
-                if (attack != otherAttack)
+                if (attack != otherAttack && !otherAttack.someoneElseHadMoreAttack)
                 {
                     if (attack.Target == otherAttack.Target)
                     {
@@ -784,7 +780,7 @@ namespace CountryGame
                 foreach (var belligerent in Belligerents)
                 {
                     Debug.Log("adding to belligerent diplomatic power");
-                    int gain = Math.Clamp(250 / (belligerent.DiplomaticPower - 10) - 3, 1, 7);
+                    int gain = NationManager.GetDiplomaticPowerGain(belligerent);
 
                     belligerent.DiplomaticPower += gain;
                 }
@@ -796,7 +792,7 @@ namespace CountryGame
                 foreach (var defender in Defenders)
                 {
                     Debug.Log("adding to defender diplomatic power");
-                    int gain = Math.Clamp(250 / (defender.DiplomaticPower - 10) - 3, 1, 7);
+                    int gain = NationManager.GetDiplomaticPowerGain(defender);
 
                     defender.DiplomaticPower += gain;
                 }

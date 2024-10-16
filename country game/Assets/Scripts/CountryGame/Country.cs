@@ -265,6 +265,21 @@ namespace CountryGame
             return total;
         }
 
+        public int GetParticipatingTroopsAttacking(Nation target)
+        {
+            int total = 0;
+            
+            foreach (var info in troopInfos.Values)
+            {
+                if (info.ControllerNation.IsAtWarWith(target))
+                {
+                    total += info.NumberOfTroops;
+                }
+            }
+
+            return total;
+        }
+
         public List<Country> GetBorders()
         {
             PolygonCollider2D thisCollider = GetComponent<PolygonCollider2D>();

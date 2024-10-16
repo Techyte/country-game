@@ -60,6 +60,16 @@ namespace CountryGame
             _currentAlphaMultiplier = 0.65f;
         }
 
+        private void OnMouseOver()
+        {
+            if (GameCamera.Instance.IsPointerOverUIObject() || GameCamera.Instance.troopDisplayHover || TroopMover.Instance.transferring)
+            {
+                return;
+            }
+            
+            _currentAlphaMultiplier = 0.65f;
+        }
+
         private void OnMouseExit()
         {
             if (GameCamera.Instance.IsPointerOverUIObject() || GameCamera.Instance.troopDisplayHover || TroopMover.Instance.transferring)
