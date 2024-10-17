@@ -25,6 +25,7 @@ namespace CountryGame
         MovedTroops,
         ChangedTroopDistribution,
         JoinedWar,
+        AskToJoinWar,
         LeaveAgreement,
         HiredTroops,
         UpgradeInfrastructure,
@@ -113,7 +114,7 @@ namespace CountryGame
             
             Server.ClientConnected += (sender, args) =>
             {
-                if (Server.ClientCount == 1)
+                if (Server.ClientCount == 2)
                 {
                     BeginSetup();
                 }
@@ -257,7 +258,7 @@ namespace CountryGame
             ushort riptideId = message.GetUShort();
             
             // string nation = SteamMatchmaking.GetLobbyMemberData(LobbyData.LobbyId, id, "nation");
-            string nation = riptideId == 1 ? NationManager.Instance.nations[new System.Random().Next(0, NationManager.Instance.nations.Count)].Name : "New Zealand";
+            string nation = riptideId == 1 ? "Australia" : "New Zealand";
 
             Nation newPlayerNation = NationManager.Instance.GetNationByName(nation);
             newPlayerNation.aPlayerNation = true;
@@ -514,6 +515,20 @@ namespace CountryGame
             
             NationManager.Instance.NationJoinAgreement(targetNation, requestedAgreement);
             NationManager.Instance.NationJoinAgreement(requestingAgreement, requestedAgreement);
+
+            foreach (var nation in requestedAgreement.Nations)
+            {
+                foreach (var war in nation.Wars)
+                {
+                    foreach (var otherNation in requestedAgreement.Nations)
+                    {
+                        if (!otherNation.Wars.Contains(war))
+                        {
+                            CombatManager.Instance.NationJoinWarBelligerents(otherNation, war);
+                        }
+                    }
+                }
+            }
                 
             Debug.Log($"{targetNation.Name} accepted the {requestedAgreement.Name} agreement");
 
@@ -599,6 +614,22 @@ namespace CountryGame
             Agreement agreement = NationManager.Instance.agreements[message.GetInt()];
             
             CountrySelector.Instance.LeaveAgreement(nation, agreement);
+        }
+
+        [MessageHandler((ushort)GameMessageId.AskToJoinWar, Multiplayer.NetworkManager.PlayerHostedDemoMessageHandlerGroupId)]
+        private static void AskToJoinWar(ushort fromClientId, Message message)
+        {
+            Instance.Server.SendToAll(message);
+        }
+
+        [MessageHandler((ushort)GameMessageId.AskToJoinWar, Multiplayer.NetworkManager.PlayerHostedDemoMessageHandlerGroupId)]
+        private static void AskToJoinWar(Message message)
+        {
+            War war = CombatManager.Instance.wars[message.GetInt()];
+            Nation requested = NationManager.Instance.GetNationByName(message.GetString());
+            Nation requester = NationManager.Instance.GetNationByName(message.GetString());
+            
+            CombatManager.Instance.AskToJoinWar(war, requested, requester);
         }
 
         [MessageHandler((ushort)GameMessageId.JoinedWar, Multiplayer.NetworkManager.PlayerHostedDemoMessageHandlerGroupId)]

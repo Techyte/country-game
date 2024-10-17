@@ -30,6 +30,9 @@ namespace CountryGame
         [SerializeField] private Button declareWarButton;
         [SerializeField] private Button signAgreementButton;
         [SerializeField] private GameObject declareWarConfirmationScreen;
+        [SerializeField] private GameObject inviteToWarScreen;
+        [SerializeField] private Transform warInviteButtonParent;
+        [SerializeField] private GameObject warInviteButton;
         [SerializeField] private Image influencedFlag;
         [SerializeField] private TextMeshProUGUI influencedToolTip;
         [SerializeField] private Image nonAgressionImage;
@@ -62,6 +65,7 @@ namespace CountryGame
             declareWarConfirmationScreen.SetActive(false);
             joinWarDisplay.SetActive(false);
             leaveAgreementConfirmation.SetActive(false);
+            inviteToWarScreen.SetActive(false);
         }
 
         private void Update()
@@ -263,6 +267,7 @@ namespace CountryGame
             declareWarConfirmationScreen.SetActive(false);
             joinWarDisplay.SetActive(false);
             leaveAgreementConfirmation.SetActive(false);
+            inviteToWarScreen.SetActive(false);
         }
 
         public void OpenAgreementScreen(int factionIndex)
@@ -501,6 +506,75 @@ namespace CountryGame
         public void BeginCreatingAgreement()
         {
             AgreementCreator.Instance.OpenAgreementScreen(_currentNation);
+            ResetSelected();
+        }
+
+        public void InviteToWar()
+        {
+            if (_currentNation.aPlayerNation)
+            {
+                return;
+            }
+            inviteToWarScreen.SetActive(true);
+            UpdateInviteToWarScreen();
+        }
+
+        public void CloseInviteToWar()
+        {
+            inviteToWarScreen.SetActive(false);
+        }
+
+        private int warIndex;
+
+        private void UpdateInviteToWarScreen()
+        {
+            for (int i = 0; i < PlayerNationManager.PlayerNation.Wars.Count; i++)
+            {
+                War war = PlayerNationManager.PlayerNation.Wars[i];
+                
+                GameObject obj = Instantiate(warInviteButton, warInviteButtonParent);
+                TextMeshProUGUI[] texts = obj.GetComponentsInChildren<TextMeshProUGUI>();
+                Image[] images = obj.GetComponentsInChildren<Image>();
+                texts[0].text = war.Name;
+                images[1].sprite = war.Belligerents[0].flag;
+                images[2].sprite = war.Defenders[0].flag;
+
+                int index = i;
+                
+                obj.GetComponent<Button>().onClick.AddListener(() =>
+                {
+                    warIndex = index;
+                });
+            }
+        }
+
+        public void InviteToWarConfirm()
+        {
+            if (!TurnManager.Instance.CanPerformAction() || _currentNation.aPlayerNation)
+            {
+                return;
+            }
+            
+            War war = PlayerNationManager.PlayerNation.Wars[warIndex];
+            
+            Message message = Message.Create(MessageSendMode.Reliable, GameMessageId.AskToJoinWar);
+
+            for (int i = 0; i < CombatManager.Instance.wars.Count; i++)
+            {
+                if (war == CombatManager.Instance.wars[i])
+                {
+                    message.AddInt(i);
+                }
+            }
+
+            message.AddString(_currentNation.Name);
+            message.AddString(PlayerNationManager.PlayerNation.Name);
+
+            NetworkManager.Instance.Client.Send(message);
+            
+            TurnManager.Instance.PerformedAction();
+            
+            Debug.Log($"Inviting {_currentNation.Name} to the {war.Name}");
             ResetSelected();
         }
 

@@ -112,14 +112,14 @@ namespace CountryGame
         private Vector3 prevMousePos = Vector2.zero;
         private void Pan()
         {
-            if (Input.GetMouseButtonDown(0) || Input.GetMouseButtonDown(2))
+            if (Input.GetMouseButtonDown(0) || Input.GetMouseButtonDown(2) || Input.GetMouseButtonDown(1))
             {
                 Vector3 mousePos = Input.mousePosition;
                 mousePos.z = cam.nearClipPlane * panSpeed;
                 prevMousePos = cam.ScreenToWorldPoint(mousePos);
             }
             
-            if (Input.GetMouseButton(0) || Input.GetMouseButton(2))
+            if (Input.GetMouseButton(0) || Input.GetMouseButton(2) || Input.GetMouseButton(1))
             {
                 Vector2 distance = Vector2.zero;
                 if (!hoveringThisFrame)

@@ -319,6 +319,36 @@ namespace CountryGame
             NetworkManager.Instance.Client.Send(message);
         }
 
+        public void AskToJoinWar(War war, Nation requested, Nation requester)
+        {
+            Debug.Log($"{requester.Name} asked {requested.Name} to join {war.Name}");
+            
+            if ((requester.DiplomaticPower < 10 && !requested.AutoJoinWarsWith(requester)) || requested.aPlayerNation)
+            {
+                return;
+            }
+            
+            Debug.Log("They want to join");
+            
+            if (requested.Wars.Contains(war))
+            {
+                return;
+            }
+            
+            Debug.Log("They were not already in the war");
+
+            bool defender = war.Defenders.Contains(requester);
+            
+            if (defender)
+            {
+                NationJoinWarDefenders(requested, war);
+            }
+            else
+            {
+                NationJoinWarBelligerents(requested, war);
+            }
+        }
+
         private void Update()
         {
             if (Input.GetKeyDown(KeyCode.Escape))
@@ -490,6 +520,11 @@ namespace CountryGame
             nationToJoinWar.JoinWar(warToJoin);
             warToJoin.NationJointedBelligerents(nationToJoinWar);
             
+            Notification notification = Instantiate(notificationPrefab, notificationParent);
+            notification.Init($"To War!",
+                $"Today, {nationToJoinWar.Name} joined the war on {warToJoin.Defenders[0].Name}, this will surely be one to remember",
+                () => { CountrySelector.Instance.OpenWarScreen(warToJoin); }, 5);
+            
             List<Agreement> agreements = nationToJoinWar.agreements.ToList();
             
             foreach (var agreement in agreements)
@@ -530,6 +565,11 @@ namespace CountryGame
             
             nationToJoinWar.JoinWar(warToJoin);
             warToJoin.NationJointedDefenders(nationToJoinWar);
+            
+            Notification notification = Instantiate(notificationPrefab, notificationParent);
+            notification.Init($"To War!",
+                $"Today, {nationToJoinWar.Name} joined the war on {warToJoin.Belligerents[0].Name}, this will surely be one to remember",
+                () => { CountrySelector.Instance.OpenWarScreen(warToJoin); }, 5);
             
             List<Agreement> agreements = nationToJoinWar.agreements.ToList();
             
