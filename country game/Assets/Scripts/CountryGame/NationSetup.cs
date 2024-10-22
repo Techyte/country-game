@@ -23,10 +23,19 @@ namespace CountryGame
                 NationManager.Instance.NewCountry(country);
 
                 country.infrastructure = 1;
+
+                Country[] parent = country.gameObject.GetComponentsInParent<Country>();
+
+                if (parent.Length > 1)
+                {
+                    NationManager.Instance.SwapCountriesNation(country, parent[1].GetNation(), true);
+                    continue;
+                }
                 
                 Nation nation = new Nation();
-                nation.Color = new Color(Random.Range(100f, 256f)/256f, Random.Range(100f, 256f)/256f, Random.Range(100f, 256f)/256f);
-                nation.Name = country.countryName;
+                nation.Color = new Color(Random.Range(100f, 256f)/256f, Random.Range(100f, 256f)/256f,
+                    Random.Range(100f, 256f)/256f);
+                nation.Name = country.nationName;
                 nation.flag = Resources.Load<Sprite>("Flags/" + nation.Name.ToLower().Replace(' ', '_') + "_32");
                 nation.Money = 50;
                 country.MovedTroopsIn(nation, 4);

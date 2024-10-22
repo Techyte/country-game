@@ -39,8 +39,9 @@ namespace CountryGame
         [SerializeField] private TextMeshProUGUI totalTroopPercentage;
         [SerializeField] private Button changeTroopDistributionButton;
 
-        [Space]
+        [Space] 
         [SerializeField] private TextMeshProUGUI infantryCostText;
+        [SerializeField] private TextMeshProUGUI landCostDisplay;
         [SerializeField] private TextMeshProUGUI tanksCostText;
         [SerializeField] private TextMeshProUGUI marinesCostText;
         [SerializeField] private TextMeshProUGUI infrastructureCostText;
@@ -98,7 +99,11 @@ namespace CountryGame
         {
             foreach (var playerNation in NationManager.Instance.PlayerNations)
             {
-                if (playerNation.DiplomaticPower == 10)
+                if (playerNation.Wars.Count > 0)
+                {
+                    continue;
+                }
+                if (playerNation.DiplomaticPower <= 10)
                 {
                     playerNation.DiplomaticPower += 7;
                     continue;
@@ -220,6 +225,7 @@ namespace CountryGame
         public void UpdateFinanceDropdown()
         {
             int cost = NationManager.Instance.GetTroopCost(PlayerNation);
+            int landCost = NationManager.Instance.GetLandCost(PlayerNation);
             
             float upgradeCost = 0;
 
@@ -235,6 +241,7 @@ namespace CountryGame
             float warCosts = NationManager.Instance.GetNationWarCosts(PlayerNation);
 
             infantryCostText.text = cost.ToString();
+            landCostDisplay.text = landCost.ToString();
             infrastructureCostText.text = upgradeCost.ToString();
             countryProfitText.text = profits.ToString();
             warCostsText.text = warCosts.ToString();
@@ -242,7 +249,7 @@ namespace CountryGame
 
         public void UpgradeInfrastructure(Country country)
         {
-            if (!PlayerNation.MilitaryAccessWith(country.GetNation()) || !TurnManager.Instance.CanPerformAction())
+            if (!PlayerNation.MilitaryAccessWith(country.GetNation()) || (!TurnManager.Instance.CanPerformAction() && !country.upgradingThisTurn))
             {
                 return;
             }

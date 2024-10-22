@@ -274,8 +274,24 @@ namespace CountryGame
 
         public static int GetDiplomaticPowerGain(Nation nation)
         {
+            if (nation.DiplomaticPower <= 10)
+            {
+                return 7;
+            }
             int gain = Math.Clamp(250 / (nation.DiplomaticPower - 10) - 3, 1, 7);
             return gain;
+        }
+
+        public int GetLandCost(Nation nation)
+        {
+            int cost = 0;
+            
+            foreach (var country in nation.Countries)
+            {
+                cost += 10;
+            }
+
+            return cost;
         }
 
         public int GetTroopCost(Nation nation)
@@ -312,7 +328,7 @@ namespace CountryGame
 
         public int GetCostOfTroops(int num)
         {
-            return num * 3;
+            return num * 4;
         }
 
         public float GetNationWarCosts(Nation nation)
@@ -336,7 +352,10 @@ namespace CountryGame
             
             foreach (var country in nation.Countries)
             {
-                profits += (int)Mathf.Pow((1.9f / 1f), country.infrastructure) + 6;
+                for (int i = 0; i < country.infrastructure; i++)
+                {
+                    profits += 25 / (i + 2);
+                }
             }
 
             return profits;
@@ -359,6 +378,9 @@ namespace CountryGame
         {
             foreach (var nation in nations)
             {
+                int landCost = GetLandCost(nation);
+                nation.Money -= landCost;
+                
                 int cost = GetTroopCost(nation);
                 nation.Money -= cost;
 

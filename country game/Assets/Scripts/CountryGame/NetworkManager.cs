@@ -114,7 +114,7 @@ namespace CountryGame
             
             Server.ClientConnected += (sender, args) =>
             {
-                if (Server.ClientCount == 2)
+                if (Server.ClientCount == 1)
                 {
                     BeginSetup();
                 }
@@ -258,7 +258,7 @@ namespace CountryGame
             ushort riptideId = message.GetUShort();
             
             // string nation = SteamMatchmaking.GetLobbyMemberData(LobbyData.LobbyId, id, "nation");
-            string nation = riptideId == 1 ? "Australia" : "New Zealand";
+            string nation = riptideId == 1 ? "Turkiye" : "New Zealand";
 
             Nation newPlayerNation = NationManager.Instance.GetNationByName(nation);
             newPlayerNation.aPlayerNation = true;

@@ -1,7 +1,5 @@
-using System;
 using System.Linq;
 using UnityEditor;
-using UnityEngine;
 
 namespace CountryGame
 {
@@ -11,12 +9,13 @@ namespace CountryGame
 
     public class Country : MonoBehaviour
     {
+        public string nationName; 
         public string countryName; 
         private Nation nation;
         private TroopDisplay troopDisplay;
 
         [HideInInspector] public PolygonCollider2D collider;
-        [HideInInspector] public Transform center;
+        public Transform center;
 
         [HideInInspector] public CountryButton button;
 
@@ -55,6 +54,8 @@ namespace CountryGame
 
         private void Awake()
         {
+            mask = GetComponent<SpriteMask>();
+            
             mask.enabled = false;
             
             button = GetComponent<CountryButton>();
@@ -355,7 +356,7 @@ namespace CountryGame
                 borderNations.Add(NationManager.Instance.GetCountryByName("Mexico"));
                 borderNations.Add(NationManager.Instance.GetCountryByName("United States"));
             }
-            else if (countryName == "Australia")
+            else if (countryName == "Victoria")
             {
                 borderNations.Add(NationManager.Instance.GetCountryByName("New Zealand"));
                 borderNations.Add(NationManager.Instance.GetCountryByName("Indonesia"));

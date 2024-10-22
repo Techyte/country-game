@@ -32,8 +32,21 @@ namespace CountryGame
         [SerializeField] private GameObject confirmPannel;
 
         public EventHandler<EventArgs> NewTurn;
+
+        public int actionPoints
+        {
+            get
+            {
+                return _actionPoints;
+            }
+            set
+            {
+                Debug.Log("change in action points");
+                _actionPoints = value;
+            }
+        }
         
-        public int actionPoints;
+        private int _actionPoints;
 
         public bool endedTurn;
 

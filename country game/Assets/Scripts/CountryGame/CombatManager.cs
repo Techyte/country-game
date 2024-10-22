@@ -691,8 +691,6 @@ namespace CountryGame
             message.AddString(target.countryName);
             message.AddString(instigator.Name);
             NetworkManager.Instance.Client.Send(message);
-                
-            TurnManager.Instance.PerformedAction();
         }
 
         public void LaunchedAttack(Country target, Country source, Nation instigator)
@@ -725,14 +723,12 @@ namespace CountryGame
                 // defender is launching the attack
                 if (war.Defenders.Contains(source.GetNation()) && war.Belligerents.Contains(target.GetNation()))
                 {
-                    Debug.Log($"found the {war.Name}");
                     attack.war = war;
                     attack.launchedByDefenders = true;
                 }
                 // belligerent is launching the attack
                 if (war.Belligerents.Contains(source.GetNation()) && war.Defenders.Contains(target.GetNation()))
                 {
-                    Debug.Log($"found the {war.Name}");
                     attack.war = war;
                     attack.launchedByDefenders = false;
                 }
