@@ -22,7 +22,7 @@ namespace CountryGame
                 
                 NationManager.Instance.NewCountry(country);
 
-                country.infrastructure = 1;
+                country.Infrastructure = 1;
 
                 Country[] parent = country.gameObject.GetComponentsInParent<Country>();
 

@@ -41,8 +41,7 @@ namespace CountryGame
             }
             set
             {
-                Debug.Log("change in action points");
-                _actionPoints = value;
+                _actionPoints = Mathf.Max(value, 0);
             }
         }
         
@@ -91,6 +90,7 @@ namespace CountryGame
             NationManager.Instance.HandleFinance();
             NationManager.Instance.HandleHiringTroops();
             NationManager.Instance.HandleInfrastructureUpgrades();
+            ViewTypeManager.Instance.UpdateView();
             
             Message message = Message.Create(MessageSendMode.Reliable, GameMessageId.NewTurn);
             NetworkManager.Instance.Server.SendToAll(message, NetworkManager.Instance.Client.Id);

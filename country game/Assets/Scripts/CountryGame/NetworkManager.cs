@@ -258,7 +258,7 @@ namespace CountryGame
             ushort riptideId = message.GetUShort();
             
             // string nation = SteamMatchmaking.GetLobbyMemberData(LobbyData.LobbyId, id, "nation");
-            string nation = riptideId == 1 ? "Turkiye" : "New Zealand";
+            string nation = riptideId == 1 ? "Australia" : "New Zealand";
 
             Nation newPlayerNation = NationManager.Instance.GetNationByName(nation);
             newPlayerNation.aPlayerNation = true;
@@ -307,8 +307,6 @@ namespace CountryGame
         [MessageHandler((ushort)GameMessageId.NewAttack, Multiplayer.NetworkManager.PlayerHostedDemoMessageHandlerGroupId)]
         private static void LaunchAttack(Message message)
         {
-            Debug.Log("Received New Attack info");
-            
             Country source = NationManager.Instance.GetCountryByName(message.GetString());
             Country target = NationManager.Instance.GetCountryByName(message.GetString());
             Nation instigator = NationManager.Instance.GetNationByName(message.GetString());

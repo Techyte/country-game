@@ -142,7 +142,7 @@ namespace CountryGame
                         {
                             foreach (var border in country.borders)
                             {
-                                if (border.GetNation() == nation || border.GetNation().IsAtWarWith(nation))
+                                if (border.GetNation() == nation || border.GetNation().IsAtWarWith(nation) || nation.NonAgressionWith(border.GetNation()))
                                 {
                                     continue;
                                 }
@@ -236,7 +236,7 @@ namespace CountryGame
                 
                 info.OriginalNation.Money -= Mathf.CeilToInt(cost);
                 
-                info.country.infrastructure++;
+                info.country.Infrastructure++;
 
                 UpgradeInfos.Remove(info.country);
 
@@ -352,7 +352,7 @@ namespace CountryGame
             
             foreach (var country in nation.Countries)
             {
-                for (int i = 0; i < country.infrastructure; i++)
+                for (int i = 0; i < country.Infrastructure; i++)
                 {
                     profits += 25 / (i + 2);
                 }
@@ -363,7 +363,7 @@ namespace CountryGame
 
         public float GetUpgradeExpense(InfrastructureUpgradeInfo info)
         {
-            return Mathf.Pow(13f / 10f, info.country.infrastructure) * 3f;
+            return Mathf.Pow(13f / 10f, info.country.Infrastructure) * 3f;
         }
 
         private void HandleProfits()
@@ -724,6 +724,22 @@ namespace CountryGame
             return false;
         }
 
+        public bool Defending(Country country)
+        {
+            foreach (var ourCountry in Countries)
+            {
+                foreach (var attack in CombatManager.Instance.attacks)
+                {
+                    if (attack.Source == country && attack.Target == ourCountry)
+                    {
+                        return true;
+                    }
+                }
+            }
+
+            return false;
+        }
+
         public bool Defending(Nation nation)
         {
             foreach (var ourCountry in Countries)
@@ -884,6 +900,10 @@ namespace CountryGame
             {
                 foreach (var borderCountry in country.borders)
                 {
+                    Debug.Log(testNation.Name);
+                    Debug.Log(country);
+                    Debug.Log(borderCountry);
+                    Debug.Log(borderCountry.name);
                     if (testNation == borderCountry.GetNation())
                     {
                         return true;

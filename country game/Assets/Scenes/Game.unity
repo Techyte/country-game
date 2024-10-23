@@ -341,7 +341,6 @@ MonoBehaviour:
   button: {fileID: 0}
   borders: []
   troopCapacity: 4
-  infrastructure: 0
   defense: 7
   attack: 7
   upgradingThisTurn: 0
@@ -1476,7 +1475,6 @@ MonoBehaviour:
   button: {fileID: 0}
   borders: []
   troopCapacity: 4
-  infrastructure: 0
   defense: 7
   attack: 7
   upgradingThisTurn: 0
@@ -1798,7 +1796,6 @@ MonoBehaviour:
   button: {fileID: 0}
   borders: []
   troopCapacity: 6
-  infrastructure: 0
   defense: 7
   attack: 7
   upgradingThisTurn: 0
@@ -2498,7 +2495,6 @@ MonoBehaviour:
   button: {fileID: 0}
   borders: []
   troopCapacity: 4
-  infrastructure: 0
   defense: 7
   attack: 7
   upgradingThisTurn: 0
@@ -2920,7 +2916,6 @@ MonoBehaviour:
   button: {fileID: 0}
   borders: []
   troopCapacity: 4
-  infrastructure: 0
   defense: 7
   attack: 7
   upgradingThisTurn: 0
@@ -3585,7 +3580,6 @@ MonoBehaviour:
   button: {fileID: 0}
   borders: []
   troopCapacity: 4
-  infrastructure: 0
   defense: 7
   attack: 7
   upgradingThisTurn: 0
@@ -4172,7 +4166,6 @@ MonoBehaviour:
   button: {fileID: 0}
   borders: []
   troopCapacity: 4
-  infrastructure: 0
   defense: 7
   attack: 7
   upgradingThisTurn: 0
@@ -4410,8 +4403,7 @@ MonoBehaviour:
   center: {fileID: 1825577849}
   button: {fileID: 0}
   borders: []
-  troopCapacity: 12
-  infrastructure: 0
+  troopCapacity: 4
   defense: 7
   attack: 7
   upgradingThisTurn: 0
@@ -4952,7 +4944,6 @@ MonoBehaviour:
   button: {fileID: 0}
   borders: []
   troopCapacity: 7
-  infrastructure: 0
   defense: 7
   attack: 7
   upgradingThisTurn: 0
@@ -5628,7 +5619,6 @@ MonoBehaviour:
   button: {fileID: 0}
   borders: []
   troopCapacity: 10
-  infrastructure: 0
   defense: 7
   attack: 7
   upgradingThisTurn: 0
@@ -5933,7 +5923,6 @@ MonoBehaviour:
   button: {fileID: 0}
   borders: []
   troopCapacity: 6
-  infrastructure: 0
   defense: 7
   attack: 7
   upgradingThisTurn: 0
@@ -6853,7 +6842,6 @@ MonoBehaviour:
   button: {fileID: 0}
   borders: []
   troopCapacity: 4
-  infrastructure: 0
   defense: 7
   attack: 7
   upgradingThisTurn: 0
@@ -7184,7 +7172,6 @@ MonoBehaviour:
   button: {fileID: 0}
   borders: []
   troopCapacity: 4
-  infrastructure: 0
   defense: 7
   attack: 7
   upgradingThisTurn: 0
@@ -7884,7 +7871,6 @@ MonoBehaviour:
   button: {fileID: 0}
   borders: []
   troopCapacity: 4
-  infrastructure: 0
   defense: 7
   attack: 7
   upgradingThisTurn: 0
@@ -8136,7 +8122,6 @@ MonoBehaviour:
   button: {fileID: 0}
   borders: []
   troopCapacity: 4
-  infrastructure: 0
   defense: 7
   attack: 7
   upgradingThisTurn: 0
@@ -8643,7 +8628,6 @@ MonoBehaviour:
   button: {fileID: 0}
   borders: []
   troopCapacity: 4
-  infrastructure: 0
   defense: 7
   attack: 7
   upgradingThisTurn: 0
@@ -9662,7 +9646,6 @@ MonoBehaviour:
   button: {fileID: 0}
   borders: []
   troopCapacity: 4
-  infrastructure: 0
   defense: 7
   attack: 7
   upgradingThisTurn: 0
@@ -10298,7 +10281,6 @@ MonoBehaviour:
   button: {fileID: 0}
   borders: []
   troopCapacity: 4
-  infrastructure: 0
   defense: 7
   attack: 7
   upgradingThisTurn: 0
@@ -10763,6 +10745,37 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 193164371}
   m_CullTransparentMesh: 1
+--- !u!1 &193550717
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 193550718}
+  m_Layer: 0
+  m_Name: center
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &193550718
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 193550717}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 2.0699997, y: -0.2549999, z: 0}
+  m_LocalScale: {x: 0.6993007, y: 0.6993007, z: 0.6993007}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 437676237}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &193946783
 GameObject:
   m_ObjectHideFlags: 0
@@ -11525,7 +11538,6 @@ MonoBehaviour:
   button: {fileID: 0}
   borders: []
   troopCapacity: 9
-  infrastructure: 0
   defense: 7
   attack: 7
   upgradingThisTurn: 0
@@ -12006,7 +12018,6 @@ MonoBehaviour:
   button: {fileID: 0}
   borders: []
   troopCapacity: 4
-  infrastructure: 0
   defense: 7
   attack: 7
   upgradingThisTurn: 0
@@ -12174,7 +12185,6 @@ MonoBehaviour:
   button: {fileID: 0}
   borders: []
   troopCapacity: 4
-  infrastructure: 0
   defense: 7
   attack: 7
   upgradingThisTurn: 0
@@ -12697,7 +12707,6 @@ MonoBehaviour:
   button: {fileID: 0}
   borders: []
   troopCapacity: 4
-  infrastructure: 0
   defense: 7
   attack: 7
   upgradingThisTurn: 0
@@ -13360,7 +13369,6 @@ MonoBehaviour:
   button: {fileID: 0}
   borders: []
   troopCapacity: 6
-  infrastructure: 0
   defense: 7
   attack: 7
   upgradingThisTurn: 0
@@ -13729,7 +13737,6 @@ MonoBehaviour:
   button: {fileID: 0}
   borders: []
   troopCapacity: 4
-  infrastructure: 0
   defense: 7
   attack: 7
   upgradingThisTurn: 0
@@ -14871,7 +14878,6 @@ MonoBehaviour:
   button: {fileID: 0}
   borders: []
   troopCapacity: 4
-  infrastructure: 0
   defense: 7
   attack: 7
   upgradingThisTurn: 0
@@ -15255,7 +15261,6 @@ MonoBehaviour:
   button: {fileID: 0}
   borders: []
   troopCapacity: 4
-  infrastructure: 0
   defense: 7
   attack: 7
   upgradingThisTurn: 0
@@ -17201,7 +17206,6 @@ MonoBehaviour:
   button: {fileID: 0}
   borders: []
   troopCapacity: 10
-  infrastructure: 0
   defense: 7
   attack: 7
   upgradingThisTurn: 0
@@ -17790,7 +17794,6 @@ MonoBehaviour:
   button: {fileID: 0}
   borders: []
   troopCapacity: 4
-  infrastructure: 0
   defense: 7
   attack: 7
   upgradingThisTurn: 0
@@ -18921,7 +18924,6 @@ MonoBehaviour:
   button: {fileID: 0}
   borders: []
   troopCapacity: 4
-  infrastructure: 0
   defense: 7
   attack: 7
   upgradingThisTurn: 0
@@ -19455,7 +19457,6 @@ MonoBehaviour:
   button: {fileID: 0}
   borders: []
   troopCapacity: 8
-  infrastructure: 0
   defense: 7
   attack: 7
   upgradingThisTurn: 0
@@ -19728,7 +19729,6 @@ MonoBehaviour:
   button: {fileID: 0}
   borders: []
   troopCapacity: 4
-  infrastructure: 0
   defense: 7
   attack: 7
   upgradingThisTurn: 0
@@ -20701,7 +20701,6 @@ MonoBehaviour:
   button: {fileID: 0}
   borders: []
   troopCapacity: 4
-  infrastructure: 0
   defense: 7
   attack: 7
   upgradingThisTurn: 0
@@ -21030,7 +21029,6 @@ MonoBehaviour:
   button: {fileID: 0}
   borders: []
   troopCapacity: 4
-  infrastructure: 0
   defense: 7
   attack: 7
   upgradingThisTurn: 0
@@ -21578,7 +21576,6 @@ MonoBehaviour:
   button: {fileID: 0}
   borders: []
   troopCapacity: 4
-  infrastructure: 0
   defense: 7
   attack: 7
   upgradingThisTurn: 0
@@ -22336,8 +22333,7 @@ MonoBehaviour:
   center: {fileID: 518925514}
   button: {fileID: 0}
   borders: []
-  troopCapacity: 20
-  infrastructure: 0
+  troopCapacity: 4
   defense: 7
   attack: 7
   upgradingThisTurn: 0
@@ -23005,7 +23001,6 @@ MonoBehaviour:
   button: {fileID: 0}
   borders: []
   troopCapacity: 9
-  infrastructure: 0
   defense: 7
   attack: 7
   upgradingThisTurn: 0
@@ -23170,7 +23165,6 @@ MonoBehaviour:
   button: {fileID: 0}
   borders: []
   troopCapacity: 4
-  infrastructure: 0
   defense: 7
   attack: 7
   upgradingThisTurn: 0
@@ -23997,7 +23991,6 @@ MonoBehaviour:
   button: {fileID: 0}
   borders: []
   troopCapacity: 10
-  infrastructure: 0
   defense: 7
   attack: 7
   upgradingThisTurn: 0
@@ -24720,6 +24713,384 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 437268742}
   m_CullTransparentMesh: 1
+--- !u!1 &437676236
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 437676237}
+  - component: {fileID: 437676243}
+  - component: {fileID: 437676242}
+  - component: {fileID: 437676241}
+  - component: {fileID: 437676240}
+  - component: {fileID: 437676239}
+  - component: {fileID: 437676238}
+  m_Layer: 0
+  m_Name: indonesia (1)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &437676237
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 437676236}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 1
+  m_Children:
+  - {fileID: 193550718}
+  m_Father: {fileID: 1605397339}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!331 &437676238
+SpriteMask:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 437676236}
+  m_Enabled: 1
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 0
+  m_RayTraceProcedural: 0
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 2100000, guid: 15d0c3709176029428a0da2f8cecf0b5, type: 2}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+  m_Sprite: {fileID: 21300000, guid: ae0c4b8ffa83f884ca7ad504b07f44bc, type: 3}
+  m_MaskAlphaCutoff: 0.2
+  m_FrontSortingLayerID: 0
+  m_BackSortingLayerID: 0
+  m_FrontSortingLayer: 0
+  m_BackSortingLayer: 0
+  m_FrontSortingOrder: 0
+  m_BackSortingOrder: 0
+  m_IsCustomRangeActive: 0
+  m_SpriteSortPoint: 0
+--- !u!114 &437676239
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 437676236}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d99b6881d9717c74e854a4251f78bbd8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  nationName: Indonesia
+  countryName: Eastern indonesia
+  collider: {fileID: 0}
+  center: {fileID: 193550718}
+  button: {fileID: 0}
+  borders: []
+  troopCapacity: 4
+  defense: 7
+  attack: 7
+  upgradingThisTurn: 0
+  mask: {fileID: 437676238}
+--- !u!114 &437676240
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 437676236}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 397d88fed7634ab4c975ce4e2efb7ee2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &437676241
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 437676236}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f758c99d5a49a6b4596746974b2d211b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  baseColour: {r: 1, g: 1, b: 1, a: 1}
+  doOverrideColour: 0
+  overrideColour: {r: 0, g: 0, b: 0, a: 0}
+--- !u!60 &437676242
+PolygonCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 437676236}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 7, y: 5.3}
+    newSize: {x: 7, y: 5.3}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  m_Points:
+    m_Paths:
+    - - {x: 2.56, y: -0.42999992}
+      - {x: 2.57, y: -0.42999992}
+      - {x: 2.57, y: -0.24999991}
+      - {x: 2.53, y: -0.24999991}
+      - {x: 2.53, y: -0.2399999}
+      - {x: 2.5099998, y: -0.2399999}
+      - {x: 2.5099998, y: -0.22999991}
+      - {x: 2.4999998, y: -0.22999991}
+      - {x: 2.4999998, y: -0.2399999}
+      - {x: 2.4699998, y: -0.2399999}
+      - {x: 2.4699998, y: -0.24999991}
+      - {x: 2.4599998, y: -0.24999991}
+      - {x: 2.4599998, y: -0.2599999}
+      - {x: 2.4299998, y: -0.2599999}
+      - {x: 2.4299998, y: -0.2399999}
+      - {x: 2.4199998, y: -0.2399999}
+      - {x: 2.4199998, y: -0.21999991}
+      - {x: 2.4099998, y: -0.21999991}
+      - {x: 2.4099998, y: -0.19999991}
+      - {x: 2.3799999, y: -0.19999991}
+      - {x: 2.3799999, y: -0.20999992}
+      - {x: 2.36, y: -0.20999992}
+      - {x: 2.36, y: -0.2399999}
+      - {x: 2.3799999, y: -0.2399999}
+      - {x: 2.3799999, y: -0.24999991}
+      - {x: 2.3899999, y: -0.24999991}
+      - {x: 2.3899999, y: -0.2599999}
+      - {x: 2.3799999, y: -0.2599999}
+      - {x: 2.3799999, y: -0.26999992}
+      - {x: 2.37, y: -0.26999992}
+      - {x: 2.37, y: -0.29999992}
+      - {x: 2.3799999, y: -0.29999992}
+      - {x: 2.3799999, y: -0.3099999}
+      - {x: 2.4099998, y: -0.3099999}
+      - {x: 2.4099998, y: -0.29999992}
+      - {x: 2.4299998, y: -0.29999992}
+      - {x: 2.4299998, y: -0.3099999}
+      - {x: 2.4599998, y: -0.3099999}
+      - {x: 2.4599998, y: -0.3199999}
+      - {x: 2.4799998, y: -0.3199999}
+      - {x: 2.4799998, y: -0.32999992}
+      - {x: 2.4899998, y: -0.32999992}
+      - {x: 2.4899998, y: -0.3399999}
+      - {x: 2.4999998, y: -0.3399999}
+      - {x: 2.4999998, y: -0.3599999}
+      - {x: 2.5099998, y: -0.3599999}
+      - {x: 2.5099998, y: -0.3799999}
+      - {x: 2.4999998, y: -0.3799999}
+      - {x: 2.4999998, y: -0.39999992}
+      - {x: 2.4899998, y: -0.39999992}
+      - {x: 2.4899998, y: -0.4099999}
+      - {x: 2.54, y: -0.4099999}
+      - {x: 2.54, y: -0.4199999}
+      - {x: 2.56, y: -0.4199999}
+      - {x: 2.56, y: -0.42999992}
+    - - {x: 2.1, y: -0.3399999}
+      - {x: 2.12, y: -0.3399999}
+      - {x: 2.12, y: -0.3199999}
+      - {x: 2.1299999, y: -0.3199999}
+      - {x: 2.1299999, y: -0.3099999}
+      - {x: 2.1399999, y: -0.3099999}
+      - {x: 2.1399999, y: -0.3199999}
+      - {x: 2.1499999, y: -0.3199999}
+      - {x: 2.1499999, y: -0.32999992}
+      - {x: 2.1799998, y: -0.32999992}
+      - {x: 2.1799998, y: -0.2899999}
+      - {x: 2.1699998, y: -0.2899999}
+      - {x: 2.1699998, y: -0.2599999}
+      - {x: 2.1599998, y: -0.2599999}
+      - {x: 2.1599998, y: -0.2399999}
+      - {x: 2.1799998, y: -0.2399999}
+      - {x: 2.1799998, y: -0.22999991}
+      - {x: 2.1899998, y: -0.22999991}
+      - {x: 2.1899998, y: -0.20999992}
+      - {x: 2.1299999, y: -0.20999992}
+      - {x: 2.1299999, y: -0.19999991}
+      - {x: 2.1699998, y: -0.19999991}
+      - {x: 2.1699998, y: -0.18999991}
+      - {x: 2.2199998, y: -0.18999991}
+      - {x: 2.2199998, y: -0.17999992}
+      - {x: 2.2299998, y: -0.17999992}
+      - {x: 2.2299998, y: -0.16999991}
+      - {x: 2.2399998, y: -0.16999991}
+      - {x: 2.2399998, y: -0.14999992}
+      - {x: 2.2199998, y: -0.14999992}
+      - {x: 2.2199998, y: -0.13999991}
+      - {x: 2.2099998, y: -0.13999991}
+      - {x: 2.2099998, y: -0.14999992}
+      - {x: 2.1899998, y: -0.14999992}
+      - {x: 2.1899998, y: -0.1599999}
+      - {x: 2.11, y: -0.1599999}
+      - {x: 2.11, y: -0.17999992}
+      - {x: 2.1, y: -0.17999992}
+      - {x: 2.1, y: -0.19999991}
+      - {x: 2.09, y: -0.19999991}
+      - {x: 2.09, y: -0.2399999}
+      - {x: 2.08, y: -0.2399999}
+      - {x: 2.08, y: -0.2799999}
+      - {x: 2.09, y: -0.2799999}
+      - {x: 2.09, y: -0.3199999}
+      - {x: 2.1, y: -0.3199999}
+      - {x: 2.1, y: -0.3399999}
+    - - {x: 2.12, y: -0.29999992}
+      - {x: 2.1299999, y: -0.29999992}
+      - {x: 2.1299999, y: -0.26999992}
+      - {x: 2.12, y: -0.26999992}
+      - {x: 2.12, y: -0.29999992}
+    - - {x: 2.2399998, y: -0.29999992}
+      - {x: 2.28, y: -0.29999992}
+      - {x: 2.28, y: -0.2599999}
+      - {x: 2.33, y: -0.2599999}
+      - {x: 2.33, y: -0.26999992}
+      - {x: 2.35, y: -0.26999992}
+      - {x: 2.35, y: -0.2899999}
+      - {x: 2.34, y: -0.2899999}
+      - {x: 2.34, y: -0.29999992}
+      - {x: 2.3, y: -0.29999992}
+      - {x: 2.3, y: -0.2899999}
+      - {x: 2.29, y: -0.2899999}
+      - {x: 2.29, y: -0.26999992}
+      - {x: 2.2499998, y: -0.26999992}
+      - {x: 2.2499998, y: -0.2599999}
+      - {x: 2.2599998, y: -0.2599999}
+      - {x: 2.2599998, y: -0.24999991}
+      - {x: 2.27, y: -0.24999991}
+      - {x: 2.27, y: -0.13999991}
+      - {x: 2.28, y: -0.13999991}
+      - {x: 2.28, y: -0.14999992}
+      - {x: 2.31, y: -0.14999992}
+      - {x: 2.31, y: -0.16999991}
+      - {x: 2.3, y: -0.16999991}
+      - {x: 2.3, y: -0.21999991}
+      - {x: 2.29, y: -0.21999991}
+      - {x: 2.29, y: -0.22999991}
+      - {x: 2.2399998, y: -0.22999991}
+      - {x: 2.2399998, y: -0.2399999}
+      - {x: 2.1999998, y: -0.2399999}
+      - {x: 2.1999998, y: -0.2599999}
+      - {x: 2.2099998, y: -0.2599999}
+      - {x: 2.2099998, y: -0.26999992}
+      - {x: 2.2399998, y: -0.26999992}
+      - {x: 2.2399998, y: -0.29999992}
+  m_UseDelaunayMesh: 0
+--- !u!212 &437676243
+SpriteRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 437676236}
+  m_Enabled: 1
+  m_CastShadows: 0
+  m_ReceiveShadows: 0
+  m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 0
+  m_RayTraceProcedural: 0
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 0
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+  m_Sprite: {fileID: 21300000, guid: ae0c4b8ffa83f884ca7ad504b07f44bc, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_FlipX: 0
+  m_FlipY: 0
+  m_DrawMode: 0
+  m_Size: {x: 7, y: 5.3}
+  m_AdaptiveModeThreshold: 0.5
+  m_SpriteTileMode: 0
+  m_WasSpriteAssigned: 1
+  m_MaskInteraction: 0
+  m_SpriteSortPoint: 0
 --- !u!1 &437912945
 GameObject:
   m_ObjectHideFlags: 0
@@ -25181,7 +25552,6 @@ MonoBehaviour:
   button: {fileID: 0}
   borders: []
   troopCapacity: 4
-  infrastructure: 0
   defense: 7
   attack: 7
   upgradingThisTurn: 0
@@ -25623,7 +25993,6 @@ MonoBehaviour:
   button: {fileID: 0}
   borders: []
   troopCapacity: 4
-  infrastructure: 0
   defense: 7
   attack: 7
   upgradingThisTurn: 0
@@ -26475,7 +26844,6 @@ MonoBehaviour:
   button: {fileID: 0}
   borders: []
   troopCapacity: 4
-  infrastructure: 0
   defense: 7
   attack: 7
   upgradingThisTurn: 0
@@ -26765,7 +27133,6 @@ MonoBehaviour:
   button: {fileID: 0}
   borders: []
   troopCapacity: 9
-  infrastructure: 0
   defense: 7
   attack: 7
   upgradingThisTurn: 0
@@ -27447,7 +27814,6 @@ MonoBehaviour:
   button: {fileID: 0}
   borders: []
   troopCapacity: 4
-  infrastructure: 0
   defense: 7
   attack: 7
   upgradingThisTurn: 0
@@ -28175,8 +28541,7 @@ MonoBehaviour:
   center: {fileID: 1495239323}
   button: {fileID: 0}
   borders: []
-  troopCapacity: 20
-  infrastructure: 0
+  troopCapacity: 4
   defense: 7
   attack: 7
   upgradingThisTurn: 0
@@ -29350,7 +29715,6 @@ MonoBehaviour:
   button: {fileID: 0}
   borders: []
   troopCapacity: 9
-  infrastructure: 0
   defense: 7
   attack: 7
   upgradingThisTurn: 0
@@ -29635,7 +29999,6 @@ MonoBehaviour:
   button: {fileID: 0}
   borders: []
   troopCapacity: 4
-  infrastructure: 0
   defense: 7
   attack: 7
   upgradingThisTurn: 0
@@ -29924,7 +30287,6 @@ MonoBehaviour:
   button: {fileID: 0}
   borders: []
   troopCapacity: 4
-  infrastructure: 0
   defense: 7
   attack: 7
   upgradingThisTurn: 0
@@ -30932,7 +31294,6 @@ MonoBehaviour:
   button: {fileID: 0}
   borders: []
   troopCapacity: 4
-  infrastructure: 0
   defense: 7
   attack: 7
   upgradingThisTurn: 0
@@ -31298,7 +31659,6 @@ MonoBehaviour:
   button: {fileID: 0}
   borders: []
   troopCapacity: 4
-  infrastructure: 0
   defense: 7
   attack: 7
   upgradingThisTurn: 0
@@ -31524,7 +31884,6 @@ MonoBehaviour:
   button: {fileID: 0}
   borders: []
   troopCapacity: 4
-  infrastructure: 0
   defense: 7
   attack: 7
   upgradingThisTurn: 0
@@ -31849,8 +32208,7 @@ MonoBehaviour:
   center: {fileID: 253778948}
   button: {fileID: 0}
   borders: []
-  troopCapacity: 20
-  infrastructure: 0
+  troopCapacity: 4
   defense: 7
   attack: 7
   upgradingThisTurn: 0
@@ -32672,7 +33030,6 @@ MonoBehaviour:
   button: {fileID: 0}
   borders: []
   troopCapacity: 9
-  infrastructure: 0
   defense: 7
   attack: 7
   upgradingThisTurn: 0
@@ -32940,7 +33297,6 @@ MonoBehaviour:
   button: {fileID: 0}
   borders: []
   troopCapacity: 4
-  infrastructure: 0
   defense: 7
   attack: 7
   upgradingThisTurn: 0
@@ -33649,7 +34005,6 @@ MonoBehaviour:
   button: {fileID: 0}
   borders: []
   troopCapacity: 4
-  infrastructure: 0
   defense: 7
   attack: 7
   upgradingThisTurn: 0
@@ -34617,7 +34972,6 @@ MonoBehaviour:
   button: {fileID: 0}
   borders: []
   troopCapacity: 4
-  infrastructure: 0
   defense: 7
   attack: 7
   upgradingThisTurn: 0
@@ -35117,7 +35471,6 @@ MonoBehaviour:
   button: {fileID: 0}
   borders: []
   troopCapacity: 4
-  infrastructure: 0
   defense: 7
   attack: 7
   upgradingThisTurn: 0
@@ -35347,7 +35700,6 @@ MonoBehaviour:
   button: {fileID: 0}
   borders: []
   troopCapacity: 4
-  infrastructure: 0
   defense: 7
   attack: 7
   upgradingThisTurn: 0
@@ -35841,7 +36193,6 @@ MonoBehaviour:
   button: {fileID: 0}
   borders: []
   troopCapacity: 4
-  infrastructure: 0
   defense: 7
   attack: 7
   upgradingThisTurn: 0
@@ -36423,7 +36774,6 @@ MonoBehaviour:
   button: {fileID: 0}
   borders: []
   troopCapacity: 4
-  infrastructure: 0
   defense: 7
   attack: 7
   upgradingThisTurn: 0
@@ -36586,8 +36936,7 @@ MonoBehaviour:
   center: {fileID: 274772608}
   button: {fileID: 0}
   borders: []
-  troopCapacity: 20
-  infrastructure: 0
+  troopCapacity: 4
   defense: 7
   attack: 7
   upgradingThisTurn: 0
@@ -37152,7 +37501,6 @@ MonoBehaviour:
   button: {fileID: 0}
   borders: []
   troopCapacity: 4
-  infrastructure: 0
   defense: 7
   attack: 7
   upgradingThisTurn: 0
@@ -37657,7 +38005,6 @@ MonoBehaviour:
   button: {fileID: 0}
   borders: []
   troopCapacity: 4
-  infrastructure: 0
   defense: 7
   attack: 7
   upgradingThisTurn: 0
@@ -37861,7 +38208,6 @@ MonoBehaviour:
   button: {fileID: 0}
   borders: []
   troopCapacity: 4
-  infrastructure: 0
   defense: 7
   attack: 7
   upgradingThisTurn: 0
@@ -38413,7 +38759,6 @@ MonoBehaviour:
   button: {fileID: 0}
   borders: []
   troopCapacity: 4
-  infrastructure: 0
   defense: 7
   attack: 7
   upgradingThisTurn: 0
@@ -39194,7 +39539,6 @@ MonoBehaviour:
   button: {fileID: 0}
   borders: []
   troopCapacity: 4
-  infrastructure: 0
   defense: 7
   attack: 7
   upgradingThisTurn: 0
@@ -39519,7 +39863,6 @@ MonoBehaviour:
   button: {fileID: 0}
   borders: []
   troopCapacity: 4
-  infrastructure: 0
   defense: 7
   attack: 7
   upgradingThisTurn: 0
@@ -40030,7 +40373,6 @@ MonoBehaviour:
   button: {fileID: 0}
   borders: []
   troopCapacity: 4
-  infrastructure: 0
   defense: 7
   attack: 7
   upgradingThisTurn: 0
@@ -40371,7 +40713,6 @@ MonoBehaviour:
   button: {fileID: 0}
   borders: []
   troopCapacity: 7
-  infrastructure: 0
   defense: 7
   attack: 7
   upgradingThisTurn: 0
@@ -40729,7 +41070,6 @@ MonoBehaviour:
   button: {fileID: 0}
   borders: []
   troopCapacity: 4
-  infrastructure: 0
   defense: 7
   attack: 7
   upgradingThisTurn: 0
@@ -41928,7 +42268,6 @@ MonoBehaviour:
   button: {fileID: 0}
   borders: []
   troopCapacity: 9
-  infrastructure: 0
   defense: 7
   attack: 7
   upgradingThisTurn: 0
@@ -42352,8 +42691,7 @@ MonoBehaviour:
   center: {fileID: 2110291492}
   button: {fileID: 0}
   borders: []
-  troopCapacity: 12
-  infrastructure: 0
+  troopCapacity: 4
   defense: 7
   attack: 7
   upgradingThisTurn: 0
@@ -43818,7 +44156,6 @@ MonoBehaviour:
   button: {fileID: 0}
   borders: []
   troopCapacity: 4
-  infrastructure: 0
   defense: 7
   attack: 7
   upgradingThisTurn: 0
@@ -45093,7 +45430,6 @@ MonoBehaviour:
   button: {fileID: 0}
   borders: []
   troopCapacity: 7
-  infrastructure: 0
   defense: 7
   attack: 7
   upgradingThisTurn: 0
@@ -45395,7 +45731,6 @@ MonoBehaviour:
   button: {fileID: 0}
   borders: []
   troopCapacity: 4
-  infrastructure: 0
   defense: 7
   attack: 7
   upgradingThisTurn: 0
@@ -45698,7 +46033,6 @@ MonoBehaviour:
   button: {fileID: 0}
   borders: []
   troopCapacity: 4
-  infrastructure: 0
   defense: 7
   attack: 7
   upgradingThisTurn: 0
@@ -46956,7 +47290,6 @@ MonoBehaviour:
   button: {fileID: 0}
   borders: []
   troopCapacity: 4
-  infrastructure: 0
   defense: 7
   attack: 7
   upgradingThisTurn: 0
@@ -47489,7 +47822,6 @@ MonoBehaviour:
   button: {fileID: 0}
   borders: []
   troopCapacity: 10
-  infrastructure: 0
   defense: 7
   attack: 7
   upgradingThisTurn: 0
@@ -48132,7 +48464,6 @@ MonoBehaviour:
   button: {fileID: 0}
   borders: []
   troopCapacity: 4
-  infrastructure: 0
   defense: 7
   attack: 7
   upgradingThisTurn: 0
@@ -48575,7 +48906,6 @@ MonoBehaviour:
   button: {fileID: 0}
   borders: []
   troopCapacity: 4
-  infrastructure: 0
   defense: 7
   attack: 7
   upgradingThisTurn: 0
@@ -48956,7 +49286,6 @@ MonoBehaviour:
   button: {fileID: 0}
   borders: []
   troopCapacity: 4
-  infrastructure: 0
   defense: 7
   attack: 7
   upgradingThisTurn: 0
@@ -49808,8 +50137,7 @@ MonoBehaviour:
   center: {fileID: 26374608}
   button: {fileID: 0}
   borders: []
-  troopCapacity: 12
-  infrastructure: 0
+  troopCapacity: 4
   defense: 7
   attack: 7
   upgradingThisTurn: 0
@@ -50247,7 +50575,6 @@ MonoBehaviour:
   button: {fileID: 0}
   borders: []
   troopCapacity: 4
-  infrastructure: 0
   defense: 7
   attack: 7
   upgradingThisTurn: 0
@@ -51205,7 +51532,6 @@ MonoBehaviour:
   button: {fileID: 0}
   borders: []
   troopCapacity: 10
-  infrastructure: 0
   defense: 7
   attack: 7
   upgradingThisTurn: 0
@@ -52033,7 +52359,6 @@ MonoBehaviour:
   button: {fileID: 0}
   borders: []
   troopCapacity: 4
-  infrastructure: 0
   defense: 7
   attack: 7
   upgradingThisTurn: 0
@@ -52291,7 +52616,6 @@ MonoBehaviour:
   button: {fileID: 0}
   borders: []
   troopCapacity: 4
-  infrastructure: 0
   defense: 7
   attack: 7
   upgradingThisTurn: 0
@@ -52847,7 +53171,6 @@ MonoBehaviour:
   button: {fileID: 0}
   borders: []
   troopCapacity: 4
-  infrastructure: 0
   defense: 7
   attack: 7
   upgradingThisTurn: 0
@@ -54371,7 +54694,6 @@ MonoBehaviour:
   button: {fileID: 0}
   borders: []
   troopCapacity: 10
-  infrastructure: 0
   defense: 7
   attack: 7
   upgradingThisTurn: 0
@@ -55229,7 +55551,6 @@ MonoBehaviour:
   button: {fileID: 0}
   borders: []
   troopCapacity: 8
-  infrastructure: 0
   defense: 7
   attack: 7
   upgradingThisTurn: 0
@@ -56137,7 +56458,6 @@ MonoBehaviour:
   button: {fileID: 0}
   borders: []
   troopCapacity: 4
-  infrastructure: 0
   defense: 7
   attack: 7
   upgradingThisTurn: 0
@@ -56660,7 +56980,6 @@ MonoBehaviour:
   button: {fileID: 0}
   borders: []
   troopCapacity: 4
-  infrastructure: 0
   defense: 7
   attack: 7
   upgradingThisTurn: 0
@@ -57345,7 +57664,6 @@ MonoBehaviour:
   button: {fileID: 0}
   borders: []
   troopCapacity: 4
-  infrastructure: 0
   defense: 7
   attack: 7
   upgradingThisTurn: 0
@@ -57644,7 +57962,6 @@ MonoBehaviour:
   button: {fileID: 0}
   borders: []
   troopCapacity: 4
-  infrastructure: 0
   defense: 7
   attack: 7
   upgradingThisTurn: 0
@@ -57904,7 +58221,6 @@ MonoBehaviour:
   button: {fileID: 0}
   borders: []
   troopCapacity: 4
-  infrastructure: 0
   defense: 7
   attack: 7
   upgradingThisTurn: 0
@@ -58067,8 +58383,7 @@ MonoBehaviour:
   center: {fileID: 1572804883}
   button: {fileID: 0}
   borders: []
-  troopCapacity: 20
-  infrastructure: 0
+  troopCapacity: 4
   defense: 7
   attack: 7
   upgradingThisTurn: 0
@@ -58703,7 +59018,6 @@ MonoBehaviour:
   button: {fileID: 0}
   borders: []
   troopCapacity: 4
-  infrastructure: 0
   defense: 7
   attack: 7
   upgradingThisTurn: 0
@@ -59159,8 +59473,7 @@ MonoBehaviour:
   center: {fileID: 1860148888}
   button: {fileID: 0}
   borders: []
-  troopCapacity: 18
-  infrastructure: 0
+  troopCapacity: 4
   defense: 7
   attack: 7
   upgradingThisTurn: 0
@@ -59718,7 +60031,6 @@ MonoBehaviour:
   button: {fileID: 0}
   borders: []
   troopCapacity: 4
-  infrastructure: 0
   defense: 7
   attack: 7
   upgradingThisTurn: 0
@@ -60450,7 +60762,6 @@ MonoBehaviour:
   button: {fileID: 0}
   borders: []
   troopCapacity: 8
-  infrastructure: 0
   defense: 7
   attack: 7
   upgradingThisTurn: 0
@@ -61833,7 +62144,6 @@ MonoBehaviour:
   button: {fileID: 0}
   borders: []
   troopCapacity: 4
-  infrastructure: 0
   defense: 7
   attack: 7
   upgradingThisTurn: 0
@@ -62114,7 +62424,6 @@ MonoBehaviour:
   button: {fileID: 0}
   borders: []
   troopCapacity: 4
-  infrastructure: 0
   defense: 7
   attack: 7
   upgradingThisTurn: 0
@@ -62410,7 +62719,6 @@ MonoBehaviour:
   button: {fileID: 0}
   borders: []
   troopCapacity: 4
-  infrastructure: 0
   defense: 7
   attack: 7
   upgradingThisTurn: 0
@@ -62573,8 +62881,7 @@ MonoBehaviour:
   center: {fileID: 1921023687}
   button: {fileID: 0}
   borders: []
-  troopCapacity: 20
-  infrastructure: 0
+  troopCapacity: 4
   defense: 7
   attack: 7
   upgradingThisTurn: 0
@@ -63090,7 +63397,6 @@ MonoBehaviour:
   button: {fileID: 0}
   borders: []
   troopCapacity: 7
-  infrastructure: 0
   defense: 7
   attack: 7
   upgradingThisTurn: 0
@@ -64011,7 +64317,6 @@ MonoBehaviour:
   button: {fileID: 0}
   borders: []
   troopCapacity: 5
-  infrastructure: 0
   defense: 7
   attack: 7
   upgradingThisTurn: 0
@@ -64139,7 +64444,6 @@ MonoBehaviour:
   button: {fileID: 0}
   borders: []
   troopCapacity: 6
-  infrastructure: 0
   defense: 7
   attack: 7
   upgradingThisTurn: 0
@@ -64844,8 +65148,7 @@ MonoBehaviour:
   center: {fileID: 895882519}
   button: {fileID: 0}
   borders: []
-  troopCapacity: 20
-  infrastructure: 0
+  troopCapacity: 4
   defense: 7
   attack: 7
   upgradingThisTurn: 0
@@ -65309,7 +65612,6 @@ MonoBehaviour:
   button: {fileID: 0}
   borders: []
   troopCapacity: 7
-  infrastructure: 0
   defense: 7
   attack: 7
   upgradingThisTurn: 0
@@ -65753,7 +66055,6 @@ MonoBehaviour:
   button: {fileID: 0}
   borders: []
   troopCapacity: 4
-  infrastructure: 0
   defense: 7
   attack: 7
   upgradingThisTurn: 0
@@ -66177,7 +66478,6 @@ MonoBehaviour:
   button: {fileID: 0}
   borders: []
   troopCapacity: 4
-  infrastructure: 0
   defense: 7
   attack: 7
   upgradingThisTurn: 0
@@ -66345,7 +66645,6 @@ MonoBehaviour:
   button: {fileID: 0}
   borders: []
   troopCapacity: 4
-  infrastructure: 0
   defense: 7
   attack: 7
   upgradingThisTurn: 0
@@ -68187,8 +68486,7 @@ MonoBehaviour:
   center: {fileID: 479716794}
   button: {fileID: 0}
   borders: []
-  troopCapacity: 10
-  infrastructure: 0
+  troopCapacity: 4
   defense: 7
   attack: 7
   upgradingThisTurn: 0
@@ -68664,7 +68962,6 @@ MonoBehaviour:
   button: {fileID: 0}
   borders: []
   troopCapacity: 4
-  infrastructure: 0
   defense: 7
   attack: 7
   upgradingThisTurn: 0
@@ -69087,7 +69384,6 @@ MonoBehaviour:
   button: {fileID: 0}
   borders: []
   troopCapacity: 4
-  infrastructure: 0
   defense: 7
   attack: 7
   upgradingThisTurn: 0
@@ -69430,8 +69726,7 @@ MonoBehaviour:
   center: {fileID: 1294856310}
   button: {fileID: 0}
   borders: []
-  troopCapacity: 10
-  infrastructure: 0
+  troopCapacity: 4
   defense: 7
   attack: 7
   upgradingThisTurn: 0
@@ -70034,7 +70329,6 @@ MonoBehaviour:
   button: {fileID: 0}
   borders: []
   troopCapacity: 4
-  infrastructure: 0
   defense: 7
   attack: 7
   upgradingThisTurn: 0
@@ -70420,7 +70714,6 @@ MonoBehaviour:
   button: {fileID: 0}
   borders: []
   troopCapacity: 4
-  infrastructure: 0
   defense: 7
   attack: 7
   upgradingThisTurn: 0
@@ -70700,7 +70993,6 @@ MonoBehaviour:
   button: {fileID: 0}
   borders: []
   troopCapacity: 9
-  infrastructure: 0
   defense: 7
   attack: 7
   upgradingThisTurn: 0
@@ -71148,7 +71440,6 @@ MonoBehaviour:
   button: {fileID: 0}
   borders: []
   troopCapacity: 4
-  infrastructure: 0
   defense: 7
   attack: 7
   upgradingThisTurn: 0
@@ -71425,7 +71716,6 @@ MonoBehaviour:
   button: {fileID: 0}
   borders: []
   troopCapacity: 4
-  infrastructure: 0
   defense: 7
   attack: 7
   upgradingThisTurn: 0
@@ -71703,7 +71993,6 @@ MonoBehaviour:
   button: {fileID: 0}
   borders: []
   troopCapacity: 4
-  infrastructure: 0
   defense: 7
   attack: 7
   upgradingThisTurn: 0
@@ -72638,7 +72927,6 @@ MonoBehaviour:
   button: {fileID: 0}
   borders: []
   troopCapacity: 4
-  infrastructure: 0
   defense: 7
   attack: 7
   upgradingThisTurn: 0
@@ -73243,7 +73531,6 @@ MonoBehaviour:
   button: {fileID: 0}
   borders: []
   troopCapacity: 4
-  infrastructure: 0
   defense: 7
   attack: 7
   upgradingThisTurn: 0
@@ -73641,7 +73928,6 @@ MonoBehaviour:
   button: {fileID: 0}
   borders: []
   troopCapacity: 4
-  infrastructure: 0
   defense: 7
   attack: 7
   upgradingThisTurn: 0
@@ -74000,7 +74286,6 @@ MonoBehaviour:
   button: {fileID: 0}
   borders: []
   troopCapacity: 6
-  infrastructure: 0
   defense: 7
   attack: 7
   upgradingThisTurn: 0
@@ -74445,8 +74730,7 @@ MonoBehaviour:
   center: {fileID: 216063905}
   button: {fileID: 0}
   borders: []
-  troopCapacity: 18
-  infrastructure: 0
+  troopCapacity: 4
   defense: 7
   attack: 7
   upgradingThisTurn: 0
@@ -74924,7 +75208,6 @@ MonoBehaviour:
   button: {fileID: 0}
   borders: []
   troopCapacity: 4
-  infrastructure: 0
   defense: 7
   attack: 7
   upgradingThisTurn: 0
@@ -76387,7 +76670,6 @@ MonoBehaviour:
   button: {fileID: 0}
   borders: []
   troopCapacity: 4
-  infrastructure: 0
   defense: 7
   attack: 7
   upgradingThisTurn: 0
@@ -77479,7 +77761,6 @@ MonoBehaviour:
   button: {fileID: 0}
   borders: []
   troopCapacity: 4
-  infrastructure: 0
   defense: 7
   attack: 7
   upgradingThisTurn: 0
@@ -78744,7 +79025,6 @@ MonoBehaviour:
   button: {fileID: 0}
   borders: []
   troopCapacity: 4
-  infrastructure: 0
   defense: 7
   attack: 7
   upgradingThisTurn: 0
@@ -79084,7 +79364,6 @@ MonoBehaviour:
   button: {fileID: 0}
   borders: []
   troopCapacity: 4
-  infrastructure: 0
   defense: 7
   attack: 7
   upgradingThisTurn: 0
@@ -79169,7 +79448,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: c2a9c37d1b8325f4cb4f12493b5d1a34, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 1
+  m_Volume: 0
   m_Pitch: 1
   Loop: 1
   Mute: 0
@@ -79863,7 +80142,6 @@ MonoBehaviour:
   button: {fileID: 0}
   borders: []
   troopCapacity: 4
-  infrastructure: 0
   defense: 7
   attack: 7
   upgradingThisTurn: 0
@@ -80114,7 +80392,6 @@ MonoBehaviour:
   button: {fileID: 0}
   borders: []
   troopCapacity: 4
-  infrastructure: 0
   defense: 7
   attack: 7
   upgradingThisTurn: 0
@@ -81020,7 +81297,6 @@ MonoBehaviour:
   button: {fileID: 0}
   borders: []
   troopCapacity: 4
-  infrastructure: 0
   defense: 7
   attack: 7
   upgradingThisTurn: 0
@@ -81766,7 +82042,6 @@ MonoBehaviour:
   button: {fileID: 0}
   borders: []
   troopCapacity: 4
-  infrastructure: 0
   defense: 7
   attack: 7
   upgradingThisTurn: 0
@@ -82093,8 +82368,7 @@ MonoBehaviour:
   center: {fileID: 1808338062}
   button: {fileID: 0}
   borders: []
-  troopCapacity: 20
-  infrastructure: 0
+  troopCapacity: 4
   defense: 7
   attack: 7
   upgradingThisTurn: 0
@@ -83669,7 +83943,6 @@ MonoBehaviour:
   button: {fileID: 0}
   borders: []
   troopCapacity: 4
-  infrastructure: 0
   defense: 7
   attack: 7
   upgradingThisTurn: 0
@@ -84211,7 +84484,6 @@ MonoBehaviour:
   button: {fileID: 0}
   borders: []
   troopCapacity: 4
-  infrastructure: 0
   defense: 7
   attack: 7
   upgradingThisTurn: 0
@@ -84637,7 +84909,6 @@ MonoBehaviour:
   button: {fileID: 0}
   borders: []
   troopCapacity: 5
-  infrastructure: 0
   defense: 7
   attack: 7
   upgradingThisTurn: 0
@@ -85744,7 +86015,6 @@ MonoBehaviour:
   button: {fileID: 0}
   borders: []
   troopCapacity: 9
-  infrastructure: 0
   defense: 7
   attack: 7
   upgradingThisTurn: 0
@@ -86575,7 +86845,6 @@ MonoBehaviour:
   button: {fileID: 0}
   borders: []
   troopCapacity: 10
-  infrastructure: 0
   defense: 7
   attack: 7
   upgradingThisTurn: 0
@@ -86958,7 +87227,6 @@ MonoBehaviour:
   button: {fileID: 0}
   borders: []
   troopCapacity: 4
-  infrastructure: 0
   defense: 7
   attack: 7
   upgradingThisTurn: 0
@@ -87334,7 +87602,6 @@ MonoBehaviour:
   button: {fileID: 0}
   borders: []
   troopCapacity: 4
-  infrastructure: 0
   defense: 7
   attack: 7
   upgradingThisTurn: 0
@@ -87624,7 +87891,6 @@ MonoBehaviour:
   button: {fileID: 0}
   borders: []
   troopCapacity: 4
-  infrastructure: 0
   defense: 7
   attack: 7
   upgradingThisTurn: 0
@@ -88299,6 +88565,7 @@ Transform:
   m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 1908049997}
+  - {fileID: 437676237}
   m_Father: {fileID: 1536149528}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &1605397340
@@ -88342,7 +88609,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 82707de5786268245aa49dd193fd4285, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 576b61292c6e34b428d10ec4aac0ff3e, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -88457,61 +88724,6 @@ PolygonCollider2D:
       - {x: 2.03, y: -0.4199999}
       - {x: 2.04, y: -0.4199999}
       - {x: 2.04, y: -0.42999992}
-    - - {x: 2.56, y: -0.42999992}
-      - {x: 2.57, y: -0.42999992}
-      - {x: 2.57, y: -0.24999991}
-      - {x: 2.53, y: -0.24999991}
-      - {x: 2.53, y: -0.2399999}
-      - {x: 2.5099998, y: -0.2399999}
-      - {x: 2.5099998, y: -0.22999991}
-      - {x: 2.4999998, y: -0.22999991}
-      - {x: 2.4999998, y: -0.2399999}
-      - {x: 2.4699998, y: -0.2399999}
-      - {x: 2.4699998, y: -0.24999991}
-      - {x: 2.4599998, y: -0.24999991}
-      - {x: 2.4599998, y: -0.2599999}
-      - {x: 2.4299998, y: -0.2599999}
-      - {x: 2.4299998, y: -0.2399999}
-      - {x: 2.4199998, y: -0.2399999}
-      - {x: 2.4199998, y: -0.21999991}
-      - {x: 2.4099998, y: -0.21999991}
-      - {x: 2.4099998, y: -0.19999991}
-      - {x: 2.3799999, y: -0.19999991}
-      - {x: 2.3799999, y: -0.20999992}
-      - {x: 2.36, y: -0.20999992}
-      - {x: 2.36, y: -0.2399999}
-      - {x: 2.3799999, y: -0.2399999}
-      - {x: 2.3799999, y: -0.24999991}
-      - {x: 2.3899999, y: -0.24999991}
-      - {x: 2.3899999, y: -0.2599999}
-      - {x: 2.3799999, y: -0.2599999}
-      - {x: 2.3799999, y: -0.26999992}
-      - {x: 2.37, y: -0.26999992}
-      - {x: 2.37, y: -0.29999992}
-      - {x: 2.3799999, y: -0.29999992}
-      - {x: 2.3799999, y: -0.3099999}
-      - {x: 2.4099998, y: -0.3099999}
-      - {x: 2.4099998, y: -0.29999992}
-      - {x: 2.4299998, y: -0.29999992}
-      - {x: 2.4299998, y: -0.3099999}
-      - {x: 2.4599998, y: -0.3099999}
-      - {x: 2.4599998, y: -0.3199999}
-      - {x: 2.4799998, y: -0.3199999}
-      - {x: 2.4799998, y: -0.32999992}
-      - {x: 2.4899998, y: -0.32999992}
-      - {x: 2.4899998, y: -0.3399999}
-      - {x: 2.4999998, y: -0.3399999}
-      - {x: 2.4999998, y: -0.3599999}
-      - {x: 2.5099998, y: -0.3599999}
-      - {x: 2.5099998, y: -0.3799999}
-      - {x: 2.4999998, y: -0.3799999}
-      - {x: 2.4999998, y: -0.39999992}
-      - {x: 2.4899998, y: -0.39999992}
-      - {x: 2.4899998, y: -0.4099999}
-      - {x: 2.54, y: -0.4099999}
-      - {x: 2.54, y: -0.4199999}
-      - {x: 2.56, y: -0.4199999}
-      - {x: 2.56, y: -0.42999992}
     - - {x: 1.9999999, y: -0.4199999}
       - {x: 2.01, y: -0.4199999}
       - {x: 2.01, y: -0.4099999}
@@ -88636,53 +88848,6 @@ PolygonCollider2D:
       - {x: 1.7499999, y: -0.32999992}
       - {x: 1.7699999, y: -0.32999992}
       - {x: 1.7699999, y: -0.3399999}
-    - - {x: 2.1, y: -0.3399999}
-      - {x: 2.12, y: -0.3399999}
-      - {x: 2.12, y: -0.3199999}
-      - {x: 2.1299999, y: -0.3199999}
-      - {x: 2.1299999, y: -0.3099999}
-      - {x: 2.1399999, y: -0.3099999}
-      - {x: 2.1399999, y: -0.3199999}
-      - {x: 2.1499999, y: -0.3199999}
-      - {x: 2.1499999, y: -0.32999992}
-      - {x: 2.1799998, y: -0.32999992}
-      - {x: 2.1799998, y: -0.2899999}
-      - {x: 2.1699998, y: -0.2899999}
-      - {x: 2.1699998, y: -0.2599999}
-      - {x: 2.1599998, y: -0.2599999}
-      - {x: 2.1599998, y: -0.2399999}
-      - {x: 2.1799998, y: -0.2399999}
-      - {x: 2.1799998, y: -0.22999991}
-      - {x: 2.1899998, y: -0.22999991}
-      - {x: 2.1899998, y: -0.20999992}
-      - {x: 2.1299999, y: -0.20999992}
-      - {x: 2.1299999, y: -0.19999991}
-      - {x: 2.1699998, y: -0.19999991}
-      - {x: 2.1699998, y: -0.18999991}
-      - {x: 2.2199998, y: -0.18999991}
-      - {x: 2.2199998, y: -0.17999992}
-      - {x: 2.2299998, y: -0.17999992}
-      - {x: 2.2299998, y: -0.16999991}
-      - {x: 2.2399998, y: -0.16999991}
-      - {x: 2.2399998, y: -0.14999992}
-      - {x: 2.2199998, y: -0.14999992}
-      - {x: 2.2199998, y: -0.13999991}
-      - {x: 2.2099998, y: -0.13999991}
-      - {x: 2.2099998, y: -0.14999992}
-      - {x: 2.1899998, y: -0.14999992}
-      - {x: 2.1899998, y: -0.1599999}
-      - {x: 2.11, y: -0.1599999}
-      - {x: 2.11, y: -0.17999992}
-      - {x: 2.1, y: -0.17999992}
-      - {x: 2.1, y: -0.19999991}
-      - {x: 2.09, y: -0.19999991}
-      - {x: 2.09, y: -0.2399999}
-      - {x: 2.08, y: -0.2399999}
-      - {x: 2.08, y: -0.2799999}
-      - {x: 2.09, y: -0.2799999}
-      - {x: 2.09, y: -0.3199999}
-      - {x: 2.1, y: -0.3199999}
-      - {x: 2.1, y: -0.3399999}
     - - {x: 1.9799999, y: -0.29999992}
       - {x: 2.03, y: -0.29999992}
       - {x: 2.03, y: -0.26999992}
@@ -88736,46 +88901,6 @@ PolygonCollider2D:
       - {x: 1.9399998, y: -0.2899999}
       - {x: 1.9799999, y: -0.2899999}
       - {x: 1.9799999, y: -0.29999992}
-    - - {x: 2.12, y: -0.29999992}
-      - {x: 2.1299999, y: -0.29999992}
-      - {x: 2.1299999, y: -0.26999992}
-      - {x: 2.12, y: -0.26999992}
-      - {x: 2.12, y: -0.29999992}
-    - - {x: 2.2399998, y: -0.29999992}
-      - {x: 2.28, y: -0.29999992}
-      - {x: 2.28, y: -0.2599999}
-      - {x: 2.33, y: -0.2599999}
-      - {x: 2.33, y: -0.26999992}
-      - {x: 2.35, y: -0.26999992}
-      - {x: 2.35, y: -0.2899999}
-      - {x: 2.34, y: -0.2899999}
-      - {x: 2.34, y: -0.29999992}
-      - {x: 2.3, y: -0.29999992}
-      - {x: 2.3, y: -0.2899999}
-      - {x: 2.29, y: -0.2899999}
-      - {x: 2.29, y: -0.26999992}
-      - {x: 2.2499998, y: -0.26999992}
-      - {x: 2.2499998, y: -0.2599999}
-      - {x: 2.2599998, y: -0.2599999}
-      - {x: 2.2599998, y: -0.24999991}
-      - {x: 2.27, y: -0.24999991}
-      - {x: 2.27, y: -0.13999991}
-      - {x: 2.28, y: -0.13999991}
-      - {x: 2.28, y: -0.14999992}
-      - {x: 2.31, y: -0.14999992}
-      - {x: 2.31, y: -0.16999991}
-      - {x: 2.3, y: -0.16999991}
-      - {x: 2.3, y: -0.21999991}
-      - {x: 2.29, y: -0.21999991}
-      - {x: 2.29, y: -0.22999991}
-      - {x: 2.2399998, y: -0.22999991}
-      - {x: 2.2399998, y: -0.2399999}
-      - {x: 2.1999998, y: -0.2399999}
-      - {x: 2.1999998, y: -0.2599999}
-      - {x: 2.2099998, y: -0.2599999}
-      - {x: 2.2099998, y: -0.26999992}
-      - {x: 2.2399998, y: -0.26999992}
-      - {x: 2.2399998, y: -0.29999992}
   m_UseDelaunayMesh: 0
 --- !u!114 &1605397343
 MonoBehaviour:
@@ -88802,13 +88927,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   nationName: Indonesia
-  countryName: Indonesia
+  countryName: Western Indonesia
   collider: {fileID: 0}
   center: {fileID: 1908049997}
   button: {fileID: 0}
   borders: []
-  troopCapacity: 11
-  infrastructure: 0
+  troopCapacity: 4
   defense: 7
   attack: 7
   upgradingThisTurn: 0
@@ -88854,7 +88978,7 @@ SpriteMask:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 82707de5786268245aa49dd193fd4285, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 576b61292c6e34b428d10ec4aac0ff3e, type: 3}
   m_MaskAlphaCutoff: 0.2
   m_FrontSortingLayerID: 0
   m_BackSortingLayerID: 0
@@ -90094,7 +90218,6 @@ MonoBehaviour:
   button: {fileID: 0}
   borders: []
   troopCapacity: 4
-  infrastructure: 0
   defense: 7
   attack: 7
   upgradingThisTurn: 0
@@ -90436,7 +90559,6 @@ MonoBehaviour:
   button: {fileID: 0}
   borders: []
   troopCapacity: 4
-  infrastructure: 0
   defense: 7
   attack: 7
   upgradingThisTurn: 0
@@ -91120,7 +91242,6 @@ MonoBehaviour:
   button: {fileID: 0}
   borders: []
   troopCapacity: 10
-  infrastructure: 0
   defense: 7
   attack: 7
   upgradingThisTurn: 0
@@ -91570,8 +91691,7 @@ MonoBehaviour:
   center: {fileID: 770532992}
   button: {fileID: 0}
   borders: []
-  troopCapacity: 18
-  infrastructure: 0
+  troopCapacity: 4
   defense: 7
   attack: 7
   upgradingThisTurn: 0
@@ -92466,7 +92586,6 @@ MonoBehaviour:
   button: {fileID: 0}
   borders: []
   troopCapacity: 4
-  infrastructure: 0
   defense: 7
   attack: 7
   upgradingThisTurn: 0
@@ -92978,7 +93097,6 @@ MonoBehaviour:
   button: {fileID: 0}
   borders: []
   troopCapacity: 4
-  infrastructure: 0
   defense: 7
   attack: 7
   upgradingThisTurn: 0
@@ -94032,7 +94150,6 @@ MonoBehaviour:
   button: {fileID: 0}
   borders: []
   troopCapacity: 16
-  infrastructure: 0
   defense: 7
   attack: 7
   upgradingThisTurn: 0
@@ -94497,7 +94614,6 @@ MonoBehaviour:
   button: {fileID: 0}
   borders: []
   troopCapacity: 4
-  infrastructure: 0
   defense: 7
   attack: 7
   upgradingThisTurn: 0
@@ -95149,7 +95265,6 @@ MonoBehaviour:
   button: {fileID: 0}
   borders: []
   troopCapacity: 4
-  infrastructure: 0
   defense: 7
   attack: 7
   upgradingThisTurn: 0
@@ -95660,7 +95775,6 @@ MonoBehaviour:
   button: {fileID: 0}
   borders: []
   troopCapacity: 4
-  infrastructure: 0
   defense: 7
   attack: 7
   upgradingThisTurn: 0
@@ -96053,7 +96167,6 @@ MonoBehaviour:
   button: {fileID: 0}
   borders: []
   troopCapacity: 8
-  infrastructure: 0
   defense: 7
   attack: 7
   upgradingThisTurn: 0
@@ -96350,7 +96463,6 @@ MonoBehaviour:
   button: {fileID: 0}
   borders: []
   troopCapacity: 4
-  infrastructure: 0
   defense: 7
   attack: 7
   upgradingThisTurn: 0
@@ -96670,7 +96782,6 @@ MonoBehaviour:
   button: {fileID: 0}
   borders: []
   troopCapacity: 4
-  infrastructure: 0
   defense: 7
   attack: 7
   upgradingThisTurn: 0
@@ -97288,7 +97399,6 @@ MonoBehaviour:
   button: {fileID: 0}
   borders: []
   troopCapacity: 4
-  infrastructure: 0
   defense: 7
   attack: 7
   upgradingThisTurn: 0
@@ -98889,7 +98999,6 @@ MonoBehaviour:
   button: {fileID: 0}
   borders: []
   troopCapacity: 4
-  infrastructure: 0
   defense: 7
   attack: 7
   upgradingThisTurn: 0
@@ -99135,8 +99244,7 @@ MonoBehaviour:
   center: {fileID: 154334454}
   button: {fileID: 0}
   borders: []
-  troopCapacity: 20
-  infrastructure: 0
+  troopCapacity: 4
   defense: 7
   attack: 7
   upgradingThisTurn: 0
@@ -99757,8 +99865,7 @@ MonoBehaviour:
   center: {fileID: 2069631948}
   button: {fileID: 0}
   borders: []
-  troopCapacity: 12
-  infrastructure: 0
+  troopCapacity: 4
   defense: 7
   attack: 7
   upgradingThisTurn: 0
@@ -100167,7 +100274,6 @@ MonoBehaviour:
   button: {fileID: 0}
   borders: []
   troopCapacity: 4
-  infrastructure: 0
   defense: 7
   attack: 7
   upgradingThisTurn: 0
@@ -100439,7 +100545,6 @@ MonoBehaviour:
   button: {fileID: 0}
   borders: []
   troopCapacity: 4
-  infrastructure: 0
   defense: 7
   attack: 7
   upgradingThisTurn: 0
@@ -101136,7 +101241,6 @@ MonoBehaviour:
   button: {fileID: 0}
   borders: []
   troopCapacity: 4
-  infrastructure: 0
   defense: 7
   attack: 7
   upgradingThisTurn: 0
@@ -101454,7 +101558,6 @@ MonoBehaviour:
   button: {fileID: 0}
   borders: []
   troopCapacity: 4
-  infrastructure: 0
   defense: 7
   attack: 7
   upgradingThisTurn: 0
@@ -101966,7 +102069,6 @@ MonoBehaviour:
   button: {fileID: 0}
   borders: []
   troopCapacity: 4
-  infrastructure: 0
   defense: 7
   attack: 7
   upgradingThisTurn: 0
@@ -102255,7 +102357,6 @@ MonoBehaviour:
   button: {fileID: 0}
   borders: []
   troopCapacity: 4
-  infrastructure: 0
   defense: 7
   attack: 7
   upgradingThisTurn: 0
@@ -102552,8 +102653,7 @@ MonoBehaviour:
   center: {fileID: 1087503810}
   button: {fileID: 0}
   borders: []
-  troopCapacity: 20
-  infrastructure: 0
+  troopCapacity: 4
   defense: 7
   attack: 7
   upgradingThisTurn: 0
@@ -103219,7 +103319,6 @@ MonoBehaviour:
   button: {fileID: 0}
   borders: []
   troopCapacity: 4
-  infrastructure: 0
   defense: 7
   attack: 7
   upgradingThisTurn: 0
@@ -103591,8 +103690,7 @@ MonoBehaviour:
   center: {fileID: 789961858}
   button: {fileID: 0}
   borders: []
-  troopCapacity: 12
-  infrastructure: 0
+  troopCapacity: 4
   defense: 7
   attack: 7
   upgradingThisTurn: 0
@@ -104152,7 +104250,6 @@ MonoBehaviour:
   button: {fileID: 0}
   borders: []
   troopCapacity: 9
-  infrastructure: 0
   defense: 7
   attack: 7
   upgradingThisTurn: 0
@@ -104402,7 +104499,6 @@ MonoBehaviour:
   button: {fileID: 0}
   borders: []
   troopCapacity: 4
-  infrastructure: 0
   defense: 7
   attack: 7
   upgradingThisTurn: 0
@@ -104714,7 +104810,6 @@ MonoBehaviour:
   button: {fileID: 0}
   borders: []
   troopCapacity: 8
-  infrastructure: 0
   defense: 7
   attack: 7
   upgradingThisTurn: 0
@@ -104984,7 +105079,6 @@ MonoBehaviour:
   button: {fileID: 0}
   borders: []
   troopCapacity: 4
-  infrastructure: 0
   defense: 7
   attack: 7
   upgradingThisTurn: 0
@@ -105756,7 +105850,6 @@ MonoBehaviour:
   button: {fileID: 0}
   borders: []
   troopCapacity: 8
-  infrastructure: 0
   defense: 7
   attack: 7
   upgradingThisTurn: 0
@@ -106068,7 +106161,6 @@ MonoBehaviour:
   button: {fileID: 0}
   borders: []
   troopCapacity: 4
-  infrastructure: 0
   defense: 7
   attack: 7
   upgradingThisTurn: 0
@@ -106448,7 +106540,7 @@ Transform:
   m_GameObject: {fileID: 1908049996}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 2.0699997, y: -0.2549999, z: 0}
+  m_LocalPosition: {x: 1.83, y: -0.346, z: 0}
   m_LocalScale: {x: 0.6993007, y: 0.6993007, z: 0.6993007}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -107123,7 +107215,6 @@ MonoBehaviour:
   button: {fileID: 0}
   borders: []
   troopCapacity: 4
-  infrastructure: 0
   defense: 7
   attack: 7
   upgradingThisTurn: 0
@@ -107812,8 +107903,7 @@ MonoBehaviour:
   center: {fileID: 1369395854}
   button: {fileID: 0}
   borders: []
-  troopCapacity: 12
-  infrastructure: 0
+  troopCapacity: 4
   defense: 7
   attack: 7
   upgradingThisTurn: 0
@@ -108816,7 +108906,6 @@ MonoBehaviour:
   button: {fileID: 0}
   borders: []
   troopCapacity: 4
-  infrastructure: 0
   defense: 7
   attack: 7
   upgradingThisTurn: 0
@@ -109422,7 +109511,6 @@ MonoBehaviour:
   button: {fileID: 0}
   borders: []
   troopCapacity: 4
-  infrastructure: 0
   defense: 7
   attack: 7
   upgradingThisTurn: 0
@@ -110864,8 +110952,7 @@ MonoBehaviour:
   center: {fileID: 1611434513}
   button: {fileID: 0}
   borders: []
-  troopCapacity: 20
-  infrastructure: 0
+  troopCapacity: 4
   defense: 7
   attack: 7
   upgradingThisTurn: 0
@@ -111390,7 +111477,6 @@ MonoBehaviour:
   button: {fileID: 0}
   borders: []
   troopCapacity: 4
-  infrastructure: 0
   defense: 7
   attack: 7
   upgradingThisTurn: 0
@@ -111790,7 +111876,6 @@ MonoBehaviour:
   button: {fileID: 0}
   borders: []
   troopCapacity: 4
-  infrastructure: 0
   defense: 7
   attack: 7
   upgradingThisTurn: 0
@@ -112637,7 +112722,6 @@ MonoBehaviour:
   button: {fileID: 0}
   borders: []
   troopCapacity: 4
-  infrastructure: 0
   defense: 7
   attack: 7
   upgradingThisTurn: 0
@@ -113589,7 +113673,6 @@ MonoBehaviour:
   button: {fileID: 0}
   borders: []
   troopCapacity: 4
-  infrastructure: 0
   defense: 7
   attack: 7
   upgradingThisTurn: 0
@@ -114654,7 +114737,6 @@ MonoBehaviour:
   button: {fileID: 0}
   borders: []
   troopCapacity: 4
-  infrastructure: 0
   defense: 7
   attack: 7
   upgradingThisTurn: 0
@@ -115871,7 +115953,6 @@ MonoBehaviour:
   button: {fileID: 0}
   borders: []
   troopCapacity: 4
-  infrastructure: 0
   defense: 7
   attack: 7
   upgradingThisTurn: 0
@@ -116201,7 +116282,6 @@ MonoBehaviour:
   button: {fileID: 0}
   borders: []
   troopCapacity: 4
-  infrastructure: 0
   defense: 7
   attack: 7
   upgradingThisTurn: 0
@@ -116522,7 +116602,6 @@ MonoBehaviour:
   button: {fileID: 0}
   borders: []
   troopCapacity: 4
-  infrastructure: 0
   defense: 7
   attack: 7
   upgradingThisTurn: 0
@@ -116722,8 +116801,7 @@ MonoBehaviour:
   center: {fileID: 833134618}
   button: {fileID: 0}
   borders: []
-  troopCapacity: 20
-  infrastructure: 0
+  troopCapacity: 4
   defense: 7
   attack: 7
   upgradingThisTurn: 0
@@ -117108,8 +117186,7 @@ MonoBehaviour:
   center: {fileID: 1485080568}
   button: {fileID: 0}
   borders: []
-  troopCapacity: 20
-  infrastructure: 0
+  troopCapacity: 4
   defense: 7
   attack: 7
   upgradingThisTurn: 0
@@ -117519,7 +117596,6 @@ MonoBehaviour:
   button: {fileID: 0}
   borders: []
   troopCapacity: 4
-  infrastructure: 0
   defense: 7
   attack: 7
   upgradingThisTurn: 0
@@ -118092,7 +118168,6 @@ MonoBehaviour:
   button: {fileID: 0}
   borders: []
   troopCapacity: 4
-  infrastructure: 0
   defense: 7
   attack: 7
   upgradingThisTurn: 0

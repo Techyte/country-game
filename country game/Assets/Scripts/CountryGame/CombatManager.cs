@@ -46,7 +46,6 @@ namespace CountryGame
             {
                 attack.calculatedAttack = CalculateAttackAttack(attack);
                 attack.calculatedDefense = CalculateAttackDefense(attack);
-                Debug.Log($"{attack.Source.name} to {attack.Target.name} is {attack.calculatedAttack} to {attack.calculatedDefense}");
             }
 
             foreach (var attack in attacks)
@@ -100,15 +99,22 @@ namespace CountryGame
                         country.MoveTroopsOut(info.ControllerNation, 1);
                     }
                 }
+
+                country.Infrastructure--;
             }
 
             for (int i = 0; i < countriesTransfered.Count; i++)
             {
                 Country countryTaken = NationManager.Instance.GetCountryByName(countriesTransfered[i]);
                 Nation nationToTakeTerritory = NationManager.Instance.GetCountryByName(countriesThatTook[i]).GetNation();
+
+                countryTaken.Infrastructure -= 1;
                 
                 countryTaken.ResetTroops();
-                NationManager.Instance.GetCountryByName(countriesThatTook[i]).MoveTroopsOut(nationToTakeTerritory, 1);
+                if (countryTaken.GetParticipatingTroopsAttacking(nationToTakeTerritory) > 0)
+                {
+                    NationManager.Instance.GetCountryByName(countriesThatTook[i]).MoveTroopsOut(nationToTakeTerritory, 1);
+                }
             }
 
             List<Country> countries = new List<Country>();
@@ -150,7 +156,7 @@ namespace CountryGame
 
         private float CalculateAttackAttack(Attack attack)
         {
-            float finalAttack = attack.Source.attack;
+            float finalAttack = attack.Source.GetAttack();
             
             foreach (var troopInfo in attack.Source.troopInfos.Values)
             {
@@ -207,7 +213,7 @@ namespace CountryGame
         }
         private float CalculateAttackDefense(Attack attack)
         {
-            float finalDefense = attack.Target.defense;
+            float finalDefense = attack.Target.GetDefense();
             
             foreach (var troopInfo in attack.Target.troopInfos.Values)
             {
@@ -282,7 +288,7 @@ namespace CountryGame
                 }
             }
 
-            return attack.calculatedAttack > attack.calculatedDefense;
+            return attack.calculatedAttack > attack.calculatedDefense || (attack.calculatedDefense == 0 && attack.Source.GetParticipatingTroopsAttacking(attack.Target.GetNation()) > 0);
         }
 
         public void AICombatBehaviour()
@@ -301,12 +307,96 @@ namespace CountryGame
                             if (border.GetNation().IsAtWarWith(nation) && attacking)
                             {
                                 // found a border to attack
-                                    
                                 LaunchAttack(border, country, nation);
                             }
                         }
                     }
+
+                    AiTroopMoving(nation);
                 }
+            }
+        }
+
+        private void AiTroopMoving(Nation aiNation)
+        {
+            if (aiNation.Wars.Count == 0)
+            {
+                return;
+            }
+            
+            List<TroopInformation> infos = new List<TroopInformation>();
+            List<TroopInformation> tempInfos = new List<TroopInformation>();
+            int total = 0;
+            List<Country> destinationCountries = new List<Country>();
+
+            foreach (var country in aiNation.Countries)
+            {
+                if (!country.troopInfos.TryGetValue(aiNation, out TroopInformation infoToAdd))
+                {
+                    infoToAdd = new TroopInformation();
+                    infoToAdd.ControllerNation = aiNation;
+                    infoToAdd.NumberOfTroops = 0;
+                    infoToAdd.Location = country;
+                    tempInfos.Add(infoToAdd);
+                }
+                
+                infos.Add(infoToAdd);
+                
+                foreach (var border in country.borders)
+                {
+                    if (aiNation.IsAtWarWith(border.GetNation()))
+                    {
+                        destinationCountries.Add(country);
+                    }
+                }
+                
+                total += infoToAdd.NumberOfTroops;
+            }
+
+            if (destinationCountries.Count == 0)
+            {
+                return;
+            }
+
+            int avg = total / destinationCountries.Count;
+
+            int dolledOut = 0;
+
+            foreach (var info in infos)
+            {
+                if (destinationCountries.Contains(info.Location))
+                {
+                    info.NumberOfTroops = avg;
+                    dolledOut += avg;
+                }
+                else
+                {
+                    info.Location.MoveTroopsOut(info.ControllerNation, info.NumberOfTroops);
+                }
+            }
+
+            int index = 0;
+            while (dolledOut < total)
+            {
+                index++;
+                index = index % infos.Count;
+                infos[index].NumberOfTroops++;
+                dolledOut++;
+            }
+            
+            // completed dolling out troops
+
+            if (avg < 4)
+            {
+                // need more troops, we don't have enough
+
+                Country countryToHire = aiNation.Countries[0];
+                NationManager.Instance.HireTroops(countryToHire, aiNation, 4 - avg);
+            }
+
+            foreach (var info in tempInfos)
+            {
+                info.Location.MovedTroopsIn(info.ControllerNation, info.NumberOfTroops);
             }
         }
 
@@ -745,14 +835,12 @@ namespace CountryGame
                             // defender is launching the attack
                             if (war.Defenders.Contains(nation) && war.Belligerents.Contains(target.GetNation()))
                             {
-                                Debug.Log($"found the {war.Name}");
                                 attack.war = war;
                                 attack.launchedByDefenders = true;
                             }
                             // belligerent is launching the attack
                             if (war.Belligerents.Contains(nation) && war.Defenders.Contains(target.GetNation()))
                             {
-                                Debug.Log($"found the {war.Name}");
                                 attack.war = war;
                                 attack.launchedByDefenders = false;
                             }
@@ -815,7 +903,6 @@ namespace CountryGame
             {
                 foreach (var belligerent in Belligerents)
                 {
-                    Debug.Log("adding to belligerent diplomatic power");
                     int gain = NationManager.GetDiplomaticPowerGain(belligerent);
 
                     belligerent.DiplomaticPower += gain;
@@ -827,7 +914,6 @@ namespace CountryGame
             {
                 foreach (var defender in Defenders)
                 {
-                    Debug.Log("adding to defender diplomatic power");
                     int gain = NationManager.GetDiplomaticPowerGain(defender);
 
                     defender.DiplomaticPower += gain;

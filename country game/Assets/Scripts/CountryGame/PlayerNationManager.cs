@@ -99,8 +99,11 @@ namespace CountryGame
         {
             foreach (var playerNation in NationManager.Instance.PlayerNations)
             {
+                int gain = NationManager.GetDiplomaticPowerGain(playerNation);
+                
                 if (playerNation.Wars.Count > 0)
                 {
+                    playerNation.DiplomaticPower += gain/2;
                     continue;
                 }
                 if (playerNation.DiplomaticPower <= 10)
@@ -108,7 +111,6 @@ namespace CountryGame
                     playerNation.DiplomaticPower += 7;
                     continue;
                 }
-                int gain = Math.Clamp(250 / (playerNation.DiplomaticPower - 10) - 3, 1, 7);
 
                 playerNation.DiplomaticPower += gain;
             }

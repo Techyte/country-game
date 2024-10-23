@@ -23,12 +23,24 @@ namespace CountryGame
 
         public Dictionary<Nation, TroopInformation> troopInfos = new Dictionary<Nation, TroopInformation>();
 
-        public int troopCapacity;
+        [SerializeField] private int troopCapacity;
 
-        public int infrastructure;
+        public int Infrastructure
+        {
+            get
+            {
+                return infrastructure;
+            }
+            set
+            {
+                infrastructure = Mathf.Max(0, value);
+            }
+        }
 
-        public int defense;
-        public int attack;
+        private int infrastructure = 0;
+
+        [SerializeField] private int defense;
+        [SerializeField] private int attack;
         
         public bool upgradingThisTurn;
 
@@ -72,6 +84,21 @@ namespace CountryGame
             collider = GetComponent<PolygonCollider2D>();
         }
 
+        public int GetAttack()
+        {
+            return attack + infrastructure;
+        }
+
+        public int GetDefense()
+        {
+            return defense + infrastructure;
+        }
+
+        public int GetTroopCapacity()
+        {
+            return troopCapacity + infrastructure;
+        }
+
         public void ChangeUpgradingStatus(bool newUpgrading)
         {
             upgradingThisTurn = newUpgrading;
@@ -109,9 +136,9 @@ namespace CountryGame
         {
             if (troopInfos.TryGetValue(source, out TroopInformation info))
             {
-                if (TotalTroopCount() + numberOfTroops > troopCapacity)
+                if (TotalTroopCount() + numberOfTroops > GetTroopCapacity())
                 {
-                    info.NumberOfTroops += troopCapacity - TotalTroopCount();
+                    info.NumberOfTroops += GetTroopCapacity() - TotalTroopCount();
                 }
                 else
                 {
@@ -122,9 +149,10 @@ namespace CountryGame
             {
                 TroopInformation newInfo = new TroopInformation();
                 newInfo.ControllerNation = source;
-                if (TotalTroopCount() + numberOfTroops > troopCapacity)
+                newInfo.Location = this;
+                if (TotalTroopCount() + numberOfTroops > GetTroopCapacity())
                 {
-                    newInfo.NumberOfTroops = troopCapacity - TotalTroopCount();
+                    newInfo.NumberOfTroops = GetTroopCapacity() - TotalTroopCount();
                 }
                 else
                 {
@@ -169,10 +197,10 @@ namespace CountryGame
             {
                 troopDisplay.UpdateDisplay(this,
                     (nation.MilitaryAccessWith(PlayerNationManager.PlayerNation) ||
-                    nation == PlayerNationManager.PlayerNation ||
-                    PlayerNationManager.PlayerNation.Attacking(this) ||
-                    PlayerNationManager.PlayerNation.Defending(nation)) &&
-                    !CombatManager.Instance.invading && ViewTypeManager.Instance.currentView != ViewType.Diplomacy &&
+                     nation == PlayerNationManager.PlayerNation ||
+                     PlayerNationManager.PlayerNation.Attacking(this) ||
+                     PlayerNationManager.PlayerNation.Defending(nation)) && 
+                    !CombatManager.Instance.invading && ViewTypeManager.Instance.currentView != ViewType.Diplomacy && 
                     !CombatManager.Instance.invading && ViewTypeManager.Instance.currentView != ViewType.Infrastructure);
             }
         }
@@ -213,7 +241,7 @@ namespace CountryGame
 
         public bool CanMoveNumTroopsIn(Nation controller, int amount)
         {
-            if (TotalTroopCount() + amount > troopCapacity)
+            if (TotalTroopCount() + amount > GetTroopCapacity())
             {
                 return false;
             }
@@ -334,42 +362,42 @@ namespace CountryGame
                 borderNations.Add(NationManager.Instance.GetCountryByName("Malaysia"));
                 borderNations.Add(NationManager.Instance.GetCountryByName("Indonesia"));
             }
-            else if (countryName == "Russia")
+            else if (countryName == "Kamchatka")
             { 
                 borderNations.Add(NationManager.Instance.GetCountryByName("Alaska")); 
                 borderNations.Add(NationManager.Instance.GetCountryByName("Japan"));
             }
             else if (countryName == "Alaska")
             {
-                borderNations.Add(NationManager.Instance.GetCountryByName("Russia"));
+                borderNations.Add(NationManager.Instance.GetCountryByName("Kamchatka"));
             }
-            else if (countryName == "United States")
+            else if (countryName == "Southern United States")
             {
                 borderNations.Add(NationManager.Instance.GetCountryByName("Cuba"));
             }
-            else if (countryName == "Mexico")
+            else if (countryName == "Southern Mexico")
             {
                 borderNations.Add(NationManager.Instance.GetCountryByName("Cuba"));
             }
             else if (countryName == "Cuba")
             {
-                borderNations.Add(NationManager.Instance.GetCountryByName("Mexico"));
-                borderNations.Add(NationManager.Instance.GetCountryByName("United States"));
+                borderNations.Add(NationManager.Instance.GetCountryByName("Southern Mexico"));
+                borderNations.Add(NationManager.Instance.GetCountryByName("Southern United States"));
+                borderNations.Add(NationManager.Instance.GetCountryByName("Haiti"));
             }
             else if (countryName == "Victoria")
             {
                 borderNations.Add(NationManager.Instance.GetCountryByName("New Zealand"));
-                borderNations.Add(NationManager.Instance.GetCountryByName("Indonesia"));
-                borderNations.Add(NationManager.Instance.GetCountryByName("Papua New Guinea"));
             }
             else if (countryName == "New Zealand")
             {
-                borderNations.Add(NationManager.Instance.GetCountryByName("Australia"));
+                borderNations.Add(NationManager.Instance.GetCountryByName("Victoria"));
+                borderNations.Add(NationManager.Instance.GetCountryByName("Eastern Australia"));
                 borderNations.Add(NationManager.Instance.GetCountryByName("Papua New Guinea"));
             }
             else if (countryName == "Papua New Guinea")
             {
-                borderNations.Add(NationManager.Instance.GetCountryByName("Australia"));
+                borderNations.Add(NationManager.Instance.GetCountryByName("Northern Australia"));
                 borderNations.Add(NationManager.Instance.GetCountryByName("New Zealand"));
             }
             else if (countryName == "Belgium")
@@ -389,18 +417,35 @@ namespace CountryGame
                 borderNations.Add(NationManager.Instance.GetCountryByName("Sweden"));
                 borderNations.Add(NationManager.Instance.GetCountryByName("Norway"));
             }
-            else if (countryName == "China")
+            else if (countryName == "Southern China")
             {
                 borderNations.Add(NationManager.Instance.GetCountryByName("Taiwan"));
             }
             else if (countryName == "Taiwan")
             {
-                borderNations.Add(NationManager.Instance.GetCountryByName("China"));
+                borderNations.Add(NationManager.Instance.GetCountryByName("Southern China"));
             }
-            else if (countryName == "Indonesia")
+            else if (countryName == "Eastern Indonesia")
             {
-                borderNations.Add(NationManager.Instance.GetCountryByName("Australia"));
+                borderNations.Add(NationManager.Instance.GetCountryByName("Northern Australia"));
                 borderNations.Add(NationManager.Instance.GetCountryByName("Philippines"));
+            }
+            else if (countryName == "Western Indonesia")
+            {
+                borderNations.Add(NationManager.Instance.GetCountryByName("Western Australia"));
+                borderNations.Add(NationManager.Instance.GetCountryByName("Philippines"));
+            }
+            else if (countryName == "Western Australia")
+            {
+                borderNations.Add(NationManager.Instance.GetCountryByName("Western Indonesia"));
+            }
+            else if (countryName == "Northern Australia")
+            {
+                borderNations.Add(NationManager.Instance.GetCountryByName("Eastern indonesia"));
+            }
+            else if (countryName == "Eastern Australia")
+            {
+                borderNations.Add(NationManager.Instance.GetCountryByName("New Zealand"));
             }
             else if (countryName == "Madagascar")
             {
@@ -420,13 +465,17 @@ namespace CountryGame
             }
             else if (countryName == "Japan")
             {
-                borderNations.Add(NationManager.Instance.GetCountryByName("Russia"));
+                borderNations.Add(NationManager.Instance.GetCountryByName("Kamchatka"));
                 borderNations.Add(NationManager.Instance.GetCountryByName("South Korea"));
+                borderNations.Add(NationManager.Instance.GetCountryByName("Khabarovsk"));
             }
-            else if (countryName == "Japan")
+            else if (countryName == "Khabarovsk")
             {
-                borderNations.Add(NationManager.Instance.GetCountryByName("Russia"));
-                borderNations.Add(NationManager.Instance.GetCountryByName("South Korea"));
+                borderNations.Add(NationManager.Instance.GetCountryByName("Japan"));
+            }
+            else if (countryName == "Kamchatka")
+            {
+                borderNations.Add(NationManager.Instance.GetCountryByName("Japan"));
             }
             else if (countryName == "South Korea")
             {
@@ -456,6 +505,7 @@ namespace CountryGame
     {
         public Nation ControllerNation;
         public int NumberOfTroops;
+        public Country Location;
     }
     
     #if UNITY_EDITOR

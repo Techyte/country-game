@@ -187,9 +187,9 @@ namespace CountryGame
             countryName.text = countryClicked.countryName;
             controllerName.text = countryClicked.GetNation().Name;
             controllerFlag.sprite = countryClicked.GetNation().flag;
-            defenseText.text = countryClicked.defense.ToString();
-            attackText.text = countryClicked.attack.ToString();
-            infrastructureText.text = countryClicked.infrastructure.ToString();
+            defenseText.text = countryClicked.GetDefense().ToString();
+            attackText.text = countryClicked.GetAttack().ToString();
+            infrastructureText.text = countryClicked.Infrastructure.ToString();
             
             launchAttackButton.interactable =
                 PlayerNationManager.PlayerNation.MilitaryAccessWith(currentCountry.GetNation()) &&
@@ -198,7 +198,7 @@ namespace CountryGame
                 PlayerNationManager.PlayerNation.MilitaryAccessWith(currentCountry.GetNation()) && 
                 PlayerNationManager.PlayerNation.CanAfford(flatHireCostPerTroop);
 
-            totalText.text = $"Total: {currentCountry.TotalTroopCount().ToString()}/{currentCountry.troopCapacity}";
+            totalText.text = $"Total: {currentCountry.TotalTroopCount().ToString()}/{currentCountry.GetTroopCapacity()}";
         }
 
         public void UpdateHireCostText()
