@@ -171,6 +171,10 @@ namespace CountryGame
             hiringInfos.Add(info);
 
             nation.Money -= amount * TroopMover.Instance.flatHireCostPerTroop;
+            if (nation.Money < 0)
+            {
+                nation.Money = 0;
+            }
         }
 
         public void HandleHiringTroops()
@@ -235,6 +239,11 @@ namespace CountryGame
                 float cost = GetUpgradeExpense(info);
                 
                 info.OriginalNation.Money -= Mathf.CeilToInt(cost);
+
+                if (info.OriginalNation.Money < 0)
+                {
+                    info.OriginalNation.Money = 0;
+                }
                 
                 info.country.Infrastructure++;
 
@@ -381,15 +390,70 @@ namespace CountryGame
                 int landCost = GetLandCost(nation);
                 nation.Money -= landCost;
                 
-                int cost = GetTroopCost(nation);
-                nation.Money -= cost;
+                int troopCost = GetTroopCost(nation);
+                nation.Money -= troopCost;
 
                 float warCost = GetNationWarCosts(nation);
                 nation.Money -= Mathf.RoundToInt(warCost);
                 
                 if (nation.Money < 0)
                 {
+                    int deficit = -nation.Money;
+                    
+                    HandleNationLostMoney(nation, deficit);
+
+                    if (PlayerNationManager.PlayerNation == nation)
+                    {
+                        Notification notification = Instantiate(notificationPrefab, notificationParent);
+                        notification.Init($"Deficit!",
+                            $"We have run a deficit of {deficit}! Troops will begin leaving you quickly unless you get a hand on your finances!",
+                            null, 5);
+                    }
+                    
                     nation.Money = 0;
+                }
+            }
+        }
+
+        private void HandleNationLostMoney(Nation nation, int deficit)
+        {
+            int singleTroopCost = GetCostOfTroops(1);
+
+            float troopsToLoose = deficit / (float)singleTroopCost;
+
+            if (troopsToLoose < 1)
+            {
+                // nothing for now
+                // effectivly means we have not lost enough for a troop to leave
+            }
+            else
+            {
+                // have lost enough for 1 troop to leave
+
+                int lefTroops = Mathf.FloorToInt(troopsToLoose);
+
+                foreach (var country in nation.Countries)
+                {
+                    if (lefTroops > 0)
+                    {
+                        if (country.troopInfos.TryGetValue(nation, out TroopInformation info))
+                        {
+                            int amountWeCanTake = info.NumberOfTroops;
+                            if (amountWeCanTake < lefTroops)
+                            {
+                                country.MoveTroopsOut(nation, amountWeCanTake);
+                                lefTroops -= amountWeCanTake;
+                                Debug.Log($"Taking {amountWeCanTake} from {country.countryName}");
+                            }
+                            else
+                            {
+                                // we need to move out less
+                                country.MoveTroopsOut(nation, lefTroops);
+                                lefTroops -= lefTroops;
+                                Debug.Log($"Taking {lefTroops} from {country.countryName}");
+                            }
+                        }
+                    }
                 }
             }
         }
