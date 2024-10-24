@@ -140,7 +140,7 @@ namespace CountryGame
             if (NetworkManager.Instance.Host)
             {
                 NationManager.Instance.AIWarBehaviour();
-            
+                
                 AICombatBehaviour();
             }
         }
@@ -311,18 +311,20 @@ namespace CountryGame
                             }
                         }
                     }
-
-                    AiTroopMoving(nation);
                 }
+                
+                AiTroopMoving(nation);
             }
         }
 
-        private void AiTroopMoving(Nation aiNation)
+        public void AiTroopMoving(Nation aiNation)
         {
             if (aiNation.Wars.Count == 0)
             {
                 return;
             }
+            
+            Debug.LogError("managing ai troops stuff");
             
             List<TroopInformation> infos = new List<TroopInformation>();
             List<TroopInformation> tempInfos = new List<TroopInformation>();
@@ -391,7 +393,10 @@ namespace CountryGame
                 // need more troops, we don't have enough
 
                 Country countryToHire = aiNation.Countries[0];
-                NationManager.Instance.HireTroops(countryToHire, aiNation, 4 - avg);
+                int troopsAlreadyThere = countryToHire.TotalTroopCount();
+                int capacity = countryToHire.GetTroopCapacity();
+                int amountToHire = capacity - troopsAlreadyThere;
+                NationManager.Instance.HireTroops(countryToHire, aiNation, amountToHire);
             }
 
             foreach (var info in tempInfos)

@@ -114,7 +114,7 @@ namespace CountryGame
             
             Server.ClientConnected += (sender, args) =>
             {
-                if (Server.ClientCount == 1)
+                if (Server.ClientCount == 2)
                 {
                     BeginSetup();
                 }
@@ -258,7 +258,7 @@ namespace CountryGame
             ushort riptideId = message.GetUShort();
             
             // string nation = SteamMatchmaking.GetLobbyMemberData(LobbyData.LobbyId, id, "nation");
-            string nation = riptideId == 1 ? "Australia" : "New Zealand";
+            string nation = riptideId == 1 ? "Australia" : "Russia";
 
             Nation newPlayerNation = NationManager.Instance.GetNationByName(nation);
             newPlayerNation.aPlayerNation = true;
@@ -580,6 +580,14 @@ namespace CountryGame
             NationManager.Instance.HandleFinance();
             NationManager.Instance.HandleHiringTroops();
             NationManager.Instance.HandleInfrastructureUpgrades();
+            
+            foreach (var nation in NationManager.Instance.nations)
+            {
+                if (!nation.aPlayerNation && nation.Wars.Count > 0)
+                {
+                    CombatManager.Instance.AiTroopMoving(nation);
+                }
+            }
         }
 
         [MessageHandler((ushort)GameMessageId.ChangedTroopDistribution, Multiplayer.NetworkManager.PlayerHostedDemoMessageHandlerGroupId)]

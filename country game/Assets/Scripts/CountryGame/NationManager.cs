@@ -183,6 +183,7 @@ namespace CountryGame
             
             foreach (var info in infos)
             {
+                Debug.LogError($"hiring troops for {info.OriginalNation}");
                 if (TurnManager.Instance.currentTurn - info.turnCreated >= 1)
                 {
                     if (info.country.GetNation() == info.OriginalNation && info.country.CanMoveNumTroopsIn(info.OriginalNation, info.Amount))

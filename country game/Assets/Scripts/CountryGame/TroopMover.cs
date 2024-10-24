@@ -46,6 +46,10 @@ namespace CountryGame
         [Space] 
         [SerializeField] private TextMeshProUGUI additionalHireCostText;
         [SerializeField] private TextMeshProUGUI flatHireCostText;
+        [Space] 
+        [SerializeField] private Toggle infantryToggle;
+        [SerializeField] private Toggle tanksToggle;
+        [SerializeField] private Toggle marinesToggle;
 
         public int flatHireCostPerTroop = 5;
         public int attackCost = 10;
@@ -224,6 +228,42 @@ namespace CountryGame
         public void StopHiringTroops()
         {
             hireTroopScreen.SetActive(false);
+        }
+
+        public void InfantryToggled(bool value)
+        {
+            if (value)
+            {
+                tanksToggle.isOn = false;
+                marinesToggle.isOn = false;
+            }else if (!marinesToggle.isOn)
+            {
+                tanksToggle.isOn = true;
+            }
+        }
+
+        public void TanksToggled(bool value)
+        {
+            if (value)
+            {
+                infantryToggle.isOn = false;
+                marinesToggle.isOn = false;
+            }else if (!marinesToggle.isOn)
+            {
+                infantryToggle.isOn = true;
+            }
+        }
+
+        public void MarinesToggled(bool value)
+        {
+            if (value)
+            {
+                infantryToggle.isOn = false;
+                tanksToggle.isOn = false;
+            }else if (!tanksToggle.isOn)
+            {
+                infantryToggle.isOn = true;
+            }
         }
         
         public void ConfirmHiringTroops()
