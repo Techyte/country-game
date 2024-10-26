@@ -360,7 +360,7 @@ namespace CountryGame
             else if (countryName == "Philippines") 
             { 
                 borderNations.Add(NationManager.Instance.GetCountryByName("Malaysia"));
-                borderNations.Add(NationManager.Instance.GetCountryByName("Indonesia"));
+                borderNations.Add(NationManager.Instance.GetCountryByName("Western Indonesia"));
             }
             else if (countryName == "Kamchatka")
             { 
@@ -429,11 +429,13 @@ namespace CountryGame
             {
                 borderNations.Add(NationManager.Instance.GetCountryByName("Northern Australia"));
                 borderNations.Add(NationManager.Instance.GetCountryByName("Philippines"));
+                borderNations.Add(NationManager.Instance.GetCountryByName("Western Indonesia"));
             }
             else if (countryName == "Western Indonesia")
             {
                 borderNations.Add(NationManager.Instance.GetCountryByName("Western Australia"));
                 borderNations.Add(NationManager.Instance.GetCountryByName("Philippines"));
+                borderNations.Add(NationManager.Instance.GetCountryByName("Eastern Indonesia"));
             }
             else if (countryName == "Western Australia")
             {
@@ -442,6 +444,7 @@ namespace CountryGame
             else if (countryName == "Northern Australia")
             {
                 borderNations.Add(NationManager.Instance.GetCountryByName("Eastern indonesia"));
+                borderNations.Add(NationManager.Instance.GetCountryByName("Papua New Guinea"));
             }
             else if (countryName == "Eastern Australia")
             {
@@ -465,7 +468,6 @@ namespace CountryGame
             }
             else if (countryName == "Japan")
             {
-                borderNations.Add(NationManager.Instance.GetCountryByName("Kamchatka"));
                 borderNations.Add(NationManager.Instance.GetCountryByName("South Korea"));
                 borderNations.Add(NationManager.Instance.GetCountryByName("Khabarovsk"));
             }
