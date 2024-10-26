@@ -313,18 +313,21 @@ namespace CountryGame
                     }
                 }
                 
-                AiTroopMoving(nation);
+                if (!nation.aPlayerNation)
+                {
+                    AiTroopMoving(nation);
+                }
             }
         }
 
         public void AiTroopMoving(Nation aiNation)
         {
+            AiInfrastructureUpgrading(aiNation);
+            
             if (aiNation.Wars.Count == 0)
             {
                 return;
             }
-            
-            Debug.LogError("managing ai troops stuff");
             
             List<TroopInformation> infos = new List<TroopInformation>();
             List<TroopInformation> tempInfos = new List<TroopInformation>();
@@ -402,6 +405,14 @@ namespace CountryGame
             foreach (var info in tempInfos)
             {
                 info.Location.MovedTroopsIn(info.ControllerNation, info.NumberOfTroops);
+            }
+        }
+
+        private void AiInfrastructureUpgrading(Nation aiNation)
+        {
+            if (aiNation.Money == 0)
+            {
+                NationManager.Instance.UpgradeInfrastructure(aiNation.Countries[Random.Range(0, aiNation.Countries.Count)], aiNation, true);
             }
         }
 

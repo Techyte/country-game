@@ -183,7 +183,6 @@ namespace CountryGame
             
             foreach (var info in infos)
             {
-                Debug.LogError($"hiring troops for {info.OriginalNation}");
                 if (TurnManager.Instance.currentTurn - info.turnCreated >= 1)
                 {
                     if (info.country.GetNation() == info.OriginalNation && info.country.CanMoveNumTroopsIn(info.OriginalNation, info.Amount))
@@ -261,8 +260,25 @@ namespace CountryGame
 
         public void HandleFinance()
         {
+            int[] initalMoney = new int[nations.Count];
+            for (int i = 0; i < nations.Count; i++)
+            {
+                initalMoney[i] = nations.Count;
+            }
+            
             HandleProfits();
             HandleExpenses();
+
+            // cap overall profits at 50/turn
+            for (int i = 0; i < nations.Count; i++)
+            {
+                int profit = nations[i].Money - initalMoney[i];
+
+                if (profit > 50)
+                {
+                    nations[i].Money = initalMoney[i] + 50;
+                }
+            }
         }
 
         public void ProclaimNation(Nation nation, string newName, string flag, Color color)
@@ -401,7 +417,7 @@ namespace CountryGame
                 {
                     int deficit = -nation.Money;
                     
-                    HandleNationLostMoney(nation, deficit);
+                    HandleNationLostMoney(nation);
 
                     if (PlayerNationManager.PlayerNation == nation)
                     {
@@ -416,45 +432,15 @@ namespace CountryGame
             }
         }
 
-        private void HandleNationLostMoney(Nation nation, int deficit)
+        private void HandleNationLostMoney(Nation nation)
         {
             int singleTroopCost = GetCostOfTroops(1);
 
-            float troopsToLoose = deficit / (float)singleTroopCost;
-
-            if (troopsToLoose < 1)
+            foreach (var country in nation.Countries)
             {
-                // nothing for now
-                // effectivly means we have not lost enough for a troop to leave
-            }
-            else
-            {
-                // have lost enough for 1 troop to leave
-
-                int lefTroops = Mathf.FloorToInt(troopsToLoose);
-
-                foreach (var country in nation.Countries)
+                if (country.troopInfos.TryGetValue(nation, out TroopInformation info) && info.NumberOfTroops > 0)
                 {
-                    if (lefTroops > 0)
-                    {
-                        if (country.troopInfos.TryGetValue(nation, out TroopInformation info))
-                        {
-                            int amountWeCanTake = info.NumberOfTroops;
-                            if (amountWeCanTake < lefTroops)
-                            {
-                                country.MoveTroopsOut(nation, amountWeCanTake);
-                                lefTroops -= amountWeCanTake;
-                                Debug.Log($"Taking {amountWeCanTake} from {country.countryName}");
-                            }
-                            else
-                            {
-                                // we need to move out less
-                                country.MoveTroopsOut(nation, lefTroops);
-                                lefTroops -= lefTroops;
-                                Debug.Log($"Taking {lefTroops} from {country.countryName}");
-                            }
-                        }
-                    }
+                    country.MoveTroopsOut(nation, 1);
                 }
             }
         }
@@ -965,10 +951,6 @@ namespace CountryGame
             {
                 foreach (var borderCountry in country.borders)
                 {
-                    Debug.Log(testNation.Name);
-                    Debug.Log(country);
-                    Debug.Log(borderCountry);
-                    Debug.Log(borderCountry.name);
                     if (testNation == borderCountry.GetNation())
                     {
                         return true;

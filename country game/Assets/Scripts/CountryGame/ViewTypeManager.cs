@@ -120,12 +120,14 @@ namespace CountryGame
         {
             country.button.overrideColour = Color.grey;
 
-            if (PlayerNationManager.PlayerNation.MilitaryAccessWith(country.GetNation()))
+            bool milAccess = PlayerNationManager.PlayerNation.MilitaryAccessWith(country.GetNation());
+
+            if (milAccess)
             {
                 country.button.overrideColour = Color.Lerp(Color.red, Color.green, country.Infrastructure / 10f);
             }
 
-            if (country.upgradingThisTurn)
+            if (country.upgradingThisTurn && milAccess)
             {
                 country.button.overrideColour = Color.Lerp(country.button.overrideColour, Color.blue, 1/3f);
             }

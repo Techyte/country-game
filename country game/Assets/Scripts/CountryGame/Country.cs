@@ -199,7 +199,7 @@ namespace CountryGame
                     (nation.MilitaryAccessWith(PlayerNationManager.PlayerNation) ||
                      nation == PlayerNationManager.PlayerNation ||
                      PlayerNationManager.PlayerNation.Attacking(this) ||
-                     PlayerNationManager.PlayerNation.Defending(nation)) && 
+                     PlayerNationManager.PlayerNation.Defending(this)) && 
                     !CombatManager.Instance.invading && ViewTypeManager.Instance.currentView != ViewType.Diplomacy && 
                     !CombatManager.Instance.invading && ViewTypeManager.Instance.currentView != ViewType.Infrastructure);
             }
