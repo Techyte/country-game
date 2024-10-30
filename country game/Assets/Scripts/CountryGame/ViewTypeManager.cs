@@ -107,6 +107,16 @@ namespace CountryGame
 
             foreach (var agreement in country.GetNation().agreements)
             {
+                if (agreement.militaryAccess)
+                {
+                    country.button.overrideColour = Color.Lerp(country.button.baseColour, agreement.AgreementLeader.Color, 0.75f);
+                }
+
+                if (agreement.autoJoinWar)
+                {
+                    country.button.overrideColour = Color.Lerp(country.button.baseColour, agreement.AgreementLeader.Color, 1);
+                }
+                
                 if (agreement.AgreementLeader == country.GetNation() && agreement.influence > 0)
                 {
                     country.button.overrideColour = country.GetNation().Color;

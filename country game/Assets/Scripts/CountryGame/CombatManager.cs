@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using Riptide;
+using Unity.Mathematics;
 using UnityEngine.UI;
 
 namespace CountryGame
@@ -106,7 +107,16 @@ namespace CountryGame
             for (int i = 0; i < countriesTransfered.Count; i++)
             {
                 Country countryTaken = NationManager.Instance.GetCountryByName(countriesTransfered[i]);
-                Nation nationToTakeTerritory = NationManager.Instance.GetCountryByName(countriesThatTook[i]).GetNation();
+                Nation initialNation = NationManager.Instance.GetCountryByName(countriesThatTook[i]).GetNation();
+                Nation nationToTakeTerritory = initialNation;
+
+                foreach (var agreement in initialNation.agreements)
+                {
+                    if (agreement.militaryAccess && agreement.AgreementLeader != initialNation)
+                    {
+                        nationToTakeTerritory = agreement.AgreementLeader;
+                    }
+                }
 
                 countryTaken.Infrastructure -= 1;
                 
@@ -142,6 +152,14 @@ namespace CountryGame
                 NationManager.Instance.AIWarBehaviour();
                 
                 AICombatBehaviour();
+            }
+
+            foreach (var nation in NationManager.Instance.nations)
+            {
+                if (!nation.aPlayerNation)
+                {
+                    AiTroopMoving(nation);
+                }
             }
         }
         
@@ -312,11 +330,6 @@ namespace CountryGame
                         }
                     }
                 }
-                
-                if (!nation.aPlayerNation)
-                {
-                    AiTroopMoving(nation);
-                }
             }
         }
 
@@ -324,9 +337,9 @@ namespace CountryGame
         {
             AiInfrastructureUpgrading(aiNation);
             
-            if (aiNation.Wars.Count == 0)
+            if (aiNation.Name == "New Zealand")
             {
-                return;
+                Debug.Log(aiNation.TotalTroopCount());
             }
             
             List<TroopInformation> infos = new List<TroopInformation>();
@@ -334,7 +347,31 @@ namespace CountryGame
             int total = 0;
             List<Country> destinationCountries = new List<Country>();
 
-            foreach (var country in aiNation.Countries)
+            List<Country> possibleCountries = aiNation.Countries.ToList();
+
+            foreach (var agreement in aiNation.agreements)
+            {
+                if (agreement.militaryAccess)
+                {
+                    foreach (var nation in agreement.Nations)
+                    {
+                        foreach (var country in nation.Countries)
+                        {
+                            if (!possibleCountries.Contains(country))
+                            {
+                                possibleCountries.Add(country);
+                            }
+                        }
+                    }
+                }
+            }
+
+            if (possibleCountries.Count == 0)
+            {
+                return;
+            }
+
+            foreach (var country in possibleCountries)
             {
                 if (!country.troopInfos.TryGetValue(aiNation, out TroopInformation infoToAdd))
                 {
@@ -351,6 +388,11 @@ namespace CountryGame
                 {
                     if (aiNation.IsAtWarWith(border.GetNation()))
                     {
+                        if (aiNation.Name == "New Zealand")
+                        {
+                            Debug.Log($"Adding {country.countryName} to destinations");
+                        }
+                        
                         destinationCountries.Add(country);
                     }
                 }
@@ -371,21 +413,28 @@ namespace CountryGame
             {
                 if (destinationCountries.Contains(info.Location))
                 {
-                    info.NumberOfTroops = avg;
-                    dolledOut += avg;
+                    if (info.Location.TotalTroopCount() + avg > info.Location.GetTroopCapacity())
+                    {
+                        info.NumberOfTroops = info.Location.GetTroopCapacity() - info.Location.TotalTroopCount();
+                    }
+                    else
+                    {
+                        info.NumberOfTroops = avg;
+                        dolledOut += avg;
+                    }
                 }
                 else
                 {
-                    info.Location.MoveTroopsOut(info.ControllerNation, info.NumberOfTroops);
+                    info.NumberOfTroops = 0;
                 }
             }
 
             int index = 0;
-            while (dolledOut < total)
+            while (dolledOut < destinationCountries.Count)
             {
                 index++;
-                index = index % infos.Count;
-                infos[index].NumberOfTroops++;
+                index = index % destinationCountries.Count;
+                destinationCountries[index].MovedTroopsIn(aiNation, 1);
                 dolledOut++;
             }
             
@@ -405,6 +454,16 @@ namespace CountryGame
             foreach (var info in tempInfos)
             {
                 info.Location.MovedTroopsIn(info.ControllerNation, info.NumberOfTroops);
+            }
+
+            foreach (var country in possibleCountries)
+            {
+                country.RefreshTroopInfos();
+            }
+            
+            if (aiNation.Name == "New Zealand")
+            {
+                Debug.Log(aiNation.TotalTroopCount());
             }
         }
 
@@ -588,20 +647,16 @@ namespace CountryGame
             {
                 // computer nation at war
 
-                bool attacking = Random.Range(0, 2) == 1;
-
-                if (attacking)
+                foreach (var country in nationToWarWith.Countries)
                 {
-                    foreach (var country in nationToWarWith.Countries)
+                    foreach (var border in country.borders)
                     {
-                        foreach (var border in country.borders)
+                        bool attacking = Random.Range(0, 2) == 1;
+                        if (border.GetNation().IsAtWarWith(nationToWarWith) && attacking)
                         {
-                            if (border.GetNation().IsAtWarWith(nationToWarWith))
-                            {
-                                // found a border to attack
-                                    
-                                LaunchedAttack(border, country, nationToWarWith);
-                            }
+                            // found a border to attack
+                            
+                            LaunchedAttack(border, country, nationToWarWith);
                         }
                     }
                 }

@@ -115,6 +115,17 @@ namespace CountryGame
             UpdateTroopDisplay();
         }
 
+        public void RefreshTroopInfos()
+        {
+            foreach (var info in troopInfos.Values.ToList())
+            {
+                if (info.NumberOfTroops == 0)
+                {
+                    troopInfos.Remove(info.ControllerNation);
+                }
+            }
+        }
+
         public void ChangeColour(Color color)
         {
             button.ChangeColor(color);
@@ -220,17 +231,13 @@ namespace CountryGame
 
         public bool CanMoveNumTroopsOut(Nation controller, int amount)
         {
-            Debug.Log(countryName);
             if (troopInfos.TryGetValue(controller, out TroopInformation info))
             {
-                Debug.Log("found that controller");
                 if (info.NumberOfTroops - amount >= 0)
                 {
-                    Debug.Log("moving that amount of troops would result in negative troops, cancelling");
                     return true;
                 }
 
-                Debug.Log("moving that amount of troops would NOT result in negative troops, cancelling");
                 return false;
             }
             else
@@ -430,6 +437,7 @@ namespace CountryGame
                 borderNations.Add(NationManager.Instance.GetCountryByName("Northern Australia"));
                 borderNations.Add(NationManager.Instance.GetCountryByName("Philippines"));
                 borderNations.Add(NationManager.Instance.GetCountryByName("Western Indonesia"));
+                borderNations.Add(NationManager.Instance.GetCountryByName("Malaysia"));
             }
             else if (countryName == "Western Indonesia")
             {
@@ -443,7 +451,7 @@ namespace CountryGame
             }
             else if (countryName == "Northern Australia")
             {
-                borderNations.Add(NationManager.Instance.GetCountryByName("Eastern indonesia"));
+                borderNations.Add(NationManager.Instance.GetCountryByName("Eastern Indonesia"));
                 borderNations.Add(NationManager.Instance.GetCountryByName("Papua New Guinea"));
             }
             else if (countryName == "Eastern Australia")

@@ -1,9 +1,11 @@
 using System.Collections.Generic;
 using System.Linq;
+using CountryGame.Multiplayer;
 using Riptide;
 using Riptide.Utils;
 using Steamworks;
 using TMPro;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 namespace CountryGame
@@ -114,7 +116,7 @@ namespace CountryGame
             
             Server.ClientConnected += (sender, args) =>
             {
-                if (Server.ClientCount == 2)
+                if (Server.ClientCount == 1)
                 {
                     BeginSetup();
                 }
@@ -522,7 +524,14 @@ namespace CountryGame
                     {
                         if (!otherNation.Wars.Contains(war))
                         {
-                            CombatManager.Instance.NationJoinWarBelligerents(otherNation, war);
+                            if (war.Belligerents.Contains(otherNation))
+                            {
+                                CombatManager.Instance.NationJoinWarBelligerents(otherNation, war);
+                            }
+                            else
+                            {
+                                CombatManager.Instance.NationJoinWarDefenders(otherNation, war);
+                            }
                         }
                     }
                 }
@@ -580,14 +589,6 @@ namespace CountryGame
             NationManager.Instance.HandleFinance();
             NationManager.Instance.HandleHiringTroops();
             NationManager.Instance.HandleInfrastructureUpgrades();
-            
-            foreach (var nation in NationManager.Instance.nations)
-            {
-                if (!nation.aPlayerNation && nation.Wars.Count > 0)
-                {
-                    CombatManager.Instance.AiTroopMoving(nation);
-                }
-            }
         }
 
         [MessageHandler((ushort)GameMessageId.ChangedTroopDistribution, Multiplayer.NetworkManager.PlayerHostedDemoMessageHandlerGroupId)]

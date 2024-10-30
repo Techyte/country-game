@@ -14,6 +14,7 @@ namespace CountryGame
         [SerializeField] private float scrollSpeed;
         [SerializeField] private float scrollIntensity;
         [SerializeField] private float panSpeed;
+        [SerializeField] private float keyboardPanSpeed;
         [SerializeField] private float panIntensity;
 
         [SerializeField] private float minFov, maxFov;
@@ -137,6 +138,11 @@ namespace CountryGame
                         Vector3.Lerp(transform.position, transform.position - (Vector3)distance, panIntensity * Time.deltaTime);
                 }
             }
+            
+            float horizontal = Input.GetAxisRaw("Horizontal");
+            float vertical = Input.GetAxisRaw("Vertical");
+
+            transform.position += new Vector3(horizontal * keyboardPanSpeed, vertical * keyboardPanSpeed);
         }
         
         private bool PointerOverUIObject()

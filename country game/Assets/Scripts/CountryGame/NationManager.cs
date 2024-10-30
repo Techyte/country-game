@@ -136,13 +136,20 @@ namespace CountryGame
             {
                 if (nation.aPlayerNation)
                 {
+                    bool alreadyAttackedThisTurn = false;
                     if (nation.DiplomaticPower <= 0)
                     {
                         foreach (var country in nation.Countries)
                         {
                             foreach (var border in country.borders)
                             {
-                                if (border.GetNation() == nation || border.GetNation().IsAtWarWith(nation) || nation.NonAgressionWith(border.GetNation()))
+                                if (alreadyAttackedThisTurn)
+                                {
+                                    continue;
+                                }
+                                if (border.GetNation() == nation || border.GetNation().IsAtWarWith(nation) ||
+                                    nation.NonAgressionWith(border.GetNation()) || nation.MilitaryAccessWith(border.GetNation()) ||
+                                    nation.AutoJoinWarsWith(border.GetNation()) || nation.InvolvedInWarWith(border.GetNation()))
                                 {
                                     continue;
                                 }
@@ -152,6 +159,7 @@ namespace CountryGame
                                 if (goingToDeclareWar)
                                 {
                                     CombatManager.Instance.DeclaredWarOn(border.GetNation(), nation);
+                                    alreadyAttackedThisTurn = true;
                                 }
                             }
                         }
@@ -202,8 +210,11 @@ namespace CountryGame
                 InfrastructureUpgradeInfo info = new InfrastructureUpgradeInfo();
                 info.country = country;
                 info.OriginalNation = nation;
-            
-                UpgradeInfos.Add(country, info);
+
+                if (!UpgradeInfos.TryGetValue(country, out InfrastructureUpgradeInfo newInfo))
+                {
+                    UpgradeInfos.Add(country, info);
+                }
                 country.ChangeUpgradingStatus(true);
 
                 if (nation == PlayerNationManager.PlayerNation)
@@ -233,6 +244,7 @@ namespace CountryGame
             {
                 if (!info.country.GetNation().MilitaryAccessWith(info.OriginalNation))
                 {
+                    UpgradeInfos.Remove(info.country);
                     continue;
                 }
 
@@ -256,6 +268,8 @@ namespace CountryGame
                     info.OriginalNation.Money = 0;
                 }
             }
+            
+            infos.Clear();
         }
 
         public void HandleFinance()
@@ -617,7 +631,7 @@ namespace CountryGame
 
                 foreach (var country in nation.Countries)
                 {
-                    foreach (var troopInfo in country.troopInfos.Values)
+                    foreach (var troopInfo in country.troopInfos.Values.ToList())
                     {
                         if (troopInfo.ControllerNation != country.GetNation())
                         {
@@ -687,9 +701,33 @@ namespace CountryGame
         {
             int count = 0;
 
+            List<Country> alreadyAdded = new List<Country>();
+
             foreach (var country in Countries)
             {
                 count += country.TotalTroopCount();
+                alreadyAdded.Add(country);
+            }
+
+            foreach (var agreement in agreements)
+            {
+                if (agreement.militaryAccess)
+                {
+                    foreach (var nation in agreement.Nations)
+                    {
+                        foreach (var country in nation.Countries)
+                        {
+                            if (!alreadyAdded.Contains(country))
+                            {
+                                if (country.troopInfos.TryGetValue(this, out TroopInformation info))
+                                {
+                                    count += info.NumberOfTroops;
+                                    alreadyAdded.Add(country);
+                                }
+                            }
+                        }
+                    }
+                }
             }
 
             return count;
