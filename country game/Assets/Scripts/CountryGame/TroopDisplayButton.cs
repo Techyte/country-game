@@ -40,7 +40,7 @@ namespace CountryGame
 
         private void OnMouseDown()
         {
-            if (GameCamera.Instance.IsPointerOverUIObject() || TurnManager.Instance.endedTurn)
+            if (GameCamera.Instance.IsPointerOverUIObject())
             {
                 return;
             }

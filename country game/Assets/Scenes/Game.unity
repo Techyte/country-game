@@ -340,6 +340,7 @@ MonoBehaviour:
   center: {fileID: 1062394091}
   button: {fileID: 0}
   borders: []
+  physicalBorders: []
   troopCapacity: 4
   defense: 7
   attack: 7
@@ -628,12 +629,12 @@ RectTransform:
   - {fileID: 368223404}
   - {fileID: 250877387}
   - {fileID: 1495974566}
-  - {fileID: 705286413}
   - {fileID: 1245871518}
   - {fileID: 696680357}
   - {fileID: 712509858}
   - {fileID: 740339748}
   - {fileID: 1287862526}
+  - {fileID: 705286413}
   - {fileID: 1258424142}
   m_Father: {fileID: 1909173906}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1474,6 +1475,7 @@ MonoBehaviour:
   center: {fileID: 128252077}
   button: {fileID: 0}
   borders: []
+  physicalBorders: []
   troopCapacity: 4
   defense: 7
   attack: 7
@@ -1795,6 +1797,7 @@ MonoBehaviour:
   center: {fileID: 860896651}
   button: {fileID: 0}
   borders: []
+  physicalBorders: []
   troopCapacity: 6
   defense: 7
   attack: 7
@@ -2494,6 +2497,7 @@ MonoBehaviour:
   center: {fileID: 509461171}
   button: {fileID: 0}
   borders: []
+  physicalBorders: []
   troopCapacity: 4
   defense: 7
   attack: 7
@@ -2915,6 +2919,7 @@ MonoBehaviour:
   center: {fileID: 1810024824}
   button: {fileID: 0}
   borders: []
+  physicalBorders: []
   troopCapacity: 4
   defense: 7
   attack: 7
@@ -3579,6 +3584,7 @@ MonoBehaviour:
   center: {fileID: 19288195}
   button: {fileID: 0}
   borders: []
+  physicalBorders: []
   troopCapacity: 4
   defense: 7
   attack: 7
@@ -3914,7 +3920,7 @@ MonoBehaviour:
   m_textAlignment: 65535
   m_characterSpacing: 0
   m_wordSpacing: 0
-  m_lineSpacing: 0
+  m_lineSpacing: -61.43
   m_lineSpacingMax: 0
   m_paragraphSpacing: 0
   m_charWidthMaxAdj: 0
@@ -4165,6 +4171,7 @@ MonoBehaviour:
   center: {fileID: 353469048}
   button: {fileID: 0}
   borders: []
+  physicalBorders: []
   troopCapacity: 4
   defense: 7
   attack: 7
@@ -4403,6 +4410,7 @@ MonoBehaviour:
   center: {fileID: 1825577849}
   button: {fileID: 0}
   borders: []
+  physicalBorders: []
   troopCapacity: 4
   defense: 7
   attack: 7
@@ -4943,6 +4951,7 @@ MonoBehaviour:
   center: {fileID: 1765952088}
   button: {fileID: 0}
   borders: []
+  physicalBorders: []
   troopCapacity: 7
   defense: 7
   attack: 7
@@ -5618,6 +5627,7 @@ MonoBehaviour:
   center: {fileID: 616346912}
   button: {fileID: 0}
   borders: []
+  physicalBorders: []
   troopCapacity: 10
   defense: 7
   attack: 7
@@ -5922,6 +5932,7 @@ MonoBehaviour:
   center: {fileID: 801932846}
   button: {fileID: 0}
   borders: []
+  physicalBorders: []
   troopCapacity: 6
   defense: 7
   attack: 7
@@ -6841,6 +6852,7 @@ MonoBehaviour:
   center: {fileID: 1661019510}
   button: {fileID: 0}
   borders: []
+  physicalBorders: []
   troopCapacity: 4
   defense: 7
   attack: 7
@@ -7171,6 +7183,7 @@ MonoBehaviour:
   center: {fileID: 24353711}
   button: {fileID: 0}
   borders: []
+  physicalBorders: []
   troopCapacity: 4
   defense: 7
   attack: 7
@@ -7870,6 +7883,7 @@ MonoBehaviour:
   center: {fileID: 1812226854}
   button: {fileID: 0}
   borders: []
+  physicalBorders: []
   troopCapacity: 4
   defense: 7
   attack: 7
@@ -8121,6 +8135,7 @@ MonoBehaviour:
   center: {fileID: 389966607}
   button: {fileID: 0}
   borders: []
+  physicalBorders: []
   troopCapacity: 4
   defense: 7
   attack: 7
@@ -8627,6 +8642,7 @@ MonoBehaviour:
   center: {fileID: 2076364512}
   button: {fileID: 0}
   borders: []
+  physicalBorders: []
   troopCapacity: 4
   defense: 7
   attack: 7
@@ -9042,7 +9058,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 22.9
+  m_fontSize: 26.75
   m_fontSizeBase: 20.9
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -9721,6 +9737,7 @@ MonoBehaviour:
   center: {fileID: 1775426385}
   button: {fileID: 0}
   borders: []
+  physicalBorders: []
   troopCapacity: 4
   defense: 7
   attack: 7
@@ -10356,6 +10373,7 @@ MonoBehaviour:
   center: {fileID: 506598003}
   button: {fileID: 0}
   borders: []
+  physicalBorders: []
   troopCapacity: 4
   defense: 7
   attack: 7
@@ -11613,6 +11631,7 @@ MonoBehaviour:
   center: {fileID: 1121898732}
   button: {fileID: 0}
   borders: []
+  physicalBorders: []
   troopCapacity: 9
   defense: 7
   attack: 7
@@ -12168,6 +12187,7 @@ MonoBehaviour:
   center: {fileID: 1518061993}
   button: {fileID: 0}
   borders: []
+  physicalBorders: []
   troopCapacity: 4
   defense: 7
   attack: 7
@@ -12335,6 +12355,7 @@ MonoBehaviour:
   center: {fileID: 377453886}
   button: {fileID: 0}
   borders: []
+  physicalBorders: []
   troopCapacity: 4
   defense: 7
   attack: 7
@@ -12857,6 +12878,7 @@ MonoBehaviour:
   center: {fileID: 1679467760}
   button: {fileID: 0}
   borders: []
+  physicalBorders: []
   troopCapacity: 4
   defense: 7
   attack: 7
@@ -13519,6 +13541,7 @@ MonoBehaviour:
   center: {fileID: 1294043267}
   button: {fileID: 0}
   borders: []
+  physicalBorders: []
   troopCapacity: 6
   defense: 7
   attack: 7
@@ -13887,6 +13910,7 @@ MonoBehaviour:
   center: {fileID: 733580406}
   button: {fileID: 0}
   borders: []
+  physicalBorders: []
   troopCapacity: 4
   defense: 7
   attack: 7
@@ -15028,6 +15052,7 @@ MonoBehaviour:
   center: {fileID: 1855248245}
   button: {fileID: 0}
   borders: []
+  physicalBorders: []
   troopCapacity: 4
   defense: 7
   attack: 7
@@ -15411,6 +15436,7 @@ MonoBehaviour:
   center: {fileID: 1052508852}
   button: {fileID: 0}
   borders: []
+  physicalBorders: []
   troopCapacity: 4
   defense: 7
   attack: 7
@@ -16914,7 +16940,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 56.8
+  m_fontSize: 58.2
   m_fontSizeBase: 51.03
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -17490,6 +17516,7 @@ MonoBehaviour:
   center: {fileID: 794830959}
   button: {fileID: 0}
   borders: []
+  physicalBorders: []
   troopCapacity: 10
   defense: 7
   attack: 7
@@ -17795,7 +17822,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 51.4
+  m_fontSize: 51.15
   m_fontSizeBase: 22.3
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -18078,6 +18105,7 @@ MonoBehaviour:
   center: {fileID: 895329804}
   button: {fileID: 0}
   borders: []
+  physicalBorders: []
   troopCapacity: 4
   defense: 7
   attack: 7
@@ -18812,7 +18840,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 44.6
+  m_fontSize: 47.5
   m_fontSizeBase: 47.04
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -19381,6 +19409,7 @@ MonoBehaviour:
   center: {fileID: 72984054}
   button: {fileID: 0}
   borders: []
+  physicalBorders: []
   troopCapacity: 4
   defense: 7
   attack: 7
@@ -19914,6 +19943,7 @@ MonoBehaviour:
   center: {fileID: 139601731}
   button: {fileID: 0}
   borders: []
+  physicalBorders: []
   troopCapacity: 8
   defense: 7
   attack: 7
@@ -20186,6 +20216,7 @@ MonoBehaviour:
   center: {fileID: 1550217289}
   button: {fileID: 0}
   borders: []
+  physicalBorders: []
   troopCapacity: 4
   defense: 7
   attack: 7
@@ -21158,6 +21189,7 @@ MonoBehaviour:
   center: {fileID: 1835054950}
   button: {fileID: 0}
   borders: []
+  physicalBorders: []
   troopCapacity: 4
   defense: 7
   attack: 7
@@ -21486,6 +21518,7 @@ MonoBehaviour:
   center: {fileID: 1081219978}
   button: {fileID: 0}
   borders: []
+  physicalBorders: []
   troopCapacity: 4
   defense: 7
   attack: 7
@@ -22033,6 +22066,7 @@ MonoBehaviour:
   center: {fileID: 1979921911}
   button: {fileID: 0}
   borders: []
+  physicalBorders: []
   troopCapacity: 4
   defense: 7
   attack: 7
@@ -22791,6 +22825,7 @@ MonoBehaviour:
   center: {fileID: 518925514}
   button: {fileID: 0}
   borders: []
+  physicalBorders: []
   troopCapacity: 4
   defense: 7
   attack: 7
@@ -23458,6 +23493,7 @@ MonoBehaviour:
   center: {fileID: 948169739}
   button: {fileID: 0}
   borders: []
+  physicalBorders: []
   troopCapacity: 9
   defense: 7
   attack: 7
@@ -23622,6 +23658,7 @@ MonoBehaviour:
   center: {fileID: 1412613493}
   button: {fileID: 0}
   borders: []
+  physicalBorders: []
   troopCapacity: 4
   defense: 7
   attack: 7
@@ -24448,6 +24485,7 @@ MonoBehaviour:
   center: {fileID: 1805790307}
   button: {fileID: 0}
   borders: []
+  physicalBorders: []
   troopCapacity: 10
   defense: 7
   attack: 7
@@ -25278,6 +25316,7 @@ MonoBehaviour:
   center: {fileID: 193550718}
   button: {fileID: 0}
   borders: []
+  physicalBorders: []
   troopCapacity: 4
   defense: 7
   attack: 7
@@ -26009,6 +26048,7 @@ MonoBehaviour:
   center: {fileID: 889341547}
   button: {fileID: 0}
   borders: []
+  physicalBorders: []
   troopCapacity: 4
   defense: 7
   attack: 7
@@ -26450,6 +26490,7 @@ MonoBehaviour:
   center: {fileID: 2087132490}
   button: {fileID: 0}
   borders: []
+  physicalBorders: []
   troopCapacity: 4
   defense: 7
   attack: 7
@@ -27301,6 +27342,7 @@ MonoBehaviour:
   center: {fileID: 1219495158}
   button: {fileID: 0}
   borders: []
+  physicalBorders: []
   troopCapacity: 4
   defense: 7
   attack: 7
@@ -27590,6 +27632,7 @@ MonoBehaviour:
   center: {fileID: 1309532343}
   button: {fileID: 0}
   borders: []
+  physicalBorders: []
   troopCapacity: 9
   defense: 7
   attack: 7
@@ -28271,6 +28314,7 @@ MonoBehaviour:
   center: {fileID: 1953029950}
   button: {fileID: 0}
   borders: []
+  physicalBorders: []
   troopCapacity: 4
   defense: 7
   attack: 7
@@ -28999,6 +29043,7 @@ MonoBehaviour:
   center: {fileID: 1495239323}
   button: {fileID: 0}
   borders: []
+  physicalBorders: []
   troopCapacity: 4
   defense: 7
   attack: 7
@@ -30172,6 +30217,7 @@ MonoBehaviour:
   center: {fileID: 143048777}
   button: {fileID: 0}
   borders: []
+  physicalBorders: []
   troopCapacity: 9
   defense: 7
   attack: 7
@@ -30456,6 +30502,7 @@ MonoBehaviour:
   center: {fileID: 1345563667}
   button: {fileID: 0}
   borders: []
+  physicalBorders: []
   troopCapacity: 4
   defense: 7
   attack: 7
@@ -30744,6 +30791,7 @@ MonoBehaviour:
   center: {fileID: 2074254155}
   button: {fileID: 0}
   borders: []
+  physicalBorders: []
   troopCapacity: 4
   defense: 7
   attack: 7
@@ -31752,6 +31800,7 @@ MonoBehaviour:
   center: {fileID: 60767038}
   button: {fileID: 0}
   borders: []
+  physicalBorders: []
   troopCapacity: 4
   defense: 7
   attack: 7
@@ -32117,6 +32166,7 @@ MonoBehaviour:
   center: {fileID: 1074957186}
   button: {fileID: 0}
   borders: []
+  physicalBorders: []
   troopCapacity: 4
   defense: 7
   attack: 7
@@ -32342,6 +32392,7 @@ MonoBehaviour:
   center: {fileID: 499520113}
   button: {fileID: 0}
   borders: []
+  physicalBorders: []
   troopCapacity: 4
   defense: 7
   attack: 7
@@ -32667,6 +32718,7 @@ MonoBehaviour:
   center: {fileID: 253778948}
   button: {fileID: 0}
   borders: []
+  physicalBorders: []
   troopCapacity: 4
   defense: 7
   attack: 7
@@ -33488,6 +33540,7 @@ MonoBehaviour:
   center: {fileID: 1869886816}
   button: {fileID: 0}
   borders: []
+  physicalBorders: []
   troopCapacity: 9
   defense: 7
   attack: 7
@@ -33755,6 +33808,7 @@ MonoBehaviour:
   center: {fileID: 1147665299}
   button: {fileID: 0}
   borders: []
+  physicalBorders: []
   troopCapacity: 4
   defense: 7
   attack: 7
@@ -34463,6 +34517,7 @@ MonoBehaviour:
   center: {fileID: 1660561146}
   button: {fileID: 0}
   borders: []
+  physicalBorders: []
   troopCapacity: 4
   defense: 7
   attack: 7
@@ -34889,7 +34944,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 22.8
+  m_fontSize: 33.4
   m_fontSizeBase: 22.3
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -35430,6 +35485,7 @@ MonoBehaviour:
   center: {fileID: 1568081571}
   button: {fileID: 0}
   borders: []
+  physicalBorders: []
   troopCapacity: 4
   defense: 7
   attack: 7
@@ -35929,6 +35985,7 @@ MonoBehaviour:
   center: {fileID: 1353128867}
   button: {fileID: 0}
   borders: []
+  physicalBorders: []
   troopCapacity: 4
   defense: 7
   attack: 7
@@ -36158,6 +36215,7 @@ MonoBehaviour:
   center: {fileID: 1783219936}
   button: {fileID: 0}
   borders: []
+  physicalBorders: []
   troopCapacity: 4
   defense: 7
   attack: 7
@@ -36651,6 +36709,7 @@ MonoBehaviour:
   center: {fileID: 41883899}
   button: {fileID: 0}
   borders: []
+  physicalBorders: []
   troopCapacity: 4
   defense: 7
   attack: 7
@@ -37232,6 +37291,7 @@ MonoBehaviour:
   center: {fileID: 651185123}
   button: {fileID: 0}
   borders: []
+  physicalBorders: []
   troopCapacity: 4
   defense: 7
   attack: 7
@@ -37395,6 +37455,7 @@ MonoBehaviour:
   center: {fileID: 274772608}
   button: {fileID: 0}
   borders: []
+  physicalBorders: []
   troopCapacity: 4
   defense: 7
   attack: 7
@@ -37790,6 +37851,7 @@ MonoBehaviour:
   otherGUIParent: {fileID: 5828462}
   invasionScreen: {fileID: 1937704344}
   attackLinesParent: {fileID: 219633382}
+  conflictButtonPrefab: {fileID: 3845444625427828524, guid: 7137367889fc33b41960149128db90c8, type: 3}
   lineMat: {fileID: 2100000, guid: 6ac06df580ebde743b5aad5efb3b1384, type: 2}
   arrowSprite: {fileID: 21300000, guid: d22ee65d2756fb445a5fd7a5c452f8bc, type: 3}
   invading: 0
@@ -38060,6 +38122,7 @@ MonoBehaviour:
   center: {fileID: 1789388448}
   button: {fileID: 0}
   borders: []
+  physicalBorders: []
   troopCapacity: 4
   defense: 7
   attack: 7
@@ -38564,6 +38627,7 @@ MonoBehaviour:
   center: {fileID: 297032857}
   button: {fileID: 0}
   borders: []
+  physicalBorders: []
   troopCapacity: 4
   defense: 7
   attack: 7
@@ -38767,6 +38831,7 @@ MonoBehaviour:
   center: {fileID: 2051535750}
   button: {fileID: 0}
   borders: []
+  physicalBorders: []
   troopCapacity: 4
   defense: 7
   attack: 7
@@ -39318,6 +39383,7 @@ MonoBehaviour:
   center: {fileID: 367385019}
   button: {fileID: 0}
   borders: []
+  physicalBorders: []
   troopCapacity: 4
   defense: 7
   attack: 7
@@ -40173,6 +40239,7 @@ MonoBehaviour:
   center: {fileID: 2126057862}
   button: {fileID: 0}
   borders: []
+  physicalBorders: []
   troopCapacity: 4
   defense: 7
   attack: 7
@@ -40497,6 +40564,7 @@ MonoBehaviour:
   center: {fileID: 1124360208}
   button: {fileID: 0}
   borders: []
+  physicalBorders: []
   troopCapacity: 4
   defense: 7
   attack: 7
@@ -41007,6 +41075,7 @@ MonoBehaviour:
   center: {fileID: 987364993}
   button: {fileID: 0}
   borders: []
+  physicalBorders: []
   troopCapacity: 4
   defense: 7
   attack: 7
@@ -41347,6 +41416,7 @@ MonoBehaviour:
   center: {fileID: 342374679}
   button: {fileID: 0}
   borders: []
+  physicalBorders: []
   troopCapacity: 7
   defense: 7
   attack: 7
@@ -41704,6 +41774,7 @@ MonoBehaviour:
   center: {fileID: 24769163}
   button: {fileID: 0}
   borders: []
+  physicalBorders: []
   troopCapacity: 4
   defense: 7
   attack: 7
@@ -43076,6 +43147,7 @@ MonoBehaviour:
   center: {fileID: 1370600468}
   button: {fileID: 0}
   borders: []
+  physicalBorders: []
   troopCapacity: 9
   defense: 7
   attack: 7
@@ -43500,6 +43572,7 @@ MonoBehaviour:
   center: {fileID: 2110291492}
   button: {fileID: 0}
   borders: []
+  physicalBorders: []
   troopCapacity: 4
   defense: 7
   attack: 7
@@ -44964,6 +45037,7 @@ MonoBehaviour:
   center: {fileID: 1950500891}
   button: {fileID: 0}
   borders: []
+  physicalBorders: []
   troopCapacity: 4
   defense: 7
   attack: 7
@@ -46314,6 +46388,7 @@ MonoBehaviour:
   center: {fileID: 583341426}
   button: {fileID: 0}
   borders: []
+  physicalBorders: []
   troopCapacity: 7
   defense: 7
   attack: 7
@@ -46615,6 +46690,7 @@ MonoBehaviour:
   center: {fileID: 289316232}
   button: {fileID: 0}
   borders: []
+  physicalBorders: []
   troopCapacity: 4
   defense: 7
   attack: 7
@@ -46917,6 +46993,7 @@ MonoBehaviour:
   center: {fileID: 1814843757}
   button: {fileID: 0}
   borders: []
+  physicalBorders: []
   troopCapacity: 4
   defense: 7
   attack: 7
@@ -48174,6 +48251,7 @@ MonoBehaviour:
   center: {fileID: 1929977576}
   button: {fileID: 0}
   borders: []
+  physicalBorders: []
   troopCapacity: 4
   defense: 7
   attack: 7
@@ -48706,6 +48784,7 @@ MonoBehaviour:
   center: {fileID: 513007991}
   button: {fileID: 0}
   borders: []
+  physicalBorders: []
   troopCapacity: 10
   defense: 7
   attack: 7
@@ -49348,6 +49427,7 @@ MonoBehaviour:
   center: {fileID: 112645186}
   button: {fileID: 0}
   borders: []
+  physicalBorders: []
   troopCapacity: 4
   defense: 7
   attack: 7
@@ -49790,6 +49870,7 @@ MonoBehaviour:
   center: {fileID: 116808664}
   button: {fileID: 0}
   borders: []
+  physicalBorders: []
   troopCapacity: 4
   defense: 7
   attack: 7
@@ -50170,6 +50251,7 @@ MonoBehaviour:
   center: {fileID: 1248375377}
   button: {fileID: 0}
   borders: []
+  physicalBorders: []
   troopCapacity: 4
   defense: 7
   attack: 7
@@ -51022,6 +51104,7 @@ MonoBehaviour:
   center: {fileID: 26374608}
   button: {fileID: 0}
   borders: []
+  physicalBorders: []
   troopCapacity: 4
   defense: 7
   attack: 7
@@ -51459,6 +51542,7 @@ MonoBehaviour:
   center: {fileID: 1941196377}
   button: {fileID: 0}
   borders: []
+  physicalBorders: []
   troopCapacity: 4
   defense: 7
   attack: 7
@@ -52416,6 +52500,7 @@ MonoBehaviour:
   center: {fileID: 896414991}
   button: {fileID: 0}
   borders: []
+  physicalBorders: []
   troopCapacity: 10
   defense: 7
   attack: 7
@@ -52942,7 +53027,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 2086495690}
   m_HandleRect: {fileID: 2086495689}
   m_Direction: 2
-  m_Value: 1
+  m_Value: 0
   m_Size: 0
   m_NumberOfSteps: 0
   m_OnValueChanged:
@@ -53243,6 +53328,7 @@ MonoBehaviour:
   center: {fileID: 1595424165}
   button: {fileID: 0}
   borders: []
+  physicalBorders: []
   troopCapacity: 4
   defense: 7
   attack: 7
@@ -53500,6 +53586,7 @@ MonoBehaviour:
   center: {fileID: 176784891}
   button: {fileID: 0}
   borders: []
+  physicalBorders: []
   troopCapacity: 4
   defense: 7
   attack: 7
@@ -54055,6 +54142,7 @@ MonoBehaviour:
   center: {fileID: 2105939060}
   button: {fileID: 0}
   borders: []
+  physicalBorders: []
   troopCapacity: 4
   defense: 7
   attack: 7
@@ -55578,6 +55666,7 @@ MonoBehaviour:
   center: {fileID: 1270497688}
   button: {fileID: 0}
   borders: []
+  physicalBorders: []
   troopCapacity: 10
   defense: 7
   attack: 7
@@ -56435,6 +56524,7 @@ MonoBehaviour:
   center: {fileID: 916628146}
   button: {fileID: 0}
   borders: []
+  physicalBorders: []
   troopCapacity: 8
   defense: 7
   attack: 7
@@ -57342,6 +57432,7 @@ MonoBehaviour:
   center: {fileID: 337040751}
   button: {fileID: 0}
   borders: []
+  physicalBorders: []
   troopCapacity: 4
   defense: 7
   attack: 7
@@ -57864,6 +57955,7 @@ MonoBehaviour:
   center: {fileID: 1884978834}
   button: {fileID: 0}
   borders: []
+  physicalBorders: []
   troopCapacity: 4
   defense: 7
   attack: 7
@@ -58548,6 +58640,7 @@ MonoBehaviour:
   center: {fileID: 1978357312}
   button: {fileID: 0}
   borders: []
+  physicalBorders: []
   troopCapacity: 4
   defense: 7
   attack: 7
@@ -58846,6 +58939,7 @@ MonoBehaviour:
   center: {fileID: 760373985}
   button: {fileID: 0}
   borders: []
+  physicalBorders: []
   troopCapacity: 4
   defense: 7
   attack: 7
@@ -59105,6 +59199,7 @@ MonoBehaviour:
   center: {fileID: 538457000}
   button: {fileID: 0}
   borders: []
+  physicalBorders: []
   troopCapacity: 4
   defense: 7
   attack: 7
@@ -59268,6 +59363,7 @@ MonoBehaviour:
   center: {fileID: 1572804883}
   button: {fileID: 0}
   borders: []
+  physicalBorders: []
   troopCapacity: 4
   defense: 7
   attack: 7
@@ -59902,6 +59998,7 @@ MonoBehaviour:
   center: {fileID: 1751280991}
   button: {fileID: 0}
   borders: []
+  physicalBorders: []
   troopCapacity: 4
   defense: 7
   attack: 7
@@ -60358,6 +60455,7 @@ MonoBehaviour:
   center: {fileID: 1860148888}
   button: {fileID: 0}
   borders: []
+  physicalBorders: []
   troopCapacity: 4
   defense: 7
   attack: 7
@@ -60623,7 +60721,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
   m_AnchoredPosition: {x: 377.7, y: -41}
-  m_SizeDelta: {x: 272.5981, y: 58.0505}
+  m_SizeDelta: {x: 178.104, y: 58.05}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &1109464066
 MonoBehaviour:
@@ -60684,7 +60782,7 @@ MonoBehaviour:
   m_textAlignment: 65535
   m_characterSpacing: 0
   m_wordSpacing: 0
-  m_lineSpacing: 0
+  m_lineSpacing: -61.43
   m_lineSpacingMax: 0
   m_paragraphSpacing: 0
   m_charWidthMaxAdj: 0
@@ -60915,6 +61013,7 @@ MonoBehaviour:
   center: {fileID: 2007332164}
   button: {fileID: 0}
   borders: []
+  physicalBorders: []
   troopCapacity: 4
   defense: 7
   attack: 7
@@ -61646,6 +61745,7 @@ MonoBehaviour:
   center: {fileID: 709085192}
   button: {fileID: 0}
   borders: []
+  physicalBorders: []
   troopCapacity: 8
   defense: 7
   attack: 7
@@ -62775,7 +62875,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1135724721
 RectTransform:
   m_ObjectHideFlags: 0
@@ -63028,6 +63128,7 @@ MonoBehaviour:
   center: {fileID: 1188490961}
   button: {fileID: 0}
   borders: []
+  physicalBorders: []
   troopCapacity: 4
   defense: 7
   attack: 7
@@ -63308,6 +63409,7 @@ MonoBehaviour:
   center: {fileID: 1136879370}
   button: {fileID: 0}
   borders: []
+  physicalBorders: []
   troopCapacity: 4
   defense: 7
   attack: 7
@@ -63603,6 +63705,7 @@ MonoBehaviour:
   center: {fileID: 1863424205}
   button: {fileID: 0}
   borders: []
+  physicalBorders: []
   troopCapacity: 4
   defense: 7
   attack: 7
@@ -63766,6 +63869,7 @@ MonoBehaviour:
   center: {fileID: 1921023687}
   button: {fileID: 0}
   borders: []
+  physicalBorders: []
   troopCapacity: 4
   defense: 7
   attack: 7
@@ -64281,6 +64385,7 @@ MonoBehaviour:
   center: {fileID: 364437380}
   button: {fileID: 0}
   borders: []
+  physicalBorders: []
   troopCapacity: 7
   defense: 7
   attack: 7
@@ -65201,6 +65306,7 @@ MonoBehaviour:
   center: {fileID: 175137342}
   button: {fileID: 0}
   borders: []
+  physicalBorders: []
   troopCapacity: 5
   defense: 7
   attack: 7
@@ -65328,6 +65434,7 @@ MonoBehaviour:
   center: {fileID: 314792329}
   button: {fileID: 0}
   borders: []
+  physicalBorders: []
   troopCapacity: 6
   defense: 7
   attack: 7
@@ -66033,6 +66140,7 @@ MonoBehaviour:
   center: {fileID: 895882519}
   button: {fileID: 0}
   borders: []
+  physicalBorders: []
   troopCapacity: 4
   defense: 7
   attack: 7
@@ -66496,6 +66604,7 @@ MonoBehaviour:
   center: {fileID: 291973939}
   button: {fileID: 0}
   borders: []
+  physicalBorders: []
   troopCapacity: 7
   defense: 7
   attack: 7
@@ -66939,6 +67048,7 @@ MonoBehaviour:
   center: {fileID: 1422899280}
   button: {fileID: 0}
   borders: []
+  physicalBorders: []
   troopCapacity: 4
   defense: 7
   attack: 7
@@ -67362,6 +67472,7 @@ MonoBehaviour:
   center: {fileID: 1900685760}
   button: {fileID: 0}
   borders: []
+  physicalBorders: []
   troopCapacity: 4
   defense: 7
   attack: 7
@@ -67529,6 +67640,7 @@ MonoBehaviour:
   center: {fileID: 1309954857}
   button: {fileID: 0}
   borders: []
+  physicalBorders: []
   troopCapacity: 4
   defense: 7
   attack: 7
@@ -69371,6 +69483,7 @@ MonoBehaviour:
   center: {fileID: 479716794}
   button: {fileID: 0}
   borders: []
+  physicalBorders: []
   troopCapacity: 4
   defense: 7
   attack: 7
@@ -69846,6 +69959,7 @@ MonoBehaviour:
   center: {fileID: 1055956477}
   button: {fileID: 0}
   borders: []
+  physicalBorders: []
   troopCapacity: 4
   defense: 7
   attack: 7
@@ -70268,6 +70382,7 @@ MonoBehaviour:
   center: {fileID: 1219049614}
   button: {fileID: 0}
   borders: []
+  physicalBorders: []
   troopCapacity: 4
   defense: 7
   attack: 7
@@ -70611,6 +70726,7 @@ MonoBehaviour:
   center: {fileID: 1294856310}
   button: {fileID: 0}
   borders: []
+  physicalBorders: []
   troopCapacity: 4
   defense: 7
   attack: 7
@@ -71213,6 +71329,7 @@ MonoBehaviour:
   center: {fileID: 1658764980}
   button: {fileID: 0}
   borders: []
+  physicalBorders: []
   troopCapacity: 4
   defense: 7
   attack: 7
@@ -71598,6 +71715,7 @@ MonoBehaviour:
   center: {fileID: 1568730263}
   button: {fileID: 0}
   borders: []
+  physicalBorders: []
   troopCapacity: 4
   defense: 7
   attack: 7
@@ -71877,6 +71995,7 @@ MonoBehaviour:
   center: {fileID: 1769716055}
   button: {fileID: 0}
   borders: []
+  physicalBorders: []
   troopCapacity: 9
   defense: 7
   attack: 7
@@ -72324,6 +72443,7 @@ MonoBehaviour:
   center: {fileID: 226439435}
   button: {fileID: 0}
   borders: []
+  physicalBorders: []
   troopCapacity: 4
   defense: 7
   attack: 7
@@ -72600,6 +72720,7 @@ MonoBehaviour:
   center: {fileID: 134730637}
   button: {fileID: 0}
   borders: []
+  physicalBorders: []
   troopCapacity: 4
   defense: 7
   attack: 7
@@ -72877,6 +72998,7 @@ MonoBehaviour:
   center: {fileID: 492822768}
   button: {fileID: 0}
   borders: []
+  physicalBorders: []
   troopCapacity: 4
   defense: 7
   attack: 7
@@ -73556,6 +73678,55 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1323172741}
   m_CullTransparentMesh: 1
+--- !u!1 &1324305267
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1324305269}
+  - component: {fileID: 1324305268}
+  m_Layer: 0
+  m_Name: Global Volume (1)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1324305268
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1324305267}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 172515602e62fb746b5d573b38a5fe58, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_IsGlobal: 1
+  priority: 0
+  blendDistance: 0
+  weight: 1
+  sharedProfile: {fileID: 11400000, guid: ff746c4f4c17c3e4088eee1f14e28513, type: 2}
+--- !u!4 &1324305269
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1324305267}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 161.83542, y: 146.16255, z: 0.052872468}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1324750413
 GameObject:
   m_ObjectHideFlags: 0
@@ -73811,6 +73982,7 @@ MonoBehaviour:
   center: {fileID: 190311579}
   button: {fileID: 0}
   borders: []
+  physicalBorders: []
   troopCapacity: 4
   defense: 7
   attack: 7
@@ -74415,6 +74587,7 @@ MonoBehaviour:
   center: {fileID: 474740787}
   button: {fileID: 0}
   borders: []
+  physicalBorders: []
   troopCapacity: 4
   defense: 7
   attack: 7
@@ -74506,7 +74679,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
   m_AnchoredPosition: {x: 30.8, y: -172.5}
-  m_SizeDelta: {x: 172.7, y: 58.0505}
+  m_SizeDelta: {x: 126.059, y: 58.05}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &1344473751
 MonoBehaviour:
@@ -74567,7 +74740,7 @@ MonoBehaviour:
   m_textAlignment: 65535
   m_characterSpacing: 0
   m_wordSpacing: 0
-  m_lineSpacing: 0
+  m_lineSpacing: -61.43
   m_lineSpacingMax: 0
   m_paragraphSpacing: 0
   m_charWidthMaxAdj: 0
@@ -74812,6 +74985,7 @@ MonoBehaviour:
   center: {fileID: 1171234762}
   button: {fileID: 0}
   borders: []
+  physicalBorders: []
   troopCapacity: 4
   defense: 7
   attack: 7
@@ -75170,6 +75344,7 @@ MonoBehaviour:
   center: {fileID: 1892392494}
   button: {fileID: 0}
   borders: []
+  physicalBorders: []
   troopCapacity: 6
   defense: 7
   attack: 7
@@ -75615,6 +75790,7 @@ MonoBehaviour:
   center: {fileID: 216063905}
   button: {fileID: 0}
   borders: []
+  physicalBorders: []
   troopCapacity: 4
   defense: 7
   attack: 7
@@ -75808,7 +75984,7 @@ MonoBehaviour:
   m_CaretColor: {r: 0.19607843, g: 0.19607843, b: 0.19607843, a: 1}
   m_CustomCaretColor: 0
   m_SelectionColor: {r: 0.65882355, g: 0.80784315, b: 1, a: 0.7529412}
-  m_Text: United Soviet States Of Australia
+  m_Text: 
   m_CaretBlinkRate: 0.85
   m_CaretWidth: 1
   m_ReadOnly: 0
@@ -76092,6 +76268,7 @@ MonoBehaviour:
   center: {fileID: 395792918}
   button: {fileID: 0}
   borders: []
+  physicalBorders: []
   troopCapacity: 4
   defense: 7
   attack: 7
@@ -77554,6 +77731,7 @@ MonoBehaviour:
   center: {fileID: 335314299}
   button: {fileID: 0}
   borders: []
+  physicalBorders: []
   troopCapacity: 4
   defense: 7
   attack: 7
@@ -78645,6 +78823,7 @@ MonoBehaviour:
   center: {fileID: 1358624929}
   button: {fileID: 0}
   borders: []
+  physicalBorders: []
   troopCapacity: 4
   defense: 7
   attack: 7
@@ -78842,7 +79021,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "United Soviet States Of Australia\u200B"
+  m_text: "\u200B"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 957dbaf1fa9ef834db97955b0d878f96, type: 2}
   m_sharedMaterial: {fileID: 8370735618977982747, guid: 957dbaf1fa9ef834db97955b0d878f96, type: 2}
@@ -79909,6 +80088,7 @@ MonoBehaviour:
   center: {fileID: 1056748760}
   button: {fileID: 0}
   borders: []
+  physicalBorders: []
   troopCapacity: 4
   defense: 7
   attack: 7
@@ -80248,6 +80428,7 @@ MonoBehaviour:
   center: {fileID: 1565381154}
   button: {fileID: 0}
   borders: []
+  physicalBorders: []
   troopCapacity: 4
   defense: 7
   attack: 7
@@ -81026,6 +81207,7 @@ MonoBehaviour:
   center: {fileID: 338093056}
   button: {fileID: 0}
   borders: []
+  physicalBorders: []
   troopCapacity: 4
   defense: 7
   attack: 7
@@ -81276,6 +81458,7 @@ MonoBehaviour:
   center: {fileID: 892747169}
   button: {fileID: 0}
   borders: []
+  physicalBorders: []
   troopCapacity: 4
   defense: 7
   attack: 7
@@ -81593,7 +81776,7 @@ MonoBehaviour:
   m_textAlignment: 65535
   m_characterSpacing: 0
   m_wordSpacing: 0
-  m_lineSpacing: 0
+  m_lineSpacing: -61.43
   m_lineSpacingMax: 0
   m_paragraphSpacing: 0
   m_charWidthMaxAdj: 0
@@ -82181,6 +82364,7 @@ MonoBehaviour:
   center: {fileID: 734770608}
   button: {fileID: 0}
   borders: []
+  physicalBorders: []
   troopCapacity: 4
   defense: 7
   attack: 7
@@ -82926,6 +83110,7 @@ MonoBehaviour:
   center: {fileID: 412984241}
   button: {fileID: 0}
   borders: []
+  physicalBorders: []
   troopCapacity: 4
   defense: 7
   attack: 7
@@ -83253,6 +83438,7 @@ MonoBehaviour:
   center: {fileID: 1808338062}
   button: {fileID: 0}
   borders: []
+  physicalBorders: []
   troopCapacity: 4
   defense: 7
   attack: 7
@@ -84514,7 +84700,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 72597147}
   m_HandleRect: {fileID: 72597146}
   m_Direction: 2
-  m_Value: 1
+  m_Value: 0
   m_Size: 0
   m_NumberOfSteps: 0
   m_OnValueChanged:
@@ -84961,6 +85147,7 @@ MonoBehaviour:
   center: {fileID: 565108558}
   button: {fileID: 0}
   borders: []
+  physicalBorders: []
   troopCapacity: 4
   defense: 7
   attack: 7
@@ -85502,6 +85689,7 @@ MonoBehaviour:
   center: {fileID: 1737522432}
   button: {fileID: 0}
   borders: []
+  physicalBorders: []
   troopCapacity: 4
   defense: 7
   attack: 7
@@ -85927,6 +86115,7 @@ MonoBehaviour:
   center: {fileID: 1657769267}
   button: {fileID: 0}
   borders: []
+  physicalBorders: []
   troopCapacity: 5
   defense: 7
   attack: 7
@@ -86285,7 +86474,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 22.9
+  m_fontSize: 26.75
   m_fontSizeBase: 20.9
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -87033,6 +87222,7 @@ MonoBehaviour:
   center: {fileID: 1164863656}
   button: {fileID: 0}
   borders: []
+  physicalBorders: []
   troopCapacity: 9
   defense: 7
   attack: 7
@@ -87863,6 +88053,7 @@ MonoBehaviour:
   center: {fileID: 77292515}
   button: {fileID: 0}
   borders: []
+  physicalBorders: []
   troopCapacity: 10
   defense: 7
   attack: 7
@@ -88245,6 +88436,7 @@ MonoBehaviour:
   center: {fileID: 980615661}
   button: {fileID: 0}
   borders: []
+  physicalBorders: []
   troopCapacity: 4
   defense: 7
   attack: 7
@@ -88420,6 +88612,7 @@ MonoBehaviour:
   turnActionPoints: 5
   actionPointDisplay: {fileID: 138312204}
   confirmPannel: {fileID: 705286412}
+  progressButton: {fileID: 776589891}
   endedTurn: 0
 --- !u!1 &1586983728
 GameObject:
@@ -88620,6 +88813,7 @@ MonoBehaviour:
   center: {fileID: 479758561}
   button: {fileID: 0}
   borders: []
+  physicalBorders: []
   troopCapacity: 4
   defense: 7
   attack: 7
@@ -88909,6 +89103,7 @@ MonoBehaviour:
   center: {fileID: 780309502}
   button: {fileID: 0}
   borders: []
+  physicalBorders: []
   troopCapacity: 4
   defense: 7
   attack: 7
@@ -89951,6 +90146,7 @@ MonoBehaviour:
   center: {fileID: 1908049997}
   button: {fileID: 0}
   borders: []
+  physicalBorders: []
   troopCapacity: 4
   defense: 7
   attack: 7
@@ -91236,6 +91432,7 @@ MonoBehaviour:
   center: {fileID: 498358167}
   button: {fileID: 0}
   borders: []
+  physicalBorders: []
   troopCapacity: 4
   defense: 7
   attack: 7
@@ -91577,6 +91774,7 @@ MonoBehaviour:
   center: {fileID: 762902042}
   button: {fileID: 0}
   borders: []
+  physicalBorders: []
   troopCapacity: 4
   defense: 7
   attack: 7
@@ -92260,6 +92458,7 @@ MonoBehaviour:
   center: {fileID: 1213397179}
   button: {fileID: 0}
   borders: []
+  physicalBorders: []
   troopCapacity: 10
   defense: 7
   attack: 7
@@ -92713,6 +92912,7 @@ MonoBehaviour:
   center: {fileID: 770532992}
   button: {fileID: 0}
   borders: []
+  physicalBorders: []
   troopCapacity: 4
   defense: 7
   attack: 7
@@ -93607,6 +93807,7 @@ MonoBehaviour:
   center: {fileID: 613419010}
   button: {fileID: 0}
   borders: []
+  physicalBorders: []
   troopCapacity: 4
   defense: 7
   attack: 7
@@ -94118,6 +94319,7 @@ MonoBehaviour:
   center: {fileID: 713543992}
   button: {fileID: 0}
   borders: []
+  physicalBorders: []
   troopCapacity: 4
   defense: 7
   attack: 7
@@ -95171,6 +95373,7 @@ MonoBehaviour:
   center: {fileID: 730082994}
   button: {fileID: 0}
   borders: []
+  physicalBorders: []
   troopCapacity: 16
   defense: 7
   attack: 7
@@ -95635,6 +95838,7 @@ MonoBehaviour:
   center: {fileID: 2841971}
   button: {fileID: 0}
   borders: []
+  physicalBorders: []
   troopCapacity: 4
   defense: 7
   attack: 7
@@ -96286,6 +96490,7 @@ MonoBehaviour:
   center: {fileID: 952475325}
   button: {fileID: 0}
   borders: []
+  physicalBorders: []
   troopCapacity: 4
   defense: 7
   attack: 7
@@ -96796,6 +97001,7 @@ MonoBehaviour:
   center: {fileID: 1045130976}
   button: {fileID: 0}
   borders: []
+  physicalBorders: []
   troopCapacity: 4
   defense: 7
   attack: 7
@@ -97188,6 +97394,7 @@ MonoBehaviour:
   center: {fileID: 1508353024}
   button: {fileID: 0}
   borders: []
+  physicalBorders: []
   troopCapacity: 8
   defense: 7
   attack: 7
@@ -97484,6 +97691,7 @@ MonoBehaviour:
   center: {fileID: 1071476988}
   button: {fileID: 0}
   borders: []
+  physicalBorders: []
   troopCapacity: 4
   defense: 7
   attack: 7
@@ -97803,6 +98011,7 @@ MonoBehaviour:
   center: {fileID: 1156420462}
   button: {fileID: 0}
   borders: []
+  physicalBorders: []
   troopCapacity: 4
   defense: 7
   attack: 7
@@ -98420,6 +98629,7 @@ MonoBehaviour:
   center: {fileID: 1949616176}
   button: {fileID: 0}
   borders: []
+  physicalBorders: []
   troopCapacity: 4
   defense: 7
   attack: 7
@@ -100020,6 +100230,7 @@ MonoBehaviour:
   center: {fileID: 1612253951}
   button: {fileID: 0}
   borders: []
+  physicalBorders: []
   troopCapacity: 4
   defense: 7
   attack: 7
@@ -100266,6 +100477,7 @@ MonoBehaviour:
   center: {fileID: 154334454}
   button: {fileID: 0}
   borders: []
+  physicalBorders: []
   troopCapacity: 4
   defense: 7
   attack: 7
@@ -100887,6 +101099,7 @@ MonoBehaviour:
   center: {fileID: 2069631948}
   button: {fileID: 0}
   borders: []
+  physicalBorders: []
   troopCapacity: 4
   defense: 7
   attack: 7
@@ -101295,6 +101508,7 @@ MonoBehaviour:
   center: {fileID: 405789315}
   button: {fileID: 0}
   borders: []
+  physicalBorders: []
   troopCapacity: 4
   defense: 7
   attack: 7
@@ -101566,6 +101780,7 @@ MonoBehaviour:
   center: {fileID: 1938415471}
   button: {fileID: 0}
   borders: []
+  physicalBorders: []
   troopCapacity: 4
   defense: 7
   attack: 7
@@ -102262,6 +102477,7 @@ MonoBehaviour:
   center: {fileID: 336654763}
   button: {fileID: 0}
   borders: []
+  physicalBorders: []
   troopCapacity: 4
   defense: 7
   attack: 7
@@ -102579,6 +102795,7 @@ MonoBehaviour:
   center: {fileID: 35886011}
   button: {fileID: 0}
   borders: []
+  physicalBorders: []
   troopCapacity: 4
   defense: 7
   attack: 7
@@ -103090,6 +103307,7 @@ MonoBehaviour:
   center: {fileID: 21068693}
   button: {fileID: 0}
   borders: []
+  physicalBorders: []
   troopCapacity: 4
   defense: 7
   attack: 7
@@ -103378,6 +103596,7 @@ MonoBehaviour:
   center: {fileID: 1262498068}
   button: {fileID: 0}
   borders: []
+  physicalBorders: []
   troopCapacity: 4
   defense: 7
   attack: 7
@@ -103675,6 +103894,7 @@ MonoBehaviour:
   center: {fileID: 1087503810}
   button: {fileID: 0}
   borders: []
+  physicalBorders: []
   troopCapacity: 4
   defense: 7
   attack: 7
@@ -104340,6 +104560,7 @@ MonoBehaviour:
   center: {fileID: 2063956529}
   button: {fileID: 0}
   borders: []
+  physicalBorders: []
   troopCapacity: 4
   defense: 7
   attack: 7
@@ -104712,6 +104933,7 @@ MonoBehaviour:
   center: {fileID: 789961858}
   button: {fileID: 0}
   borders: []
+  physicalBorders: []
   troopCapacity: 4
   defense: 7
   attack: 7
@@ -105271,6 +105493,7 @@ MonoBehaviour:
   center: {fileID: 29785255}
   button: {fileID: 0}
   borders: []
+  physicalBorders: []
   troopCapacity: 9
   defense: 7
   attack: 7
@@ -105520,6 +105743,7 @@ MonoBehaviour:
   center: {fileID: 654779213}
   button: {fileID: 0}
   borders: []
+  physicalBorders: []
   troopCapacity: 4
   defense: 7
   attack: 7
@@ -105831,6 +106055,7 @@ MonoBehaviour:
   center: {fileID: 570267966}
   button: {fileID: 0}
   borders: []
+  physicalBorders: []
   troopCapacity: 8
   defense: 7
   attack: 7
@@ -106100,6 +106325,7 @@ MonoBehaviour:
   center: {fileID: 912663820}
   button: {fileID: 0}
   borders: []
+  physicalBorders: []
   troopCapacity: 4
   defense: 7
   attack: 7
@@ -106871,6 +107097,7 @@ MonoBehaviour:
   center: {fileID: 1104462583}
   button: {fileID: 0}
   borders: []
+  physicalBorders: []
   troopCapacity: 8
   defense: 7
   attack: 7
@@ -107182,6 +107409,7 @@ MonoBehaviour:
   center: {fileID: 783529326}
   button: {fileID: 0}
   borders: []
+  physicalBorders: []
   troopCapacity: 4
   defense: 7
   attack: 7
@@ -107304,7 +107532,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
   m_AnchoredPosition: {x: 31, y: -41}
-  m_SizeDelta: {x: 272.5981, y: 58.0505}
+  m_SizeDelta: {x: 175.9, y: 58.05}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &1900735836
 MonoBehaviour:
@@ -107365,7 +107593,7 @@ MonoBehaviour:
   m_textAlignment: 65535
   m_characterSpacing: 0
   m_wordSpacing: 0
-  m_lineSpacing: 0
+  m_lineSpacing: -61.43
   m_lineSpacingMax: 0
   m_paragraphSpacing: 0
   m_charWidthMaxAdj: 0
@@ -108236,6 +108464,7 @@ MonoBehaviour:
   center: {fileID: 632340064}
   button: {fileID: 0}
   borders: []
+  physicalBorders: []
   troopCapacity: 4
   defense: 7
   attack: 7
@@ -108925,6 +109154,7 @@ MonoBehaviour:
   center: {fileID: 1369395854}
   button: {fileID: 0}
   borders: []
+  physicalBorders: []
   troopCapacity: 4
   defense: 7
   attack: 7
@@ -109927,6 +110157,7 @@ MonoBehaviour:
   center: {fileID: 282948488}
   button: {fileID: 0}
   borders: []
+  physicalBorders: []
   troopCapacity: 4
   defense: 7
   attack: 7
@@ -110666,6 +110897,7 @@ MonoBehaviour:
   center: {fileID: 1849333082}
   button: {fileID: 0}
   borders: []
+  physicalBorders: []
   troopCapacity: 4
   defense: 7
   attack: 7
@@ -111599,7 +111831,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1987696551}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
   m_Name: 
@@ -111639,7 +111871,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 38.8
+  m_fontSize: 34.4
   m_fontSizeBase: 38.8
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -112108,6 +112340,7 @@ MonoBehaviour:
   center: {fileID: 1611434513}
   button: {fileID: 0}
   borders: []
+  physicalBorders: []
   troopCapacity: 4
   defense: 7
   attack: 7
@@ -112632,6 +112865,7 @@ MonoBehaviour:
   center: {fileID: 1516632028}
   button: {fileID: 0}
   borders: []
+  physicalBorders: []
   troopCapacity: 4
   defense: 7
   attack: 7
@@ -113031,6 +113265,7 @@ MonoBehaviour:
   center: {fileID: 1229898991}
   button: {fileID: 0}
   borders: []
+  physicalBorders: []
   troopCapacity: 4
   defense: 7
   attack: 7
@@ -113877,6 +114112,7 @@ MonoBehaviour:
   center: {fileID: 1938555378}
   button: {fileID: 0}
   borders: []
+  physicalBorders: []
   troopCapacity: 4
   defense: 7
   attack: 7
@@ -114459,7 +114695,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 23.4
+  m_fontSize: 25.8
   m_fontSizeBase: 22.3
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -114591,7 +114827,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 186774595}
   m_HandleRect: {fileID: 186774594}
   m_Direction: 2
-  m_Value: 1
+  m_Value: 0
   m_Size: 0
   m_NumberOfSteps: 0
   m_OnValueChanged:
@@ -114828,6 +115064,7 @@ MonoBehaviour:
   center: {fileID: 196625366}
   button: {fileID: 0}
   borders: []
+  physicalBorders: []
   troopCapacity: 4
   defense: 7
   attack: 7
@@ -115892,6 +116129,7 @@ MonoBehaviour:
   center: {fileID: 1846029813}
   button: {fileID: 0}
   borders: []
+  physicalBorders: []
   troopCapacity: 4
   defense: 7
   attack: 7
@@ -117108,6 +117346,7 @@ MonoBehaviour:
   center: {fileID: 803550917}
   button: {fileID: 0}
   borders: []
+  physicalBorders: []
   troopCapacity: 4
   defense: 7
   attack: 7
@@ -117174,7 +117413,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &2114272649
 RectTransform:
   m_ObjectHideFlags: 0
@@ -117437,6 +117676,7 @@ MonoBehaviour:
   center: {fileID: 1665503580}
   button: {fileID: 0}
   borders: []
+  physicalBorders: []
   troopCapacity: 4
   defense: 7
   attack: 7
@@ -117757,6 +117997,7 @@ MonoBehaviour:
   center: {fileID: 1559022295}
   button: {fileID: 0}
   borders: []
+  physicalBorders: []
   troopCapacity: 4
   defense: 7
   attack: 7
@@ -117957,6 +118198,7 @@ MonoBehaviour:
   center: {fileID: 833134618}
   button: {fileID: 0}
   borders: []
+  physicalBorders: []
   troopCapacity: 4
   defense: 7
   attack: 7
@@ -118342,6 +118584,7 @@ MonoBehaviour:
   center: {fileID: 1485080568}
   button: {fileID: 0}
   borders: []
+  physicalBorders: []
   troopCapacity: 4
   defense: 7
   attack: 7
@@ -118751,6 +118994,7 @@ MonoBehaviour:
   center: {fileID: 1227042711}
   button: {fileID: 0}
   borders: []
+  physicalBorders: []
   troopCapacity: 4
   defense: 7
   attack: 7
@@ -119323,6 +119567,7 @@ MonoBehaviour:
   center: {fileID: 375863074}
   button: {fileID: 0}
   borders: []
+  physicalBorders: []
   troopCapacity: 4
   defense: 7
   attack: 7
@@ -126685,3 +126930,4 @@ SceneRoots:
   - {fileID: 1034080765}
   - {fileID: 718385644}
   - {fileID: 1452780963}
+  - {fileID: 1324305269}

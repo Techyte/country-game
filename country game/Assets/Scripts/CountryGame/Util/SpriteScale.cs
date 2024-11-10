@@ -9,8 +9,11 @@ public class SpriteScale : MonoBehaviour
     [SerializeField] private float depth;
     [SerializeField] private float maxSize = 0.4f;
 
+    private Camera camera;
+
     private void Awake()
     {
+        camera = Camera.main;
             // Angle the camera can see above the center.
             float halfFovRadians = Camera.main.fieldOfView * Mathf.Deg2Rad / 2f;
 
@@ -34,7 +37,7 @@ public class SpriteScale : MonoBehaviour
     void Update()
     {
         // Angle the camera can see above the center.
-        float halfFovRadians = Camera.main.fieldOfView * Mathf.Deg2Rad / 2f;
+        float halfFovRadians = camera.fieldOfView * Mathf.Deg2Rad / 2f;
 
 // How high is it from top to bottom of the view frustum,
 // in world space units, at our target depth?

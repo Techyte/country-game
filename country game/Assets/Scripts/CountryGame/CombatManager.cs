@@ -1,8 +1,6 @@
-using System;
 using System.Collections.Generic;
 using System.Linq;
 using Riptide;
-using Unity.Mathematics;
 using UnityEngine.UI;
 
 namespace CountryGame
@@ -21,6 +19,7 @@ namespace CountryGame
         [SerializeField] private GameObject otherGUIParent;
         [SerializeField] private GameObject invasionScreen;
         [SerializeField] private Transform attackLinesParent;
+        [SerializeField] private ConflictButton conflictButtonPrefab;
         [SerializeField] private Material lineMat;
         [SerializeField] private Sprite arrowSprite;
 
@@ -145,6 +144,12 @@ namespace CountryGame
                 
                 attack.Source.GetNation().UpdateTroopDisplays();
                 attack.Target.GetNation().UpdateTroopDisplays();
+            }
+
+            foreach (var conflictButton in conflictButtons.ToList())
+            {
+                Destroy(conflictButton.gameObject);
+                conflictButtons.Remove(conflictButton);
             }
 
             if (NetworkManager.Instance.Host)
@@ -337,11 +342,6 @@ namespace CountryGame
         {
             AiInfrastructureUpgrading(aiNation);
             
-            if (aiNation.Name == "New Zealand")
-            {
-                Debug.Log(aiNation.TotalTroopCount());
-            }
-            
             List<TroopInformation> infos = new List<TroopInformation>();
             List<TroopInformation> tempInfos = new List<TroopInformation>();
             int total = 0;
@@ -460,11 +460,6 @@ namespace CountryGame
             {
                 country.RefreshTroopInfos();
             }
-            
-            if (aiNation.Name == "New Zealand")
-            {
-                Debug.Log(aiNation.TotalTroopCount());
-            }
         }
 
         private void AiInfrastructureUpgrading(Nation aiNation)
@@ -534,25 +529,8 @@ namespace CountryGame
                 
                 attack.line.enabled = canSee;
 
-                if (canSee)
-                {
-                    if (attack.Target.GetNation() != PlayerNationManager.PlayerNation && 
-                        !PlayerNationManager.PlayerNation.MilitaryAccessWith(attack.Target.GetNation()))
-                    {
-                        attack.line.startColor = Color.black;
-                        attack.line.endColor = Color.black;
-                    }
-                    else
-                    {
-                        attack.line.startColor = Color.red;
-                        attack.line.endColor = Color.red;
-                    }
-                }
-                else
-                {
-                    attack.line.startColor = Color.black;
-                    attack.line.endColor = Color.black;
-                }
+                attack.line.startColor = Color.black;
+                attack.line.endColor = Color.black;
             }
         }
 
@@ -854,9 +832,40 @@ namespace CountryGame
             NetworkManager.Instance.Client.Send(message);
         }
 
+        private List<ConflictButton> conflictButtons = new List<ConflictButton>();
+
         public void LaunchedAttack(Country target, Country source, Nation instigator)
         {
             ResetSelected();
+
+            ConflictButton conflictButton = null;
+
+            foreach (var conflict in conflictButtons)
+            {
+                if ((source == conflict.countryA && target == conflict.countryB) || (target == conflict.countryA && source == conflict.countryB))
+                {
+                    conflictButton = conflict;
+                }
+                else
+                {
+                    conflictButton = Instantiate(conflictButtonPrefab, attackLinesParent);
+                    conflictButton.transform.position = target.MidPointBetween(source);
+                }
+            }
+
+            if (conflictButtons.Count == 0)
+            {
+                conflictButton = Instantiate(conflictButtonPrefab, attackLinesParent);
+                conflictButton.transform.position = target.MidPointBetween(source);
+            }
+
+            if (conflictButton.countryA == null)
+            {
+                conflictButton.countryA = target;
+                conflictButton.countryB = source;
+            }
+            
+            conflictButtons.Add(conflictButton);
 
             LineRenderer line = new GameObject("Line renderer").AddComponent<LineRenderer>();
             line.transform.parent = attackLinesParent;
@@ -878,6 +887,8 @@ namespace CountryGame
             attack.Target = target;
             attack.line = line;
             attack.Instigator = instigator;
+
+            conflictButton.Attacks.Add(attack);
 
             foreach (var war in source.GetNation().Wars)
             {

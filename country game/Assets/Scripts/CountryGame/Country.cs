@@ -20,6 +20,7 @@ namespace CountryGame
         [HideInInspector] public CountryButton button;
 
         [HideInInspector] public List<Country> borders = new List<Country>();
+        [HideInInspector] public List<Country> physicalBorders = new List<Country>();
 
         public Dictionary<Nation, TroopInformation> troopInfos = new Dictionary<Nation, TroopInformation>();
 
@@ -107,12 +108,18 @@ namespace CountryGame
 
         public void CalculateBorders()
         {
+            physicalBorders.Clear();
             borders = GetBorders();
         }
 
         public void SignedNewAgreement(Agreement agreement)
         {
             UpdateTroopDisplay();
+        }
+
+        public Vector3 MidPointBetween(Country other)
+        {
+            return Vector3.Lerp(center.position, other.center.position, 0.5f);
         }
 
         public void RefreshTroopInfos()
@@ -339,6 +346,7 @@ namespace CountryGame
                         if (!borderNations.Contains(country))
                         {
                             borderNations.Add(country);
+                            physicalBorders.Add(country);
                         }
                     }
                 }

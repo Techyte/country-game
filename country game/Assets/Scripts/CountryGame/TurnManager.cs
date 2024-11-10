@@ -1,6 +1,7 @@
 using System;
 using Riptide;
 using TMPro;
+using UnityEngine.UI;
 
 namespace CountryGame
 {
@@ -30,6 +31,7 @@ namespace CountryGame
         [SerializeField] private int turnActionPoints;
         [SerializeField] private TextMeshProUGUI actionPointDisplay;
         [SerializeField] private GameObject confirmPannel;
+        [SerializeField] private Button progressButton;
 
         public EventHandler<EventArgs> NewTurn;
 
@@ -69,6 +71,8 @@ namespace CountryGame
             {
                 CancelTurnEnd();
             }
+
+            progressButton.interactable = !endedTurn;
         }
 
         private int totalEnded = 0;
@@ -114,7 +118,7 @@ namespace CountryGame
 
         public bool CanPerformAction()
         {
-            return actionPoints > 0;
+            return actionPoints > 0 && !endedTurn;
         }
 
         public void PressedTurnEnd()

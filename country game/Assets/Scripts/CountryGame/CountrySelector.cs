@@ -505,6 +505,10 @@ namespace CountryGame
 
         public void BeginCreatingAgreement()
         {
+            if (!TurnManager.Instance.CanPerformAction())
+            {
+                return;
+            }
             AgreementCreator.Instance.OpenAgreementScreen(_currentNation);
             ResetSelected();
         }

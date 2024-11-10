@@ -1,8 +1,9 @@
+using System.Collections.Generic;
+using UnityEngine;
+
 namespace CountryGame
 {
-    using UnityEngine;
-
-    public class CountryButton : MonoBehaviour
+    public class ConflictButton : MonoBehaviour
     {
         public Color baseColour = Color.white;
 
@@ -13,8 +14,9 @@ namespace CountryGame
         private Color targetColour;
         private float targetColourInfluence = 0;
         
-        public bool doOverrideColour;
-        public Color overrideColour;
+        public List<Attack> Attacks = new List<Attack>();
+        public Country countryA;
+        public Country countryB;
 
         private void Awake()
         {
@@ -34,20 +36,11 @@ namespace CountryGame
                 _currentAlphaMultiplier = 1;
             }
 
-            Color targetColor = baseColour;
-
-            if (!doOverrideColour)
-            {
-                targetColor = Color.Lerp(baseColour, targetColour, targetColourInfluence) * _currentAlphaMultiplier;
-            }
-            else
-            {
-                targetColor = overrideColour * _currentAlphaMultiplier;
-            }
+            targetColour = baseColour * _currentAlphaMultiplier;
             
-            targetColor.a = 1;
+            targetColour.a = 1;
             
-            _renderer.color = Color.Lerp(_renderer.color, targetColor, 0.05f);
+            _renderer.color = Color.Lerp(_renderer.color, targetColour, 0.05f);
         }
 
         private void OnMouseEnter()
@@ -80,12 +73,6 @@ namespace CountryGame
             _currentAlphaMultiplier = 1f;
         }
 
-        public void ChangeColor(Color color)
-        {
-            baseColour = color;
-            _renderer.color = color;
-        }
-
         private void OnMouseDown()
         {
             if (Input.GetMouseButton(2) || Input.GetMouseButton(1) || GameCamera.Instance.IsPointerOverUIObject() || 
@@ -94,25 +81,12 @@ namespace CountryGame
                 return;
             }
             
-            if (ViewTypeManager.Instance.currentView == ViewType.Infrastructure)
-            {
-                PlayerNationManager.Instance.UpgradeInfrastructure(GetComponent<Country>());
-                return;
-            }
-            
             if (TroopMover.Instance.transferring)
             {
                 return;
             }
-
-            if (CombatManager.Instance.invading)
-            {
-                CombatManager.Instance.SelectInvasionTarget(GetComponent<Country>());
-            }
-            else
-            {
-                CountrySelector.Instance.Clicked(GetComponent<Country>().GetNation());
-            }
+            
+            Debug.Log("open conflict pannel");
             
             _currentAlphaMultiplier = 0.4f;
         }
@@ -125,12 +99,6 @@ namespace CountryGame
             }
             
             _currentAlphaMultiplier = 0.9f;
-        }
-
-        public void SetInfluenceColour(Color color, float influence)
-        {
-            targetColour = color;
-            targetColourInfluence = influence;
         }
     }
 }
